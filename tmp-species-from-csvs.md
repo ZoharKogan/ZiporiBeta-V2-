@@ -1,0 +1,1988 @@
+# יונקים (33)
+- Artiodactyla — מכפילי פרסה
+- Canidae — כלביים
+- Canis
+- Canis aureus — תן זהוב
+- Canis familiaris — כלב הבית
+- Carnivora — טורפים
+- Equidae — סוסיים
+- Equus — סוס
+- Erinaceinae — קיפודים אמיתיים
+- Erinaceus concolor — קיפוד מצוי
+- Felidae — חתוליים
+- Felis catus — חתול הבית
+- Hemiechinus auritus — קיפוד חולות מצוי
+- Herpestes — נמייה
+- Herpestes ichneumon — נמייה מצויה
+- Hystrix
+- Hystrix indica — דורבן מצוי
+- Laurasiatheria — לאורסיאתריה
+- Lepus capensis — ארנבת מצויה
+- Mammalia — יונקים
+- Meles canescens — גירית מצויה
+- Mus musculus — עכבר
+- Myocastor coypus — נוטריה
+- Nannospalax
+- Nannospalax ehrenbergi — חולד
+- Ovis — כבש
+- Placentalia — שלייניים
+- Procavia capensis — שפן סלע
+- Soricidae — חדפיים
+- Suncus etruscus — חדף זעיר
+- Sus scrofa — חזיר בר
+- Vulpes — שועל
+- Vulpes vulpes — שועל מצוי
+
+# עופות (90)
+- Accipitridae — נציים
+- Accipitriformes — דורסי יום
+- Acridotheres tristis — מיינה מצויה
+- Acridotheres tristis tristis
+- Alcedo atthis — שלדג גמדי
+- Anas — ברווז
+- Anas acuta — ברווז חד זנב
+- Anas platyrhynchos — ברכיה
+- Anseriformes — אווזאים
+- Anthus cervinus — פיפיון אדום גרון
+- Anthus pratensis — פיפיון שדות
+- Apodidae — סיסיים
+- Apus apus — סיס חומות
+- Ardea — אנפה
+- Ardea alba — לבנית גדולה
+- Ardea ibis — אנפית בקר
+- Ardeidae — אנפתיים
+- Ardeinae — אנפות
+- Athene noctua — כוס החורבות
+- Aves — עופות
+- Burhinus oedicnemus — כרוון מצוי
+- Cairina moschata domestica — ברווז מוסקובי
+- Calidris minuta — חופית קטנה
+- Callonetta leucophrys — שרשיר צווארון
+- Carduelis carduelis — חוחית
+- Ceryle rudis — פרפור עקוד
+- Cettia cetti — צטיה
+- Charadriiformes — חופמאים
+- Chloris chloris — ירקון
+- Chroicocephalus genei — שחף צר מקור
+- Ciconia nigra — חסידה שחורה
+- Cinnyris osea — צופית בוהקת
+- Cinnyris osea osea — צופית בוהקת )תת מין ארץ-ישראלי(
+- Circaetus gallicus — חיוויאי הנחשים
+- Clamator glandarius — קוקיה מצויצת
+- Coloeus monedula — קאק
+- Columba
+- Columba livia — יונת סלעים
+- Columba livia domestica — יונת הבית
+- Columbidae — יוניים
+- Corvus
+- Corvus cornix — עורב אפור
+- Curruca melanocephala — סבכי שחור-ראש
+- Elanus caeruleus — דאה שחורת כתף
+- Emberiza calandra — גבתון עפרוני
+- Erithacus rubecula — אדום חזה
+- Falco tinnunculus — בז מצוי
+- Fringilla coelebs — פרוש מצוי
+- Fulica atra — אגמית מצויה
+- Galerida cristata — עפרוני מצויץ
+- Gallinago gallinago — חרטומית ביצות
+- Gallinula chloropus — סופית
+- Garrulus glandarius
+- Garrulus glandarius atricapillus — עורבני שחור-כיפה
+- Grus grus — עגור אפור
+- Halcyon smyrnensis — שלדג לבן חזה
+- Hirundo rustica — סנונית רפתות
+- Iduna pallida — שיחנית קטנה
+- Lanius senator — חנקן אדום ראש
+- Larus — שחף
+- Luscinia svecica — כחול חזה
+- Myiopsitta monachus — תוכי נזירי
+- Nycticorax nycticorax — אנפת לילה
+- Oenanthe oenanthe — סלעית אירופית
+- Pandion haliaetus — שלך
+- Parus major — ירגזי מצוי
+- Passer — דרור
+- Passer domesticus — דרור הבית
+- Passeriformes — ציפורי שיר
+- Pelecanus onocrotalus — שקנאי מצוי
+- Phalacrocoracidae — קורמורניים
+- Phalacrocorax carbo — קורמורן גדול
+- Phoenicopterus roseus — פלמינגו מצוי
+- Plegadis falcinellus — מגלן חום
+- Prinia gracilis — פשוש
+- Psittacula krameri — דררה מצויה
+- Pycnonotus xanthopygos — בולבול ממושקף
+- Saxicola — דוחל
+- Saxicola rubicola — דוחל שחור גרון
+- Serinus serinus — בזבוז אירופי
+- Spilopelia senegalensis — צוצלת
+- Streptopelia — תור
+- Streptopelia decaocto — תור צווארון
+- Sturnus vulgaris — זרזיר מצוי
+- Tachymarptis melba — סיס הרים
+- Tringa glareola — ביצנית מנומרת
+- Tringa nebularia — ביצנית ירוקת רגל
+- Turdus merula — שחרור
+- Upupa epops — דוכיפת
+- Vanellus spinosus — סיקסק
+
+# פרוקי רגליים (109)
+- Aelurillini
+- Agelena
+- Agelena labyrinthica
+- Agelena orientalis
+- Agelenidae — משפכניים
+- Alopecosa
+- Androctonus crassicauda
+- Araneae — עכבישים
+- Araneidae — גלגלניים
+- Araneomorphae
+- Arctosa leopardus
+- Argiope
+- Argiope lobata — כסופי משונן
+- Argiope trifasciata — כסופי דק פסים
+- Bassaniodes bufo
+- Buthidae — עקצניים
+- Chaetopelma olivaceum — פרוונית שחורה
+- Cheiracanthiidae
+- Cheiracanthium
+- Cheiracanthium mildei
+- Compsobuthus schmiedeknechti — חד צלע מגובשש
+- Coriarachnini
+- Cyrba algerina
+- Drassodes
+- Dubiaranea
+- Dysdera westringi — צלובשן
+- Entelegynae
+- Euophryini
+- Eusparassus walckenaeri — מברישן הנייר
+- Evarcha nepos
+- Evarcha patagiata
+- Evippa
+- Frontinellina frutetorum — ערסלנית הגינה
+- Gnaphosidae — קטועניים
+- Habrocestum nahalit
+- Hasarius
+- Hasarius adansoni
+- Heliophanus kochii
+- Heriaeus oblongus
+- Hersilia
+- Hersilia caudata — פטמתן
+- Hogna
+- Hogna graeca
+- Hottentotta judaicus — שחרן יהודה
+- Hyalomma aegyptium
+- Hyalomma marginatum
+- Langona
+- Langona oreni
+- Larinia
+- Leiurus hebraeus — עקצן צהוב
+- Linyphiidae — ערסלניים
+- Loxosceles rufescens — ארסן חום
+- Lycosidae — זאבניים
+- Lycosinae
+- Lycosoidea
+- Lycosoides
+- Lycosoides coarctata
+- Mangora acalypha
+- Menemerus
+- Menemerus semilimbatus
+- Micrommata ligurina — מברישית
+- Nebo hierichonticus — נבו יריחו
+- Neon
+- Neoscona adianta — גלגלית קשוטה
+- Opilio — רגלביש
+- Opiliones — קוצרים
+- Oxyopes
+- Palpimanus
+- Paragaleodes
+- Phalangiidae — ארך-רגליים
+- Philaeus chrysops — קופצן אדום בטן
+- Philodromidae
+- Pisaura — ענבלן
+- Pisaura consocia
+- Pisaura mirabilis
+- Plexippus paykulli — קופצן הבתים
+- Prochora lycosiformis
+- Pseudicius
+- Pulchellodromus pulchellus
+- Rhipicephalus sanguineus — קרציית הכלב
+- Rta clade
+- Salticidae — קופצניים
+- Salticinae
+- Scorpio fuscus — עביד שחום
+- Scotophaeus blackwalli
+- Scytodes thoracica
+- Solifugae — עכשובאים
+- Steatoda paykulliana — כדורית אדומה
+- Steatoda triangulosa — כדורית המשולשים
+- Synema
+- Synema globosum — ארזית עגלגלה
+- Tegenaria mediterranea — משפכן
+- Tetragnatha
+- Thanatus
+- Thanatus formicinus
+- Thanatus vulgaris
+- Theridiidae — כדורניים
+- Thomisus — סרטביש
+- Thomisus citrinellus — סרטביש לימוני
+- Thomisus onustus — סרטביש הפרחים
+- Thyene imperialis
+- Titanidiops syriacus
+- Trombidiidae — אקרית קטיפה
+- Uloborus
+- Wadicosa
+- Wadicosa fidelis — ערוצית זריזה
+- Xysticus — קסיס
+- Zodarion
+- Zoropsis lutea
+
+# פרפרים (27)
+- Archon apollinus — צבעון שקוף
+- Azanus jesous — כחלון הינבוט
+- Belenois aurota — לבנין משויש
+- Borbo borbonica — הספרית ביצות
+- Carcharodus alceae — אפורית החלמית
+- Colias croceus — צהבוני התלתן
+- Colotis fausta — דרומי הצלף
+- Danaus chrysippus — דנאית הדורה
+- Gegenes pumilio — הספרית שחורה
+- Lampides boeticus — כחלון האפון
+- Lasiommata maera — חומית היבלית
+- Leptotes pirithous — כחלון האספסת
+- Luthrodes galba — כחליל הקטנית
+- Lycaena phlaeas — נחושתן הארכובית
+- Maniola telmessia — סטירית פקוחה
+- Melitaea telona — כיתמית אריאל
+- Melitaea trivia — כתמית הבוצין
+- Papilio demoleus — זנב סנונית הלימון
+- Papilio machaon — זנב סנונית נאה
+- Pieris brassicae — לבנין הכרוב
+- Pieris rapae — לבנין הצנון
+- Polyommatus icarus — כחליל השברק
+- Pontia daplidice — לבנין הרכפה
+- Pseudophilotes baton — תכליל האזוב
+- Thersamonia thersamon — נחושתן החומעה
+- Vanessa cardui — נימפית החורשף
+- Zizeeria karsandra — כחלון הקוטב
+
+# צמחים (606)
+- Acacia saligna — בת-שיטה כחלחלה
+- Acanthus syriacus — קוציץ סורי
+- Achyranthes aspera — רב-מוץ מחוספס
+- Adonis — דמומית
+- Adonis annua — דמומית השדה
+- Adonis microcarpa — דמומית קטנת-פרי
+- Adonis palaestina — דמומית ארץ-ישראלית
+- Aegilops geniculata — בן-חיטה ביצני
+- Aegilops peregrina — בן-חיטה רב-אנפין
+- Agave
+- Ajuga chamaepitys — חד-שפה מצוי
+- Ajuga chamaepitys chia — חד שפה מצוי (תת-מין צ'יה)
+- Alcea — חטמית
+- Alcea setosa — חטמית זיפנית
+- Alectryon tomentosus — כרבל לביד
+- Alhagi graecorum — הגה מצויה
+- Allium — שום
+- Allium galileum — שום ירקרק
+- Allium neapolitanum — שום משולש
+- Allium phanerantherum — שום נטוי
+- Alopecurus
+- Alopecurus myosuroides — זנב-שועל ארוך
+- Alyssum simplex — אליסון מצוי
+- Alyssum strigosum — אליסון זיפני
+- Amaranthaceae — ירבוזיים
+- Amaranthus — ירבוז
+- Amaranthus blitoides — ירבוז שרוע
+- Amaranthus palmeri — ירבוז פלמר
+- Amaranthus retroflexus — ירבוז מופשל
+- Ambrosia confertiflora — אמברוסיה מכונסת
+- Ammi majus — אמיתה גדולה
+- Anacamptis collina — סחלב השקיק
+- Anacamptis papilionacea palaestina — סחלב פרפרני
+- Anacamptis sancta — סחלב קדוש
+- Anagallis
+- Anchusa aegyptiaca — לשון-פר מצרית
+- Anchusa strigosa — לשון-פר סמורה
+- Andrachne telephioides — שלוחית קירחת
+- Andropogon distachyos — זקניים משובלים
+- Anemone coronaria — כלנית מצויה
+- Angiospermae — צמחים בעלי פרחים
+- Anthemideae
+- Anthemidinae
+- Anthemis — קחוון
+- Anthemis pseudocotula — קחוון מצוי
+- Anthyllis circinnata — כליינית מצויה
+- Antirrhinum — לוע הארי
+- Apiaceae — סוככיים
+- Apioideae
+- Arenaria leptoclados — ארנריה מצויה
+- Arisarum vulgare — לופית מצויה
+- Aristolochia bottae — ספלול השדה
+- Artedia squamata — שפרירה קשקשנית
+- Arum dioscoridis — לוף מנומר
+- Arum palaestinum — לוף ארץ-ישראלי
+- Arundinoideae
+- Arundo
+- Arundo donax — עבקנה שכיח
+- Asparagus aphyllus — אספרג החורש
+- Asparagus setaceus — אספרג מנוצה
+- Asphodeline lutea — עיריוני צהוב
+- Asphodelus — עירית
+- Asphodelus ramosus — עירית גדולה
+- Asteraceae — מורכבים
+- Astereae
+- Asteroideae
+- Astragalus hamosus — קדד האנקולים
+- Astragalus macrocarpus — קדד גדול פרי
+- Atractylis cancellata — חורשף השבכה
+- Atriplex — מלוח
+- Atriplex halimus — מלוח קיפח
+- Atriplex prostrata — מלוח מפושק
+- Avena — שיבולת-שועל
+- Bellevalia flexuosa — זמזומית מצויה
+- Bellis annua — חיננית חד-שנתית
+- Bellis sylvestris — חיננית הבתה
+- Beta
+- Beta vulgaris — סלק מצוי
+- Biarum pyrami — אחילוף הגליל
+- Bidens pilosa — דו-שן שעיר
+- Biscutella didyma — מצלתיים מצויות
+- Bituminaria bituminosa — שרעול שעיר
+- Bolboschoenus maritimus — אגמון ימי
+- Bongardia chrysogonum — כרבולתן השדות
+- Brachypodium sylvaticum — עוקצר היערות
+- Brassicaceae — מצליבים
+- Brassiceae
+- Brassicodae
+- Bromus — ברומית
+- Bromus alopecuros — ברומית זנב-שועל
+- Bromus lanceolatus — ברומית אזמלנית
+- Bryonia cretica — דלעת-נחש מצויה
+- Bryonia syriaca — דלעת נחש סורית
+- Bryonieae
+- Buglossoides arvensis — גלעינית השדה
+- Bupleurum nodiflorum — צלע-שור קטנה
+- Bupleurum subovatum — צלע-שור חרוזה
+- Calendula arvensis — ציפורני-חתול מצויות
+- Calendula palaestina — ציפורני-חתול ארץ-ישראליות
+- Calicotome villosa — קידה שעירה
+- Campanula — פעמונית
+- Campanula erinus — פעמונית קטנה
+- Campanula rapunculus — פעמונית קיפחת
+- Capparis zoharyi — צלף קוצני
+- Capsella
+- Capsella bursa-pastoris — ילקוט הרועים
+- Cardamine
+- Cardueae
+- Carduinae
+- Carduoideae
+- Carduus argentatus — קרדה מכסיפה
+- Carlina curetum — קיצנית כרתית
+- Carlina lanata — קיצנית צמרנית
+- Carthamus glaucus — קורטם מכחיל
+- Caryophyllaceae — צפורניים
+- Catananche lutea — אוזן-גדי צהובה
+- Cenchrinae
+- Centaurea — דרדר
+- Centaurea cyanoides — דרדר כחול
+- Centaurea iberica — דרדר מצוי
+- Centaurea verutum — דרדר קיפח
+- Centaurium tenuiflorum — ערבז דק-פרחים
+- Cephalaria joppensis — שלמון יפואי
+- Cerastium glomeratum — קרנונית דביקה
+- Ceratocapnos turbinata — בר-עשנן ארץ-ישראלי
+- Ceratonia siliqua — חרוב מצוי
+- Chaetosciadium trichospermum — שערור שעיר
+- Chamaeleon
+- Chenopodium — כף-אווז
+- Chiliadenus iphionoides — כתלה חריפה
+- Chlorophyta — ירוקיות
+- Cichorieae
+- Cichorium endivia — עולש מצוי
+- Cistus creticus — לוטם שעיר
+- Cistus salviifolius — לוטם מרווני
+- Clematis cirrhosa — זלזלת הקנוקנות
+- Clematis vitalba — זלזלת היערות
+- Colchicum stevenii — סתוונית היורה
+- Commelina erecta — קומלינה זקופה
+- Conium maculatum — רוש עקוד
+- Convolvulaceae — חבלבליים
+- Convolvulus — חבלבל
+- Convolvulus arvensis — חבלבל השדה
+- Convolvulus betonicifolius — חבלבל שעיר
+- Convolvulus coelesyriacus — חבלבל סורי
+- Convolvulus humilis — חבלבל גלוני
+- Convolvulus siculus — חבלבל סיצילי
+- Convolvulus siculus siculus
+- Coriandrum sativum — גד השדה
+- Crataegus — עוזרר
+- Crataegus azarolus — עוזרר אדום
+- Crataegus azarolus aronia — עוזרר קוצני
+- Crepis — ניסנית
+- Crepis sancta — ניסנית דו-קרנית
+- Crocus hyemalis — כרכום חורפי
+- Crucianella macrostachya — צלבית ארוכת-שיבולת
+- Cruciata articulata — דבקנית הפרקים
+- Cyclamen persicum — רקפת מצויה
+- Cynanchum acutum — חנק מחודד
+- Cynara
+- Cynara syriaca — קנרס סורי
+- Cynodon dactylon — יבלית מצויה
+- Cynoglossum — לשון-כלב
+- Cynoglossum creticum — לשון-כלב כרתית
+- Cyperaceae — גמאיים
+- Cyperoideae
+- Cyperus — גומא
+- Cyperus longus — גומא ארוך
+- Cyperus rotundus — גומא הפקעים
+- Datura — דטורה
+- Datura innoxia — דטורה נטוית-פרי
+- Datura stramonium — דטורה זקופת-פרי
+- Daucus — גזר
+- Daucus carota — גזר קיפח
+- Delphinium ithaburense — דורבנית התבור
+- Delphinium peregrinum — דורבנית סגולה
+- Dianthus strictus — ציפורן נקוד
+- Dinebra retroflexa — זנבה נטויה
+- Dioscorea communis — טמוס מצוי
+- Diplachne fusca — דו-מוץ חום
+- Diplotaxis — טוריים
+- Diplotaxis erucoides — טוריים מצויים
+- Dipsacoideae — שלמוניים
+- Dittrichia graveolens — טיון חריף
+- Dittrichia viscosa — טיון דביק
+- Dodonaea viscosa — דודוניאה דביקה
+- Draba minima — אביבית זעירה
+- Draba verna — אביבית בינונית
+- Drimia aphylla — חצב מצוי
+- Dysphania ambrosioides — כף-אווז ריחנית
+- Ecballium elaterium — ירוקת-חמור מצויה
+- Echinops adenocaulos — קיפודן מצוי
+- Echium angustifolium — עכנאי שרוע
+- Echium glomeratum — עכנאי מגובב
+- Echium judaeum — עכנאי יהודה
+- Eclipta prostrata — אל-ציצית לבנה
+- Eleusine indica — דגנה הודית
+- Eminium spiculatum — לוליינית מעובה
+- Ephedra — שרביטן
+- Ephedra foeminea — שרביטן מצוי
+- Epilobium — ערברבה
+- Epilobium hirsutum — ערברבה שעירה
+- Erigeron — קייצת
+- Erigeron bonariensis — קייצת מסולסלת
+- Erigeron sumatrensis — קייצת מלבינה
+- Erodium — מקור חסידה
+- Erodium gruinum — מקור-חסידה גדול
+- Erodium malacoides — מקור-חסידה חלמיתי
+- Erodium moschatum — מקור-חסידה מצוי
+- Eruca vesicaria — בן-חרדל מצוי
+- Eryngium creticum — חרחבינה מכחילה
+- Euphorbia — חלבלוב
+- Euphorbia aleppica — חלבלוב ארם-צובא
+- Euphorbia exigua — חלבלוב צר-עלים
+- Euphorbia graminea — חלבלוב דגני
+- Euphorbia helioscopia — חלבלוב השמש
+- Euphorbia hierosolymitana — חלבלוב מגובשש
+- Euphorbia hypericifolia — חלבלוב נטוי
+- Euphorbia oxyodonta — חלבלוב מרושת
+- Euphorbia peplus — חלבלוב מצוי
+- Euphorbia reuteriana — חלבלוב מקרין
+- Euphorbia serpens — חלבלוב זוחל
+- Euphorbiaceae — חלבלוביים
+- Exoacantha heterophylla — צנינה קוצנית
+- Fabaceae — קטניות
+- Faboideae
+- Ficus carica — פיקוס התאנה
+- Foeniculum
+- Foeniculum vulgare — שומר פשוט
+- Fritillaria persica — גביעונית הלבנון
+- Fumana — לוטמית
+- Fumana arabica — לוטמית ערבית
+- Fumaria densiflora — עשנן צפוף
+- Fumaria judaica — עשנן יהודה
+- Fumarieae
+- Fumarioideae
+- Gagea chlorantha — זהבית דמשקאית
+- Gagea commutata — זהבית השלוחות
+- Gagea rigida — זהבית אשונה
+- Geranium — גרניון
+- Geranium dissectum — גרניון גזור
+- Geranium molle — גרניון רך
+- Geranium purpureum — גרניון הארגמן
+- Geranium rotundifolium — גרניון עגול
+- Geropogon hybridus — זקן סב מצוי
+- Gladiolus italicus — סייפן התבואה
+- Glebionis — חרצית
+- Glebionis coronaria — חרצית עטורה
+- Glebionis segetum — חרצית השדות
+- Glinus lotoides — אפרורית מצויה
+- Gundelia tournefortii — עכובית הגלגל
+- Hedypnois rhagadioloides — שופרית כרתית
+- Helianthemum aegyptiacum — שמשון מצרי
+- Helianthemum salicifolium — שמשון מצוי
+- Helianthus annuus — חמנית מצויה
+- Helichrysum sanguineum — דם-המכבים האדום
+- Heliotropium — עוקץ עקרב
+- Heliotropium bovei — עוקץ-עקרב אפור
+- Heliotropium rotundifolium — עוקץ-עקרב עגול-עלים
+- Heliotropium supinum — עוקץ-עקרב שרוע
+- Helosciadium nodiflorum — כרפס הביצות
+- Heptaptera anisopetala — כנפה חרוקה
+- Heterotheca subaxillaris — טיונית החולות
+- Hibiscus trionum — היביסקוס משולש
+- Hirschfeldia incana — לפתית מצויה
+- Hordeum — שעורה
+- Hordeum bulbosum — שעורת הבולבוסין
+- Hordeum spontaneum — שעורת התבור
+- Hordeum vulgare distichon — שעורה דו טורית
+- Hyacinthus orientalis — יקינתון מזרחי
+- Hyparrhenia hirta — זקנן שעיר
+- Juncus — סמר
+- Juncus acutus — סמר חד
+- Juncus rigidus — סמר ערבי
+- Kickxia — עפעפית
+- Kickxia aegyptiaca — עפעפית מצרית
+- Knautia
+- Knautia integrifolia — חוגית תמימה
+- Krubera peregrina — גבשונית השדה
+- Lactuca serriola — חסת המצפן
+- Lactuca tuberosa — חסה כחולת-פרחים
+- Lactuca viminea — חסת השבטים
+- Lamarckia aurea — משערת זהובה
+- Lamiaceae — שפתניים
+- Lamium moschatum — נזמית לבנה
+- Lathyrus annuus — טופח חד-שנתי
+- Lathyrus blepharicarpos — טופח ריסני
+- Lathyrus hierosolymitanus — טופח ירושלים
+- Lathyrus ochrus — טופח גדול
+- Laurus nobilis — ער אציל
+- Leontodon
+- Leontodon tuberosus — כתמה עבת-שורשים
+- Leucaena leucocephala — צחר כחלחל
+- Liliopsida — חד-פסיגיים
+- Limonium narbonense — עדעד הביצות
+- Linaria chalepensis — פשתנית ארם צובא
+- Linum
+- Linum corymbulosum — פשתת המכבד
+- Linum nodiflorum — פשתה מצויה
+- Linum pubescens — פשתה שעירה
+- Lomelosia — תגית
+- Lomelosia prolifera — תגית מצויה
+- Loteae
+- Lotus — לוטוס
+- Lotus palustris — לוטוס הביצות
+- Lotus tetragonolobus — ארבע-כנפות מצויות
+- Ludwigia adscendens
+- Ludwigia adscendens diffusa — מדד זוחל
+- Lupinus palaestinus — תורמוס ארץ-ישראלי
+- Lupinus pilosus — תורמוס ההרים
+- Lycopus europaeus — כף-זאב אירופית
+- Lysimachia — מרגנית
+- Lysimachia linum-stellatum — זעריר כוכבני
+- Lysimachia loeflingii — מרגנית השדה
+- Lythrum — שנית
+- Lythrum junceum — שנית מתפתלת
+- Lythrum salicaria — שנית גדולה
+- Magnoliopsida — דו-פסיגיים קדומים
+- Malva — חלמית
+- Malva multiflora — מעוג כרתי
+- Malva nicaeensis — חלמית מצויה
+- Malva parviflora — חלמית קטנת-פרחים
+- Malva punctata — מעוג מנוקד
+- Malva sylvestris — חלמית גדולה
+- Malva trimestris — מעוג אפיל
+- Malvella sherardiana — בת-חלמית שרועה
+- Mandragora autumnalis — דודא רפואי
+- Medicago lupulina — אספסת זעירה
+- Medicago minima — אספסת קטנה
+- Medicago orbicularis — אספסת עדשתית
+- Medicago polymorpha — אספסת מצויה
+- Medicago rotata — אספסת גלגלית
+- Medicago scutellata — אספסת קעורה
+- Medicago truncatula — אספסת קטועה
+- Melanortocarya obtusifolia — נוניאה קהה
+- Melilotus indicus — דבשה הודית
+- Melissa officinalis — מליסה רפואית
+- Mentha — נענע
+- Mentha longifolia — נענע משובלת
+- Mentha pulegium — נענע הכדורים
+- Menthinae
+- Mercurialis
+- Mercurialis annua — מרקולית מצויה
+- Micromeria fruticosa — זוטה לבנה
+- Moluccella laevis — בר-גביע חלק
+- Moluccella spinosa — בר-גביע קוצני
+- Moraea sisyrinchium — צהרון מצוי
+- Mutarda arvensis — חרדל השדה
+- Mutarda nigra — כרוב שחור
+- Narcissus tazetta — נרקיס מצוי
+- Nasturtium
+- Nasturtium officinale — גרגר הנחלים
+- Neotinea tridentata — סחלב שלוש-השיניים
+- Nerium oleander — הרדוף הנחלים
+- Nigella — קצח
+- Nigella ciliaris — קצח ריסני
+- Nigella unguicularis — קצח הציפורן
+- Noccaea perfoliata — חופניים מצויים
+- Notobasis syriaca — ברקן סורי
+- Ochthodium aegyptiacum — חטוטרן מצוי
+- Oloptum miliaceum — נשרן הדוחן
+- Onobrychis caput-galli — כרבולת קטנה
+- Ononis — שברק
+- Ononis alopecuroides — שברק משובל
+- Ononis hirta — שברק שעיר
+- Ononis mitissima — שברק מלבין
+- Ononis natrix — שברק מצוי
+- Ononis pubescens — שברק דביק
+- Ononis spinosa — שברק קוצני
+- Ononis viscosa — שברק קצר-פרח
+- Onopordum cynarocephalum — חוחן הקנרס
+- Ophrys bornmuelleri — דבורנית נאה
+- Ophrys fuciflora — דבורנית גדולה
+- Ophrys lutea galilaea — דבורנית צהובה
+- Ophrys sphegodes — דבורנית הקטיפה
+- Ophrys umbilicata — דבורנית דינסמור
+- Opuntia ficus-indica — צבר מצוי
+- Orchis anatolica — סחלב אנטולי
+- Orchis galilaea — סחלב הגליל
+- Origanum syriacum — אזוב מצוי
+- Ornithogalum — נץ-חלב
+- Ornithogalum lanceolatum — נץ-חלב אזמלני
+- Ornithogalum montanum — נץ-חלב הררי
+- Ornithogalum narbonense — נץ-חלב צרפתי
+- Oxalis pes-caprae — חמציץ נטוי
+- Pallenis spinosa — מוצית קוצנית
+- Panicum repens — דוחן זוחל
+- Papaver — פרג
+- Papaver carmeli — פרג הכרמל
+- Papaver umbonatum — פרג אגסי
+- Parkinsonia aculeata — פרקינסוניה שיכנית
+- Paronychia argentea — אלמוות הכסף
+- Parthenium hysterophorus — פרתניון אפיל
+- Paspalum
+- Paspalum dilatatum — פספלון מורחב
+- Paspalum distichum — פספלון דו-טורי
+- Persicaria — בת-ארכובית
+- Persicaria decipiens — בת-ארכובית משונשנת
+- Persicaria lapathifolia — בת-ארכובית הכתמים
+- Peucedanum junceum — אחישבת ענף
+- Phagnalon
+- Phalaris minor — חפורית קטנה
+- Phalaris paradoxa — חפורית מוזרה
+- Phelipanche nana
+- Phlomis
+- Phlomis viscosa — שלהבית דביקה
+- Phlomoides laciniata — צמר מפוצל
+- Phoenix dactylifera — תמר מצוי
+- Phragmites
+- Phragmites australis — קנה מצוי
+- Phyla nodiflora — ליפיה זוחלת
+- Physalis acutifolia
+- Physalis angulata — בוען מצולע
+- Picnomon acarna — בן-קוצן מאפיר
+- Piptatherum holciforme — נשרן שעיר
+- Pistacia — אלה
+- Pistacia atlantica — אלה אטלנטית
+- Pistacia lentiscus — אלת המסטיק
+- Pistacia terebinthus
+- Pisum fulvum — אפון מצוי
+- Plantae — צמחים
+- Plantago — לחך
+- Plantago lagopus — לחך מצוי
+- Plantago lanceolata — לחך אזמלני
+- Plantago major — לחך גדול
+- Pluchea dioscoridis — פלגית שיחנית
+- Plumbago europaea — עופרית אירופית
+- Poaceae — דגניים
+- Poales — דגנאים
+- Polygala monspeliaca — מרבה-חלב מונפלייני
+- Polygonum equisetiforme — ארכובית שבטבטית
+- Polypogon
+- Polypogon monspeliensis — עבדקן מצוי
+- Polypogon viridis — עבדקן הדורים
+- Portulaca oleracea — רגלת הגינה
+- Prosopis farcta — ינבוט השדה
+- Prunus — פרונוס
+- Prunus amygdalus — שקד מצוי
+- Pulicaria — פרעושית
+- Pulicaria dysenterica — פרעושית משלשלת
+- Punica granatum — רימון מצוי
+- Quercus — אלון
+- Quercus coccifera — אלון מצוי
+- Quercus ithaburensis — אלון התבור
+- Quidproquo confusum — צנון משתלשל
+- Ranunculaceae — נוריתיים
+- Ranunculales
+- Ranunculoideae
+- Ranunculus arvensis — נורית השדה
+- Ranunculus asiaticus — נורית אסיה
+- Ranunculus muricatus — נורית הזיזים
+- Raphanus raphanistrum — צנון מצוי
+- Rapistrum rugosum — בקבוקון מקומט
+- Reseda alba — רכפה לבנה
+- Rhamnus — אשחר
+- Rhamnus alaternus — אשחר רחב-עלים
+- Rhamnus lycioides — אשחר ארץ-ישראלי
+- Ricinus communis — קיקיון מצוי
+- Ricotia lunaria — כרמלית נאה
+- Ridolfia segetum — נירית הקמה
+- Romulea tempskyana — רומולאה צידונית
+- Rosa — ורד
+- Rubia
+- Rubus — פטל
+- Rubus creticus — פטל קדוש
+- Rumex — חומעה
+- Rumex crispus — חומעה מסולסלת
+- Rumex dentatus — חומעה משוננת
+- Rumex spinosus — אמיך קוצני
+- Ruta chalepensis — פיגם מצוי
+- Sagina apetala — סגינה זעירה
+- Salix — ערבה
+- Salix acmophylla — ערבה מחודדת
+- Salix alba — ערבה לבנה
+- Salvia dominica — מרווה ריחנית
+- Salvia fruticosa — מרווה משולשת
+- Salvia hierosolymitana — מרוות ירושלים
+- Salvia judaica — מרוות יהודה
+- Salvia pinnata — מרווה מנוצה
+- Salvia verbenaca — מרווה מצויה
+- Salvia viridis — מרווה דגולה
+- Sarcopoterium spinosum — סירה קוצנית
+- Satureja thymbra — צתרה ורודה
+- Scandix — מסרק
+- Scandix pecten-veneris — מסרק שולמית
+- Scandix verna — מסרק מזרחי
+- Schenkia spicata — ערבז משובל
+- Scilla hyacinthoides — בן חצב יקינתוני
+- Scolyminae
+- Scolymus — חוח
+- Scolymus maculatus — חוח עקוד
+- Scrophularia canina
+- Scrophularia rubricaulis — לוענית גדולה
+- Securigera securidaca — קרדומית השדה
+- Sedum — צורית
+- Sedum cespitosum — צורית אדומה
+- Sedum microcarpum — זערורית קטנת-פרי
+- Sedum rubens — צורית בלוטית
+- Senecio — סביון
+- Senecio vernalis — סביון אביבי
+- Serapias orientalis levantina — שפתן מצוי
+- Sesbania sesban — ססבניה מצרית
+- Sherardia arvensis — ששית מצויה
+- Silene — ציפורנית
+- Silene aegyptiaca — ציפורנית מצרית
+- Silene colorata — ציפורנית מגוונת
+- Silene palaestina — ציפורנית ארץ-ישראלית
+- Silene reinwardtii — ציפורנית מצוירת
+- Silybum marianum — גדילן מצוי
+- Sinapis — חרדל
+- Sinapis alba — חרדל לבן
+- Sisymbrium officinale — תודרה רפואית
+- Smilax aspera — קיסוסית קוצנית
+- Smyrnium olusatrum — מורית גדולה
+- Solanoideae
+- Solanum — סולנום
+- Solanum elaeagnifolium — סולנום זיתני
+- Solanum lycopersicum — עגבנייה
+- Solanum lycopersicum cerasiforme — עגבניית שרי
+- Solanum nigrum — סולנום שחור
+- Solanum rostratum — סולנום המקור
+- Sonchus — מרור
+- Sonchus oleraceus — מרור הגינות
+- Sorghum halepense — דורת ארם-צובא
+- Sporobolus — עטיינית
+- Sporobolus schoenoides — עטיינית קצרה
+- Stachys arabica — אשבל ערבי
+- Stachys distans — אשבל מופסק
+- Stachys neurocalycina — אשבל מעורק
+- Stachys viticina — אשבל הביצה
+- Stellaria
+- Stellaria media
+- Sternbergia colchiciflora — חלמונית זעירה
+- Styrax officinalis — לבנה רפואי
+- Symphyotrichum
+- Symphyotrichum subulatum — אסתר מרצעני
+- Tamarix — אשל
+- Taraxacum
+- Teucrium divaricatum — געדה מפושקת
+- Theligonum cynocrambe — טרשנית שרועה
+- Thesium
+- Thymbra spicata — צתרנית משובלת
+- Thymelaea hirsuta — מתנן שעיר
+- Tolpis virgata — קיטה רותמית
+- Tordylium trachycarpum — סלסילה מצויה
+- Torilidinae
+- Torilis — גזיר
+- Torilis arvensis — גזיר מזיק
+- Tortella tortuosa
+- Tracheophyta — צמחים וסקולריים
+- Tragopogon coelesyriacus — זקן-תיש ארוך
+- Tribulus terrestris — קוטב מצוי
+- Trifolium — תלתן
+- Trifolium alexandrinum — תלתן אלכסנדרוני
+- Trifolium argutum — תלתן האלמוות
+- Trifolium campestre — תלתן חקלאי
+- Trifolium clusii — תלתן קלוז
+- Trifolium clypeatum — תלתן תריסני
+- Trifolium fragiferum — תלתן הביצות
+- Trifolium nigrescens — תלתן רפה
+- Trifolium pilulare — תלתן הכדורים
+- Trifolium purpureum — תלתן ארגמני
+- Trifolium resupinatum — תלתן הפוך
+- Trifolium scabrum — תלתן דוקרני
+- Trifolium spumosum — תלתן הקצף
+- Trifolium vavilovii — תלתן ווילוב
+- Trigonella lilacina — גרגרנית לילכית
+- Triticeae
+- Tulipa agenensis — צבעוני ההרים
+- Typha — סוף
+- Typha domingensis — סוף מצוי
+- Typha latifolia — סוף רחב-עלים
+- Ulmus minor — בוקיצה שעירה
+- Urospermum
+- Urospermum picroides — אזנב מצוי
+- Urtica — סרפד
+- Urtica pilulifera — סרפד הכדורים
+- Urtica urens — סרפד צורב
+- Vagaria parviflora — בת-חבצלת קטנת-פרחים
+- Verbascum — בוצין
+- Verbascum sinuatum — בוצין מפורץ
+- Verbena
+- Verbena officinalis — ורבנה רפואית
+- Verbena supina — ורבנה שרועה
+- Veronica anagallis-aquatica — ורוניקת המים
+- Veronica panormitana — ורוניקה קטנת פרחים
+- Vertebrata
+- Vicia — בקיה
+- Vicia hybrida — בקיית הכלאיים
+- Vicia narbonensis — בקיה צרפתית
+- Vicia palaestina — בקיה ארץ-ישראלית
+- Vicia peregrina — בקיה מצויה
+- Vicia sativa — בקיה תרבותית
+- Vicia sericocarpa — בקיית המשי
+- Vicia villosa — בקיה שעירה
+- Visnaga daucoides — אמיתה קיצית
+- Vitex
+- Vitex agnus-castus — שיח אברהם מצוי
+- Withania somnifera — ויתניה משכרת
+- Xanthium — לכיד
+- Xanthium orientale — לכיד איטלקי
+- Xanthium spinosum — לכיד קוצני
+- Xanthium strumarium — לכיד הנחלים
+- Zannichellia palustris — חוטית הביצות
+- Ziziphora capitata — אבובית מקורקפת
+- Ziziphus — שיזף
+
+# שאר המינים (1112)
+- Ablattaria
+- Ablattaria arenaria — קברנית החלזונות
+- Ablepharus rueppellii — חומט גמדי
+- Acalyptratae
+- Acanthaclisini
+- Acanthobrama — לבנון
+- Acanthovalva inconspicuaria
+- Acontia lucida
+- Acrididae — חגבים
+- Acrididea
+- Acridoidea
+- Acrobasis
+- Acrobasis bithynella
+- Acrobasis consociella
+- Acrobasis fallouella
+- Acrobasis legatea
+- Acronicta aceris — תנשמית יהודה
+- Acronicta rumicis — תנשמית החומעה
+- Acrosternum millierei — תריסית ירקרקה
+- Acrotylus
+- Acrotylus insubricus — דרכן מגושם
+- Acrotylus patruelis — דרכן
+- Actinopterygii — דגים
+- Aculeata
+- Acyrthosiphon
+- Adalia decempunctata
+- Adscita statices
+- Aedes albopictus — יתוש-יום טיגריסי
+- Agalmatium bilobum — עפרונית אונתית
+- Agapanthia suturalis
+- Agaricomycetes
+- Agaricomycetidae
+- Agaricus — פקועה
+- Agdistis
+- Agonopterix
+- Agonopterix rutana
+- Agriopis bajaria
+- Agriphila
+- Agriphila inquinatella
+- Agrius convolvuli — רפרף החבלבל
+- Agrochola
+- Agrochola hypotaenia
+- Agrochola lychnidis
+- Agrochola osthelderi
+- Agrochola pauli
+- Agrochola staudingeri
+- Agrotis
+- Agrotis bigramma
+- Agrotis haifae
+- Agrotis ipsilon
+- Agrotis puta
+- Agrotis segetum — אגרוטיס השורשים
+- Agrotis trux
+- Aiolopus
+- Aiolopus puissanti
+- Aiolopus strepens
+- Aleucis orientalis
+- Allophyes benedictina
+- Alophia combustella
+- Alosimus brevicornis
+- Altenia mersinella
+- Altica — פרעושית
+- Amanita echinocephala — אמנית קיפודית
+- Amara
+- Amata mestralii — ברדן בוהק
+- Amegilla
+- Ameles heldreichi — דולגן חד־עין
+- Ammobatoides abdominalis
+- Amphicominae
+- Amphipyra micans
+- Anacridium aegyptium — גובי מצרי
+- Anarta trifolii
+- Anatrachyntis
+- Anatrachyntis badia
+- Ancylolomia
+- Ancylolomia pectinatellus
+- Ancylolomia tentaculella
+- Ancylolomia tripolitella
+- Ancylosis convexella
+- Ancylosis hellenica
+- Ancyrosoma leucogrammes
+- Andrena
+- Andricus miriami
+- Animalia — בעלי חיים
+- Anisoptera — שפיריות
+- Annelida — תולעים טבעתיות
+- Anthaxia muliebris
+- Anthocharis cardamines — כתום-כנף המצילתיים
+- Anthomyia — אנתומית
+- Anthophila — דבורים
+- Anthracia eriopoda
+- Anthracinae
+- Anthrenus isabellinus
+- Anthrenus verbasci
+- Antrodia
+- Anura — חסרי זנב
+- Apate monachus — אפטה גדולה
+- Apertochrysa
+- Aphididae — כנימות עלה
+- Aphomia
+- Aphomia cephalonica
+- Apinae
+- Apis mellifera — דבורת הדבש
+- Aplidia
+- Aplidia chaifensis — שורשנית מצויה
+- Aplocnemus
+- Apochima flabellaria — מודד קיפודי
+- Aporodes floralis
+- Aporophyla australis
+- Aporophyla canescens
+- Aporophyla nigra
+- Aquarius
+- Archips rosana
+- Archispirostreptus syriacus — רב-רגל שחור
+- Arctiinae — דובוניים
+- Arge rustica
+- Armadillidium marmoratum
+- Arrhaphipterus blanchei
+- Arthropoda — פרוקי-רגליים
+- Ascalaphinae — ארימחושיים
+- Ascotis selenaria — מודד האבוקדו
+- Asilinae
+- Atethmia centrago
+- Auchenorrhyncha — ציקדות
+- Autographa gamma — פלוסית גמה
+- Autophila cerealis
+- Azanus jesous — כחלון הינבוט
+- Azanus ubaldus — כחלון השיטה
+- Baeotendipes
+- Baetidae
+- Barbitistini
+- Basidiomycota — פטריות בסיסה
+- Batia
+- Batocera rufomaculata — יקרונית התאנה
+- Bedellia somnulentella
+- Belenois aurota — לבנין משויש
+- Bembix
+- Bena bicolorana
+- Beosus quadripunctatus — פנדור ארבע-נקודות
+- Bibio — אביביון
+- Bibio hortulanus — ביביון האביב
+- Biston
+- Biston achyra
+- Blaptinae
+- Blastesthia tessulatana — עשפרי הברוש
+- Blatta orientalis — תיקן מזרחי
+- Blepharidopterus angulatus
+- Blepharopsis mendica — סוסת שד משובצת
+- Boarmiini
+- Bombus terrestris — בומבוס האדמה
+- Bombycopsis ledereri — טוואי אפרפר
+- Bombylella
+- Bombylella atra
+- Bombyliidae — בומביליים
+- Bombylius — בומביל
+- Bombylius medius
+- Borbo borbonica — הספרית ביצות
+- Borkhausenia einsleri
+- Botrydium
+- Boursinia discordans
+- Brachycera — זבובים
+- Brachycerus — בצלנית
+- Brachyglossina stefani
+- Brachynema germarii
+- Brachythemis impartita — נחתנית דרכים
+- Braconidae — ברקוניים
+- Bruchinae — זירעוניתיים
+- Bryophila rectilinea
+- Bryophila tephrocharis
+- Bryopsis
+- Bryopsis amasina
+- Bubopsis andromache
+- Bucephaloptera ebneri
+- Bufotes viridis sitibundus — קרפדה ירוקה
+- Cadra
+- Caelifera
+- Caenocoris nerii — פנדור ההרדוף
+- Calamotropha
+- Calathus fuscipes
+- Calliphoridae — בוהקניים
+- Calliptamus
+- Calliptamus barbarus
+- Calocoris nemoralis — רכנף הדור
+- Calocucullia celsiae
+- Calophasia platyptera
+- Calyptratae
+- Camponotus — קמפונית
+- Camponotus sanctus — קמפונית קדושה
+- Cantharidae — כנף-עוריים
+- Cantharini
+- Cantharis lateralis
+- Cantharis livida
+- Cantharis melaspoides — קנתרית כתומה
+- Carabidae — רצניתיים
+- Carabus — רצה
+- Carabus impressus — רצה סגלגלה
+- Caradrina
+- Caradrina clavipalpis
+- Caradrina flavirena
+- Caradrina kadenii
+- Caradrina syriaca
+- Caradrinini
+- Carcharodus
+- Carcharodus alceae — אפורית החלמית
+- Carpocoris mediterraneus — תריסית ים-תיכונית
+- Carpocoris mediterraneus mediterraneus — תריסית ים-תיכונית
+- Cataglyphis nodus — נווטת דוגונית
+- Catarhoe hortulanaria
+- Catocala eutychea
+- Catocala nymphagoga
+- Catocala separata
+- Centrocoris
+- Centrocoris variegatus
+- Ceratitis capitata — זבוב הפירות הים תיכוני
+- Ceratopogonidae — יבחושיים
+- Cercopis intermedia — קצפית דמית
+- Cercopis septemmaculata — קצפית נקודה
+- Cerroneuroterus lanuginosus
+- Cetoniinae — נחושתיות
+- Ceutholopha isidis
+- Chaetocnema
+- Chaetophiloscia
+- Chaetophiloscia elongata
+- Chalcides ocellatus — נחושית עינונית
+- Chalcolestes parvidens — רשפית פלגים
+- Chamaeleo chamaeleon — זיקית מובהקת
+- Charissa
+- Charissa onustaria
+- Charissa subtaurica
+- Cheirodes
+- Chironomidae — ימשושיים
+- Chironomus — ימשוש
+- Chlorophorus varius — יקרונית הפרחים
+- Chlorothalpa subsericata — תנשמית העוזרר
+- Chnootriba elaterii — מושית הדלועיים
+- Chorthippus — סוסן
+- Chrysididae
+- Chrysodeixis chalcites — פלוסית זהובה
+- Chrysolina — עלית
+- Chrysolina americana — עלית רוזמרין
+- Chrysolina blanchei — עלית אדומה
+- Chrysomelidae — עליתיים
+- Chrysomya
+- Chrysomya albiceps
+- Chrysoperla
+- Chrysoperla carnea — עינפז ירוק
+- Chrysops
+- Cicada mordoganensis
+- Cicadatra platyptera
+- Cicadellidae — ציקדיתיים
+- Cigaritis acamas — נחושתן-נמלים מפוספס
+- Cilix asiatica
+- Clarias gariepinus — שפמנון מצוי
+- Clepsis consimilana
+- Cleta cinneretharia
+- Clitocybaceae
+- Clitocybe — משפכנית
+- Clitocybe diatreta — משפכנית האורנים
+- Cloeon dipterum
+- Clogmia albipunctata
+- Clonaria libanica — מקלון הלבנון
+- Closterotomus annulus
+- Closterotomus norwegicus
+- Clytrini
+- Clytus
+- Coccinella — מושית
+- Coccinella septempunctata — מושית השבע
+- Coccinella undecimpunctata
+- Coccinellidae — מושיתיים
+- Coccinellini
+- Codophila varia — תריסית מגוונת
+- Coenagrionidae — רמחיתיים
+- Coenagrionoidea
+- Coenotephria ablutaria
+- Coleophora
+- Coleoptera — חיפושיות
+- Colias crocea — צהבוני התלתן
+- Collemataceae
+- Collybia nuda — אחלמית סגולה
+- Collybia rivulosa — משפכנית קמוחה
+- Colotis fausta — דרומי הצלף
+- Colus hirudinosus — כישורית מרושתת
+- Condica capensis
+- Condica viscosa
+- Coniopterygidae — כנפקמחיים
+- Conocephalus
+- Coprinellus — דיואית
+- Coprinopsis melanthina — שברירית אפורה
+- Coranus
+- Coridius viduatus — תריסית משחירה
+- Corixini
+- Corixoidea
+- Corizus hyoscyami — קוריז השיכרון
+- Cornu aspersum — שבלול הגינה
+- Corydiidae — תיקנחוליים
+- Cosmopterix pulchrimella
+- Cotesia glomerata — ברקונאי הלבנין
+- Crambidae
+- Crambini
+- Craterium brunneolum
+- Crematogaster — לבובית
+- Creoleon
+- Crinocheta
+- Crocallis tusciaria
+- Crocidosema plebejana
+- Crocothemis erythraea — דלגנית אדומה
+- Cryphia
+- Cryphia algae
+- Cryphia ochsi
+- Cryptoblabes gnidiella
+- Ctenolepisma longicaudatum — זנבזיף ארוך-זנב
+- Cucujiformia
+- Cucullia calendulae — תנשמית ציפורני חתול
+- Cucullia syrtana
+- Culex pipiens — יתוש בית
+- Culicomorpha
+- Curculio — חדקונית
+- Curculionoidea — חדקוניות
+- Cybalomia pentadalis
+- Cyclophora puppillaria
+- Cyclorrhapha
+- Cydia amplana
+- Cydia fagiglandana
+- Cydnidae — סרחניים
+- Cydnus aterrimus — סרחן אוכמני
+- Cylindromyia
+- Cylindromyia brassicaria
+- Cymbalophora oertzeni — דובון מנומר
+- Cynipini
+- Cyprinus carpio — קרפיון מצוי
+- Daboia palaestinae — צפע מצוי
+- Dactylopius opuntiae — אצברית
+- Dailognatha crenata
+- Danaus chrysippus — דנאית הדורה
+- Daphnis nerii — רפרף ההרדוף
+- Dasycorsa modesta
+- Dasytinae — שעיריות
+- Deconica merdaria
+- Decticus albifrons — חרגול לבן מצח
+- Delta dimidiatipenne — כדית אדומה
+- Deltocephalinae
+- Depressaria
+- Depressaria ululana
+- Deroceras laeve — רירן אירופי
+- Dialictus
+- Dicrognophos sartata — מודד אפלולי
+- Dictyophara xiphias — דבלול נקוד
+- Dictyopharinae
+- Dieuches syriacus — פשחור סורי
+- Diloba caeruleocephala
+- Dilophus
+- Dionconotus neglectus — רכנף אדום-שחור
+- Dioryctria mendacella
+- Diptera — זבובאים
+- Distoleon tetragrammicus
+- Dociostaurus — צלבגב
+- Dolicharthria bruguieralis
+- Dolicharthria stigmosalis
+- Dolichopeza
+- Dolichophis jugularis — זעמן שחור
+- Dolichophron cylindromorphum
+- Dolycoris baccarum — תריסית שעירה
+- Domestici
+- Dorylus fulvus — כידן צהוב
+- Drilus — קטל-שבלול
+- Dryobotodes carbonis
+- Dryobotodes tenebrosa
+- Duponchelia fovealis — עש הרקפת
+- Duroniella
+- Dysauxes famula — ברודן כתום
+- Dysgonia torrida
+- Earias insulana — זיפית הכותנה
+- Ectomocoris melanogaster — טורפן שחור-בטן
+- Ectomyelois ceratoniae — עשנור החרוב
+- Edosa varians
+- Egira tibori
+- Eilema
+- Eilema caniola
+- Eilema muscula
+- Eirenis lineomaculatus — שלוון כתמים
+- Eirenis rothii — שלוון טלוא ראש
+- Elateridae — נתוזיתיים
+- Ematheudes punctella
+- Empididae — פיזוזיים
+- Empidoidea
+- Empis — פיזוז
+- Empusa fasciata — סוסת שד מקלית
+- Endotricha
+- Endotricha flammealis
+- Endotrichini
+- Enolmis acanthella
+- Enoplops
+- Entiminae
+- Entoloma
+- Eopolita protensa jebusitica
+- Ephemeroptera — בריומאים
+- Ephestia elutella
+- Epinotia thapsiana
+- Episema
+- Episema didymogramma
+- Episema tamardayanae — תנשמית תמר
+- Episyrphus balteatus
+- Erebidae — ארבוסיים
+- Eremiaphiloidea
+- Eremocoris
+- Eristalinus taeniops — רקבן מפוספס
+- Eristalis tenax — רקבן הבוץ
+- Eteodermaptera
+- Ethmia bipunctella
+- Eublemma
+- Eublemma albina
+- Eublemma gayneri
+- Eublemma gratissima
+- Eublemma ostrina
+- Euborellia annulipes
+- Euborellia femoralis
+- Eucera — מחושית
+- Eucera nigrilabris
+- Euchalcia paulina — תנשמית פאולוס
+- Euchromius bella
+- Eudonia speideli
+- Eugnatha
+- Eulasia vittata lineata — גלפירית הפסים
+- Eumannia fumosata
+- Eumeces schneiderii — חומט מנומר
+- Eumeces schneiderii pavimentatus — חומט מנומר צפוני
+- Eumeninae — צרעיים
+- Eumera turcosyrica
+- Eupeodes corollae — רחפן נפוץ
+- Eupithecia
+- Eupithecia centaureata
+- Eupithecia dodoneata
+- Eupithecia extremata
+- Eupithecia unedonata
+- Eurydema ornata — תריסית המצליבים
+- Eurygaster integriceps — תריסית הקמה
+- Euryopicoris
+- Eutelia adulatrix
+- Evergestis isatidalis
+- Exechiini
+- Exosoma thoracicum
+- Eyprepocnemidini
+- Eyprepocnemis plorans — דבקן יפה רגל
+- Fannia
+- Fannia canicularis
+- Festella festae
+- Forficula lurida — צבתן ים-תיכוני
+- Forficula smyrnensis — צבתן נקוד
+- Formicidae — נמלים
+- Freyeria trochylus — כחליל מקושט
+- Fungi — פטריות
+- Galleria mellonella — עש הדונג הגדול
+- Gambusia holbrooki
+- Gastrallus
+- Gastropoda — חלזונות
+- Gelechiidae
+- Gelechioidea
+- Geometridae — מודדיים
+- Geometrinae
+- Geophilomorpha
+- Glaphyridae — עשוויתיים
+- Gloeophyllum — דְּפוּפָנִית
+- Gloeophyllum abietinum — דפדפנית המחטניים
+- Gnopharmia stevenaria
+- Gonepteryx cleopatra — לימוני האשחר
+- Goniagnathus
+- Gorytes
+- Grammodes bifasciata
+- Grammodes stolida
+- Grapholitini
+- Graphosoma
+- Graphosoma italicum — תריסית הפסים
+- Graphosoma semipunctatum — תריסית מנוקדת
+- Gryllidae — צרצריים
+- Gryllinae
+- Grylloidea
+- Gryllus — צְלָצַל
+- Gryllus bimaculatus — צרצר דו-כתמי
+- Gymnoscelis
+- Gymnoscelis rufifasciata
+- Hadena
+- Haplomalachius
+- Harmonia quadripunctata
+- Harpyia milhauseri
+- Hecatera weissi
+- Helcystogramma lamprostoma
+- Heleomyzidae — כנף-זיפיים
+- Helicellinae
+- Helicidae — קדמומיים
+- Helicina
+- Helicoidea
+- Helicoidei
+- Helicoverpa armigera — תנשמית האביב
+- Heliothinae
+- Heliothis peltigera — תנשמית המורכבים
+- Helix engaddensis — שבלול השדה
+- Helobdella
+- Helochares
+- Hemelytroblatta africana — תיקנחול אפריקני
+- Hemerobiidae — כנימאריים
+- Hemerobius
+- Hemidactylus turcicus — שממית הבתים
+- Hemorrhois nummifer — זעמן מטבעות
+- Henosepilachna argus — מושית הדלועיים
+- Heremites vittatus — חומט פסים
+- Heriades
+- Hermaeophaga ruficollis
+- Hermetia illucens — זבוב החייל השחור
+- Herpetogramma
+- Herpetogramma licarsisalis
+- Hesperiidae — הספריתיים
+- Heteracris — שיחן
+- Heterocerus fenestratus
+- Heterogaster urticae
+- Heteropalpia profesta
+- Heteroptera — פשפשים
+- Hilara
+- Hipparchia fatua — סטירית אפלה
+- Hippodamia
+- Hippodamia variegata — מושית השלוש-עשרה
+- Hippotion celerio — רפרף כסוף-קו
+- Histerini
+- Holcopogoninae
+- Homoneura
+- Hoplodrina ambigua
+- Horistus turcomanus — רכנף העירית
+- Hyalidae
+- Hybotidae
+- Hydropsyche
+- Hylaeus — מסוונית
+- Hyles livornica — רפרף מסורטט
+- Hypena lividalis — תנשמית עשנורית
+- Hypena obsitalis
+- Hypera postica
+- Hypeuthina fulgurita
+- Hypolixus pica — חדקונית הירבוז
+- Hypotia corticalis
+- Hypsopygia
+- Hypsopygia costalis
+- Hypsopygia fulvocilialis
+- Hypsopygia incarnatalis
+- Icerya purchasi — איצריית ההדרים
+- Ichneumonidae — צרעתניים
+- Idaea
+- Idaea belemiata
+- Idaea camparia
+- Idaea consanguinaria
+- Idaea degeneraria
+- Idaea detritaria
+- Idaea distinctaria
+- Idaea elongaria
+- Idaea inclinata
+- Idaea intermedia
+- Idaea mimosaria
+- Idaea tineata
+- Idaea troglodytaria
+- Inonotus — קִשּׁוּטִית
+- Insecta — חרקים
+- Iris oratoria — עין־קשת מפואר
+- Ischnura — חיצית
+- Ischnura elegans — חיצית הדורה
+- Isophya savignyi — מגלית איסופיה
+- Isturgia berytaria
+- Isturgia perviaria
+- Italochrysa italica — עינפז החורש
+- Julidae
+- Juliformia
+- Kalotermes
+- Labia minor
+- Lamoria anella — עשנור התפוח
+- Lampides boeticus — כחלון האפון
+- Lampyris nervosa — גחלילית מאירה
+- Lanelater
+- Lantanophaga pusillidactylus
+- Larentia clavaria — מודד החלמית
+- Larentiinae
+- Larinus latus
+- Lasiocampa
+- Lasiocampa grandis — טואי גדול
+- Lasiocampa terreni
+- Lasioglossum — חריצית
+- Lasiommata maera — חומית היבלית
+- Laudakia
+- Laudakia vulgaris — חרדון מצוי
+- Lecanoromycetes — חזזיות
+- Lemonia
+- Lemonia beirutica
+- Lepidoptera — פרפראים
+- Lepidurus apus
+- Lepismatidae — זנבזיפים
+- Leptotes pirithous — כחלון האספסת
+- Letheobia simoni — נחשיל חד-ראש
+- Leucania herrichii
+- Leucania loreyi
+- Leucania putrescens
+- Leucaniini
+- Leucoagaricus pilatianus
+- Leucochlaena muscosa
+- Levantina spiriplana — קדמום שומרון
+- Libellulidae — טיסניתיים
+- Life — חיים
+- Lilioceris
+- Lilioceris merdigera
+- Limacidae — חשופיתיים
+- Limacus
+- Limenitis reducta — אצילית היערה
+- Limnophora
+- Limoniinae
+- Lithobiomorpha
+- Lithophane lapidea
+- Lithosiina
+- Lixus anguinus
+- Lixus iridis
+- Lixus pulverulentus
+- Lobesia botrana — עש האשכול
+- Loryma egregialis
+- Lucilia cuprina
+- Lumbricidae — תולעי אדמה
+- Luperina dumerilii
+- Luperina rjabovi
+- Luthrodes galba — כחליל הקטנית
+- Luthrodes pandava — כחליל הציקס
+- Lycaena phlaeas — נחושתן הארכובית
+- Lycaena phlaeas timeus — נחושתן הארכובית
+- Lycaena thersamon — נחושתן החומעה
+- Lycaenidae — כחליליים
+- Lydus humeralis — לידית חומת כנף
+- Lydus tarsalis
+- Lymantria dispar — טוואית האלון
+- Lymnaeoidea
+- Lyophyllum littorale — דפונית מאוגדת
+- Macariini
+- Maccevethus
+- Machimus setibarbus
+- Macraulacini
+- Macroglossum stellatarum — רפרף הדבקה
+- Macroscytus brunneus — סרחן חום
+- Macrosiphini
+- Macrotylus
+- Malachiina
+- Malachius coccineus — מלכית אדומה
+- Malpolon insignitus — תלום קשקשים מצוי
+- Malthodes
+- Maniola telmessia — סטירית פקוחה
+- Mantis religiosa — גמל שלמה מתפלל
+- Mantispa scabricollis
+- Marasmius wynneae — צנומה כפתית
+- Marumba quercus — רפרף האלון
+- Mauremys rivulata — צב-ביצות מצוי
+- Medetera
+- Mediodactylus orientalis — שממית עצים
+- Megachile
+- Meganola togatulalis
+- Melampsora pulcherrima
+- Melanargia titea — אביבית משויישת
+- Melanoleuca — שחרחרית
+- Melanopsis — שחריר
+- Melanopsis buccinoidea — שחריר חלק
+- Melanotus
+- Meliscaeva auricollis
+- Melitaea — כתמית
+- Melitaea syriaca — כתמית הבוצין
+- Melitaea trivia
+- Melitturga syriaca
+- Meloe — רפואנית
+- Meloe proscarabaeus — רפואנית כחולה
+- Meloe tuccius
+- Meloidae — רפואניתיים
+- Meloinae
+- Melolonthinae — שורשניות
+- Mesophleps corsicella
+- Mesophleps ochracella
+- Mesoprionus besikanus — יקרונית השורשים
+- Messor — נמלת הקציר
+- Messor hebraeus — נמלת קציר דוגונית
+- Metachrostis velox
+- Metallostichodes nigrocyanella
+- Metasia corsicalis
+- Metasia rosealis
+- Metzneria agraphella
+- Microloxia herbaria
+- Micronecta
+- Micronola
+- Micronola wadicola
+- Micropterix
+- Miomantis paykullii — טרף יד חיוור
+- Miridae — רכנפיים
+- Mirificarma aflavella
+- Mirini
+- Modicogryllus
+- Monacha — נזירית
+- Monacha obstructa — נזירית טבורית
+- Monacha syriaca — נזירית דו-גונית
+- Monomorium — מורית
+- Monomorium salomonis
+- Mordellidae — חודיתיים
+- Mordellinae
+- Morphacris — תלמן
+- Morphacris fasciata — תלמן
+- Mulsanteus
+- Musca — זבוב
+- Musca domestica — זבוב הבית
+- Mycena seynii — פטרת האצטרובל
+- Mycena tenerrima
+- Myelois circumvoluta
+- Myinodes shohami
+- Mylabris — מילברית
+- Mylabris quadripunctata — מילברית ארבע הנקודות
+- Myrmecaelurus
+- Myrmeleontidae — ארינמל
+- Myrmicinae — נמלים דו-מותניות
+- Mythimna alopecuri
+- Mythimna ferrago
+- Mythimna languida
+- Mythimna sicula
+- Myzus persicae — כנימת עלה האפרסק
+- Necrobia violacea
+- Nemapogon
+- Nematocera — יתושים
+- Neodermaptera
+- Neoerysiphe galeopsidis
+- Neomyia cornicina
+- Nephrotoma
+- Nephrotoma scalaris
+- Nepticulidae
+- Neurigoninae
+- Neuroptera — מרושתי-כנף
+- Nezara viridula — תריסית ירוקה
+- Niphona picticornis
+- Noctua comes
+- Noctua pronuba — אגרוטיס כתום
+- Noctuidae — תנשמיתיים
+- Noctuinae
+- Noctuoidea
+- Nomada
+- Nomophila
+- Nomophila noctuella
+- Noorda blitealis
+- Nostoc commune
+- Notostaurus anatolicus
+- Nychiodes palaestinensis
+- Nyctegretis
+- Ocneria
+- Ocneria lapidicola — טוואית השקד
+- Ocnogyna
+- Ocnogyna loewii — דובון אביב
+- Odites kollarella
+- Odonata — שפיראים
+- Oecanthus — צרשיח
+- Oecia oecophila
+- Oedemera — צנומית
+- Oedemera flavipes
+- Oedemera natolica
+- Oedipoda — עפרן
+- Oedipoda caerulescens — עפרן כחול-כנף
+- Oedipoda miniata — עפרן אדום-כנף
+- Oestroidea
+- Oiketicoides lutea — ססתיק צהוב
+- Oligotoma
+- Oligotoma nigra
+- Omophlus — שחרוריות-פרחים
+- Omophlus syriacus — אומופלוס סורי
+- Oncocephalus
+- Oniscidea — טחביות
+- Opatroides
+- Ophelimus maskelli
+- Ophion
+- Ophioninae
+- Ophiusa tirhaca
+- Orchamus
+- Orchamus hebraeus
+- Orgyia trigotephras
+- Oria musculosa
+- Ortaliella palaestinensis
+- Orthetrum — ריחופית
+- Orthetrum chrysostigma — ריחופית כחולה
+- Orthetrum sabina — ריחופית חרוזה
+- Orthetrum trinacria — ריחופית אגמים
+- Orthonama obstipata
+- Orthoptera — חגבאים
+- Orthotylinae
+- Osmia
+- Osmia latreillei — אוסמיה מקרינה
+- Oulobophora externaria
+- Oxycarenus hyalinipennis — פנדור הכותנה
+- Oxythyrea — פרחית
+- Oxythyrea cinctella — פרחית נקודתיים
+- Oxythyrea noemi — פרחית נעמי
+- Paidia cinerascens — דובון אפרפר
+- Palpares — בחנינית ארי נמל ענק
+- Palpares libelluloides
+- Palpita
+- Palpita vitrealis — עש היסמין
+- Palumbina guerinii
+- Panaeolus papilionaceus — צבעונית פעמון
+- Pandesma robusta
+- Papilio demoleus — זנב סנונית הלימון
+- Papilio machaon — זנב סנונית נאה
+- Papilionoidea — פרפרים
+- Parahypopta caestrum
+- Parapholidoptera punctifrons
+- Paratrechina — אצנית
+- Paratrechina longicornis — אצנית ארוכת מחוש
+- Paropta paradoxus — ססעץ הגפנים
+- Paropta paradoxus kathikas
+- Pechipogo plumigeralis
+- Pediasia desertellus
+- Pelophylax — צפרדע
+- Pelophylax ridibundus — צפרדע נחלים
+- Pelopidas thrax — הספרית הדוחן
+- Pentastirini
+- Pentatomidae — תריסיתיים
+- Pentatomoidea
+- Pentatomomorpha
+- Pepsini
+- Peribatodes rhomboidaria
+- Peribatodes umbraria
+- Pericyma squalens
+- Periplaneta americana — תיקן אמריקני
+- Pexicopia malvella
+- Pezotettix — חגבון
+- Phaiogramma etruscaria
+- Phaiogramma faustinata
+- Phalacropterix bruandi — ססתיק שחור-חזה
+- Phaneroptera — מגלית
+- Phaneroptera nana — מגלית נקודה
+- Phaneropterinae
+- Phanerotoma
+- Phanerotomini
+- Phaselia deliciosaria
+- Philaenus
+- Philereme transversata
+- Phlogophora meticulosa
+- Phloiocopus andresi
+- Phoenicolacerta laevis — לטאה זריזה
+- Pholidoptera
+- Pholiota highlandensis — קשקשנית פחומה
+- Phthorimaea absoluta — טוטה אבסולוטה
+- Phycitinae
+- Phycitini
+- Phycitodes
+- Phyllomorpha laciniata — גלדני אלמוות-הכסף
+- Physarum album
+- Physella acuta — בועונית חדה
+- Phytocoris
+- Pieridae — לבניניים
+- Pierina
+- Pieris
+- Pieris brassicae — לבנין הכרוב
+- Pieris rapae — לבנין הצנון
+- Pirenidae
+- Placodoma
+- Plagiolepis — סחבנית
+- Plagiolepis pallescens
+- Plagionotus bobelayei — יקרונית נאה
+- Platyceps collaris — זעמן זיתני
+- Platycnemis — נוצנית
+- Platycnemis dealbata — נוצנית שטוחת-רגל
+- Pleurophorus
+- Plinachtus imitator
+- Plutella xylostella — עשית המצליבים
+- Podagrica fuscicornis — פרעושית החטמית
+- Poecilia reticulata — גופי
+- Polistes — פלכית
+- Polistes dominula — פלכית שכיחה
+- Polistes mongolicus
+- Pollenia
+- Polymixis ancepsoides
+- Polymixis ivanchiki
+- Polymixis trisignata
+- Polyocha venosa
+- Polyommatini
+- Polyommatus icarus — כחליל השברק
+- Polyphaenis propinqua
+- Polyphaga
+- Polyphaga aegyptiaca — תיקנחול מצרי
+- Polyxenus lagurus — מברש לגורי
+- Pompilidae — צרעות עכבישים
+- Pontia daplidice — לבנין הרכפה
+- Porcellio
+- Porcellionidae
+- Porcellionides
+- Porcellionides pruinosus — טחבית זריזה
+- Porcellionides trifasciatus
+- Prays citri
+- Prinobius myardi
+- Prionosthenus — כרבלתן
+- Prionosthenus galericulatus — כרבולתן הסלעים
+- Prionus
+- Problepsis ocellata — מודד עינוני
+- Prochoristis
+- Promachus
+- Promachus griseiventris
+- Protaetia cuprea
+- Protaetia cuprea ignicollis — נחושתנית הקוצים
+- Protaetia judith — נחושתנית מגוונת
+- Psammophis schokari — ארבע קו מובהק
+- Pseudagrion — חניתית
+- Pseudagrion sublacteum — חניתית אדומת-מצח
+- Pseudagrion syriacum — חניתית ארץ-ישראלית
+- Pseudaletia unipuncta
+- Pseudenargia deleta
+- Pseudopanthera syriacata
+- Pseudophilotes vicrama — תכליל האזוב
+- Pseudopus apodus levantinus
+- Pseudoterpna coronillaria halperini — מודד הלפרין
+- Pterygota — בעלי־כנף
+- Ptyodactylus guttatus — מניפנית מצויה
+- Puccinia
+- Pygopleurus
+- Pyralidae — עשנוריים
+- Pyralini
+- Pyralis
+- Pyralis regalis
+- Pyraloidea
+- Pyrausta aurata
+- Pyrausta pauperalis
+- Pyrausta sanguinalis
+- Pyrausta virginalis
+- Pyrgomorpha — חרוטן
+- Pyrgomorphidae — חגביים
+- Pyroderces argyrogrammos
+- Pyrrhocoridae — אדמוניים
+- Pyrrhocoris apterus — אדמון מצויר
+- Rhabdophera arefacta
+- Rhagonycha
+- Rhamphomyia
+- Rhiniinae
+- Rhinocyllus conicus
+- Rhodometra sacraria — מודד הארכובית
+- Rhodostrophia discopunctata
+- Rhynocoris — רצען
+- Rhynocoris punctiventris — רצען מנומר
+- Rivetina byblica — אצן ים-תיכוני
+- Russula cerolens
+- Russula ochroleuca — חריפית צהבהבה
+- Saga ornata — סגה עדין
+- Sarcophaga — שחמטן
+- Sarcophagidae — שחמטניים
+- Satyrium spini — שעיר האשחר
+- Scantius
+- Scantius aegyptius — מתגודד מצרי
+- Scarabaeidae — זבליתיים
+- Scarabaeoidea — דפופוניות
+- Scathophaga — זבלול
+- Scathophaga stercoraria
+- Scatopsidae — זְבוּבוֹנִיִּים
+- Sceliphron spirifex — טייחת שחורת-חזה
+- Schizophora
+- Schizophyllum commune — שסועה מצויה
+- Sciaridae — אפלניים
+- Scolopendra — רבנדל
+- Scolopendra cingulata — רב נדל ארסי
+- Scolopendra clavipes
+- Scolopendridae
+- Scolopendromorpha
+- Scopula imitaria
+- Scopula luridata — מודד צהוב
+- Scopula marginepunctata
+- Scopula minorata
+- Scopula submutata
+- Scotochrosta pulla
+- Scrobipalpa
+- Scutigeridae
+- Selidosema brunnearia
+- Silvestrichilis
+- Smaragdula
+- Smicromyrmini
+- Sphaeroderma testaceum
+- Sphaerophoria scripta
+- Sphex flavipennis
+- Sphodromantis
+- Sphodromantis viridis — גמל שלמה ירוק
+- Spilostethus pandurus — פנדור אדמוני
+- Spodoptera — גדודנית
+- Spodoptera cilium — גדודנית הדגן
+- Spodoptera exigua — גדודנית לפיגמה
+- Spodoptera frugiperda — גדודנית פולשת
+- Spodoptera littoralis — גדודנית פרודניה
+- Spoladea recurvalis
+- Spongiporus balsameus
+- Squamarina cartilaginea — שבבית בררנית
+- Stathmopoda
+- Stathmopoda auriferella
+- Stegelytra
+- Stemmatophora
+- Stemmatophora brunnealis
+- Stemmatophora syriacalis
+- Stenammini
+- Steniini
+- Stenopterus
+- Stenopterus rufus
+- Stenopterus rufus syriacus — יקרונית צרת-כנפיים
+- Stenozygum coloratum — תריסית הצלף
+- Stereum hirsutum — קשיחית שעירה
+- Stereum sanguinolentum
+- Sterrhinae
+- Sterrhini
+- Stictopleurus
+- Stilbia syriaca
+- Stilbina hypaenides
+- Stiphrometasia sancta
+- Stromatium auratum — יקרונית הרהיטים
+- Stueningia
+- Succineidae — ענברוניים
+- Suillus
+- Symmoca dodecatella
+- Symmoca signatella
+- Sympetrum — עפיפונית
+- Sympetrum fonscolombii — עפיפונית משוטטת
+- Sympherobius pygmaeus
+- Synaphe morbidalis
+- Synclera
+- Synophropsis lauri
+- Synthesiomyia nudiseta
+- Syrphidae — רחפניים
+- Syrphinae
+- Syrphini — רחפניים
+- Tabanidae — טבניים
+- Tachina fera
+- Tachinidae — זריזבוביים
+- Tanaemyrmex
+- Tapinoma — בנאית
+- Tathorhynchus exsiccata
+- Tegostoma baphialis
+- Tenebrionidae — שחרוריתיים
+- Tenebrionoidea
+- Tenthredopsis
+- Testudines — צבים
+- Tetramorium — כתפית
+- Tettigoniidae — חרגוליים
+- Tettigoniinae
+- Thamnotettix zelleri
+- Thaumetopoea solitaria — תהלוכן האלה
+- Thaumetopoea wilkinsoni — תהלוכן האורן
+- Theba pisana — דרחול השיח
+- Thebini
+- Theretra alecto — רפרף הגפן
+- Therevidae — חדודיים
+- Thyridiphora furia
+- Tinea pellionella
+- Tipula — טיפולה
+- Tipulidae — טיפולתיים
+- Tipuloidea — טיפולות
+- Tipulomorpha
+- Tirathabini
+- Tortricidae — עשפריים
+- Tortricinae
+- Trichiura stroehlei
+- Trichodes — יוספית
+- Trichodes affinis — טריכודית הפסים
+- Trichodes syriacus — טריכודית סורית
+- Trichoferus fasciculatus
+- Trichoferus griseus
+- Tricholomatineae
+- Trichophaga
+- Trichophaga bipartitella
+- Trichoplusia ni
+- Trichoptera — שעירי כנף
+- Tricyphona
+- Trithemis — גיחנית
+- Trithemis annulata — גיחנית ארגמן
+- Trithemis arteriosa — גיחנית מעורקת
+- Tropinota hirta
+- Tropinota squalida
+- Tropinota squalida pilosa — זבלית הורד השעירה
+- Trupanea
+- Tylopsis lilifolia
+- Udea
+- Udea ferrugalis
+- Uresiphita gilvata — עשנור הרותם
+- Usia — עוזיה
+- Utetheisa pulchella — דובון יפיפה
+- Vaginatae
+- Vanessa atalanta — נימפית הסרפד
+- Vanessa cardui — נימפית החורשף
+- Variospora aurantia — ישפית זהובה
+- Vermileo
+- Vertebrata — בעלי חוליות
+- Vespidae — צרעים
+- Vespula germanica — צרעה גרמנית
+- Vittaplusia vittata
+- Volvopluteus gloiocephalus — נרתיקנית  נאה דביקה
+- Wasmannia auropunctata — נמלת האש הקטנה
+- Watsonalla
+- Watsonalla binaria
+- Watsonalla uncinula
+- Xanthogaleruca luteola — עלית האולמוס
+- Xanthorhoe fluctuata
+- Xanthorhoe pseudogaliata
+- Xerocomellus — לִבְדִּית
+- Xeropicta — שבלולון
+- Xeropicta krynickii — שבלולון מצוי
+- Xestia
+- Xestia cohaesa
+- Xestia palaestinensis
+- Xestia xanthographa
+- Xylocampa mustapha
+- Xylocopa iris — דבורת עץ עדינה
+- Xylocopa pubescens — דבורת-עץ צהובה
+- Xystrocera globosa — יקרונית השיטה
+- Yponomeutoidea
+- Zebeeba falsalis
+- Zekelita ravalis
+- Zelleria
+- Zethes insularis
+- Zeuzera pyrina — ססעץ מנומר
+- Zizeeria karsandra — כחלון הקוטב
+- Zygaena graslini — ססמבריק אדמוני
+- Zygaenidae — ססמבריקיים
+- Zygentoma — זנבזיפאים
+- Zygoptera — שפריריות

@@ -1,0 +1,469 @@
+localSpeciesId,GBIFSpeciesId,INaturalistSpeciesId,otherCatalogNumbers,scientificName,previousIdentifications,vernacularName,previousVernacularNames,family,isInvasive,isRare
+1,1919332,1468919,,"Euchloe aegyptiaca",,"ירוק־כנף מצרי",,Pieridae,0,0
+2,1919324,518615,,"Euchloe falloui",,"ירוק-כנף המוריקה"," לבנין מוריקנדיה",Pieridae,0,0
+3,4691894,543513,,"Allancastria deyrollei",,"צבעוני צהבהב"," צבעוני צהוב",Papilionidae,0,0
+4,5141291,464146,"GBIF:4691880 | GBIF:8906278","Zerynthia cerisy","Allancastria cerisyi | Thais cerisy","צבעוני קשוט",,Papilionidae,0,0
+5,1919223,751461,GBIF:4535286,"Elphinstonia charlonia","Euchloe charlonia","ירוק-כנף צהבהב"," לבנין צהבהב",Pieridae,0,0
+6,1926720,119836,GBIF:8109154,"Cigaritis cilissa","Apharitis cilissa","נחושתן-נמלים גלילי",,Lycaenidae,0,0
+7,1946661,357372,,"Borbo borbonica",,"הספרית ביצות"," הספרית החולה | הספרית הביצות",Hesperiidae,0,1
+8,1919181,125577,GBIF:11408226,"Belenois aurota","Anaphaeis aurota | Anaphaeis aurotota","לבנין משויש",,Pieridae,0,0
+9,5142338,1604936,,"Gegenes nostrodamus",,"הספרית עשב",,Hesperiidae,0,0
+10,1910628,51578,,"Hypolimnas misippus",,"נימפית הרגלה","נימפית המראה",Nymphalidae,0,0
+11,1906552,362061,,"Hyponephele lupinus",,"סטירית סומית",,Nymphalidae,0,0
+12,1937791,363239,,"Papilio saharae",,"זנב-סנונית מדברי",,Papilionidae,0,0
+13,4535162,1474674,,"Turanana panagea","Turanana panagaea","תכול-כנף נקוד",,Lycaenidae,0,0
+14,1928100,496919,11993324,"Iolaus glaucus","Argiolaus glaucus | Epamera glaucus","תכלתן ההרנוג","כחליל הרנוג",Lycaenidae,0,0
+15,5130542,68423,,"Junonia hierta",,"נימפית הריסן",,Nymphalidae,0,0
+16,5140430,903680,"GBIF:10442031 | GBIF:8967864 | GBIF:6237749 | GBIF:9080264 | GBIF:8838594","Polyommatus eurypilus","Kretania eurypilus | Kretania pelopides | Lycaena carmon | Lycaena eurypilus | Plebejus eurypilus","כחליל הכרבולת","כחליל שיאון",Lycaenidae,0,0
+17,1926722,119837,GBIF:4535249,"Cigaritis acamas","Apharitis acamas","נחושתן-נמלים מפוספס","כחליל מנומר",Lycaenidae,0,0
+18,10825466,1003779,"GBIF:9912937 | GBIF:4535090 | GBIF:8924655 | GBIF:5138867 | GBIF:11730869 | INat:1052822","Luthrodes galba","Lachides galba | Chilades galba | Cupido galba | Lycaena galba | Lachides galba galba | Luthrodes galba ssp. Galba","כחליל הקטנית","כחליל הינבוט | כחלון הינבוט",Lycaenidae,0,0
+19,1926324,480251,4535180,"Quercusia quercus","Favonius quercus","אלוני סגול"," כחליל סגול",Lycaenidae,0,0
+21,1932411,60896,GBIF:7370850,"Callophrys rubi","Papilio rubi","ירוקי אירופי"," כחליל ירוק",Lycaenidae,0,0
+23,5140235,1113194,GBIF:5883545,"Polyommatus juno","Polyommatus icarus subsp. juno","כחליל החרמון",,Lycaenidae,0,0
+24,8928849,1231330,GBIF:8876661,"Plebejus loewii","Lycaena loewii | Lycaena loewii Zeller","כחליל לואי",,Lycaenidae,0,0
+25,10384044,903109,"GBIF:6238921 | GBIF:5138298","Kretania nichollae","SPECIES:Plebejus pylaon | SPECIES:Kretania pylaon | Plebejus pylaon subsp. Nicholli | Lycaena nicholli","כחליל ניקול","כחליל פילאון ניקולה",Lycaenidae,0,0
+26,5139156,62439,,"Cyaniris semiargus",,"כחליל חינני","כחליל אנטיוכיה",Lycaenidae,0,0
+27,5138553,1347947,GBIF:5138298,"Plebejus cleopatra","SPECIES:Kretania pylaon | Kretania cleopatra","כחליל קלאופטרה","כחליל פילאון קליאופטרה",Lycaenidae,0,0
+28,12110847,1501830,,"Plebeius philbyi","Kretania philbyi","כחליל ערבתי","כחליל צפרירי",Lycaenidae,0,0
+29,10581870,1097646,,"Luthrodes pandava",,"כחליל הציקס",,Lycaenidae,0,0
+30,5140152,1463413,,"Aricia crassipuncta",,"כחליל מאפיר"," כחליל ארמני",Lycaenidae,0,0
+31,1930916,548187,GBIF:1930901,"Tarucus rosacea","Tarucus rosaceus | Tarucus mediterranea","כחלון השיזף","כחליל שיזף",Lycaenidae,0,0
+32,1919706,484045,,"Anthocharis gruneri",,"כתום-כנף הדו-פרית",,Pieridae,0,0
+33,1919716,484044,,"Anthocharis damone",,"כתום-כנף צהוב",,Pieridae,0,0
+34,1920494,54087,,"Pieris napi",,"לבנין מעורק",,Pieridae,0,0
+35,5137682,484049,GBIF:5137686,"Colias aurorina","Colias libanotica","צהבוני הלבנון","צהבן לבנוני |  לבנין לבנון",Pieridae,0,0
+36,12021917,959755,"GBIF:4535400 | GBIF:6203018 | GBIF:5142032 | GBIF:4535401","Hesperia nomas","Muschampia tessellum | Syrichtus tessellum subsp. Nomas | Muschampia tessellum nomas | Syrichtus tessellum | Papilio tessellum","אפורית מלבינה","הספרית משוישת",Hesperiidae,0,0
+37,11378530,973947,,"Muschampia proteides lycaonius","Muschampia proteides","אפורית חלודית","הספרית חלודית | הספרית החלודה",Hesperiidae,0,0
+38,4535396,362071,,"Muschampia proto",,"אפורית אירופית",,Hesperiidae,0,0
+39,1899818,484088,,"Melitaea arduinna",,"כתמית הדרדר"," נמפית קוציץ",Nymphalidae,0,0
+40,5129679,209646,,"Melitaea deserticola",,"כתמית מדברית","נמפית מדבר",Nymphalidae,0,0
+41,5129726,496933,,"Melitaea collina",,"כתמית צפונית"," נמפית צפונית",Nymphalidae,0,0
+42,1943410,1322848,4407453,"Carcharodus orientalis","Muschampia orientalis | Carcharodus floccifera subsp. Orientalis","אפורית המכבים"," הספרית מכבים",Hesperiidae,0,0
+43,8073674,362093,,"Thymelicus acteon",,"נחושת השעורה"," הספרית שעורה",Hesperiidae,0,0
+44,1944072,466040,,"Thymelicus hyrax",,"נחושה נאה"," הספרית נחושית",Hesperiidae,0,0
+45,1894840,54468,,"Aglais urticae",,"נימפית החרמון",,Nymphalidae,0,0
+46,8133678,58484,,"Thymelicus lineola",,"נחושת החיטה"," הספרית חיטה",Hesperiidae,0,0
+47,8078362,335001,GBIF:4535439,"Fabriciana niobe","Argynnis niobe","כתמית הסיגל"," נמפית סגל",Nymphalidae,0,0
+48,1943388,1322847,4407453,"Carcharodus stauderi","Muschampia stauderi","אפורית הגלונית"," הספרית בלוטה",Hesperiidae,0,0
+49,7762841,324088,,"Nymphalis polychloros",,"נימפית מגוונת",,Nymphalidae,0,0
+50,8312017,347298,,"Satyrus ferula",,"סטירית מפויחת"," סטירית הרים",Nymphalidae,0,0
+51,1949929,357291,,"Pyrgus serratulae",,"אפורית החמשן"," הספרית חמשן",Hesperiidae,0,0
+52,11653847,630736,,"Pseudochazara thelephassa",,"סטירית מערות",,Nymphalidae,0,0
+53,1919221,796579,4535289,"Elphinstonia penia","Euchloe penia","ירוק-כנף המנתור"," לבנין חורן",Pieridae,0,0
+54,1925609,149019,,"Anthene amarah",,"שיטן אילתי"," כחליל אילת",Lycaenidae,0,0
+55,11699351,1501692,,"Aricia isaurica",,"כחליל חיוור",,Lycaenidae,0,0
+56,1950156,335225,,"Gomalia elma",,"אפורית האבוטילון"," הספרית אבוטילון",Hesperiidae,0,0
+57,1898544,56225,,"Polygonia c-album",,"נימפית טוביה",,Nymphalidae,0,0
+58,5137612,143294,,"Colias croceus",,"צהבוני התלתן","לבנין צהוב | לבנין התלתן",Pieridae,0,0
+59,8001799,155030,,"Limenitis reducta",,"אצילית היערה"," נמפית יערה",Nymphalidae,0,0
+60,8225376,56529,,"Papilio machaon",,"זנב סנונית נאה",,Papilionidae,0,0
+61,1938069,51583,,"Papilio demoleus",,"זנב סנונית הלימון",,Papilionidae,1,0
+62,1938131,362809,,"Papilio alexanor",,"זנב סנונית המכבים",,Papilionidae,0,0
+63,1803060,344823,,"Earias insulana",,"זיפית הכותנה",,Nolidae,0,0
+64,8049830,52592,,"Pararge aegeria",,"חומית מנומרת","סטירית מנומרת",Nymphalidae,0,0
+65,7633472,58468,,"Hesperia comma",,"נחושה לבנת-כתמים"," הספרית פסיק",Hesperiidae,0,0
+66,8273661,128544,,"Thymelicus sylvestris",,"נחושת הנשרן"," הספרית נשרן",Hesperiidae,0,0
+68,1929153,496917,,Lycaena,"Lycaena ochimus","נחושתן זהוב"," כחליל זהוב",Lycaenidae,0,0
+69,1929697,55655,,"Lycaena phlaeas",,"נחושתן הארכובית","כחליל הארכובית",Lycaenidae,0,0
+70,1945589,484040,,"Spialia phlomidis",,"נקדית החרמון"," הספרית חרמון",Hesperiidae,0,0
+71,6203205,466039,1945597,"Spialia sertorius","Spialia orbifer | Spialia orbifer ssp. Hilaris","נקדית הורדיים"," הספרית פטל",Hesperiidae,0,0
+72,4299368,48548,,"Vanessa cardui",,"נימפית החורשף","נימפית חורשף ",Nymphalidae,0,0
+73,1898286,49133,,"Vanessa atalanta",,"נמפית הסרפד",,Nymphalidae,0,0
+75,8168644,57495,,"Melitaea cinxia",,"כתמית הוורוניקה","נמפית הברוניקה",Nymphalidae,0,0
+76,1899349,132890,"GBIF:7458419 | GBIF:9072535 | GBIF:5129858 | GBIF:4535806 | GBIF:1902169","Melitaea trivia","Papilio trivia | Melitaea trivia ssp. Nana | Hypodryas cynthia | Melitaea syriaca | Papilio cynthia","כתמית הבוצין","נימפית הבוצין | כיתמית בוצין ",Nymphalidae,0,0
+77,1901850,147328,7810861,"Damora pandora","Argynnis pandora","כתמית פנדורה","נימפית פנדורה",Nymphalidae,0,0
+78,9042695,465854,,"Melitaea telona","Melitaea ornata","כיתמית אריאל","נימפית ירושלים | כיתמית ירושלים",Nymphalidae,0,0
+79,1945611,481320,,"Spialia doris",,"נקדית החבלבל"," הספרית חבלבל",Hesperiidae,0,0
+80,1938214,62749,,"Iphiclides podalirius",,"סנוניתן הוורדיים","זנב סנונית הוורדיים | זנב סנונית הוורדניים",Papilionidae,0,0
+81,1730978,200930,,"Zeuzera pyrina",,"ססעץ מנומר","סס הנמר",Cossidae,0,0
+82,1853249,874280,,"Oiketicoides jordana","Amicta zelleri","ססתיק פרוע",,Psychidae,0,0
+83,1854455,1199515,,"Phalacropterix bruandi",,"ססתיק שחור-חזה",,Psychidae,0,0
+84,5107162,1139403,,"Zygaena olivieri",,"ססמבריק הלבנון",,Zygaenidae,0,0
+85,5107076,458043,,"Zygaena graslini",,"ססמבריק אדמוני",,Zygaenidae,0,0
+86,4535636,123629,,"Lasiommata maera",,"חומית היבלית","סטירית יבלית",Nymphalidae,0,0
+87,1911633,496961,,"Pseudochazara pelopea",,"סטירית חרמונית"," סטירית לבנון",Nymphalidae,0,0
+88,8208583,354746,,"Hyponephele lycaon",,"סטירית חיוורת"," סטירית חרמון",Nymphalidae,0,0
+89,4535581,496960,,"Chazara persephone",,"סטירית טלואה"," סטירית פסים",Nymphalidae,0,0
+90,4535632,147298,,"Lasiommata megera",,"חומית הציבורת","סטירית הציבורת",Nymphalidae,0,0
+91,1918736,484115,,"Hipparchia fatua","Hipparchia fatua sichaea","סטירית אפלה","סטירית עמומה",Nymphalidae,0,0
+92,5135546,466276,,"Maniola telmessia",,"סטירית פקוחה",,Nymphalidae,0,0
+93,5141305,543513,,"Zerynthia deyrollei",,"צבעוני צהוב","צבעוני צהבהב",Papilionidae,0,0
+94,1936969,94515,,"Archon apollinus",,"צבעון שקוף","צבעוני שקוף",Papilionidae,0,0
+96,11712654,496914,,"Tomares nesimachus",,"צמריר הקדד"," כחליל קדד",Lycaenidae,0,0
+97,1861510,56530,,"Acherontia atropos",,"רפרף גולגולת המת","עש גולגולת המת",Sphingidae,0,0
+98,1861644,124031,,"Agrius convolvuli",,"רפרף החבלבל",,Sphingidae,0,0
+99,1862517,319505,,"Theretra alecto",,"רפרף הגפן",,Sphingidae,0,0
+100,1864652,56293,,"Macroglossum stellatarum",,"רפרף הדבקה",,Sphingidae,0,0
+101,1862401,51996,,"Daphnis nerii",,"רפרף ההרדוף",,Sphingidae,0,0
+102,1861673,362831,,"Marumba quercus",,"רפרף האלון",,Sphingidae,0,0
+103,1862293,199458,,"Hippotion celerio",,"רפרף כסוף-קו",,Sphingidae,0,0
+104,1862765,124215,,"Hyles livornica",,"רפרף מסורטט",,Sphingidae,0,0
+105,1920218,61295,,"Aporia crataegi",,"רשתן העוזרר","לבנין העוזרר",Pieridae,0,0
+106,4528100,332007,4528099,"Phthorimaea absoluta","Tuta absoluta","עש מנהרות העגבנייה",,Gelechiidae,0,0
+107,1824130,496091,,"Thaumetopoea solitaria",,"תהלוכן האלה","טוואי האלה",Notodontidae,0,0
+108,1732264,125026,,"Pachypasa otus",,"טוואי הברוש",,Lasiocampidae,0,0
+109,1824113,417955,,"Thaumetopoea processionea",,"תהלוכן האלון","טוואי האלון",Notodontidae,0,0
+110,11419254,1319997,9161223,"Bufoidia ledereri","Bombycopsis ledereri","טוואי אפרפר",,Lasiocampidae,0,0
+111,6122092,780393,,"Orgyia dubia",,"טוואית הארכובית",,Erebidae,0,0
+112,1734690,751560,,"Lasiocampa grandis",,"טוואי גדול","טואי גדול",Lasiocampidae,0,0
+113,1808166,543620,,"Amata mestralii",,"ברדן בוהק",,Erebidae,0,0
+114,5109843,370856,,"Spodoptera cilium",,"גדודנית הדגן",,Noctuidae,0,0
+115,5109931,428994,,"Spodoptera littoralis",,"גדודנית פרודניה",,Noctuidae,0,0
+116,8352161,231425,,"Spodoptera exigua",,"גדודנית לפיגמה","תולעת הגדוד של הסלק",Noctuidae,0,0
+117,1861494,82830,,"Acherontia styx",,"גולגולת-מת מזרחית","רפרף גולגולת המת",Sphingidae,0,0
+118,7642610,67835,,"Danaus chrysippus",,"דנאית הדורה","דנאית תפוח-סדום",Nymphalidae,0,0
+119,1920357,446977,,"Colotis fausta",,"דרומי הצלף","לבנין הצלף",Pieridae,0,0
+120,10062933,1039025,9089286,"Olepa ricini","Olepa schleini","דובון הקיקיון",,Erebidae,0,0
+121,1805111,435319,,"Ocnogyna loewii",,"דובון אביב","דובון הקורים",Erebidae,0,0
+122,1807966,974374,,"Paidia cinerascens",,"דובון אפרפר",,Erebidae,0,0
+123,1814538,335664,,"Cymbalophora oertzeni",,"דובון מנומר",,Erebidae,0,0
+124,1803163,201279,,"Utetheisa pulchella",,"דובון יפהפה",,Erebidae,0,0
+125,1945877,142935,,"Pelopidas thrax",,"הספרית הדוחן",,Hesperiidae,0,0
+126,5142352,363796,,"Gegenes pumilio",,"הספרית שחורה",,Hesperiidae,0,0
+127,1919346,203124,,"Catopsilia florella",,"הגרן הסנא"," לבנין כאסיה",Pieridae,0,0
+128,4535106,960200,,"Tarucus balkanica",,"כחלון הבלקן","כחליל הבלקן",Lycaenidae,0,0
+129,1932752,119664,,"Cacyreus marshalli",,"כחלון הפלרגון","כחליל הפלרגון",Lycaenidae,0,0
+131,1926550,326019,,"Azanus ubaldus",,"כחלון השיטה"," כחליל שיטה",Lycaenidae,0,0
+132,1932976,209691,,"Leptotes pirithous",,"כחלון האספסת","כחליל האספסת | כחליל קצר־זנב",Lycaenidae,0,0
+133,1925381,479734,9036079,"Thersamonia thersamon","Lycaena thersamon","נחושתן החומעה","כחליל החומעה",Lycaenidae,0,0
+134,1924713,121993,,"Lampides boeticus",,"כחלון האפון","כחליל האפון",Lycaenidae,0,0
+137,5138543,362078,7597891,"Plebejus amanda","Polyommatus amandus","כחליל הבקיה",,Lycaenidae,0,0
+138,1933647,125512,,"Zizeeria karsandra",,"כחלון הקוטב","כחליל הקוטב",Lycaenidae,0,0
+139,5140214,55641,"GBIF:12369676 | GBIF:5883559 | INat:496920","Polyommatus icarus","Papilio icarus | Polyommatus icarus subsp. Zelleri","כחליל השברק",,Lycaenidae,0,0
+140,6240927,321464,1922581,"Pseudophilotes baton","Pseudophilotes vicrama","תכליל האזוב","כחליל האזוב",Lycaenidae,0,0
+141,5138681,208979,5882969,"Nordmannia ilicis","Satyrium ilicis","שעיר האלון","כחליל האלון",Lycaenidae,0,0
+142,10879371,1231330,,"Plebejidea loewi","Plebejidea loewii | Polyommatus loewii","כחליל המדבר",,Lycaenidae,0,0
+143,1926546,208507,,"Azanus jesous",,"כחלון הינבוט","כחליל הינבוט",Lycaenidae,0,0
+144,5139339,466198,,"Lycaena asabinus",,"נחושתן מזרחי","כחליל מזרחי",Lycaenidae,0,0
+146,1919712,51495,,"Anthocharis cardamines",,"כתום-כנף המצילתיים",,Pieridae,0,0
+147,9262733,899762,,"Melitaea acentria",,"כתמית החרמון"," נמפית פרסית",Nymphalidae,0,0
+150,8393082,133295,,"Melitaea didyma",,"כתמית הלבנון"," נמפית לבנון",Nymphalidae,0,0
+151,1905383,62766,,"Issoria lathonia",,"כתמית פנינים","נימפית הפנינים",Nymphalidae,0,0
+152,1879452,371745,,"Duponchelia fovealis",,"עש הרקפת",,Crambidae,0,0
+153,1858283,363376,,"Phereoeca uterella",,"עש הבית",,Tineidae,0,0
+154,1737847,47153,,"Cydia pomonella",,"עש התפוח",,Tortricidae,0,0
+155,5879783,527552,,"Thaumatotibia leucotreta",,"עש התפוח המדומה",,Tortricidae,0,0
+156,1740623,480748,,"Lobesia botrana",,"עש האשכול",,Tortricidae,0,0
+157,1889833,336922,,"Palpita vitrealis",,"עש היסמין",,Crambidae,0,0
+158,5884888,953134,,"Ectomyelois ceratoniae",,"עש החרוב",,Pyralidae,0,0
+159,1881126,430206,,"Uresiphita gilvata",,"עשנור הרותם",,Crambidae,0,0
+160,1873079,124184,,"Plodia interpunctella",,"עש הקמח ההודי","עש המזווה | עש המזון",Pyralidae,0,0
+161,1831136,126765,,"Plutella xylostella",,"עשית המצליבים","עש גב יהלום | עש הכרוב",Plutellidae,0,0
+162,1785185,339539,,"Chrysodeixis chalcites",,"פלוסית זהובה",,Noctuidae,0,0
+163,1792418,55651,,"Autographa gamma",,"פלוסית גמה",,Noctuidae,0,0
+164,5109646,325531,,"Cucullia calendulae",,"תנשמית ציפורני חתול",,Noctuidae,0,0
+165,1782672,55623,,"Acronicta rumicis",,"תנשמית החומעה",,Noctuidae,0,0
+166,1797276,116752,,"Catocala elocata",,"תנשמית הצפצפה",,Erebidae,0,0
+167,4532987,1629727,,"Olivenebula subsericata",,"תנשמית העוזרר",,Noctuidae,0,0
+168,8108800,83806,,"Helicoverpa armigera",,"תנשמית האביב","הליוטיס | תנשמית השמש המצויה",Noctuidae,0,0
+169,4534681,347024,,"Heliothis peltigera",,"תנשמית המורכבים",,Noctuidae,0,0
+170,4532352,330417,,"Hypena lividalis",,"תנשמית עשנורית",,Erebidae,0,0
+171,1770498,1258779,,"Euchalcia paulina",,"תנשמית פאולוס",,Noctuidae,0,0
+172,1,1259150,,"Episema tamardayanae",,"תנשמית תמר",,Noctuidae,0,0
+173,1782763,135282,,"Acronicta aceris",,"תנשמית יהודה",,Noctuidae,0,0
+174,1824117,509610,,"Thaumetopoea wilkinsoni",,"תהלוכן האורן","טוואי התהלוכה",Notodontidae,0,0
+175,1925918,55640,,"Celastrina argiolus",,"תכול-כנף קיסוסי","כחליל קיסוס",Lycaenidae,0,0
+176,1923026,496923,,"Iolana alfierii",,"קרקשי הסנה"," כחליל קרקש",Lycaenidae,0,0
+177,1867928,56532,,"Saturnia pyri",,"שבתאי השקד",,Saturniidae,0,0
+178,11605358,496912,,"Satyrium myrtale",,"שעיר הדובדבן","כחליל דובדבן",Lycaenidae,0,0
+179,7680748,1395606,,"Satyrium abdominalis",,"שעיר השקד","כחליל פרסי",Lycaenidae,0,0
+180,1931179,208988,7391741,"Tuttiola spini","Satyrium spini","שעיר האשחר","כחליל האשחר",Lycaenidae,0,0
+181,1938520,57485,,"Parnassius mnemosyne",,"שילגן חרמוני","צבעוני חרמון",Papilionidae,0,0
+182,1916376,494287,,"Melanargia titea",,"אביבית משויישת","סטירית משוישת",Nymphalidae,0,0
+183,1771040,84455,,"Agrotis segetum",,"אגרוטיס השורשים",,Noctuidae,0,0
+184,1789695,81687,,"Noctua pronuba",,"אגרוטיס כתום",,Noctuidae,0,0
+185,8277078,325871,,"Carcharodus alceae",,"אפורית החלמית","הספרית חלמית | אפורית חלמית",Hesperiidae,0,0
+186,5977247,354164,,"Erynnis marloyi",,"אפורית אפלולית"," הספרית אפלולית",Hesperiidae,0,0
+187,1920369,424574,,"Colotis phisadia",,"דרומי הסלודורה","לבנין הסלבדורה",Pieridae,0,0
+188,1920496,55626,,"Pieris rapae","Artogeia rapae","לבנין הצנון","לבנין הכרוב קטן",Pieridae,0,0
+189,1920258,123810,,"Pontia daplidice",,"לבנין הרכפה",,Pieridae,0,0
+190,5137790,205943,,"Pontia glauconome",,"לבנין הרכפתן",,Pieridae,0,0
+191,1920506,55401,,"Pieris brassicae",,"לבנין הכרוב","לבנין הכרוב הגדול",Pieridae,0,0
+192,1919320,243482,,"Euchloe ausonia",,"ירוק-כנף טלוא","לבנין מזרחי",Pieridae,0,0
+194,1919333,333932,,"Euchloe belemia",,"ירוק-כנף מפוספס"," לבנין ירוק-פסים",Pieridae,0,0
+195,1920709,123815,,"Gonepteryx cleopatra",,"לימוני האשחר"," לימונית אשחר",Pieridae,0,0
+196,1920712,52771,,"Gonepteryx rhamni",,"לימוני אירופי","לימונית אירופית",Pieridae,0,0
+197,1920707,484050,,"Gonepteryx farinosa",,"לימונית החרמון"," לימונית חרמון",Pieridae,0,0
+198,5145255,202587,,"Scopula luridata",,"מודד צהוב",,Geometridae,0,0
+199,1957266,434512,,"Larentia clavaria",,"מודד החלמית",,Geometridae,0,0
+200,4523536,782808,,"Proteuchloris neriaria",,"מודד הבלקן",,Geometridae,0,0
+201,1961749,886701,,"Zamarada torrida",,"מודד השיטים",,Geometridae,0,0
+202,1955694,116380,,"Rhodometra sacraria",,"מודד הארכוביות",,Geometridae,0,0
+203,1980521,243770,,"Ascotis selenaria",,"מודד האבוקדו",,Geometridae,0,0
+204,1960484,497404,,"Problepsis ocellata",,"מודד עינוני",,Geometridae,0,0
+205,1970242,1383205,,"Selidosema combustaria",,"מודד פאולוס",,Geometridae,0,0
+206,4524712,487586,,"Apochima flabellaria",,"מודד קיפודי",,Geometridae,0,0
+208,1785361,483542,,"Ctenoplusia accentifera",,"קטנופלוסיה אקסנטיפרה","Accent Gem",Noctuidae,0,0
+209,5142599,861824,,"Pyrgus melotis",,"אפורית מזרחית"," הספרית מזרחית",Hesperiidae,0,0
+210,1765751,232336,,"Tathorhynchus exsiccata",,"טאתורינכוס אקסיקטה","Alfalfa Looper Moth",Noctuidae,0,0
+211,1873890,215616,,"Cadra cautella",,"קדרה קאוטלה","Almond moth",Pyralidae,0,0
+212,1782560,205151,,"Phlogophora meticulosa",,"פלוגופורה מטיקולוסה","Angle Shades",Noctuidae,0,0
+213,4533115,429105,,"Agrochola lychnidis",,"אגרוקולה ליכנידיס","Beaded Chestnut",Noctuidae,0,0
+214,1859285,322803,,"Amblyptilia acanthadactyla",,"אמבליפטילייה אקנתדקטילה","Beautiful Plume Moth",Pterophoridae,0,0
+215,1882210,224154,,"Loxostege sticticalis",,"לוקסוסטגה סטיקטיקליס","Beet Webworm Moth",Crambidae,0,0
+216,1760891,342909,,"Aporophyla nigra",,"אפורופילה ניגרה","Black Rustic",Noctuidae,0,0
+217,4534796,220292,,"Garella nilotica",,"גארלה נילוטיקה","Black-olive Caterpillar Moth",Nolidae,0,0
+218,5149787,469101,,"Cyclophora puppillaria",,"ציקלופורה פופילריה","Blair`s Mocha",Geometridae,0,0
+219,1798802,342196,,"Hypena obsitalis",,"היפנה אובסיטליס","Bloxworth Snout",Erebidae,0,0
+220,5130464,51566,,"Junonia orithya",,"נימפית כחולה"," נמפית לחך",Nymphalidae,0,0
+221,5147354,362140,,"Idaea ochrata",,"אידאה אוכרטה","Bright Wave",Geometridae,0,0
+222,1933095,125494,,"Aricia agestis",,"כחליל הגרניון",,Lycaenidae,0,0
+223,1786360,202789,,"Trichoplusia ni",,"טריכופלוסיה ני","Cabbage Looper Moth",Noctuidae,0,0
+224,1858163,193928,,"Tinea pellionella",,"טינאה פליונלה","Case-bearing Clothes Moth",Tineidae,0,0
+225,1759153,429128,,"Atethmia centrago",,"אתתמיה צנטראגו","Centre-barred Sallow",Noctuidae,0,0
+226,5109498,468695,,"Cucullia chamomillae",,"קוקוליה כממילה","Chamomile Shark",Noctuidae,0,0
+227,1848690,361795,,"Bryotropha terrella",,"בריוטרופה טרלה","cinerous neb",Gelechiidae,0,0
+228,1749580,257156,,"Phyllocnistis citrella",,"פילוקניסטיס ציטרלה","Citrus Leafminer",Gracillariidae,0,0
+229,1871407,129149,,"Hypsopygia costalis",,"היפסופוגיה קוסטליס","Clover Hayworm Moth",Pyralidae,0,0
+230,1736904,324316,,"Gypsonoma dealbana",,"גיפסונומה דיאלבנה","Common Cloaked Shoot",Tortricidae,0,0
+231,4535754,347592,,"Ypthima asterope",,"טבעית זוטית"," סטירית טבעת",Nymphalidae,0,0
+232,11846897,344771,,"Blastesthia tessulatana",,"עשפרי הברוש",,Tortricidae,0,0
+233,8148822,336697,5115818,"Epicallia villica","Arctia villica","דובון החורש",,Erebidae,0,0
+234,1770821,347028,,"Agrotis trux",,"אגרוטיס טרוקס","Crescent Dart",Noctuidae,0,0
+235,1918769,340843,,"Hipparchia pisidice",,"סטירית סיני",,Nymphalidae,0,0
+236,5111481,468593,,"Leucania putrescens",,"לוקניה פוטרסנס","Devonshire Wainscot",Noctuidae,0,0
+237,11962292,205120,8177796,"Collita griseola","Eilema griseola","איילמה גריסאולה",,Erebidae,0,0
+238,1992066,311619,,"Gymnoscelis rufifasciata",,"גימנוסליס רופיפסיאטה","Double-striped Pug",Geometridae,0,0
+239,1741771,470682,,"Endothenia oblongana",,"אנדותניה אובלונגנה","Downland Marble",Tortricidae,0,0
+240,1962584,468729,,"Tephronia sepiaria",,"טפרוניה ספיאריה","Dusky Carpet",Geometridae,0,0
+241,4534675,483526,,"Heliothis nubigera",,"הליאוטיס נוביגרה","Eastern Bordered Straw",Noctuidae,0,0
+243,1784349,483546,,"Cornutiplusia circumflexa",,"קורנוטיפלוסיה סירקומפלקסה","Essex Y",Noctuidae,0,0
+244,8223165,142981,,"Ostrinia nubilalis",,"נובר התירס האירופי","עש התירס האירופי | עשנור התירס",Crambidae,0,0
+245,1922572,467564,,"Pseudophilotes abencerragus",,"תכליל נבטי"," כחליל נבטי",Lycaenidae,0,0
+246,1790692,335065,,"Tyta luctuosa",,"טיטה לוקטואוסה","Four-spotted Moth",Erebidae,0,0
+247,1845962,319099,,"Oegoconia quadripuncta",,"אגוקוניה מרובעת","Four-spotted Yellowneck Moth",Autostichidae,0,0
+248,1986157,243705,,"Xanthorhoe fluctuata",,"קסנתורה פלוקטטה","Garden Carpet",Geometridae,0,0
+249,5126680,470902,,"Anania verbascalis",,"אנניה ורבסקליס","Golden Pearl",Crambidae,0,0
+250,5139040,1265002,,"Freyeria trochylus",,"כחליל מקושט",,Lycaenidae,0,0
+251,1882965,243911,,"Herpetogramma licarsisalis",,"הרפטוגרמה ליקרסיסליס","Grass Webworm Moth",Crambidae,0,0
+252,4533714,497410,,"Agrotis bigramma",,"אגרוטיס ביגרמה","Great Dart",Noctuidae,0,0
+253,1876542,122940,,"Galleria mellonella",,"עש השעווה הגדול","עש הדונג | עשנור הדונג הגדול",Pyralidae,0,0
+254,1788553,124891,,"Ophiusa tirhaca",,"אופיוסה טירקא","Green Drab",Erebidae,0,0
+255,4522753,333243,,"Adscita statices",,"אדסקיטה סטטיקס","Green Forester Moth",Zygaenidae,0,0
+256,1924097,60834,,"Glaucopsyche alexis",,"כחליל הדבשה",,Lycaenidae,0,0
+257,8407958,483573,,"Agrotis spinifera",,"אגרוטיס ספיניפרה","Gregson`s Dart",Noctuidae,0,0
+258,4533720,469808,,"Agrotis catalaunensis",,"אגרוטיס קטלאוננסיס","Grouville Dart",Noctuidae,0,0
+259,1886251,52043,,"Spoladea recurvalis",,"ספולאדאה רקורבליס","Hawaiian Beet Webworm Moth",Crambidae,0,0
+260,1860765,522502,,"Nemophora fasciella",,"נמופורה פסיאלה","Horehound Longhorn",Adelidae,0,0
+261,1890670,711646,4532134,"Pyrausta testalis","Hodebertia testalis","הודברטיה טסטליס",,Crambidae,0,0
+262,4525034,567726,,"Acanthovalva inconspicuaria",,"אקנתובלבה אינקונספיקואריה","Inconspicuous Thornyvalve",Geometridae,0,0
+263,1771245,126276,,"Agrotis ipsilon",,"אגרוטיס איפסילון","Ipsilon Dart Moth",Noctuidae,0,0
+264,9137631,325626,,"Pseudoterpna coronillaria",,"פסאודוטרפנה קורונילריה","Jersey Emerald",Geometridae,0,0
+265,4532532,118936,,"Euplagia quadripunctaria",,"יופלגיה קוואדריפונקטריה","Jersey Tiger",Erebidae,0,0
+266,7934873,68354,1899295,"Melitaea phoebe",,"כתמית אירופית"," נמפית הדרדר",Nymphalidae,0,0
+267,1798481,344822,,"Dysgonia torrida",,"דיסגוניה טוררידה",Jigsaw,Erebidae,0,0
+268,1858674,311417,,"Lantanophaga pusillidactylus",,"לנטנופגה פוסילדקטילוס","Lantana Plume Moth",Pterophoridae,0,0
+269,4535620,334400,,"Kirinia roxelana",,"חומנית עינונית"," סטירית אנטולית",Nymphalidae,0,0
+270,1841159,324110,,"Batia lunaris",,"בטיה לונריס","Lesser Tawny Crescent",Oecophoridae,0,0
+271,1870988,362715,,"Achroia grisella",,"עש הדונג הקטן",,Pyralidae,0,0
+272,1770869,483384,,"Agrotis cinerea",,"אגרוטיס סינראיה","Light Feathered Rustic",Noctuidae,0,0
+273,1983525,325476,,"Eupithecia centaureata",,"אופיטסיה צנטאוראטה","Lime-speck Pug",Geometridae,0,0
+274,1737775,324225,,"Cydia splendana",,"צידיה ספלנדנה",,Tortricidae,0,0
+275,5135513,55653,,"Maniola jurtina",,"סטירית הקיץ","Meadow Brown",Nymphalidae,0,0
+276,1872901,199870,,"Pyralis farinalis",,"עש הקמח",,Pyralidae,0,0
+277,1890534,55658,,"Pyrausta aurata",,"פיראוסטה אורטה","Mint Moth",Crambidae,0,0
+278,1859046,127431,,"Emmelina monodactyla",,"עשנוצית החבלבל",,Pterophoridae,0,0
+279,1919348,143076,,"Catopsilia pyranthe",,"Mottled Emigrant",,Pieridae,0,0
+280,5109661,61970,,"Cucullia verbasci",,"תנשמית הבוצין",,Noctuidae,0,0
+281,1879408,208101,,"Hellula undalis",,"הלולה אונדליס","Old World Webworm",Crambidae,0,0
+282,1957611,496934,,"Peribatodes umbraria",,"פריבטודס אומברריה","Olive-tree Beauty",Geometridae,0,0
+283,1892476,371398,,"Achyra nudalis",,"אכירה נודליס","Orange Naked Pearl",Crambidae,0,0
+284,5109882,124875,,"Spodoptera litura",,"ספודופטרה ליטורה","Oriental leafworm moth",Noctuidae,0,0
+285,1879471,199428,,"Hydriris ornatalis",,"הידריריס אורנטליס","Ornate Hydriris Moth",Crambidae,0,0
+286,1763072,415493,,"Acontia lucida",,"אקונטיה לוסידה","Pale Shoulder",Noctuidae,0,0
+287,5772309,495570,,"Chloantha hyperici",,"כלאונתה היפריסי","Pale-shouldered Cloud",Noctuidae,0,0
+288,1847640,324700,,"Anarsia lineatella",,"אנרסיה ליניאטלה","Peach twig borer",Gelechiidae,0,0
+289,5130026,496927,,"Melitaea persea",,"נימפית פרסית",,Nymphalidae,0,0
+290,4532266,121901,,"Eublemma cochylioides",,"אובלמה קוכילואידס","Pink-barred Eublemma",Noctuidae,0,0
+291,4532500,476145,,"Pechipogo plumigeralis",,"Plumed Fan-foot","Plumed Fan-foot",Erebidae,0,0
+292,10656713,1655282,,"Deudorix livia","Capys livia","כחליל הרימון"," כחליל רימון",Lycaenidae,0,0
+293,5147441,318537,,"Idaea degeneraria",,"Portland Ribbon Wave","Portland Ribbon Wave",Geometridae,0,0
+294,1731598,362858,,"Phragmataecia castaneae",,"ססעץ הקנים",,Cossidae,0,0
+295,6118502,671268,,"Isturgia exerraria",,"איסטורגיה אקסרריה","Rooibos Looper",Geometridae,0,0
+296,5125689,205154,,"Endotricha flammealis",,"אנדוטריכה פלממליס","Rosy Tabby",Pyralidae,0,0
+297,1875120,324401,,"Oncocera semirubella",,"אונקוצרה סמירובלה","Rosy-striped Knot-horn",Pyralidae,0,0
+298,1804071,143114,,"Phragmatobia fuliginosa",,"פרגמטובייה פוליגינוזה","Ruby Tiger Moth",Erebidae,0,0
+299,1881151,124027,,"Nomophila noctuella",,"נומופילה נוקטואלה","Rush Veneer",Crambidae,0,0
+300,6121184,324928,,"Udea ferrugalis",,"אודאה פרוגינליס","Rusty Dot Pearl",Crambidae,0,0
+301,5147150,466365,,"Idaea inquinata",,"אידאה אינקווינאטה","Rusty Wave",Geometridae,0,0
+302,5146837,483281,,"Idaea subsericeata",,"אידאה סובסריקטטה","Satin Wave",Geometridae,0,0
+303,1890898,501166,,"Pyrausta sanguinalis",,"פיראוסטה סנגווינליס","Scarce Crimson and Gold",Crambidae,0,0
+304,9819403,52041,,"Antigastra catalaunalis",,"אנטיגסטרה קטלאונליס","Sesame Leafroller",Crambidae,0,0
+305,1770772,324921,,"Agrotis puta",,"אגרוטיס פוטה","Shuttle-shaped Dart",Noctuidae,0,0
+306,1795068,124890,,"Thysanoplusia orichalcea",,"טיסנופלוסיה אוריכלקאה","Slender Burnished Brass",Noctuidae,0,0
+307,8014296,205090,,"Scopula imitaria",,"סקופולה אימיטריה","Small Blood-vein",Geometridae,0,0
+309,4532206,243533,,"Eublemma parva",,"אובלמה קטנה","Small Marbled",Noctuidae,0,0
+310,1919966,362094,,"Zegris eupheme",,"כתום-קצה מדברי","לבנין מדברי",Pieridae,0,0
+311,1898521,142948,,"Polygonia egea",,"נימפית משוננת",,Nymphalidae,0,0
+312,1771163,483390,,"Agrotis herzogi",,"אגרוטיס הרצוגי","Spalding`s Dart",Noctuidae,0,0
+313,1803025,447895,,"Earias biplaga",,"איאריס ביפלגה","Spiny Bollworm",Nolidae,0,0
+314,1820406,47802,,"Lymantria dispar",,"טוואית האלון",,Erebidae,0,0
+315,5772063,735259,,"Acontia trabealis",,"אקונטיה טרבאליס","Spotted Sulphur",Noctuidae,0,0
+316,1749904,205595,,"Phyllonorycter blancardella",,"פילונוריקטר בלנקארדלה","Spotted Tentiform Leafminer Moth",Gracillariidae,0,0
+317,5112283,48162,,"Xestia xanthographa",,"קססטיה קסנתוגרפה","Square-spot Rustic",Noctuidae,0,0
+318,1883386,526892,,"Cynaeda dentalis",,"צינאדה דנטליס","Starry Pearl",Crambidae,0,0
+319,1877988,212728,,"Aglossa caprealis",,"אגלוסה קפריאליס","Stored grain moth",Pyralidae,0,0
+320,6116899,570461,,"Vittaplusia vittata",,"ויטאפלוסיה ויטאטה","Streaked Plusia",Noctuidae,0,0
+321,5770913,325665,,"Esperia sulphurella",,"אספריה סולפורלה","Sulphur Tubic",Oecophoridae,0,0
+322,9220953,124090,,"Chiasmia aestimaria",,"כיאסמיה אסטימריה","Tamarisk Peacock",Geometridae,0,0
+324,1777517,71196,,"Eutelia adulatrix",,"אאוטליה אדולטריקס","The Adulatrix",Euteliidae,0,0
+325,5772222,468734,,"Leucania loreyi",,"לוקניה לוריי","The Cosmopolitan",Noctuidae,0,0
+326,1798504,199266,,"Dysgonia algira",,"דיסגוניה אלגירה","The Passenger",Erebidae,0,0
+327,1873215,324518,,"Lamoria anella",,"עשנור התפוח",,Pyralidae,0,0
+328,1876329,429153,,"Myelois circumvoluta",,"מיילואיס סירקומבולוטה","Thistle Ermine",Pyralidae,0,0
+329,1872873,330478,,"Pyralis manihotalis",,"פירליס מניהוטליס","Tropical Meal Moth",Pyralidae,0,0
+330,1786985,371986,,"Grammodes bifasciata",,"גרמוודס ביפסיאטה","Two Lines",Erebidae,0,0
+331,1764174,428937,,"Pseudozarba bipartita",,"פסאודוזרבה ביפרטיטה","Twoband Ozarba",Noctuidae,0,0
+332,1896957,123912,,"Charaxes jasius",,"קיסרית הקטלב"," נמפית קטלב",Nymphalidae,0,0
+333,1884774,205111,,"Synclera traducalis",,"סינקלרה טרדוקליס",,Crambidae,0,0
+334,1845270,219582,,"Ethmia bipunctella",,"אתמיה ביפונקטלה","Viper`s Bugloss Moth",Ethmiidae,0,0
+335,1932172,53843,,"Brephidium exilis",,"Western Pygmy-Blue",,Lycaenidae,0,0
+336,5772169,121183,,"Mythimna unipuncta",,"מיתימנה יוניפונקטה","White-speck Moth",Noctuidae,0,0
+337,1957572,83459,,"Peribatodes rhomboidaria",,"פריבטודס רומבוידריה","Willow Beauty",Geometridae,0,0
+338,1967265,325268,,"Aspitates ochrearia",,"אספיטטס אוקרריה","Yellow Belle",Geometridae,0,0
+339,1952229,483271,,"Achlya flavicornis",,"אכליה פלביקורניס","Yellow Horned",Drepanidae,0,0
+340,4532024,466347,,"Evergestis isatidalis",,"אברגסטיס איסאטידליס",,Crambidae,0,0
+341,1877549,417286,6114267,"Aglossa aglossalis","Crocalia aglossalis","אגלוסה אגלוסליס",,Pyralidae,0,0
+342,4533705,792346,,"Agrotis pierreti",,"אגרוטיס פיירטי",,Noctuidae,0,0
+343,1878935,974537,,"Agriphila beieri",,"אגריפילה ביירי",,Crambidae,0,0
+344,6115782,1199119,12073243,"Eublemma siticuosa","Eublemma albina","אובלמה אלבינה",,Noctuidae,0,0
+345,1839094,553166,,"Odites kollarella",,"אודיטס קולרלה",,Peleopodidae,0,0
+346,1875425,548268,,"Euzophera osseatella",,"אוזופרה אוסאטלה","Potato Knot-horn",Pyralidae,0,0
+347,1875409,951142,,"Euzophera lunulella",,"אוזופרה לונוללה",,Pyralidae,0,0
+348,4526283,322940,,"Oiketicoides lutea",,"ססתיק צהוב","סס הנרתיק",Psychidae,0,0
+349,1891190,504263,,"Euchromius bella",,"אוכרומיוס בלה",,Crambidae,0,0
+350,1891177,326861,,"Euchromius superbella","Euchromius superbellus","אוכרומיוס סופרבלוס",,Crambidae,0,0
+351,1891217,709413,,"Euchromius cambridgei",,"אאוכרומיוס קמברידג`אי",,Crambidae,0,0
+352,1891198,550795,,"Euchromius ramburiellus",,"אוכרומיוס רמבוריאלוס",,Crambidae,0,0
+353,10245594,1380205,,"Eumannia fumosata",,"אומניה פומוסטה",,Geometridae,0,0
+354,1962136,510050,,"Eumera turcosyrica",,"אומרה טורקוסוריקה",,Geometridae,0,0
+355,4531736,1145256,,"Usgentia vespertalis",,"אוסגנטיה וספרטליס",,Crambidae,0,0
+356,1982383,699386,,"Eupithecia extremata",,"אופיטסיה אקסטרמטה",,Geometridae,0,0
+357,1982704,1235419,,"Eupithecia syriacata",,"אופיטסיה סיריאקטה",,Geometridae,0,0
+358,1803097,570458,,"Earias syriacana",,"איאריס סיריאקנה",,Nolidae,0,0
+359,5146894,701914,,"Idaea intermedia",,"אידאה אינטרמדיה",,Geometridae,0,0
+360,5147319,470680,,"Idaea infirmaria",,"אידאה אינפרמריה",,Geometridae,0,0
+361,5147342,1077969,,"Idaea inclinata",,"אידאה אינקלינטה",,Geometridae,0,0
+362,5147275,1388213,,"Idaea affinitata",,"אידאה אפיניטטה",,Geometridae,0,0
+363,5146476,552538,,"Idaea distinctaria",,"אידאה דיסטינקטריה",,Geometridae,0,0
+364,5147058,466361,,"Idaea longaria",,"אידאה לונגריה",,Geometridae,0,0
+365,5146921,801689,,"Idaea palaestinensis",,"אידאה פלשתינאית",,Geometridae,0,0
+366,5147030,809385,,"Idaea consanguinaria",,"אידאה קונסנגווינריה",,Geometridae,0,0
+367,12020275,715494,5116679,"Muscula muscula","Eilema muscula","איילמה מוסקולה",,Erebidae,0,0
+368,4525089,1322991,,"Isturgia berytaria",,"איסטורגיה בריטריה",,Geometridae,0,0
+369,4525084,534678,,"Isturgia disputaria",,"איסטורגיה דיספוטריה","Maltese bloom",Geometridae,0,0
+370,1819050,1105015,,"Albarracina warionis",,"טוואית השרביטן",,Erebidae,0,0
+371,5125306,470979,,"Alophia combustella",,"אלופיה קומבוסטלה",,Pyralidae,0,0
+372,1871783,470681,,"Ematheudes punctellus","Ematheudes punctella","אמאתאודס פונקטלה",,Pyralidae,0,0
+373,1851199,1257184,,"Amblypalpis olivierella",,"עשבחנין הכישור",,Gelechiidae,0,0
+374,1853263,881734,,"Amicta quadrangularis",,"ססתיק מרובע",,Psychidae,0,0
+375,1874728,466324,,"Ancylosis convexella",,"אנצילוזיס קונבקסה",,Pyralidae,0,0
+376,1880931,470878,,"Ancylolomia palpella",,"אנצילולומיה פלפלה",,Crambidae,0,0
+377,1880896,715959,,"Ancylolomia pectinatella","Ancylolomia pectinatellus","אנצילולומיה פקטינטלוס",,Crambidae,0,0
+378,1958185,1020484,,"Acidaliastis micra",,"אסידאליאסטיס מיקרה",,Geometridae,0,0
+379,1871969,977544,4531354,"Arenipses sabella","Aphomia sabella","אפומיה סבלה",,Pyralidae,0,0
+380,7562564,466331,,"Aporodes floralis",,"אפורודס פלורליס",,Crambidae,0,0
+381,4533255,332386,,"Aporophyla canescens",,"אפורופילה קנסנס",,Noctuidae,0,0
+382,1786619,782697,,"Episema glaucina",,"אפיסמה גלאוסינה",,Noctuidae,0,0
+383,1833677,549602,4528681,"Epicallima icterinella","Fabiola icterinella","אפיקלימה איקטרינלה",,Oecophoridae,0,0
+384,1874278,853025,1874281,"Acrobasis glaucella","Acrobasis fallouella","אקרובסיס פלואלה",,Pyralidae,0,0
+385,1874280,549656,,"Acrobasis romanella",,"אקרובסיס רומנלה",,Pyralidae,0,0
+386,1782724,978109,,"Acronicta pasiphae",,"אקרוניקטה פסיפאה",,Noctuidae,0,0
+387,1759159,875842,,"Atethmia ambusta",,"אתתמיה אמבוסטה",,Noctuidae,0,0
+388,1774227,1259382,,"Boursinia discordans",,"בורסיניה דיסקורדנס",,Noctuidae,0,0
+389,1842198,1090931,,"Bifascioides leucomelanella",,"ביפסקיואידס לאוקומלנלה",,Cosmopterigidae,0,0
+390,4525828,889588,,"Bembecia stiziformis",,"במבציה סטיזיפורמיס",,Sesiidae,0,0
+391,9069966,1253377,,"Bryophila tephrocharis",,"בריופילה טפרוכאריס",,Noctuidae,0,0
+392,8831094,1021012,,"Bryophila rectilinea",,"בריופילה רקטילינאה",,Noctuidae,0,0
+393,1988510,1456810,,"Brachyglossina purpureomarginata",,"ברכיגלוסינה פורפוראומארגינטה",,Geometridae,0,0
+394,1786981,1064528,,"Grammodes boisdeffrii",,"גרמוודס בואסדפרי",,Erebidae,0,0
+395,4532150,466351,,"Dolicharthria bruguieralis",,"דוליכארתריה ברוגייראליס",,Crambidae,0,0
+396,5771885,932007,4532159,"Dolicharthria daralis","Stenia daralis","דוליכארתריה דארליס",,Crambidae,0,0
+397,1876683,1337679,,"Dattinia guttosalis",,"דטיניה גוטוזליס",,Pyralidae,0,0
+398,1814653,335662,1814610,"Dysauxes punctata","Dysauxes famula","דיסאוקסס פמולה",,Erebidae,0,0
+399,1969463,1445188,11054216,"Gnophos sartata","Dicrognophos sartata","מודד אפלולי",,Geometridae,0,0
+400,1985573,531641,,"Dasycorsa modesta",,"דסיקורסה מודסטה",,Geometridae,0,0
+401,1871451,473006,,"Hypotia corticalis",,"היפוטיה קורטיקליס",,Pyralidae,0,0
+402,1952816,325640,,"Watsonalla uncinula",,"ווטסונלה אוניקולה","Spiny Hook-Tip",Drepanidae,0,0
+403,1783882,541930,,"Zebeeba falsalis",,"זבבה פלסאליס",,Erebidae,0,0
+404,5106362,858646,,"Zygaena brizae",,"זיגנה בריזאה",,Zygaenidae,0,0
+405,1785260,875396,,"Zekelita ravalis",,"זקליטה רבליס",,Erebidae,0,0
+406,1772822,548659,,"Zethes insularis",,"זתס אינסולריס",,Erebidae,0,0
+407,1886637,623027,,"Tegostoma baphialis",,"טגוסטומה בפילס",,Crambidae,0,0
+408,11493718,716326,,"Teinoptera gafsana",,"טיינופטרה גפסנה",,Erebidae,0,0
+409,1857581,715015,,"Trichophaga bipartitella",,"טריכופגה ביפרטיטלה",,Tineidae,0,0
+410,1821547,509158,1821495,"Euproctis fasciata","Euproctis susanna","יופרוקטיס סוזנה",,Erebidae,0,0
+411,6114147,210965,,"Choreutis aegyptiaca",,"כוראוטיס אגיפטיאקה",,Choreutidae,0,0
+412,5123419,366850,,"Choreutis sexfasciella",,"כוראוטיס סקספסיאלה",,Choreutidae,0,0
+413,1941446,876014,,"Chamaesphecia chalciformis",,"כמספציה חלקיפורמיס",,Sesiidae,0,0
+414,1941399,465337,,"Chamaesphecia masariformis",,"כמספציה מסריפורמיס",,Sesiidae,0,0
+415,4524925,578080,,"Charissa subtaurica",,"כריסה סובטאוריקה",,Geometridae,0,0
+416,1775310,963199,,"Leucochlaena jordana",,"לאוקוכלאנה ירדנית",,Noctuidae,0,0
+417,1775315,977708,,"Leucochlaena muscosa",,"לאוקוכלאנה מוסקוסה",,Noctuidae,0,0
+418,9111961,893706,,"Loryma egregialis",,"Pied Tabby",,Pyralidae,0,0
+419,1964405,978134,,"Lithostege palaestinensis",,"ליתוסטגה פלשתינאית",,Geometridae,0,0
+420,1759606,602055,,"Lithophane lapidea",,"ליתופנה לפידאה",,Noctuidae,0,0
+421,1734788,1149281,,"Lasiocampa josua",,"טוואי יהושע",,Lasiocampidae,0,0
+422,1734718,751559,,"Lasiocampa terreni",,"לסיאוקמפה טרני",,Lasiocampidae,0,0
+423,4534769,466355,,"Meganola togatulalis",,"מגנולה טוגטולליס",,Nolidae,0,0
+424,8363507,466319,,"Metachrostis velox",,"מטאכרוסטיס וולוקס",,Noctuidae,0,0
+425,1881461,751192,,"Metasia rosealis",,"מטאסיה רוזאליס",,Crambidae,0,0
+426,10707132,1304997,,"Mattia callidaria",,"מטיאה קלידריה",,Geometridae,0,0
+427,1963168,467232,,"Microloxia herbaria",,"מיקרולוקסיה הרבריה",,Geometridae,0,0
+428,1800594,1288550,,"Micronola wadicola",,"מיקרונולה ואדיקולה",,Erebidae,0,0
+429,1939648,1077304,,"Micropterix elegans",,"מיקרופטריקס אלגנס",,Micropterigidae,0,0
+430,1939686,1239387,,"Micropterix berytella",,"מיקרופטריקס בריטלה",,Micropterigidae,0,0
+431,5772171,371766,,"Mythimna languida",,"מיתימנה לנגווידה",,Noctuidae,0,0
+432,1850815,468455,,"Mesophleps corsicella",,"מסופלפס קורסיקלה",,Gelechiidae,0,0
+433,1875687,1021014,4531344,"Merulempista turturella","Pempelia turturella","מרולמפיסטה טורטורלה",,Pyralidae,0,0
+434,9894093,894901,,"Nola infantula","Nola delicata","נולה אינפנטולה",,Nolidae,0,0
+435,1987182,1020483,,"Neromia pulvereisparsa",,"נרומיה פולוורייזפרסה",,Geometridae,0,0
+436,12248596,1322700,,"Sazonia fenusaeformis",,"סזוניה פנוסאפורמיס",,Sesiidae,0,0
+437,1831458,208095,,"Stathmopoda auriferella",,"סטאתמופודה אוריפרלה",,Stathmopodidae,0,0
+438,1758869,977606,,"Stilbina hypaenides",,"סטילבינה היפנידס",,Noctuidae,0,0
+439,1892399,932676,,"Cybalomia pentadalis",,"סיבלומיה פנטדליס",,Crambidae,0,0
+440,1845866,363635,,"Symmoca signatella",,"סימוקה סיגנטלה",,Autostichidae,0,0
+441,4525803,639039,,"Synanthedon stomoxiformis",,"סיננתדון סטומקסיפורמיס",,Sesiidae,0,0
+442,1871261,738428,,"Synaphe morbidalis",,"סינפה מורבידליס",,Pyralidae,0,0
+443,5145502,202588,,"Scopula minorata",,"סקופולה מינורטה","Petite Wave",Geometridae,0,0
+444,1841910,876003,,"Scythris flabella",,"סקיתריס פלבלה",,Scythrididae,0,0
+445,1961013,428727,4523516,"Chlorissa etruscaria","Phaiogramma etruscaria","פאיוגרמה אטרוסקריה",,Geometridae,0,0
+446,4523519,494405,,"Phaiogramma faustinata",,"פאיוגרמה פאוסטנטה",,Geometridae,0,0
+447,1963743,1226479,,"Phaselia deliciosaria",,"פאסליה דליסיוסריה",,Geometridae,0,0
+448,9216956,1280864,,"Polymixis ivanchiki",,"פולימיקסיס איוונטשיקי",,Noctuidae,0,0
+449,4533325,875899,,"Polymixis trisignata",,"פולימיקסיס טריסיגנטה",,Noctuidae,0,0
+450,1780996,803926,,"Polymixis serpentina",,"פולימיקסיס סרפנטינה",,Noctuidae,0,0
+451,1822563,977567,,"Furcula interrupta",,"דו זיפן הצפצפה",,Notodontidae,0,0
+452,5123138,686690,,"Pterophorus ischnodactyla","Pterophorus ischnodactylus","פטרופורוס אישנודקטילוס",,Pterophoridae,0,0
+453,4534653,1008867,,"Philareta treitschkii","Philareta treitschkei","פילרטה טרייטשקיי",,Nymphalidae,0,0
+454,1842097,470875,,"Pyroderces argyrogrammos",,"פירודרסס ארגירוגרמוס",,Cosmopterigidae,0,0
+455,11198991,1283189,,"Pyropteron jordanicum",,"פירופטרון ירדני",,Sesiidae,0,0
+456,1747507,876122,,"Pelochrista labyrinthicana",,"פלוכריסטה לבירינטיקנה",,Tortricidae,0,0
+457,9546514,801343,,"Palumbina guerinii",,"פלומבינה גריני",,Gelechiidae,0,0
+458,1744526,468677,,"Phalonidia contractana",,"פלונידיה קונטרקטנה",,Tortricidae,0,0
+459,5110490,363553,,"Plecoptera reflexa",,"פלקופטרה רפלקסה",,Erebidae,0,0
+460,1878350,1105119,9464716,"Psorosa tergestella","Pseudacrobasis tergestella","פסאודואקרובסיס טרסגסטלה",,Pyralidae,0,0
+461,1954564,868283,,"Pseudopanthera syriacata",,"פסאודופנתרה סיריאקטה",,Geometridae,0,0
+462,11738490,977626,,"Pseudenargia deleta",,"פסאודנרגיה דלטה",,Noctuidae,0,0
+463,1781502,238800,,"Pericyma albidentaria",,"פריסימה אלבידנטריה",,Erebidae,0,0
+464,1781525,716140,,"Pericyma squalens",,"פריסימה סקוואלנס",,Erebidae,0,0
+465,6121267,681707,,"Parapoynx affinialis",,"פרפוינקס אפיניאליס",,Crambidae,0,0
+466,1780881,716381,,"Cerocala sana",,"צרוקלה סנה",,Erebidae,0,0
+467,1879001,603497,,"Cornifrons ulceratalis",,"קורניפרונס אולצרטליס",,Crambidae,0,0
+468,4532461,501532,,"Catocala eutychea",,"קטוקלה אוטיכאה",,Erebidae,0,0
+469,1964180,872660,,"Catarhoe hortulanaria",,"קטרואה הורטולנריה",,Geometridae,0,0
+470,10547111,974531,,"Catarhoe mosulensis",,"קטרואה מוסולנסיס",,Geometridae,0,0
+471,1774863,977968,,"Cleonymia chabordis",,"קלאונימיה חבורדיס",,Noctuidae,0,0
+472,5112038,977973,,"Clytie infrequens",,"קליטיה אינפרקוונס",,Erebidae,0,0
+473,5112007,875377,,"Clytie syriaca",,"קליטיה סוריאקה",,Erebidae,0,0
+474,1737484,782634,,"Clepsis burgasiensis",,"קלפסיס בורגסיאנסס",,Tortricidae,0,0
+475,11756950,543016,4524050,"Nebula salicata","Coenotephria ablutaria","קנוטפריה אבולוטריה",,Geometridae,0,0
+476,4532286,513231,,"Casama innotata",,"טוואית הינבוט",,Erebidae,0,0
+477,5112319,716323,,"Xestia palaestinensis",,"קססטיה פלשתינאית",,Noctuidae,0,0
+478,1990582,466344,,"Crocallis tusciaria",,"קרוקליס טוסקיאריה",,Geometridae,0,0
+479,1873051,548953,,"Cryptoblabes gnidiella",,"קריפטובלבאס גנידיאלה","Christmas Berry Webworm",Pyralidae,0,0
+480,1769035,716336,6116707,"Rhabdophera arefacta","Homaea arefacta","רבדוסטרופיה ארפקטה",,Erebidae,0,0
+481,1967003,364074,1966993,"Rhodostrophia tabidaria","Rhodostrophia discopunctata","רודוסטרופיה דיסקופונקטטה",,Geometridae,0,0
+482,1857797,1292499,,"Reisserita latiusculella",,"רייזרריטה לטיוסקוללה",,Tineidae,0,0
+483,4522744,467480,,"Theresimima ampellophaga",,"תרסימימה אמפלופגה",,Zygaenidae,0,0
+484,1920359,467481,,"Colotis chrysonome",,"דרומי המרואה"," לבנין מרואה",Pieridae,0,0

@@ -1,0 +1,1765 @@
+Unmatched species from master-species-map.ts after join with species_master_list.csv
+Total unmatched: 1762
+
+Ablattaria arenaria
+Ablepharus rueppellii
+Acacia saligna
+Acanthus syriacus
+Achyranthes aspera
+Acridotheres tristis
+Acridotheres tristis tristis
+Acrobasis bithynella
+Acrobasis consociella
+Acrobasis fallouella
+Acrobasis legatea
+Acrosternum millierei
+Acrotylus insubricus
+Acrotylus patruelis
+Adalia decempunctata
+Adonis annua
+Adonis microcarpa
+Adonis palaestina
+Aedes albopictus
+Aegilops geniculata
+Aegilops peregrina
+Agalmatium bilobum
+Agapanthia suturalis
+Agelena labyrinthica
+Agelena orientalis
+Agonopterix rutana
+Agriopis bajaria
+Agriphila inquinatella
+Agrochola hypotaenia
+Agrochola osthelderi
+Agrochola pauli
+Agrochola staudingeri
+Agrotis haifae
+Aiolopus puissanti
+Aiolopus strepens
+Ajuga chamaepitys
+Ajuga chamaepitys chia
+Alcea setosa
+Alcedo atthis
+Alectryon tomentosus
+Aleucis orientalis
+Alhagi graecorum
+Allium galileum
+Allium neapolitanum
+Allium phanerantherum
+Allophyes benedictina
+Alopecurus myosuroides
+Alosimus brevicornis
+Altenia mersinella
+Alyssum simplex
+Alyssum strigosum
+Amanita echinocephala
+Amaranthus blitoides
+Amaranthus palmeri
+Amaranthus retroflexus
+Ambrosia confertiflora
+Ameles heldreichi
+Ammi majus
+Ammobatoides abdominalis
+Amphipyra micans
+Anacamptis collina
+Anacamptis papilionacea palaestina
+Anacamptis sancta
+Anacridium aegyptium
+Anarta trifolii
+Anas acuta
+Anas platyrhynchos
+Anatrachyntis badia
+Anchusa aegyptiaca
+Anchusa strigosa
+Ancylolomia pectinatellus
+Ancylolomia tentaculella
+Ancylolomia tripolitella
+Ancylosis hellenica
+Ancyrosoma leucogrammes
+Andrachne telephioides
+Andricus miriami
+Androctonus crassicauda
+Andropogon distachyos
+Anemone coronaria
+Anthaxia muliebris
+Anthemis pseudocotula
+Anthracia eriopoda
+Anthrenus isabellinus
+Anthrenus verbasci
+Anthus cervinus
+Anthus pratensis
+Anthyllis circinnata
+Apate monachus
+Aphomia cephalonica
+Apis mellifera
+Aplidia chaifensis
+Aporophyla australis
+Apus apus
+Archips rosana
+Archispirostreptus syriacus
+Arctosa leopardus
+Ardea alba
+Ardea ibis
+Arenaria leptoclados
+Arge rustica
+Argiope lobata
+Argiope trifasciata
+Arisarum vulgare
+Aristolochia bottae
+Armadillidium marmoratum
+Arrhaphipterus blanchei
+Artedia squamata
+Arum dioscoridis
+Arum palaestinum
+Arundo donax
+Asparagus aphyllus
+Asparagus setaceus
+Asphodeline lutea
+Asphodelus ramosus
+Astragalus hamosus
+Astragalus macrocarpus
+Athene noctua
+Atractylis cancellata
+Atriplex halimus
+Atriplex prostrata
+Autophila cerealis
+Bassaniodes bufo
+Batocera rufomaculata
+Bedellia somnulentella
+Bellevalia flexuosa
+Bellis annua
+Bellis sylvestris
+Bena bicolorana
+Beosus quadripunctatus
+Beta vulgaris
+Biarum pyrami
+Bibio hortulanus
+Bidens pilosa
+Biscutella didyma
+Biston achyra
+Bituminaria bituminosa
+Blatta orientalis
+Blepharidopterus angulatus
+Blepharopsis mendica
+Bolboschoenus maritimus
+Bombus terrestris
+Bombycopsis ledereri
+Bombylella atra
+Bombylius medius
+Bongardia chrysogonum
+Borkhausenia einsleri
+Brachyglossina stefani
+Brachynema germarii
+Brachypodium sylvaticum
+Brachythemis impartita
+Bromus alopecuros
+Bromus lanceolatus
+Bryonia cretica
+Bryonia syriaca
+Bryopsis amasina
+Bubopsis andromache
+Bucephaloptera ebneri
+Bufotes viridis sitibundus
+Buglossoides arvensis
+Bupleurum nodiflorum
+Bupleurum subovatum
+Burhinus oedicnemus
+Caenocoris nerii
+Cairina moschata domestica
+Calathus fuscipes
+Calendula arvensis
+Calendula palaestina
+Calicotome villosa
+Calidris minuta
+Calliptamus barbarus
+Callonetta leucophrys
+Calocoris nemoralis
+Calocucullia celsiae
+Calophasia platyptera
+Campanula erinus
+Campanula rapunculus
+Camponotus sanctus
+Canis aureus
+Canis familiaris
+Cantharis lateralis
+Cantharis livida
+Cantharis melaspoides
+Capparis zoharyi
+Capsella bursa-pastoris
+Carabus impressus
+Caradrina clavipalpis
+Caradrina flavirena
+Caradrina kadenii
+Caradrina syriaca
+Carduelis carduelis
+Carduus argentatus
+Carlina curetum
+Carlina lanata
+Carpocoris mediterraneus
+Carpocoris mediterraneus mediterraneus
+Carthamus glaucus
+Cataglyphis nodus
+Catananche lutea
+Catocala nymphagoga
+Catocala separata
+Centaurea cyanoides
+Centaurea iberica
+Centaurea verutum
+Centaurium tenuiflorum
+Centrocoris variegatus
+Cephalaria joppensis
+Cerastium glomeratum
+Ceratitis capitata
+Ceratocapnos turbinata
+Ceratonia siliqua
+Cercopis intermedia
+Cercopis septemmaculata
+Cerroneuroterus lanuginosus
+Ceryle rudis
+Cettia cetti
+Ceutholopha isidis
+Chaetopelma olivaceum
+Chaetophiloscia elongata
+Chaetosciadium trichospermum
+Chalcides ocellatus
+Chalcolestes parvidens
+Chamaeleo chamaeleon
+Charissa onustaria
+Cheiracanthium mildei
+Chiliadenus iphionoides
+Chloris chloris
+Chlorophorus varius
+Chlorothalpa subsericata
+Chnootriba elaterii
+Chroicocephalus genei
+Chrysolina americana
+Chrysolina blanchei
+Chrysomya albiceps
+Chrysoperla carnea
+Cicada mordoganensis
+Cicadatra platyptera
+Cichorium endivia
+Ciconia nigra
+Cilix asiatica
+Cinnyris osea
+Cinnyris osea osea
+Circaetus gallicus
+Cistus creticus
+Cistus salviifolius
+Clamator glandarius
+Clarias gariepinus
+Clematis cirrhosa
+Clematis vitalba
+Clepsis consimilana
+Cleta cinneretharia
+Clitocybe diatreta
+Cloeon dipterum
+Clogmia albipunctata
+Clonaria libanica
+Closterotomus annulus
+Closterotomus norwegicus
+Coccinella septempunctata
+Coccinella undecimpunctata
+Codophila varia
+Coenotephria ablutaria
+Colchicum stevenii
+Colias crocea
+Collybia nuda
+Collybia rivulosa
+Coloeus monedula
+Columba livia
+Columba livia domestica
+Colus hirudinosus
+Commelina erecta
+Compsobuthus schmiedeknechti
+Condica capensis
+Condica viscosa
+Conium maculatum
+Convolvulus arvensis
+Convolvulus betonicifolius
+Convolvulus coelesyriacus
+Convolvulus humilis
+Convolvulus siculus
+Convolvulus siculus siculus
+Coprinopsis melanthina
+Coriandrum sativum
+Coridius viduatus
+Corizus hyoscyami
+Cornu aspersum
+Corvus cornix
+Cosmopterix pulchrimella
+Cotesia glomerata
+Crataegus azarolus
+Crataegus azarolus aronia
+Craterium brunneolum
+Crepis sancta
+Crocidosema plebejana
+Crocothemis erythraea
+Crocus hyemalis
+Crucianella macrostachya
+Cruciata articulata
+Cryphia algae
+Cryphia ochsi
+Ctenolepisma longicaudatum
+Cucullia syrtana
+Culex pipiens
+Curruca melanocephala
+Cyclamen persicum
+Cydia amplana
+Cydia fagiglandana
+Cydnus aterrimus
+Cylindromyia brassicaria
+Cynanchum acutum
+Cynara syriaca
+Cynodon dactylon
+Cynoglossum creticum
+Cyperus longus
+Cyperus rotundus
+Cyprinus carpio
+Cyrba algerina
+Daboia palaestinae
+Dactylopius opuntiae
+Dailognatha crenata
+Datura innoxia
+Datura stramonium
+Daucus carota
+Deconica merdaria
+Decticus albifrons
+Delphinium ithaburense
+Delphinium peregrinum
+Delta dimidiatipenne
+Depressaria ululana
+Deroceras laeve
+Dianthus strictus
+Dicrognophos sartata
+Dictyophara xiphias
+Dieuches syriacus
+Diloba caeruleocephala
+Dinebra retroflexa
+Dionconotus neglectus
+Dioryctria mendacella
+Dioscorea communis
+Diplachne fusca
+Diplotaxis erucoides
+Distoleon tetragrammicus
+Dittrichia graveolens
+Dittrichia viscosa
+Dodonaea viscosa
+Dolicharthria stigmosalis
+Dolichophis jugularis
+Dolichophron cylindromorphum
+Dolycoris baccarum
+Dorylus fulvus
+Draba minima
+Draba verna
+Drimia aphylla
+Dryobotodes carbonis
+Dryobotodes tenebrosa
+Dysauxes famula
+Dysdera westringi
+Dysphania ambrosioides
+Ecballium elaterium
+Echinops adenocaulos
+Echium angustifolium
+Echium glomeratum
+Echium judaeum
+Eclipta prostrata
+Ectomocoris melanogaster
+Edosa varians
+Egira tibori
+Eilema caniola
+Eilema muscula
+Eirenis lineomaculatus
+Eirenis rothii
+Elanus caeruleus
+Eleusine indica
+Ematheudes punctella
+Emberiza calandra
+Eminium spiculatum
+Empusa fasciata
+Enolmis acanthella
+Eopolita protensa jebusitica
+Ephedra foeminea
+Ephestia elutella
+Epilobium hirsutum
+Epinotia thapsiana
+Episema didymogramma
+Episyrphus balteatus
+Erigeron bonariensis
+Erigeron sumatrensis
+Erinaceus concolor
+Eristalinus taeniops
+Eristalis tenax
+Erithacus rubecula
+Erodium gruinum
+Erodium malacoides
+Erodium moschatum
+Eruca vesicaria
+Eryngium creticum
+Eublemma albina
+Eublemma gayneri
+Eublemma gratissima
+Eublemma ostrina
+Euborellia annulipes
+Euborellia femoralis
+Eucera nigrilabris
+Eudonia speideli
+Eulasia vittata lineata
+Eumeces schneiderii
+Eumeces schneiderii pavimentatus
+Eupeodes corollae
+Euphorbia aleppica
+Euphorbia exigua
+Euphorbia graminea
+Euphorbia helioscopia
+Euphorbia hierosolymitana
+Euphorbia hypericifolia
+Euphorbia oxyodonta
+Euphorbia peplus
+Euphorbia reuteriana
+Euphorbia serpens
+Eupithecia dodoneata
+Eupithecia unedonata
+Eurydema ornata
+Eurygaster integriceps
+Eusparassus walckenaeri
+Evarcha nepos
+Evarcha patagiata
+Exoacantha heterophylla
+Exosoma thoracicum
+Eyprepocnemis plorans
+Falco tinnunculus
+Fannia canicularis
+Felis catus
+Festella festae
+Ficus carica
+Foeniculum vulgare
+Forficula lurida
+Forficula smyrnensis
+Fringilla coelebs
+Fritillaria persica
+Frontinellina frutetorum
+Fulica atra
+Fumana arabica
+Fumaria densiflora
+Fumaria judaica
+Gagea chlorantha
+Gagea commutata
+Gagea rigida
+Galerida cristata
+Gallinago gallinago
+Gallinula chloropus
+Gambusia holbrooki
+Garrulus glandarius
+Garrulus glandarius atricapillus
+Geranium dissectum
+Geranium molle
+Geranium purpureum
+Geranium rotundifolium
+Geropogon hybridus
+Gladiolus italicus
+Glebionis coronaria
+Glebionis segetum
+Glinus lotoides
+Gloeophyllum abietinum
+Gnopharmia stevenaria
+Grammodes stolida
+Graphosoma italicum
+Graphosoma semipunctatum
+Grus grus
+Gryllus bimaculatus
+Gundelia tournefortii
+Habrocestum nahalit
+Halcyon smyrnensis
+Harmonia quadripunctata
+Harpyia milhauseri
+Hasarius adansoni
+Hecatera weissi
+Hedypnois rhagadioloides
+Helcystogramma lamprostoma
+Helianthemum aegyptiacum
+Helianthemum salicifolium
+Helianthus annuus
+Helichrysum sanguineum
+Heliophanus kochii
+Heliotropium bovei
+Heliotropium rotundifolium
+Heliotropium supinum
+Helix engaddensis
+Helosciadium nodiflorum
+Hemelytroblatta africana
+Hemidactylus turcicus
+Hemiechinus auritus
+Hemorrhois nummifer
+Henosepilachna argus
+Heptaptera anisopetala
+Heremites vittatus
+Heriaeus oblongus
+Hermaeophaga ruficollis
+Hermetia illucens
+Herpestes ichneumon
+Hersilia caudata
+Heterocerus fenestratus
+Heterogaster urticae
+Heteropalpia profesta
+Heterotheca subaxillaris
+Hibiscus trionum
+Hippodamia variegata
+Hirschfeldia incana
+Hirundo rustica
+Hogna graeca
+Hoplodrina ambigua
+Hordeum bulbosum
+Hordeum spontaneum
+Hordeum vulgare distichon
+Horistus turcomanus
+Hottentotta judaicus
+Hyacinthus orientalis
+Hyalomma aegyptium
+Hyalomma marginatum
+Hyparrhenia hirta
+Hypera postica
+Hypeuthina fulgurita
+Hypolixus pica
+Hypsopygia fulvocilialis
+Hypsopygia incarnatalis
+Hystrix indica
+Icerya purchasi
+Idaea belemiata
+Idaea camparia
+Idaea detritaria
+Idaea elongaria
+Idaea mimosaria
+Idaea tineata
+Idaea troglodytaria
+Iduna pallida
+Iris oratoria
+Ischnura elegans
+Isophya savignyi
+Isturgia perviaria
+Italochrysa italica
+Juncus acutus
+Juncus rigidus
+Kickxia aegyptiaca
+Knautia integrifolia
+Krubera peregrina
+Labia minor
+Lactuca serriola
+Lactuca tuberosa
+Lactuca viminea
+Lamarckia aurea
+Lamium moschatum
+Lampyris nervosa
+Langona oreni
+Lanius senator
+Larinus latus
+Lathyrus annuus
+Lathyrus blepharicarpos
+Lathyrus hierosolymitanus
+Lathyrus ochrus
+Laudakia vulgaris
+Laurus nobilis
+Leiurus hebraeus
+Lemonia beirutica
+Leontodon tuberosus
+Lepidurus apus
+Lepus capensis
+Letheobia simoni
+Leucaena leucocephala
+Leucania herrichii
+Leucoagaricus pilatianus
+Levantina spiriplana
+Lilioceris merdigera
+Limonium narbonense
+Linaria chalepensis
+Linum corymbulosum
+Linum nodiflorum
+Linum pubescens
+Lixus anguinus
+Lixus iridis
+Lixus pulverulentus
+Lomelosia prolifera
+Lotus palustris
+Lotus tetragonolobus
+Loxosceles rufescens
+Lucilia cuprina
+Ludwigia adscendens
+Ludwigia adscendens diffusa
+Luperina dumerilii
+Luperina rjabovi
+Lupinus palaestinus
+Lupinus pilosus
+Luscinia svecica
+Lycaena phlaeas timeus
+Lycaena thersamon
+Lycopus europaeus
+Lycosoides coarctata
+Lydus humeralis
+Lydus tarsalis
+Lyophyllum littorale
+Lysimachia linum-stellatum
+Lysimachia loeflingii
+Lythrum junceum
+Lythrum salicaria
+Machimus setibarbus
+Macroscytus brunneus
+Malachius coccineus
+Malpolon insignitus
+Malva multiflora
+Malva nicaeensis
+Malva parviflora
+Malva punctata
+Malva sylvestris
+Malva trimestris
+Malvella sherardiana
+Mandragora autumnalis
+Mangora acalypha
+Mantis religiosa
+Mantispa scabricollis
+Marasmius wynneae
+Mauremys rivulata
+Medicago lupulina
+Medicago minima
+Medicago orbicularis
+Medicago polymorpha
+Medicago rotata
+Medicago scutellata
+Medicago truncatula
+Mediodactylus orientalis
+Melampsora pulcherrima
+Melanopsis buccinoidea
+Melanortocarya obtusifolia
+Meles canescens
+Melilotus indicus
+Meliscaeva auricollis
+Melissa officinalis
+Melitaea syriaca
+Melitturga syriaca
+Meloe proscarabaeus
+Meloe tuccius
+Menemerus semilimbatus
+Mentha longifolia
+Mentha pulegium
+Mercurialis annua
+Mesophleps ochracella
+Mesoprionus besikanus
+Messor hebraeus
+Metallostichodes nigrocyanella
+Metasia corsicalis
+Metzneria agraphella
+Micromeria fruticosa
+Micrommata ligurina
+Miomantis paykullii
+Mirificarma aflavella
+Moluccella laevis
+Moluccella spinosa
+Monacha obstructa
+Monacha syriaca
+Monomorium salomonis
+Moraea sisyrinchium
+Morphacris fasciata
+Mus musculus
+Musca domestica
+Mutarda arvensis
+Mutarda nigra
+Mycena seynii
+Mycena tenerrima
+Myinodes shohami
+Myiopsitta monachus
+Mylabris quadripunctata
+Myocastor coypus
+Mythimna alopecuri
+Mythimna ferrago
+Mythimna sicula
+Myzus persicae
+Nannospalax ehrenbergi
+Narcissus tazetta
+Nasturtium officinale
+Nebo hierichonticus
+Necrobia violacea
+Neoerysiphe galeopsidis
+Neomyia cornicina
+Neoscona adianta
+Neotinea tridentata
+Nephrotoma scalaris
+Nerium oleander
+Nezara viridula
+Nigella ciliaris
+Nigella unguicularis
+Niphona picticornis
+Noccaea perfoliata
+Noctua comes
+Noorda blitealis
+Nostoc commune
+Notobasis syriaca
+Notostaurus anatolicus
+Nychiodes palaestinensis
+Nycticorax nycticorax
+Ochthodium aegyptiacum
+Ocneria lapidicola
+Oecia oecophila
+Oedemera flavipes
+Oedemera natolica
+Oedipoda caerulescens
+Oedipoda miniata
+Oenanthe oenanthe
+Oligotoma nigra
+Oloptum miliaceum
+Omophlus syriacus
+Onobrychis caput-galli
+Ononis alopecuroides
+Ononis hirta
+Ononis mitissima
+Ononis natrix
+Ononis pubescens
+Ononis spinosa
+Ononis viscosa
+Onopordum cynarocephalum
+Ophelimus maskelli
+Ophrys bornmuelleri
+Ophrys fuciflora
+Ophrys lutea galilaea
+Ophrys sphegodes
+Ophrys umbilicata
+Opuntia ficus-indica
+Orchamus hebraeus
+Orchis anatolica
+Orchis galilaea
+Orgyia trigotephras
+Oria musculosa
+Origanum syriacum
+Ornithogalum lanceolatum
+Ornithogalum montanum
+Ornithogalum narbonense
+Ortaliella palaestinensis
+Orthetrum chrysostigma
+Orthetrum sabina
+Orthetrum trinacria
+Orthonama obstipata
+Osmia latreillei
+Oulobophora externaria
+Oxalis pes-caprae
+Oxycarenus hyalinipennis
+Oxythyrea cinctella
+Oxythyrea noemi
+Pallenis spinosa
+Palpares libelluloides
+Panaeolus papilionaceus
+Pandesma robusta
+Pandion haliaetus
+Panicum repens
+Papaver carmeli
+Papaver umbonatum
+Parahypopta caestrum
+Parapholidoptera punctifrons
+Paratrechina longicornis
+Parkinsonia aculeata
+Paronychia argentea
+Paropta paradoxus
+Paropta paradoxus kathikas
+Parthenium hysterophorus
+Parus major
+Paspalum dilatatum
+Paspalum distichum
+Passer domesticus
+Pediasia desertellus
+Pelecanus onocrotalus
+Pelophylax ridibundus
+Periplaneta americana
+Persicaria decipiens
+Persicaria lapathifolia
+Peucedanum junceum
+Pexicopia malvella
+Phaiogramma etruscaria
+Phalacrocorax carbo
+Phalaris minor
+Phalaris paradoxa
+Phaneroptera nana
+Phelipanche nana
+Philaeus chrysops
+Philereme transversata
+Phloiocopus andresi
+Phlomis viscosa
+Phlomoides laciniata
+Phoenicolacerta laevis
+Phoenicopterus roseus
+Phoenix dactylifera
+Pholiota highlandensis
+Phragmites australis
+Phyla nodiflora
+Phyllomorpha laciniata
+Physalis acutifolia
+Physalis angulata
+Physarum album
+Physella acuta
+Picnomon acarna
+Piptatherum holciforme
+Pisaura consocia
+Pisaura mirabilis
+Pistacia atlantica
+Pistacia lentiscus
+Pistacia terebinthus
+Pisum fulvum
+Plagiolepis pallescens
+Plagionotus bobelayei
+Plantago lagopus
+Plantago lanceolata
+Plantago major
+Platyceps collaris
+Platycnemis dealbata
+Plegadis falcinellus
+Plexippus paykulli
+Plinachtus imitator
+Pluchea dioscoridis
+Plumbago europaea
+Podagrica fuscicornis
+Poecilia reticulata
+Polistes dominula
+Polistes mongolicus
+Polygala monspeliaca
+Polygonum equisetiforme
+Polymixis ancepsoides
+Polyocha venosa
+Polyphaenis propinqua
+Polyphaga aegyptiaca
+Polypogon monspeliensis
+Polypogon viridis
+Polyxenus lagurus
+Porcellionides pruinosus
+Porcellionides trifasciatus
+Portulaca oleracea
+Prays citri
+Prinia gracilis
+Prinobius myardi
+Prionosthenus galericulatus
+Procavia capensis
+Prochora lycosiformis
+Promachus griseiventris
+Prosopis farcta
+Protaetia cuprea
+Protaetia cuprea ignicollis
+Protaetia judith
+Prunus amygdalus
+Psammophis schokari
+Pseudagrion sublacteum
+Pseudagrion syriacum
+Pseudaletia unipuncta
+Pseudophilotes vicrama
+Pseudopus apodus levantinus
+Pseudoterpna coronillaria halperini
+Psittacula krameri
+Ptyodactylus guttatus
+Pulchellodromus pulchellus
+Pulicaria dysenterica
+Punica granatum
+Pycnonotus xanthopygos
+Pyralis regalis
+Pyrausta pauperalis
+Pyrausta virginalis
+Pyrrhocoris apterus
+Quercus coccifera
+Quercus ithaburensis
+Quidproquo confusum
+Ranunculus arvensis
+Ranunculus asiaticus
+Ranunculus muricatus
+Raphanus raphanistrum
+Rapistrum rugosum
+Reseda alba
+Rhamnus alaternus
+Rhamnus lycioides
+Rhinocyllus conicus
+Rhipicephalus sanguineus
+Rhodostrophia discopunctata
+Rhynocoris punctiventris
+Ricinus communis
+Ricotia lunaria
+Ridolfia segetum
+Rivetina byblica
+Romulea tempskyana
+Rta clade
+Rubus creticus
+Rumex crispus
+Rumex dentatus
+Rumex spinosus
+Russula cerolens
+Russula ochroleuca
+Ruta chalepensis
+Saga ornata
+Sagina apetala
+Salix acmophylla
+Salix alba
+Salvia dominica
+Salvia fruticosa
+Salvia hierosolymitana
+Salvia judaica
+Salvia pinnata
+Salvia verbenaca
+Salvia viridis
+Sarcopoterium spinosum
+Satureja thymbra
+Satyrium spini
+Saxicola rubicola
+Scandix pecten-veneris
+Scandix verna
+Scantius aegyptius
+Scathophaga stercoraria
+Sceliphron spirifex
+Schenkia spicata
+Schizophyllum commune
+Scilla hyacinthoides
+Scolopendra cingulata
+Scolopendra clavipes
+Scolymus maculatus
+Scopula marginepunctata
+Scopula submutata
+Scorpio fuscus
+Scotochrosta pulla
+Scotophaeus blackwalli
+Scrophularia canina
+Scrophularia rubricaulis
+Scytodes thoracica
+Securigera securidaca
+Sedum cespitosum
+Sedum microcarpum
+Sedum rubens
+Selidosema brunnearia
+Senecio vernalis
+Serapias orientalis levantina
+Serinus serinus
+Sesbania sesban
+Sherardia arvensis
+Silene aegyptiaca
+Silene colorata
+Silene palaestina
+Silene reinwardtii
+Silybum marianum
+Sinapis alba
+Sisymbrium officinale
+Smilax aspera
+Smyrnium olusatrum
+Solanum elaeagnifolium
+Solanum lycopersicum
+Solanum lycopersicum cerasiforme
+Solanum nigrum
+Solanum rostratum
+Sonchus oleraceus
+Sorghum halepense
+Sphaeroderma testaceum
+Sphaerophoria scripta
+Sphex flavipennis
+Sphodromantis viridis
+Spilopelia senegalensis
+Spilostethus pandurus
+Spodoptera frugiperda
+Spongiporus balsameus
+Sporobolus schoenoides
+Squamarina cartilaginea
+Stachys arabica
+Stachys distans
+Stachys neurocalycina
+Stachys viticina
+Steatoda paykulliana
+Steatoda triangulosa
+Stellaria media
+Stemmatophora brunnealis
+Stemmatophora syriacalis
+Stenopterus rufus
+Stenopterus rufus syriacus
+Stenozygum coloratum
+Stereum hirsutum
+Stereum sanguinolentum
+Sternbergia colchiciflora
+Stilbia syriaca
+Stiphrometasia sancta
+Streptopelia decaocto
+Stromatium auratum
+Sturnus vulgaris
+Styrax officinalis
+Suncus etruscus
+Sus scrofa
+Symmoca dodecatella
+Sympetrum fonscolombii
+Sympherobius pygmaeus
+Symphyotrichum subulatum
+Synema globosum
+Synophropsis lauri
+Synthesiomyia nudiseta
+Tachina fera
+Tachymarptis melba
+Tegenaria mediterranea
+Teucrium divaricatum
+Thamnotettix zelleri
+Thanatus formicinus
+Thanatus vulgaris
+Theba pisana
+Theligonum cynocrambe
+Thomisus citrinellus
+Thomisus onustus
+Thyene imperialis
+Thymbra spicata
+Thymelaea hirsuta
+Thyridiphora furia
+Titanidiops syriacus
+Tolpis virgata
+Tordylium trachycarpum
+Torilis arvensis
+Tortella tortuosa
+Tragopogon coelesyriacus
+Tribulus terrestris
+Trichiura stroehlei
+Trichodes affinis
+Trichodes syriacus
+Trichoferus fasciculatus
+Trichoferus griseus
+Trifolium alexandrinum
+Trifolium argutum
+Trifolium campestre
+Trifolium clusii
+Trifolium clypeatum
+Trifolium fragiferum
+Trifolium nigrescens
+Trifolium pilulare
+Trifolium purpureum
+Trifolium resupinatum
+Trifolium scabrum
+Trifolium spumosum
+Trifolium vavilovii
+Trigonella lilacina
+Tringa glareola
+Tringa nebularia
+Trithemis annulata
+Trithemis arteriosa
+Tropinota hirta
+Tropinota squalida
+Tropinota squalida pilosa
+Tulipa agenensis
+Turdus merula
+Tylopsis lilifolia
+Typha domingensis
+Typha latifolia
+Ulmus minor
+Upupa epops
+Urospermum picroides
+Urtica pilulifera
+Urtica urens
+Vagaria parviflora
+Vanellus spinosus
+Variospora aurantia
+Verbascum sinuatum
+Verbena officinalis
+Verbena supina
+Veronica anagallis-aquatica
+Veronica panormitana
+Vespula germanica
+Vicia hybrida
+Vicia narbonensis
+Vicia palaestina
+Vicia peregrina
+Vicia sativa
+Vicia sericocarpa
+Vicia villosa
+Visnaga daucoides
+Vitex agnus-castus
+Volvopluteus gloiocephalus
+Vulpes vulpes
+Wadicosa fidelis
+Wasmannia auropunctata
+Watsonalla binaria
+Withania somnifera
+Xanthium orientale
+Xanthium spinosum
+Xanthium strumarium
+Xanthogaleruca luteola
+Xanthorhoe pseudogaliata
+Xeropicta krynickii
+Xestia cohaesa
+Xylocampa mustapha
+Xylocopa iris
+Xylocopa pubescens
+Xystrocera globosa
+Zannichellia palustris
+Ziziphora capitata
+Zoropsis lutea
+Ablattaria
+Acalyptratae
+Acanthaclisini
+Acanthobrama
+Accipitridae
+Accipitriformes
+Acrididae
+Acrididea
+Acridoidea
+Acrobasis
+Acrotylus
+Actinopterygii
+Aculeata
+Acyrthosiphon
+Adonis
+Aelurillini
+Agaricomycetes
+Agaricomycetidae
+Agaricus
+Agave
+Agdistis
+Agelena
+Agelenidae
+Agonopterix
+Agriphila
+Agrochola
+Agrotis
+Aiolopus
+Alcea
+Allium
+Alopecosa
+Alopecurus
+Altica
+Amara
+Amaranthaceae
+Amaranthus
+Amegilla
+Amphicominae
+Anagallis
+Anas
+Anatrachyntis
+Ancylolomia
+Andrena
+Angiospermae
+Animalia
+Anisoptera
+Annelida
+Anseriformes
+Anthemideae
+Anthemidinae
+Anthemis
+Anthomyia
+Anthophila
+Anthracinae
+Antirrhinum
+Antrodia
+Anura
+Apertochrysa
+Aphididae
+Aphomia
+Apiaceae
+Apinae
+Apioideae
+Aplidia
+Aplocnemus
+Apodidae
+Aquarius
+Araneae
+Araneidae
+Araneomorphae
+Arctiinae
+Ardea
+Ardeidae
+Ardeinae
+Argiope
+Arthropoda
+Artiodactyla
+Arundinoideae
+Arundo
+Ascalaphinae
+Asilinae
+Asphodelus
+Asteraceae
+Astereae
+Asteroideae
+Atriplex
+Auchenorrhyncha
+Avena
+Aves
+Baeotendipes
+Baetidae
+Barbitistini
+Basidiomycota
+Batia
+Bembix
+Beta
+Bibio
+Biston
+Blaptinae
+Boarmiini
+Bombylella
+Bombyliidae
+Bombylius
+Botrydium
+Brachycera
+Brachycerus
+Braconidae
+Brassicaceae
+Brassiceae
+Brassicodae
+Bromus
+Bruchinae
+Bryonieae
+Bryopsis
+Buthidae
+Cadra
+Caelifera
+Calamotropha
+Calliphoridae
+Calliptamus
+Calyptratae
+Campanula
+Camponotus
+Canidae
+Canis
+Cantharidae
+Cantharini
+Capsella
+Carabidae
+Carabus
+Caradrina
+Caradrinini
+Carcharodus
+Cardamine
+Cardueae
+Carduinae
+Carduoideae
+Carnivora
+Caryophyllaceae
+Cenchrinae
+Centaurea
+Centrocoris
+Ceratopogonidae
+Cetoniinae
+Chaetocnema
+Chaetophiloscia
+Chamaeleon
+Charadriiformes
+Charissa
+Cheiracanthiidae
+Cheiracanthium
+Cheirodes
+Chenopodium
+Chironomidae
+Chironomus
+Chlorophyta
+Chorthippus
+Chrysididae
+Chrysolina
+Chrysomelidae
+Chrysomya
+Chrysoperla
+Chrysops
+Cicadellidae
+Cichorieae
+Clitocybaceae
+Clitocybe
+Clytrini
+Clytus
+Coccinella
+Coccinellidae
+Coccinellini
+Coenagrionidae
+Coenagrionoidea
+Coleophora
+Coleoptera
+Collemataceae
+Columba
+Columbidae
+Coniopterygidae
+Conocephalus
+Convolvulaceae
+Convolvulus
+Coprinellus
+Coranus
+Coriarachnini
+Corixini
+Corixoidea
+Corvus
+Corydiidae
+Crambidae
+Crambini
+Crataegus
+Crematogaster
+Creoleon
+Crepis
+Crinocheta
+Cryphia
+Cucujiformia
+Culicomorpha
+Curculio
+Curculionoidea
+Cyclorrhapha
+Cydnidae
+Cylindromyia
+Cynara
+Cynipini
+Cynoglossum
+Cyperaceae
+Cyperoideae
+Cyperus
+Dasytinae
+Datura
+Daucus
+Deltocephalinae
+Depressaria
+Dialictus
+Dictyopharinae
+Dilophus
+Diplotaxis
+Dipsacoideae
+Diptera
+Dociostaurus
+Dolichopeza
+Domestici
+Drassodes
+Drilus
+Dubiaranea
+Duroniella
+Eilema
+Elateridae
+Empididae
+Empidoidea
+Empis
+Endotricha
+Endotrichini
+Enoplops
+Entelegynae
+Entiminae
+Entoloma
+Ephedra
+Ephemeroptera
+Epilobium
+Episema
+Equidae
+Equus
+Erebidae
+Eremiaphiloidea
+Eremocoris
+Erigeron
+Erinaceinae
+Erodium
+Eteodermaptera
+Eublemma
+Eucera
+Eugnatha
+Eumeninae
+Euophryini
+Euphorbia
+Euphorbiaceae
+Eupithecia
+Euryopicoris
+Evippa
+Exechiini
+Eyprepocnemidini
+Fabaceae
+Faboideae
+Fannia
+Felidae
+Foeniculum
+Formicidae
+Fumana
+Fumarieae
+Fumarioideae
+Fungi
+Gastrallus
+Gastropoda
+Gelechiidae
+Gelechioidea
+Geometridae
+Geometrinae
+Geophilomorpha
+Geranium
+Glaphyridae
+Glebionis
+Gloeophyllum
+Gnaphosidae
+Goniagnathus
+Gorytes
+Grapholitini
+Graphosoma
+Gryllidae
+Gryllinae
+Grylloidea
+Gryllus
+Gymnoscelis
+Hadena
+Haplomalachius
+Hasarius
+Heleomyzidae
+Helicellinae
+Helicidae
+Helicina
+Helicoidea
+Helicoidei
+Heliothinae
+Heliotropium
+Helobdella
+Helochares
+Hemerobiidae
+Hemerobius
+Heriades
+Herpestes
+Herpetogramma
+Hersilia
+Hesperiidae
+Heteracris
+Heteroptera
+Hilara
+Hippodamia
+Histerini
+Hogna
+Holcopogoninae
+Homoneura
+Hordeum
+Hyalidae
+Hybotidae
+Hydropsyche
+Hylaeus
+Hypsopygia
+Hystrix
+Ichneumonidae
+Idaea
+Inonotus
+Insecta
+Ischnura
+Julidae
+Juliformia
+Juncus
+Kalotermes
+Kickxia
+Knautia
+Lamiaceae
+Lanelater
+Langona
+Larentiinae
+Larinia
+Larus
+Lasiocampa
+Lasioglossum
+Laudakia
+Laurasiatheria
+Lecanoromycetes
+Lemonia
+Leontodon
+Lepidoptera
+Lepismatidae
+Leucaniini
+Libellulidae
+Life
+Lilioceris
+Liliopsida
+Limacidae
+Limacus
+Limnophora
+Limoniinae
+Linum
+Linyphiidae
+Lithobiomorpha
+Lithosiina
+Lomelosia
+Loteae
+Lotus
+Lumbricidae
+Lycaenidae
+Lycosidae
+Lycosinae
+Lycosoidea
+Lycosoides
+Lymnaeoidea
+Lysimachia
+Lythrum
+Macariini
+Maccevethus
+Macraulacini
+Macrosiphini
+Macrotylus
+Magnoliopsida
+Malachiina
+Malthodes
+Malva
+Mammalia
+Medetera
+Megachile
+Melanoleuca
+Melanopsis
+Melanotus
+Melitaea
+Meloe
+Meloidae
+Meloinae
+Melolonthinae
+Menemerus
+Mentha
+Menthinae
+Mercurialis
+Messor
+Micronecta
+Micronola
+Micropterix
+Miridae
+Mirini
+Modicogryllus
+Monacha
+Monomorium
+Mordellidae
+Mordellinae
+Morphacris
+Mulsanteus
+Musca
+Mylabris
+Myrmecaelurus
+Myrmeleontidae
+Myrmicinae
+Nannospalax
+Nasturtium
+Nemapogon
+Nematocera
+Neodermaptera
+Neon
+Nephrotoma
+Nepticulidae
+Neurigoninae
+Neuroptera
+Nigella
+Noctuidae
+Noctuinae
+Noctuoidea
+Nomada
+Nomophila
+Nyctegretis
+Ocneria
+Ocnogyna
+Odonata
+Oecanthus
+Oedemera
+Oedipoda
+Oestroidea
+Oligotoma
+Omophlus
+Oncocephalus
+Oniscidea
+Ononis
+Opatroides
+Ophion
+Ophioninae
+Opilio
+Opiliones
+Orchamus
+Ornithogalum
+Orthetrum
+Orthoptera
+Orthotylinae
+Osmia
+Ovis
+Oxyopes
+Oxythyrea
+Palpares
+Palpimanus
+Palpita
+Papaver
+Papilionoidea
+Paragaleodes
+Paratrechina
+Paspalum
+Passer
+Passeriformes
+Pelophylax
+Pentastirini
+Pentatomidae
+Pentatomoidea
+Pentatomomorpha
+Pepsini
+Persicaria
+Pezotettix
+Phagnalon
+Phalacrocoracidae
+Phalangiidae
+Phaneroptera
+Phaneropterinae
+Phanerotoma
+Phanerotomini
+Philaenus
+Philodromidae
+Phlomis
+Pholidoptera
+Phragmites
+Phycitinae
+Phycitini
+Phycitodes
+Phytocoris
+Pieridae
+Pierina
+Pieris
+Pirenidae
+Pisaura
+Pistacia
+Placentalia
+Placodoma
+Plagiolepis
+Plantae
+Plantago
+Platycnemis
+Pleurophorus
+Poaceae
+Poales
+Polistes
+Pollenia
+Polyommatini
+Polyphaga
+Polypogon
+Pompilidae
+Porcellio
+Porcellionidae
+Porcellionides
+Prionosthenus
+Prionus
+Prochoristis
+Promachus
+Prunus
+Pseudagrion
+Pseudicius
+Pterygota
+Puccinia
+Pulicaria
+Pygopleurus
+Pyralidae
+Pyralini
+Pyralis
+Pyraloidea
+Pyrgomorpha
+Pyrgomorphidae
+Pyrrhocoridae
+Quercus
+Ranunculaceae
+Ranunculales
+Ranunculoideae
+Rhagonycha
+Rhamnus
+Rhamphomyia
+Rhiniinae
+Rhynocoris
+Rosa
+Rubia
+Rubus
+Rumex
+Salix
+Salticidae
+Salticinae
+Sarcophaga
+Sarcophagidae
+Saxicola
+Scandix
+Scantius
+Scarabaeidae
+Scarabaeoidea
+Scathophaga
+Scatopsidae
+Schizophora
+Sciaridae
+Scolopendra
+Scolopendridae
+Scolopendromorpha
+Scolyminae
+Scolymus
+Scrobipalpa
+Scutigeridae
+Sedum
+Senecio
+Silene
+Silvestrichilis
+Sinapis
+Smaragdula
+Smicromyrmini
+Solanoideae
+Solanum
+Solifugae
+Sonchus
+Soricidae
+Sphodromantis
+Spodoptera
+Sporobolus
+Stathmopoda
+Stegelytra
+Stellaria
+Stemmatophora
+Stenammini
+Steniini
+Stenopterus
+Sterrhinae
+Sterrhini
+Stictopleurus
+Streptopelia
+Stueningia
+Succineidae
+Suillus
+Sympetrum
+Symphyotrichum
+Synclera
+Synema
+Syrphidae
+Syrphinae
+Syrphini
+Tabanidae
+Tachinidae
+Tamarix
+Tanaemyrmex
+Tapinoma
+Taraxacum
+Tenebrionidae
+Tenebrionoidea
+Tenthredopsis
+Testudines
+Tetragnatha
+Tetramorium
+Tettigoniidae
+Tettigoniinae
+Thanatus
+Thebini
+Therevidae
+Theridiidae
+Thesium
+Thomisus
+Tipula
+Tipulidae
+Tipuloidea
+Tipulomorpha
+Tirathabini
+Torilidinae
+Torilis
+Tortricidae
+Tortricinae
+Tracheophyta
+Trichodes
+Tricholomatineae
+Trichophaga
+Trichoptera
+Tricyphona
+Trifolium
+Trithemis
+Triticeae
+Trombidiidae
+Trupanea
+Typha
+Udea
+Uloborus
+Urospermum
+Urtica
+Usia
+Vaginatae
+Verbascum
+Verbena
+Vermileo
+Vertebrata
+Vespidae
+Vicia
+Vitex
+Vulpes
+Wadicosa
+Watsonalla
+Xanthium
+Xerocomellus
+Xeropicta
+Xestia
+Xysticus
+Yponomeutoidea
+Zelleria
+Ziziphus
+Zodarion
+Zygaenidae
+Zygentoma
+Zygoptera
