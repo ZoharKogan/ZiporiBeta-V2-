@@ -3,11 +3,20 @@ import { useI18n } from "@/lib/i18n";
 import type { Observation } from "@/lib/observations-store";
 import { translateGroupName } from "@/lib/observations-store";
 import { classifySpecies } from "@/lib/species-registry";
+import { getTaxonDetails } from "@/lib/taxonomy-engine";
 
 function computeRow(records: Observation[]) {
   const observations = records.length;
   if (observations === 0) {
-    return { daysMonitoring: 0, observations: 0, qualityPct: 0, distinctSpecies: 0, invasiveSpecies: 0, rareSpecies: 0, monitoringRate: 0 };
+    return {
+      daysMonitoring: 0,
+      observations: 0,
+      qualityPct: 0,
+      distinctSpecies: 0,
+      invasiveSpecies: 0,
+      rareSpecies: 0,
+      monitoringRate: 0,
+    };
   }
   // days monitoring: count unique observed_on dates
   const uniqueDates = new Set<string>();
@@ -19,7 +28,9 @@ function computeRow(records: Observation[]) {
   for (const r of records) {
     uniqueDates.add(r.observed_on);
     if (r.scientific_name) {
-      species.add(r.scientific_name);
+      if (!getTaxonDetails(r.scientific_name).isGeneric) {
+        species.add(r.scientific_name);
+      }
       const status = classifySpecies(r.scientific_name);
       if (status === "invasive") {
         invasiveSpeciesSet.add(r.scientific_name);
@@ -42,18 +53,14 @@ function computeRow(records: Observation[]) {
   };
 }
 
-export function MetricsTable({
-  data,
-}: {
-  data: Observation[];
-}) {
+export function MetricsTable({ data }: { data: Observation[] }) {
   const { t, lang } = useI18n();
 
   const rows = useMemo(() => {
-    // Build a lookup of observations per raw user_category key from filtered data
+    // Build a lookup of observations per user_category key from filtered data
     const grouped = new Map<string, Observation[]>();
     for (const o of data) {
-      const category = o.user_category || "קהילות מקוונות";
+      const category = o.user_category || "online_communities";
       if (!grouped.has(category)) grouped.set(category, []);
       grouped.get(category)!.push(o);
     }
@@ -61,9 +68,9 @@ export function MetricsTable({
     // Fixed canonical group list — rows always present regardless of data
     const CANONICAL_GROUPS: { raw: string; matchKeys: string[] }[] = [
       { raw: "expert", matchKeys: ["expert"] },
-      { raw: "קהילה",        matchKeys: ["קהילה", "community"] },
-      { raw: "תלמידים",      matchKeys: ["תלמידים", "סטודנטים", "student"] },
-      { raw: "קהילות מקוונות",    matchKeys: ["קהילות מקוונות"] },
+      { raw: "local_communities", matchKeys: ["local_communities"] },
+      { raw: "student", matchKeys: ["student"] },
+      { raw: "online_communities", matchKeys: ["online_communities"] },
     ];
 
     return CANONICAL_GROUPS.map(({ raw, matchKeys }) => {
@@ -101,9 +108,15 @@ export function MetricsTable({
             {rows.map((r) => (
               <tr key={r.group} className="border-b border-gray-100 hover:bg-secondary/30">
                 <td className="px-2 py-1 font-medium text-xs text-center">{r.group}</td>
-                <td className="px-2 py-1 text-center tabular-nums text-xs">{r.daysMonitoring.toLocaleString()}</td>
-                <td className="px-2 py-1 text-center tabular-nums text-xs">{r.observations.toLocaleString()}</td>
-                <td className="px-2 py-1 text-center tabular-nums text-xs">{r.monitoringRate.toFixed(1)}</td>
+                <td className="px-2 py-1 text-center tabular-nums text-xs">
+                  {r.daysMonitoring.toLocaleString()}
+                </td>
+                <td className="px-2 py-1 text-center tabular-nums text-xs">
+                  {r.observations.toLocaleString()}
+                </td>
+                <td className="px-2 py-1 text-center tabular-nums text-xs">
+                  {r.monitoringRate.toFixed(1)}
+                </td>
                 <td className="px-2 py-1 text-center tabular-nums text-xs">
                   {r.rawGroup === "expert" ? (
                     <span className="text-muted-foreground">-</span>
@@ -113,9 +126,15 @@ export function MetricsTable({
                     </span>
                   )}
                 </td>
-                <td className="px-2 py-1 text-center tabular-nums text-xs">{r.distinctSpecies.toLocaleString()}</td>
-                <td className="px-2 py-1 text-center tabular-nums text-xs">{r.invasiveSpecies.toLocaleString()}</td>
-                <td className="px-2 py-1 text-center tabular-nums text-xs">{r.rareSpecies.toLocaleString()}</td>
+                <td className="px-2 py-1 text-center tabular-nums text-xs">
+                  {r.distinctSpecies.toLocaleString()}
+                </td>
+                <td className="px-2 py-1 text-center tabular-nums text-xs">
+                  {r.invasiveSpecies.toLocaleString()}
+                </td>
+                <td className="px-2 py-1 text-center tabular-nums text-xs">
+                  {r.rareSpecies.toLocaleString()}
+                </td>
               </tr>
             ))}
           </tbody>

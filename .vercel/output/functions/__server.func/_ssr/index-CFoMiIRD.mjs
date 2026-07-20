@@ -1,0 +1,2334 @@
+import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
+import { P as Papa } from "../_libs/papaparse.mjs";
+import { u as useI18n } from "./router-CXD7leDz.mjs";
+import { R as Root2, L as List, T as Trigger, C as Content } from "../_libs/radix-ui__react-tabs.mjs";
+import { c as clsx } from "../_libs/clsx.mjs";
+import { t as twMerge } from "../_libs/tailwind-merge.mjs";
+import { S as Slider, a as SliderTrack, b as SliderRange, c as SliderThumb } from "../_libs/radix-ui__react-slider.mjs";
+import { S as SlidersHorizontal, L as Languages, R as RotateCcw } from "../_libs/lucide-react.mjs";
+import "stream";
+import "../_libs/tanstack__react-router.mjs";
+import "../_libs/tanstack__router-core.mjs";
+import "../_libs/tanstack__history.mjs";
+import "../_libs/cookie-es.mjs";
+import "../_libs/seroval.mjs";
+import "../_libs/seroval-plugins.mjs";
+import "node:stream/web";
+import "node:stream";
+import "../_libs/react-dom.mjs";
+import "util";
+import "crypto";
+import "async_hooks";
+import "../_libs/isbot.mjs";
+import "../_libs/radix-ui__primitive.mjs";
+import "../_libs/radix-ui__react-context.mjs";
+import "../_libs/radix-ui__react-roving-focus.mjs";
+import "../_libs/radix-ui__react-collection.mjs";
+import "../_libs/radix-ui__react-compose-refs.mjs";
+import "../_libs/radix-ui__react-slot.mjs";
+import "../_libs/radix-ui__react-id.mjs";
+import "../_libs/@radix-ui/react-use-layout-effect+[...].mjs";
+import "../_libs/radix-ui__react-primitive.mjs";
+import "../_libs/@radix-ui/react-use-callback-ref+[...].mjs";
+import "../_libs/@radix-ui/react-use-controllable-state+[...].mjs";
+import "../_libs/radix-ui__react-direction.mjs";
+import "../_libs/radix-ui__react-presence.mjs";
+import "../_libs/radix-ui__number.mjs";
+import "../_libs/radix-ui__react-use-previous.mjs";
+import "../_libs/radix-ui__react-use-size.mjs";
+const SURVEY_AREA_KEYS = ["תעלה", "פשט קטן", "נחל", "פשט גדול", "other_areas"];
+const AREA_TRANSLATIONS = {
+  "תעלה": { he: "תעלה", en: "Canal" },
+  "פשט קטן": { he: "פשט קטן", en: "Small Floodplain" },
+  "נחל": { he: "נחל", en: "Stream" },
+  "פשט גדול": { he: "פשט גדול", en: "Large Floodplain" },
+  "other_areas": { he: "שאר האזורים", en: "Other Areas" }
+};
+const AREA_COLORS = {
+  "תעלה": "#0ea5e9",
+  "פשט קטן": "#22c55e",
+  "נחל": "#eab308",
+  "פשט גדול": "#ec4899",
+  "other_areas": "#9ca3af"
+};
+function translateArea(key, lang) {
+  return AREA_TRANSLATIONS[key][lang];
+}
+const SURVEY_POLYGONS = {
+  "תעלה": [
+    [
+      [35.1198506, 32.7772126],
+      [35.1193008, 32.7777847],
+      [35.1192978, 32.7777878],
+      [35.1193004, 32.7777884],
+      [35.1193384, 32.7777976],
+      [35.1214673, 32.7783094],
+      [35.1223868, 32.7786406],
+      [35.1226808, 32.7782606],
+      [35.1198551, 32.7772079],
+      [35.1198506, 32.7772126]
+    ]
+  ],
+  "פשט קטן": [
+    [
+      [35.1193175, 32.777771],
+      [35.1198311, 32.7772296],
+      [35.1189496, 32.7768498],
+      [35.1183488, 32.7765176],
+      [35.1182763, 32.7768629],
+      [35.1184281, 32.7773844],
+      [35.1187164, 32.7776826],
+      [35.1193175, 32.777771]
+    ]
+  ],
+  "נחל": [
+    [
+      [35.1182442, 32.7768764],
+      [35.1183888, 32.7765244],
+      [35.1171792, 32.7757312],
+      [35.1153845, 32.7748225],
+      [35.1139664, 32.7740698],
+      [35.1129246, 32.7738659],
+      [35.1129242, 32.7741774],
+      [35.1136775, 32.7743811],
+      [35.1146469, 32.7749777],
+      [35.1157685, 32.7755338],
+      [35.1166419, 32.7759543],
+      [35.1182442, 32.7768764]
+    ]
+  ],
+  "פשט גדול": [
+    [
+      [35.1128922, 32.7742045],
+      [35.1129486, 32.7738998],
+      [35.1120043, 32.7736756],
+      [35.1106008, 32.7730515],
+      [35.1093268, 32.7725562],
+      [35.1087982, 32.7721224],
+      [35.108797, 32.773321],
+      [35.1087468, 32.7752172],
+      [35.1098771, 32.7752248],
+      [35.1112158, 32.7751987],
+      [35.1123943, 32.7750641],
+      [35.1125548, 32.7748408],
+      [35.1126676, 32.7742856],
+      [35.1128922, 32.7742045]
+    ]
+  ]
+};
+function pointInRing(lon, lat, ring) {
+  let inside = false;
+  const n = ring.length;
+  for (let i = 0, j = n - 1; i < n; j = i++) {
+    const xi = ring[i][0], yi = ring[i][1];
+    const xj = ring[j][0], yj = ring[j][1];
+    const intersect = yi > lat !== yj > lat && lon < (xj - xi) * (lat - yi) / (yj - yi) + xi;
+    if (intersect) inside = !inside;
+  }
+  return inside;
+}
+function getObservationArea(lat, lon) {
+  for (const key of SURVEY_AREA_KEYS) {
+    const rings = SURVEY_POLYGONS[key];
+    if (!rings) continue;
+    if (rings.some((ring) => pointInRing(lon, lat, ring))) {
+      return key;
+    }
+  }
+  return null;
+}
+const rawSpeciesMap = {
+  "יונקים": [
+    { "scientific_name": "Artiodactyla", "hebrew_name": "מכפילי פרסה", "english_name": "Artiodactyla", "isGeneric": true },
+    { "scientific_name": "Canidae", "hebrew_name": "כלביים", "english_name": "Canidae", "isGeneric": true },
+    { "scientific_name": "Canis", "hebrew_name": "כלב", "english_name": "Canis", "isGeneric": true },
+    { "scientific_name": "Canis aureus", "hebrew_name": "תן זהוב", "english_name": "Golden Jackal" },
+    { "scientific_name": "Canis familiaris", "hebrew_name": "כלב הבית", "english_name": "Domestic Dog" },
+    { "scientific_name": "Carnivora", "hebrew_name": "טורפים", "english_name": "Carnivora", "isGeneric": true },
+    { "scientific_name": "Equidae", "hebrew_name": "סוסיים", "english_name": "Equidae", "isGeneric": true },
+    { "scientific_name": "Equus", "hebrew_name": "סוס", "english_name": "Equus", "isGeneric": true },
+    { "scientific_name": "Erinaceinae", "hebrew_name": "קיפודים אמיתיים", "english_name": "Erinaceinae", "isGeneric": true },
+    { "scientific_name": "Erinaceus concolor", "hebrew_name": "קיפוד מצוי", "english_name": "Southern White-breasted Hedgehog" },
+    { "scientific_name": "Felidae", "hebrew_name": "חתוליים", "english_name": "Felidae", "isGeneric": true },
+    { "scientific_name": "Felis catus", "hebrew_name": "חתול הבית", "english_name": "Domestic Cat" },
+    { "scientific_name": "Hemiechinus auritus", "hebrew_name": "קיפוד חולות", "english_name": "Long-eared Hedgehog" },
+    { "scientific_name": "Herpestes", "hebrew_name": "נמייה", "english_name": "Herpestes", "isGeneric": true },
+    { "scientific_name": "Herpestes ichneumon", "hebrew_name": "נמייה מצויה", "english_name": "Egyptian Mongoose" },
+    { "scientific_name": "Hystrix", "hebrew_name": "דורבן", "english_name": "Hystrix", "isGeneric": true },
+    { "scientific_name": "Hystrix indica", "hebrew_name": "דרבן מצוי", "english_name": "Indian Crested Porcupine" },
+    { "scientific_name": "Laurasiatheria", "hebrew_name": "לאורסיאתריה", "english_name": "Laurasiatheria", "isGeneric": true },
+    { "scientific_name": "Lepus capensis", "hebrew_name": "ארנבת השדה", "english_name": "Cape Hare" },
+    { "scientific_name": "Mammalia", "hebrew_name": "יונקים", "english_name": "Mammals", "isGeneric": true },
+    { "scientific_name": "Meles canescens", "hebrew_name": "גירית מצויה", "english_name": "Caucasian Badger" },
+    { "scientific_name": "Mus musculus", "hebrew_name": "עכבר מצוי", "english_name": "House Mouse" },
+    { "scientific_name": "Myocastor coypus", "hebrew_name": "נוטריה", "english_name": "Coypu" },
+    { "scientific_name": "Nannospalax", "hebrew_name": "חולד", "english_name": "Nannospalax", "isGeneric": true },
+    { "scientific_name": "Nannospalax ehrenbergi", "hebrew_name": "חולד ארץ-ישראלי", "english_name": "Middle East Blind Mole-Rat" },
+    { "scientific_name": "Ovis", "hebrew_name": "כבש", "english_name": "Ovis", "isGeneric": true },
+    { "scientific_name": "Placentalia", "hebrew_name": "שלייניים", "english_name": "Placentalia", "isGeneric": true },
+    { "scientific_name": "Procavia capensis", "hebrew_name": "שפן סלעים", "english_name": "Rock Hyrax" },
+    { "scientific_name": "Soricidae", "hebrew_name": "חדפיים", "english_name": "Soricidae", "isGeneric": true },
+    { "scientific_name": "Suncus etruscus", "hebrew_name": "חדף זעיר", "english_name": "Suncus Etruscus" },
+    { "scientific_name": "Sus scrofa", "hebrew_name": "חזיר בר", "english_name": "Wild Boar" },
+    { "scientific_name": "Vulpes", "hebrew_name": "שועל", "english_name": "Vulpes", "isGeneric": true },
+    { "scientific_name": "Vulpes vulpes", "hebrew_name": "שועל מצוי", "english_name": "Red Fox" }
+  ],
+  "שפיראים": [
+    { "scientific_name": "Ischnura pumilio", "hebrew_name": "שלחית זעירה", "english_name": "Small Bluetail" },
+    { "scientific_name": "Anax imperator", "hebrew_name": "חניתית היאור", "english_name": "Emperor Dragonfly" },
+    { "scientific_name": "Crocothemis erythraea", "hebrew_name": "תכשיתית זוהרת", "english_name": "Broad Scarlet" },
+    { "scientific_name": "Trithemis annulata", "hebrew_name": "גיחנית ארגמנית", "english_name": "Violet Dropwing" },
+    { "scientific_name": "Platycnemis dealbata", "hebrew_name": "שפרירית הפלגים", "english_name": "Ivory Featherleg" },
+    { "scientific_name": "Orthetrum chrysostigma", "hebrew_name": "שפירית כחולה", "english_name": "Epaulet Skimmer" },
+    { "scientific_name": "Libellulidae", "hebrew_name": "שפיריתיים", "english_name": "Skimmers" },
+    { "scientific_name": "Odonata", "hebrew_name": "שפיראים", "english_name": "Dragonflies" },
+    { "scientific_name": "Aeshnidae", "hebrew_name": "נימפיתיים", "english_name": "Hawkers" }
+  ],
+  "עופות": [
+    { "scientific_name": "Accipitridae", "hebrew_name": "ניציים", "english_name": "Hawks, Eagles, and Kites", "isGeneric": true },
+    { "scientific_name": "Accipitriformes", "hebrew_name": "דורסי יום", "english_name": "Accipitriformes", "isGeneric": true },
+    { "scientific_name": "Acridotheres tristis", "hebrew_name": "מיינה מצויה", "english_name": "Common Myna" },
+    { "scientific_name": "Acridotheres tristis tristis", "hebrew_name": "מיינה מצויה (תת-מין)", "english_name": "Common Myna Subspecies" },
+    { "scientific_name": "Alcedo atthis", "hebrew_name": "שלדג גמדי", "english_name": "Common Kingfisher" },
+    { "scientific_name": "Anas", "hebrew_name": "ברווז", "english_name": "Ducks", "isGeneric": true },
+    { "scientific_name": "Anas acuta", "hebrew_name": "ברווז חד זנב", "english_name": "Anas Acuta" },
+    { "scientific_name": "Anas platyrhynchos", "hebrew_name": "ברכייה", "english_name": "Mallard" },
+    { "scientific_name": "Anseriformes", "hebrew_name": "אווזאים", "english_name": "Anseriformes", "isGeneric": true },
+    { "scientific_name": "Anthus cervinus", "hebrew_name": "פיפיון אדום גרון", "english_name": "Anthus Cervinus" },
+    { "scientific_name": "Anthus pratensis", "hebrew_name": "פיפיון שדות", "english_name": "Anthus Pratensis" },
+    { "scientific_name": "Apodidae", "hebrew_name": "סיסיים", "english_name": "Apodidae", "isGeneric": true },
+    { "scientific_name": "Apus apus", "hebrew_name": "סיס חומות", "english_name": "Common Swift" },
+    { "scientific_name": "Ardea", "hebrew_name": "אנפה", "english_name": "Herons", "isGeneric": true },
+    { "scientific_name": "Ardea alba", "hebrew_name": "לבנית גדולה", "english_name": "Great Egret" },
+    { "scientific_name": "Ardea ibis", "hebrew_name": "אנפית בקר", "english_name": "Cattle Egret" },
+    { "scientific_name": "Ardeidae", "hebrew_name": "אנפתיים", "english_name": "Ardeidae", "isGeneric": true },
+    { "scientific_name": "Ardeinae", "hebrew_name": "אנפות (תת-משפחה)", "english_name": "True Herons", "isGeneric": true },
+    { "scientific_name": "Athene noctua", "hebrew_name": "כוס החורבות", "english_name": "Little Owl" },
+    { "scientific_name": "Aves", "hebrew_name": "עופות", "english_name": "Birds", "isGeneric": true },
+    { "scientific_name": "Burhinus oedicnemus", "hebrew_name": "כרוון מצוי", "english_name": "Eurasian Stone-curlew" },
+    { "scientific_name": "Cairina moschata domestica", "hebrew_name": "ברווז מוסקובי", "english_name": "Cairina Moschata Domestica" },
+    { "scientific_name": "Calidris minuta", "hebrew_name": "חופית קטנה", "english_name": "Calidris Minuta" },
+    { "scientific_name": "Callonetta leucophrys", "hebrew_name": "שרשיר צווארון", "english_name": "Callonetta Leucophrys" },
+    { "scientific_name": "Carduelis carduelis", "hebrew_name": "חוחית", "english_name": "European Goldfinch" },
+    { "scientific_name": "Ceryle rudis", "hebrew_name": "פרפור עקוד", "english_name": "Pied Kingfisher" },
+    { "scientific_name": "Cettia cetti", "hebrew_name": "צטיה", "english_name": "Cettia Cetti" },
+    { "scientific_name": "Charadriiformes", "hebrew_name": "חופמאים", "english_name": "Charadriiformes", "isGeneric": true },
+    { "scientific_name": "Chloris chloris", "hebrew_name": "ירקון", "english_name": "Chloris Chloris" },
+    { "scientific_name": "Chroicocephalus genei", "hebrew_name": "שחף צר מקור", "english_name": "Chroicocephalus Genei" },
+    { "scientific_name": "Ciconia nigra", "hebrew_name": "חסידה שחורה", "english_name": "Black Stork" },
+    { "scientific_name": "Cinnyris osea", "hebrew_name": "צופית בוהקת", "english_name": "Palestine Sunbird" },
+    { "scientific_name": "Cinnyris osea osea", "hebrew_name": "צופית בוהקת )תת מין ארץ-ישראלי(", "english_name": "Cinnyris Osea Osea" },
+    { "scientific_name": "Circaetus gallicus", "hebrew_name": "חיוויאי הנחשים", "english_name": "Short-toed Snake Eagle" },
+    { "scientific_name": "Clamator glandarius", "hebrew_name": "קוקיה מצויצת", "english_name": "Clamator Glandarius" },
+    { "scientific_name": "Coloeus monedula", "hebrew_name": "קאק", "english_name": "Coloeus Monedula" },
+    { "scientific_name": "Columba", "hebrew_name": "יונה", "english_name": "Pigeons", "isGeneric": true },
+    { "scientific_name": "Columba livia", "hebrew_name": "יונת סלעים", "english_name": "Rock Pigeon" },
+    { "scientific_name": "Columba livia domestica", "hebrew_name": "יונת הבית", "english_name": "Columba Livia Domestica" },
+    { "scientific_name": "Columbidae", "hebrew_name": "יוניים", "english_name": "Columbidae", "isGeneric": true },
+    { "scientific_name": "Corvus", "hebrew_name": "עורב", "english_name": "Crows", "isGeneric": true },
+    { "scientific_name": "Corvus cornix", "hebrew_name": "עורב אפור", "english_name": "Hooded Crow" },
+    { "scientific_name": "Curruca melanocephala", "hebrew_name": "סבכי שחור-ראש", "english_name": "Curruca Melanocephala" },
+    { "scientific_name": "Elanus caeruleus", "hebrew_name": "דאה שחורת-כתף", "english_name": "Black-winged Kite" },
+    { "scientific_name": "Emberiza calandra", "hebrew_name": "גבתון עפרוני", "english_name": "Emberiza Calandra" },
+    { "scientific_name": "Erithacus rubecula", "hebrew_name": "אדום-חזה", "english_name": "European Robin" },
+    { "scientific_name": "Falco tinnunculus", "hebrew_name": "בז מצוי", "english_name": "Common Kestrel" },
+    { "scientific_name": "Fringilla coelebs", "hebrew_name": "פרוש מצוי", "english_name": "Common Chaffinch" },
+    { "scientific_name": "Fulica atra", "hebrew_name": "אגמייה מצויה", "english_name": "Eurasian Coot" },
+    { "scientific_name": "Galerida cristata", "hebrew_name": "עפרוני מצויץ", "english_name": "Crested Lark" },
+    { "scientific_name": "Gallinago gallinago", "hebrew_name": "חרטומית ביצות", "english_name": "Gallinago Gallinago" },
+    { "scientific_name": "Gallinula chloropus", "hebrew_name": "סופית מצויה", "english_name": "Common Moorhen" },
+    { "scientific_name": "Garrulus glandarius", "hebrew_name": "עורבני שחור-כיפה", "english_name": "Eurasian Jay" },
+    { "scientific_name": "Garrulus glandarius atricapillus", "hebrew_name": "עורבני שחור-כיפה", "english_name": "Garrulus Glandarius Atricapillus" },
+    { "scientific_name": "Grus grus", "hebrew_name": "עגור אפור", "english_name": "Common Crane" },
+    { "scientific_name": "Halcyon smyrnensis", "hebrew_name": "שלדג לבן-חזה", "english_name": "White-throated Kingfisher" },
+    { "scientific_name": "Hirundo rustica", "hebrew_name": "סנונית רפתות", "english_name": "Barn Swallow" },
+    { "scientific_name": "Iduna pallida", "hebrew_name": "שיחנית קטנה", "english_name": "Iduna Pallida" },
+    { "scientific_name": "Lanius senator", "hebrew_name": "חנקן אדום-ראש", "english_name": "Woodchat Shrike" },
+    { "scientific_name": "Larus", "hebrew_name": "שחף", "english_name": "Gulls", "isGeneric": true },
+    { "scientific_name": "Luscinia svecica", "hebrew_name": "כחול-חזה", "english_name": "Bluethroat" },
+    { "scientific_name": "Myiopsitta monachus", "hebrew_name": "תוכי נזירי", "english_name": "Monk Parakeet" },
+    { "scientific_name": "Nycticorax nycticorax", "hebrew_name": "אנפת לילה מצויה", "english_name": "Black-crowned Night-Heron" },
+    { "scientific_name": "Oenanthe oenanthe", "hebrew_name": "סלעית אירופית", "english_name": "Oenanthe Oenanthe" },
+    { "scientific_name": "Pandion haliaetus", "hebrew_name": "שלך", "english_name": "Osprey" },
+    { "scientific_name": "Parus major", "hebrew_name": "ירגזי מצוי", "english_name": "Great Tit" },
+    { "scientific_name": "Passer", "hebrew_name": "דרור", "english_name": "Passer", "isGeneric": true },
+    { "scientific_name": "Passer domesticus", "hebrew_name": "דרור הבית", "english_name": "House Sparrow" },
+    { "scientific_name": "Passeriformes", "hebrew_name": "ציפורי שיר", "english_name": "Passeriformes", "isGeneric": true },
+    { "scientific_name": "Pelecanus onocrotalus", "hebrew_name": "שקנאי מצוי", "english_name": "Great White Pelican" },
+    { "scientific_name": "Phalacrocoracidae", "hebrew_name": "קורמורניים", "english_name": "Phalacrocoracidae", "isGeneric": true },
+    { "scientific_name": "Phalacrocorax carbo", "hebrew_name": "קורמורן גדול", "english_name": "Great Cormorant" },
+    { "scientific_name": "Phoenicopterus roseus", "hebrew_name": "פלמינגו מצוי", "english_name": "Greater Flamingo" },
+    { "scientific_name": "Plegadis falcinellus", "hebrew_name": "מגלן חום", "english_name": "Plegadis Falcinellus" },
+    { "scientific_name": "Prinia gracilis", "hebrew_name": "פשוש", "english_name": "Graceful Prinia" },
+    { "scientific_name": "Psittacula krameri", "hebrew_name": "דררת קרמר", "english_name": "Rose-ringed Parakeet" },
+    { "scientific_name": "Pycnonotus xanthopygos", "hebrew_name": "בולבול צהוב-שת", "english_name": "White-spectacled Bulbul" },
+    { "scientific_name": "Saxicola", "hebrew_name": "דוחל", "english_name": "Stonechats", "isGeneric": true },
+    { "scientific_name": "Saxicola rubicola", "hebrew_name": "דוחל שחור גרון", "english_name": "Saxicola Rubicola" },
+    { "scientific_name": "Serinus serinus", "hebrew_name": "בזבוז אירופי", "english_name": "Serinus Serinus" },
+    { "scientific_name": "Spilopelia senegalensis", "hebrew_name": "צוצלת", "english_name": "Spilopelia Senegalensis" },
+    { "scientific_name": "Streptopelia", "hebrew_name": "תור", "english_name": "Turtle Doves", "isGeneric": true },
+    { "scientific_name": "Streptopelia decaocto", "hebrew_name": "תור צווארון", "english_name": "Eurasian Collared-Dove" },
+    { "scientific_name": "Sturnus vulgaris", "hebrew_name": "זרזיר מצוי", "english_name": "Common Starling" },
+    { "scientific_name": "Tachymarptis melba", "hebrew_name": "סיס הרים", "english_name": "Alpine Swift" },
+    { "scientific_name": "Tringa glareola", "hebrew_name": "ביצנית מנוקדת", "english_name": "Wood Sandpiper" },
+    { "scientific_name": "Tringa nebularia", "hebrew_name": "ביצנית ירוקת רגל", "english_name": "Tringa Nebularia" },
+    { "scientific_name": "Turdus merula", "hebrew_name": "שחרור", "english_name": "Common Blackbird" },
+    { "scientific_name": "Upupa epops", "hebrew_name": "דוכיפת", "english_name": "Eurasian Hoopoe" },
+    { "scientific_name": "Vanellus spinosus", "hebrew_name": "סיקסק", "english_name": "Spur-winged Lapwing" }
+  ],
+  "פרוקי רגליים": [
+    { "scientific_name": "Aelurillini", "hebrew_name": "אלוריליני", "english_name": "Aelurillini", "isGeneric": true },
+    { "scientific_name": "Agelena", "hebrew_name": "אגלנה", "english_name": "Agelena", "isGeneric": true },
+    { "scientific_name": "Agelena labyrinthica", "hebrew_name": "אגלנה לבירינתיקה", "english_name": "Agelena Labyrinthica" },
+    { "scientific_name": "Agelena orientalis", "hebrew_name": "אגלנה אורינטליס", "english_name": "Agelena Orientalis" },
+    { "scientific_name": "Agelenidae", "hebrew_name": "משפכניים", "english_name": "Agelenidae", "isGeneric": true },
+    { "scientific_name": "Alopecosa", "hebrew_name": "אלופקוסה", "english_name": "Alopecosa", "isGeneric": true },
+    { "scientific_name": "Androctonus crassicauda", "hebrew_name": "קטלן עב-צבתות", "english_name": "Androctonus Crassicauda" },
+    { "scientific_name": "Araneae", "hebrew_name": "עכבישים", "english_name": "Araneae", "isGeneric": true },
+    { "scientific_name": "Araneidae", "hebrew_name": "גלגלניים", "english_name": "Araneidae", "isGeneric": true },
+    { "scientific_name": "Araneomorphae", "hebrew_name": "ארנאומורפיה", "english_name": "Araneomorphae", "isGeneric": true },
+    { "scientific_name": "Arctosa leopardus", "hebrew_name": "ארקטוסה לאופרדוס", "english_name": "Arctosa Leopardus" },
+    { "scientific_name": "Argiope", "hebrew_name": "כסופי", "english_name": "Argiope", "isGeneric": true },
+    { "scientific_name": "Argiope lobata", "hebrew_name": "כסופי משונן", "english_name": "Argiope Lobata" },
+    { "scientific_name": "Argiope trifasciata", "hebrew_name": "כסופי דק פסים", "english_name": "Argiope Trifasciata" },
+    { "scientific_name": "Bassaniodes bufo", "hebrew_name": "בסניודס בופו", "english_name": "Bassaniodes Bufo" },
+    { "scientific_name": "Buthidae", "hebrew_name": "עקצניים", "english_name": "Buthidae", "isGeneric": true },
+    { "scientific_name": "Chaetopelma olivaceum", "hebrew_name": "פרוונית שחורה", "english_name": "Chaetopelma Olivaceum" },
+    { "scientific_name": "Cheiracanthiidae", "hebrew_name": "כירקנתיים", "english_name": "Cheiracanthiidae", "isGeneric": true },
+    { "scientific_name": "Cheiracanthium", "hebrew_name": "כירקנתיאום", "english_name": "Cheiracanthium", "isGeneric": true },
+    { "scientific_name": "Cheiracanthium mildei", "hebrew_name": "כירקנתיאום מילדאי", "english_name": "Cheiracanthium Mildei" },
+    { "scientific_name": "Compsobuthus schmiedeknechti", "hebrew_name": "חד צלע מגובשש", "english_name": "Compsobuthus Schmiedeknechti" },
+    { "scientific_name": "Coriarachnini", "hebrew_name": "קוריארכניני", "english_name": "Coriarachnini", "isGeneric": true },
+    { "scientific_name": "Cyrba algerina", "hebrew_name": "קירבה אלג'רינה", "english_name": "Cyrba Algerina" },
+    { "scientific_name": "Drassodes", "hebrew_name": "דרסודס", "english_name": "Drassodes", "isGeneric": true },
+    { "scientific_name": "Dubiaranea", "hebrew_name": "דוביארנאה", "english_name": "Dubiaranea", "isGeneric": true },
+    { "scientific_name": "Dysdera westringi", "hebrew_name": "צלובשן", "english_name": "Dysdera Westringi" },
+    { "scientific_name": "Entelegynae", "hebrew_name": "אנטלגיני", "english_name": "Entelegynae", "isGeneric": true },
+    { "scientific_name": "Euophryini", "hebrew_name": "אופריני", "english_name": "Euophryini", "isGeneric": true },
+    { "scientific_name": "Eusparassus walckenaeri", "hebrew_name": "מברישן הנייר", "english_name": "Eusparassus Walckenaeri" },
+    { "scientific_name": "Evarcha nepos", "hebrew_name": "אוורכה נפוס", "english_name": "Evarcha Nepos" },
+    { "scientific_name": "Evarcha patagiata", "hebrew_name": "אוורכה פטגיאטה", "english_name": "Evarcha Patagiata" },
+    { "scientific_name": "Evippa", "hebrew_name": "אוויפה", "english_name": "Evippa", "isGeneric": true },
+    { "scientific_name": "Frontinellina frutetorum", "hebrew_name": "ערסלנית הגינה", "english_name": "Frontinellina Frutetorum" },
+    { "scientific_name": "Gnaphosidae", "hebrew_name": "קטועניים", "english_name": "Gnaphosidae", "isGeneric": true },
+    { "scientific_name": "Habrocestum nahalit", "hebrew_name": "הברוצסטום נחלית", "english_name": "Habrocestum Nahalit" },
+    { "scientific_name": "Hasarius", "hebrew_name": "הסריוס", "english_name": "Hasarius", "isGeneric": true },
+    { "scientific_name": "Hasarius adansoni", "hebrew_name": "הסריוס אדנסוני", "english_name": "Hasarius Adansoni" },
+    { "scientific_name": "Heliophanus kochii", "hebrew_name": "הליופאנוס קוכי", "english_name": "Heliophanus Kochii" },
+    { "scientific_name": "Heriaeus oblongus", "hebrew_name": "הריאוס אובלונגוס", "english_name": "Heriaeus Oblongus" },
+    { "scientific_name": "Hersilia", "hebrew_name": "פטמתן", "english_name": "Hersilia", "isGeneric": true },
+    { "scientific_name": "Hersilia caudata", "hebrew_name": "פטמתן", "english_name": "Hersilia Caudata" },
+    { "scientific_name": "Hogna", "hebrew_name": "הוגנה", "english_name": "Hogna", "isGeneric": true },
+    { "scientific_name": "Hogna graeca", "hebrew_name": "הוגנה גרקה", "english_name": "Hogna Graeca" },
+    { "scientific_name": "Hottentotta judaicus", "hebrew_name": "שחרן יהודה", "english_name": "Hottentotta Judaicus" },
+    { "scientific_name": "Hyalomma aegyptium", "hebrew_name": "היאלומה מצרית", "english_name": "Hyalomma Aegyptium" },
+    { "scientific_name": "Hyalomma marginatum", "hebrew_name": "היאלומה מרגינטום", "english_name": "Hyalomma Marginatum" },
+    { "scientific_name": "Langona", "hebrew_name": "לנגונה", "english_name": "Langona", "isGeneric": true },
+    { "scientific_name": "Langona oreni", "hebrew_name": "לנגונה אורני", "english_name": "Langona Oreni" },
+    { "scientific_name": "Larinia", "hebrew_name": "לריניה", "english_name": "Larinia", "isGeneric": true },
+    { "scientific_name": "Leiurus hebraeus", "hebrew_name": "עקצן צהוב", "english_name": "Leiurus Hebraeus" },
+    { "scientific_name": "Linyphiidae", "hebrew_name": "ערסלניים", "english_name": "Linyphiidae", "isGeneric": true },
+    { "scientific_name": "Loxosceles rufescens", "hebrew_name": "ארסן חום", "english_name": "Loxosceles Rufescens" },
+    { "scientific_name": "Lycosidae", "hebrew_name": "זאבניים", "english_name": "Lycosidae", "isGeneric": true },
+    { "scientific_name": "Lycosinae", "hebrew_name": "זאבנים (תת-משפחה)", "english_name": "Lycosinae", "isGeneric": true },
+    { "scientific_name": "Lycosoidea", "hebrew_name": "זאבנואידים", "english_name": "Lycosoidea", "isGeneric": true },
+    { "scientific_name": "Lycosoides", "hebrew_name": "ליקוסואידס", "english_name": "Lycosoides", "isGeneric": true },
+    { "scientific_name": "Lycosoides coarctata", "hebrew_name": "ליקוסואידס קוארקטטה", "english_name": "Lycosoides Coarctata" },
+    { "scientific_name": "Mangora acalypha", "hebrew_name": "מנגורה אקליפה", "english_name": "Mangora Acalypha" },
+    { "scientific_name": "Menemerus", "hebrew_name": "מנמרוס", "english_name": "Menemerus", "isGeneric": true },
+    { "scientific_name": "Menemerus semilimbatus", "hebrew_name": "מנמרוס סמילימבטוס", "english_name": "Menemerus Semilimbatus" },
+    { "scientific_name": "Micrommata ligurina", "hebrew_name": "מברישית", "english_name": "Micrommata Ligurina" },
+    { "scientific_name": "Nebo hierichonticus", "hebrew_name": "נבו יריחו", "english_name": "Nebo Hierichonticus" },
+    { "scientific_name": "Neon", "hebrew_name": "נאון", "english_name": "Neon", "isGeneric": true },
+    { "scientific_name": "Neoscona adianta", "hebrew_name": "גלגלית קשוטה", "english_name": "Neoscona Adianta" },
+    { "scientific_name": "Opilio", "hebrew_name": "רגלביש", "english_name": "Opilio", "isGeneric": true },
+    { "scientific_name": "Opiliones", "hebrew_name": "קוצרים", "english_name": "Opiliones", "isGeneric": true },
+    { "scientific_name": "Oxyopes", "hebrew_name": "אוקסיופס", "english_name": "Oxyopes", "isGeneric": true },
+    { "scientific_name": "Palpimanus", "hebrew_name": "פלפימנוס", "english_name": "Palpimanus", "isGeneric": true },
+    { "scientific_name": "Paragaleodes", "hebrew_name": "פרגלאודס", "english_name": "Paragaleodes", "isGeneric": true },
+    { "scientific_name": "Phalangiidae", "hebrew_name": "ארך-רגליים", "english_name": "Phalangiidae", "isGeneric": true },
+    { "scientific_name": "Philaeus chrysops", "hebrew_name": "קופצן אדום בטן", "english_name": "Philaeus Chrysops" },
+    { "scientific_name": "Philodromidae", "hebrew_name": "פילודרומיים", "english_name": "Philodromidae", "isGeneric": true },
+    { "scientific_name": "Pisaura", "hebrew_name": "ענבלן", "english_name": "Pisaura", "isGeneric": true },
+    { "scientific_name": "Pisaura consocia", "hebrew_name": "ענבלן קונסוציה", "english_name": "Pisaura Consocia" },
+    { "scientific_name": "Pisaura mirabilis", "hebrew_name": "ענבלן מיראביליס", "english_name": "Pisaura Mirabilis" },
+    { "scientific_name": "Plexippus paykulli", "hebrew_name": "קופצן הבתים", "english_name": "Plexippus Paykulli" },
+    { "scientific_name": "Prochora lycosiformis", "hebrew_name": "פרוכורה ליקוסיפורמיס", "english_name": "Prochora Lycosiformis" },
+    { "scientific_name": "Pseudicius", "hebrew_name": "פסאודיציוס", "english_name": "Pseudicius", "isGeneric": true },
+    { "scientific_name": "Pulchellodromus pulchellus", "hebrew_name": "פולכלודרומוס פולכלוס", "english_name": "Pulchellodromus Pulchellus" },
+    { "scientific_name": "Rhipicephalus sanguineus", "hebrew_name": "קרציית הכלב", "english_name": "Rhipicephalus Sanguineus" },
+    { "scientific_name": "Rta clade", "hebrew_name": "קבוצת RTA", "english_name": "Rta Clade", "isGeneric": true },
+    { "scientific_name": "Salticidae", "hebrew_name": "קופצניים", "english_name": "Salticidae", "isGeneric": true },
+    { "scientific_name": "Salticinae", "hebrew_name": "קופצנים (תת-משפחה)", "english_name": "Salticinae", "isGeneric": true },
+    { "scientific_name": "Scorpio fuscus", "hebrew_name": "עביד שחום", "english_name": "Scorpio Fuscus" },
+    { "scientific_name": "Scotophaeus blackwalli", "hebrew_name": "סוקוטופאוס בלאקוולי", "english_name": "Scotophaeus Blackwalli" },
+    { "scientific_name": "Scytodes thoracica", "hebrew_name": "יורקנית הבתים", "english_name": "Scytodes Thoracica" },
+    { "scientific_name": "Solifugae", "hebrew_name": "עכשובאים", "english_name": "Solifugae", "isGeneric": true },
+    { "scientific_name": "Steatoda paykulliana", "hebrew_name": "כדורית אדומה", "english_name": "Steatoda Paykulliana" },
+    { "scientific_name": "Steatoda triangulosa", "hebrew_name": "כדורית המשולשים", "english_name": "Steatoda Triangulosa" },
+    { "scientific_name": "Synema", "hebrew_name": "ארזית", "english_name": "Synema", "isGeneric": true },
+    { "scientific_name": "Synema globosum", "hebrew_name": "ארזית עגלגלה", "english_name": "Synema Globosum" },
+    { "scientific_name": "Tegenaria mediterranea", "hebrew_name": "משפכן", "english_name": "Tegenaria Mediterranea" },
+    { "scientific_name": "Tetragnatha", "hebrew_name": "טטרגנתה", "english_name": "Tetragnatha", "isGeneric": true },
+    { "scientific_name": "Thanatus", "hebrew_name": "תנאטוס", "english_name": "Thanatus", "isGeneric": true },
+    { "scientific_name": "Thanatus formicinus", "hebrew_name": "תנאטוס פורמיקינוס", "english_name": "Thanatus Formicinus" },
+    { "scientific_name": "Thanatus vulgaris", "hebrew_name": "תנאטוס ולגאריס", "english_name": "Thanatus Vulgaris" },
+    { "scientific_name": "Theridiidae", "hebrew_name": "כדורניים", "english_name": "Theridiidae", "isGeneric": true },
+    { "scientific_name": "Thomisus", "hebrew_name": "סרטביש", "english_name": "Thomisus", "isGeneric": true },
+    { "scientific_name": "Thomisus citrinellus", "hebrew_name": "סרטביש לימוני", "english_name": "Thomisus Citrinellus" },
+    { "scientific_name": "Thomisus onustus", "hebrew_name": "סרטביש הפרחים", "english_name": "Thomisus Onustus" },
+    { "scientific_name": "Thyene imperialis", "hebrew_name": "תיינה אימפריאליס", "english_name": "Thyene Imperialis" },
+    { "scientific_name": "Titanidiops syriacus", "hebrew_name": "טיטנידיופס סורי", "english_name": "Titanidiops Syriacus" },
+    { "scientific_name": "Trombidiidae", "hebrew_name": "אקרית קטיפה", "english_name": "Trombidiidae", "isGeneric": true },
+    { "scientific_name": "Uloborus", "hebrew_name": "אולובורוס", "english_name": "Uloborus", "isGeneric": true },
+    { "scientific_name": "Wadicosa", "hebrew_name": "ערוצית", "english_name": "Wadicosa", "isGeneric": true },
+    { "scientific_name": "Wadicosa fidelis", "hebrew_name": "ערוצית זריזה", "english_name": "Wadicosa Fidelis" },
+    { "scientific_name": "Xysticus", "hebrew_name": "קסיס", "english_name": "Xysticus", "isGeneric": true },
+    { "scientific_name": "Zodarion", "hebrew_name": "זודריון", "english_name": "Zodarion", "isGeneric": true },
+    { "scientific_name": "Zoropsis lutea", "hebrew_name": "זורופסיס צהובה", "english_name": "Zoropsis Lutea" }
+  ],
+  "פרפרים": [
+    { "scientific_name": "Archon apollinus", "hebrew_name": "צבעון שקוף", "english_name": "Archon Apollinus" },
+    { "scientific_name": "Azanus jesous", "hebrew_name": "כחלון הינבוט", "english_name": "Azanus Jesous" },
+    { "scientific_name": "Belenois aurota", "hebrew_name": "לבנין משויש", "english_name": "Belenois Aurota" },
+    { "scientific_name": "Borbo borbonica", "hebrew_name": "הספרית ביצות", "english_name": "Zeller's Skipper" },
+    { "scientific_name": "Carcharodus alceae", "hebrew_name": "אפורית החלמית", "english_name": "Carcharodus Alceae", "isGeneric": true },
+    { "scientific_name": "Colias croceus", "hebrew_name": "צהבוני התלתן", "english_name": "Colias Croceus" },
+    { "scientific_name": "Colotis fausta", "hebrew_name": "דרומי הצלף", "english_name": "Colotis Fausta" },
+    { "scientific_name": "Danaus chrysippus", "hebrew_name": "דנאית הדורה", "english_name": "Danaus Chrysippus" },
+    { "scientific_name": "Gegenes pumilio", "hebrew_name": "הספרית שחורה", "english_name": "Gegenes Pumilio" },
+    { "scientific_name": "Lampides boeticus", "hebrew_name": "כחלון האפון", "english_name": "Lampides Boeticus" },
+    { "scientific_name": "Lasiommata maera", "hebrew_name": "חומית היבלית", "english_name": "Lasiommata Maera" },
+    { "scientific_name": "Leptotes pirithous", "hebrew_name": "כחלון האספסת", "english_name": "Leptotes Pirithous" },
+    { "scientific_name": "Luthrodes galba", "hebrew_name": "כחליל הקטנית", "english_name": "Luthrodes Galba" },
+    { "scientific_name": "Lycaena phlaeas", "hebrew_name": "נחושתן הארכובית", "english_name": "Lycaena Phlaeas" },
+    { "scientific_name": "Maniola telmessia", "hebrew_name": "סטירית פקוחה", "english_name": "Maniola Telmessia" },
+    { "scientific_name": "Melitaea telona", "hebrew_name": "כיתמית אריאל", "english_name": "Melitaea Telona" },
+    { "scientific_name": "Melitaea trivia", "hebrew_name": "כתמית הבוצין", "english_name": "Melitaea Trivia" },
+    { "scientific_name": "Papilio demoleus", "hebrew_name": "זנב סנונית הלימון", "english_name": "Lime Butterfly" },
+    { "scientific_name": "Papilio machaon", "hebrew_name": "זנב סנונית נאה", "english_name": "Papilio Machaon" },
+    { "scientific_name": "Pieris brassicae", "hebrew_name": "לבנין הכרוב", "english_name": "Pieris Brassicae", "isGeneric": true },
+    { "scientific_name": "Pieris rapae", "hebrew_name": "לבנין הצנון", "english_name": "Pieris Rapae", "isGeneric": true },
+    { "scientific_name": "Polyommatus icarus", "hebrew_name": "כחליל השברק", "english_name": "Polyommatus Icarus" },
+    { "scientific_name": "Pontia daplidice", "hebrew_name": "לבנין הרכפה", "english_name": "Pontia Daplidice" },
+    { "scientific_name": "Pseudophilotes baton", "hebrew_name": "תכליל האזוב", "english_name": "Pseudophilotes Baton" },
+    { "scientific_name": "Thersamonia thersamon", "hebrew_name": "נחושתן החומעה", "english_name": "Thersamonia Thersamon" },
+    { "scientific_name": "Vanessa cardui", "hebrew_name": "נימפית החורשף", "english_name": "Vanessa Cardui" },
+    { "scientific_name": "Zizeeria karsandra", "hebrew_name": "כחלון הקוטב", "english_name": "Zizeeria Karsandra" }
+  ],
+  "צמחים": [
+    { "scientific_name": "Acacia saligna", "hebrew_name": "שיטה כחלחלה", "english_name": "Acacia Saligna" },
+    { "scientific_name": "Acanthus syriacus", "hebrew_name": "קוציץ סורי", "english_name": "Acanthus Syriacus" },
+    { "scientific_name": "Achyranthes aspera", "hebrew_name": "רב-מוץ מחוספס", "english_name": "Achyranthes Aspera" },
+    { "scientific_name": "Adonis", "hebrew_name": "דמומית", "english_name": "Adonis", "isGeneric": true },
+    { "scientific_name": "Adonis annua", "hebrew_name": "דמומית השדה", "english_name": "Adonis Annua" },
+    { "scientific_name": "Adonis microcarpa", "hebrew_name": "דמומית קטנת-פרי", "english_name": "Adonis Microcarpa" },
+    { "scientific_name": "Adonis palaestina", "hebrew_name": "דמומית ארץ-ישראלית", "english_name": "Adonis Palaestina" },
+    { "scientific_name": "Aegilops geniculata", "hebrew_name": "בן-חיטה ביצני", "english_name": "Aegilops Geniculata" },
+    { "scientific_name": "Aegilops peregrina", "hebrew_name": "בן-חיטה רב-אנפין", "english_name": "Aegilops Peregrina" },
+    { "scientific_name": "Agave", "hebrew_name": "אגבה", "english_name": "Agave", "isGeneric": true },
+    { "scientific_name": "Ajuga chamaepitys", "hebrew_name": "חד-שפה מצוי", "english_name": "Ajuga Chamaepitys" },
+    { "scientific_name": "Ajuga chamaepitys chia", "hebrew_name": "חד-שפה מצוי (זן כיוס)", "english_name": "Ajuga Chamaepitys Chia" },
+    { "scientific_name": "Alcea", "hebrew_name": "חטמית", "english_name": "Alcea", "isGeneric": true },
+    { "scientific_name": "Alcea setosa", "hebrew_name": "חטמית זיפנית", "english_name": "Alcea Setosa" },
+    { "scientific_name": "Alectryon tomentosus", "hebrew_name": "כרבל לביד", "english_name": "Alectryon Tomentosus" },
+    { "scientific_name": "Alhagi graecorum", "hebrew_name": "הגה מצויה", "english_name": "Alhagi Graecorum" },
+    { "scientific_name": "Allium", "hebrew_name": "שום", "english_name": "Allium", "isGeneric": true },
+    { "scientific_name": "Allium galileum", "hebrew_name": "שום ירקרק", "english_name": "Allium Galileum" },
+    { "scientific_name": "Allium neapolitanum", "hebrew_name": "שום משולש", "english_name": "Allium Neapolitanum" },
+    { "scientific_name": "Allium phanerantherum", "hebrew_name": "שום נטוי", "english_name": "Allium Phanerantherum" },
+    { "scientific_name": "Alopecurus", "hebrew_name": "זנב-שועל", "english_name": "Alopecurus", "isGeneric": true },
+    { "scientific_name": "Alopecurus myosuroides", "hebrew_name": "זנב-שועל ארוך", "english_name": "Alopecurus Myosuroides" },
+    { "scientific_name": "Alyssum simplex", "hebrew_name": "אליסון מצוי", "english_name": "Alyssum Simplex" },
+    { "scientific_name": "Alyssum strigosum", "hebrew_name": "אליסון זיפני", "english_name": "Alyssum Strigosum" },
+    { "scientific_name": "Amaranthaceae", "hebrew_name": "ירבוזיים", "english_name": "Amaranthaceae", "isGeneric": true },
+    { "scientific_name": "Amaranthus", "hebrew_name": "ירבוז", "english_name": "Amaranthus", "isGeneric": true },
+    { "scientific_name": "Amaranthus blitoides", "hebrew_name": "ירבוז שרוע", "english_name": "Amaranthus Blitoides" },
+    { "scientific_name": "Amaranthus palmeri", "hebrew_name": "ירבוז פלמר", "english_name": "Amaranthus Palmeri" },
+    { "scientific_name": "Amaranthus retroflexus", "hebrew_name": "ירבוז מופשל", "english_name": "Amaranthus Retroflexus" },
+    { "scientific_name": "Ambrosia confertiflora", "hebrew_name": "אמברוסיה מכונסת", "english_name": "Ambrosia Confertiflora" },
+    { "scientific_name": "Ammi majus", "hebrew_name": "אמיתה גדולה", "english_name": "Ammi Majus" },
+    { "scientific_name": "Anacamptis collina", "hebrew_name": "סחלב השקיק", "english_name": "Anacamptis Collina" },
+    { "scientific_name": "Anacamptis papilionacea palaestina", "hebrew_name": "סחלב פרפרני", "english_name": "Anacamptis Papilionacea Palaestina" },
+    { "scientific_name": "Anacamptis sancta", "hebrew_name": "סחלב קדוש", "english_name": "Anacamptis Sancta" },
+    { "scientific_name": "Anagallis", "hebrew_name": "מרגנית", "english_name": "Anagallis", "isGeneric": true },
+    { "scientific_name": "Anchusa aegyptiaca", "hebrew_name": "לשון-פר מצרית", "english_name": "Anchusa Aegyptiaca" },
+    { "scientific_name": "Anchusa strigosa", "hebrew_name": "לשון-פר סמורה", "english_name": "Anchusa Strigosa" },
+    { "scientific_name": "Andrachne telephioides", "hebrew_name": "שלוחית קירחת", "english_name": "Andrachne Telephioides" },
+    { "scientific_name": "Andropogon distachyos", "hebrew_name": "זקניים משובלים", "english_name": "Andropogon Distachyos" },
+    { "scientific_name": "Anemone coronaria", "hebrew_name": "כלנית מצויה", "english_name": "Anemone Coronaria" },
+    { "scientific_name": "Angiospermae", "hebrew_name": "צמחים בעלי פרחים", "english_name": "Angiospermae", "isGeneric": true },
+    { "scientific_name": "Anthemideae", "hebrew_name": "קחווניים (שבט)", "english_name": "Anthemideae", "isGeneric": true },
+    { "scientific_name": "Anthemidinae", "hebrew_name": "קחוונים (תת-שבט)", "english_name": "Anthemidinae", "isGeneric": true },
+    { "scientific_name": "Anthemis", "hebrew_name": "קחוון", "english_name": "Anthemis", "isGeneric": true },
+    { "scientific_name": "Anthemis pseudocotula", "hebrew_name": "קחוון מצוי", "english_name": "Anthemis Pseudocotula" },
+    { "scientific_name": "Anthyllis circinnata", "hebrew_name": "כלילנית מצויה", "english_name": "Anthyllis Circinnata" },
+    { "scientific_name": "Antirrhinum", "hebrew_name": "לוע-הארי", "english_name": "Antirrhinum", "isGeneric": true },
+    { "scientific_name": "Apiaceae", "hebrew_name": "סוככיים", "english_name": "Apiaceae", "isGeneric": true },
+    { "scientific_name": "Apioideae", "hebrew_name": "סוככניים", "english_name": "Apioideae", "isGeneric": true },
+    { "scientific_name": "Arenaria leptoclados", "hebrew_name": "ארנריה מצויה", "english_name": "Arenaria Leptoclados" },
+    { "scientific_name": "Arisarum vulgare", "hebrew_name": "לופית מצויה", "english_name": "Arisarum Vulgare" },
+    { "scientific_name": "Aristolochia bottae", "hebrew_name": "ספלול השדה", "english_name": "Aristolochia Bottae", "isGeneric": true },
+    { "scientific_name": "Artedia squamata", "hebrew_name": "שפרירה קשקשית", "english_name": "Artedia Squamata" },
+    { "scientific_name": "Arum dioscoridis", "hebrew_name": "לוף מנומר", "english_name": "Arum Dioscoridis" },
+    { "scientific_name": "Arum palaestinum", "hebrew_name": "לוף ארץ-ישראלי", "english_name": "Arum Palaestinum" },
+    { "scientific_name": "Arundinoideae", "hebrew_name": "עבקניים", "english_name": "Arundinoideae", "isGeneric": true },
+    { "scientific_name": "Arundo", "hebrew_name": "עבקנה", "english_name": "Arundo", "isGeneric": true },
+    { "scientific_name": "Arundo donax", "hebrew_name": "עבקנה שכיח", "english_name": "Arundo Donax" },
+    { "scientific_name": "Asparagus aphyllus", "hebrew_name": "אספרג החורש", "english_name": "Asparagus Aphyllus" },
+    { "scientific_name": "Asparagus setaceus", "hebrew_name": "אספרג מנוצה", "english_name": "Asparagus Setaceus" },
+    { "scientific_name": "Asphodeline lutea", "hebrew_name": "עיריוני צהוב", "english_name": "Asphodeline Lutea" },
+    { "scientific_name": "Asphodelus", "hebrew_name": "עירית", "english_name": "Asphodelus", "isGeneric": true },
+    { "scientific_name": "Asphodelus ramosus", "hebrew_name": "עירית גדולה", "english_name": "Asphodelus Ramosus" },
+    { "scientific_name": "Asteraceae", "hebrew_name": "מורכבים", "english_name": "Asteraceae", "isGeneric": true },
+    { "scientific_name": "Astereae", "hebrew_name": "אסטריים (שבט)", "english_name": "Astereae", "isGeneric": true },
+    { "scientific_name": "Asteroideae", "hebrew_name": "אסטריים (תת-משפחה)", "english_name": "Asteroideae", "isGeneric": true },
+    { "scientific_name": "Astragalus hamosus", "hebrew_name": "קדד האנקולים", "english_name": "Astragalus Hamosus" },
+    { "scientific_name": "Astragalus macrocarpus", "hebrew_name": "קדד גדול-פרי", "english_name": "Astragalus Macrocarpus" },
+    { "scientific_name": "Atractylis cancellata", "hebrew_name": "חורשף השבכה", "english_name": "Atractylis Cancellata" },
+    { "scientific_name": "Atriplex", "hebrew_name": "מלוח", "english_name": "Atriplex", "isGeneric": true },
+    { "scientific_name": "Atriplex halimus", "hebrew_name": "מלוח קיפח", "english_name": "Atriplex Halimus" },
+    { "scientific_name": "Atriplex prostrata", "hebrew_name": "מלוח מפושק", "english_name": "Atriplex Prostrata" },
+    { "scientific_name": "Avena", "hebrew_name": "שיבולת-שועל", "english_name": "Avena", "isGeneric": true },
+    { "scientific_name": "Bellevalia flexuosa", "hebrew_name": "זמזומית מצויה", "english_name": "Bellevalia Flexuosa" },
+    { "scientific_name": "Bellis annua", "hebrew_name": "חיננית חד-שנתית", "english_name": "Bellis Annua" },
+    { "scientific_name": "Bellis sylvestris", "hebrew_name": "חיננית הבתה", "english_name": "Bellis Sylvestris" },
+    { "scientific_name": "Beta", "hebrew_name": "סלק", "english_name": "Beta", "isGeneric": true },
+    { "scientific_name": "Beta vulgaris", "hebrew_name": "סלק מצוי", "english_name": "Beta Vulgaris" },
+    { "scientific_name": "Biarum pyrami", "hebrew_name": "אחילוף הגליל", "english_name": "Biarum Pyrami" },
+    { "scientific_name": "Bidens pilosa", "hebrew_name": "דו-שן שעיר", "english_name": "Bidens Pilosa" },
+    { "scientific_name": "Biscutella didyma", "hebrew_name": "מצלתיים מצויים", "english_name": "Biscutella Didyma" },
+    { "scientific_name": "Bituminaria bituminosa", "hebrew_name": "שרעול שעיר", "english_name": "Bituminaria Bituminosa" },
+    { "scientific_name": "Bolboschoenus maritimus", "hebrew_name": "אגמון ימי", "english_name": "Bolboschoenus Maritimus" },
+    { "scientific_name": "Bongardia chrysogonum", "hebrew_name": "כרבולתן השדות", "english_name": "Bongardia Chrysogonum" },
+    { "scientific_name": "Brachypodium sylvaticum", "hebrew_name": "עוקצר היערות", "english_name": "Brachypodium Sylvaticum" },
+    { "scientific_name": "Brassicaceae", "hebrew_name": "מצליבים", "english_name": "Brassicaceae", "isGeneric": true },
+    { "scientific_name": "Brassiceae", "hebrew_name": "כרוביים (שבט)", "english_name": "Brassiceae", "isGeneric": true },
+    { "scientific_name": "Brassicodae", "hebrew_name": "מצליבים", "english_name": "Brassicodae", "isGeneric": true },
+    { "scientific_name": "Bromus", "hebrew_name": "ברומית", "english_name": "Bromus", "isGeneric": true },
+    { "scientific_name": "Bromus alopecuros", "hebrew_name": "ברומית זנב-שועל", "english_name": "Bromus Alopecuros" },
+    { "scientific_name": "Bromus lanceolatus", "hebrew_name": "ברומית אזמלית", "english_name": "Bromus Lanceolatus" },
+    { "scientific_name": "Bryonia cretica", "hebrew_name": "דלעת-נחש מצויה", "english_name": "Bryonia Cretica" },
+    { "scientific_name": "Bryonia syriaca", "hebrew_name": "דלעת-נחש סורית", "english_name": "Bryonia Syriaca" },
+    { "scientific_name": "Bryonieae", "hebrew_name": "דלועיים (שבט)", "english_name": "Bryonieae", "isGeneric": true },
+    { "scientific_name": "Buglossoides arvensis", "hebrew_name": "גלעינית השדה", "english_name": "Buglossoides Arvensis" },
+    { "scientific_name": "Bupleurum nodiflorum", "hebrew_name": "צלע-שור קטנה", "english_name": "Bupleurum Nodiflorum" },
+    { "scientific_name": "Bupleurum subovatum", "hebrew_name": "צלע-שור חרוזה", "english_name": "Bupleurum Subovatum" },
+    { "scientific_name": "Calendula arvensis", "hebrew_name": "ציפורני-חתול מצויות", "english_name": "Calendula Arvensis" },
+    { "scientific_name": "Calendula palaestina", "hebrew_name": "ציפורני-חתול ארץ-ישראליות", "english_name": "Calendula Palaestina" },
+    { "scientific_name": "Calicotome villosa", "hebrew_name": "קידה שעירה", "english_name": "Calicotome Villosa" },
+    { "scientific_name": "Campanula", "hebrew_name": "פעמונית", "english_name": "Campanula", "isGeneric": true },
+    { "scientific_name": "Campanula erinus", "hebrew_name": "פעמונית קטנה", "english_name": "Campanula Erinus" },
+    { "scientific_name": "Campanula rapunculus", "hebrew_name": "פעמונית קיפחת", "english_name": "Campanula Rapunculus" },
+    { "scientific_name": "Capparis zoharyi", "hebrew_name": "צלף זוהרי", "english_name": "Capparis Zoharyi" },
+    { "scientific_name": "Capsella", "hebrew_name": "ילקוט", "english_name": "Capsella", "isGeneric": true },
+    { "scientific_name": "Capsella bursa-pastoris", "hebrew_name": "ילקוט הרועים", "english_name": "Capsella Bursa-pastoris" },
+    { "scientific_name": "Cardamine", "hebrew_name": "קרדמין", "english_name": "Cardamine", "isGeneric": true },
+    { "scientific_name": "Cardueae", "hebrew_name": "קוצניים (שבט)", "english_name": "Cardueae", "isGeneric": true },
+    { "scientific_name": "Carduinae", "hebrew_name": "קוצנים (תת-שבט)", "english_name": "Carduinae", "isGeneric": true },
+    { "scientific_name": "Carduoideae", "hebrew_name": "קוצניים (תת-משפחה)", "english_name": "Carduoideae", "isGeneric": true },
+    { "scientific_name": "Carduus argentatus", "hebrew_name": "קרדה מכסיפה", "english_name": "Carduus Argentatus" },
+    { "scientific_name": "Carlina curetum", "hebrew_name": "קיצנית כרתית", "english_name": "Carlina Curetum" },
+    { "scientific_name": "Carlina lanata", "hebrew_name": "קיצנית צמרנית", "english_name": "Carlina Lanata" },
+    { "scientific_name": "Carthamus glaucus", "hebrew_name": "קורטם מכחיל", "english_name": "Carthamus Glaucus" },
+    { "scientific_name": "Caryophyllaceae", "hebrew_name": "ציפורניים", "english_name": "Caryophyllaceae", "isGeneric": true },
+    { "scientific_name": "Catananche lutea", "hebrew_name": "אוזן-גדי צהובה", "english_name": "Catananche Lutea" },
+    { "scientific_name": "Cenchrinae", "hebrew_name": "צנכרונים (תת-שבט)", "english_name": "Cenchrinae", "isGeneric": true },
+    { "scientific_name": "Centaurea", "hebrew_name": "דרדר", "english_name": "Centaurea", "isGeneric": true },
+    { "scientific_name": "Centaurea cyanoides", "hebrew_name": "דרדר כחול", "english_name": "Centaurea Cyanoides" },
+    { "scientific_name": "Centaurea iberica", "hebrew_name": "דרדר מצוי", "english_name": "Centaurea Iberica" },
+    { "scientific_name": "Centaurea verutum", "hebrew_name": "דרדר קיפח", "english_name": "Centaurea Verutum" },
+    { "scientific_name": "Centaurium tenuiflorum", "hebrew_name": "ערבז דק-פרחים", "english_name": "Centaurium Tenuiflorum" },
+    { "scientific_name": "Cephalaria joppensis", "hebrew_name": "שלמון יפואי", "english_name": "Cephalaria Joppensis" },
+    { "scientific_name": "Cerastium glomeratum", "hebrew_name": "קרנונית דביקה", "english_name": "Cerastium Glomeratum" },
+    { "scientific_name": "Ceratocapnos turbinata", "hebrew_name": "בר-עשנן ארץ-ישראלי", "english_name": "Ceratocapnos Turbinata" },
+    { "scientific_name": "Ceratonia siliqua", "hebrew_name": "חרוב מצוי", "english_name": "Ceratonia Siliqua" },
+    { "scientific_name": "Chaetosciadium trichospermum", "hebrew_name": "שערוּר שעיר", "english_name": "Chaetosciadium Trichospermum" },
+    { "scientific_name": "Chamaeleon", "hebrew_name": "ברקן / קוצן", "english_name": "Chamaeleon", "isGeneric": true },
+    { "scientific_name": "Chenopodium", "hebrew_name": "כף-אווז", "english_name": "Chenopodium", "isGeneric": true },
+    { "scientific_name": "Chiliadenus iphionoides", "hebrew_name": "כתלה חריפה", "english_name": "Chiliadenus Iphionoides" },
+    { "scientific_name": "Chlorophyta", "hebrew_name": "ירוקיות", "english_name": "Chlorophyta", "isGeneric": true },
+    { "scientific_name": "Cichorieae", "hebrew_name": "לשונאים (שבט)", "english_name": "Cichorieae", "isGeneric": true },
+    { "scientific_name": "Cichorium endivia", "hebrew_name": "עולש מצוי", "english_name": "Cichorium Endivia" },
+    { "scientific_name": "Cistus creticus", "hebrew_name": "לוטם שעיר", "english_name": "Cistus Creticus" },
+    { "scientific_name": "Cistus salviifolius", "hebrew_name": "לוטם מרווני", "english_name": "Cistus Salviifolius" },
+    { "scientific_name": "Clematis cirrhosa", "hebrew_name": "זלזלת הקנוקנות", "english_name": "Clematis Cirrhosa" },
+    { "scientific_name": "Clematis vitalba", "hebrew_name": "זלזלת היערות", "english_name": "Clematis Vitalba" },
+    { "scientific_name": "Colchicum stevenii", "hebrew_name": "סתוונית היורה", "english_name": "Colchicum Stevenii" },
+    { "scientific_name": "Commelina erecta", "hebrew_name": "קומלינה זקופה", "english_name": "Commelina Erecta" },
+    { "scientific_name": "Conium maculatum", "hebrew_name": "רוש עקוד", "english_name": "Conium Maculatum" },
+    { "scientific_name": "Convolvulaceae", "hebrew_name": "חבלבליים", "english_name": "Convolvulaceae", "isGeneric": true },
+    { "scientific_name": "Convolvulus", "hebrew_name": "חבלבל", "english_name": "Convolvulus", "isGeneric": true },
+    { "scientific_name": "Convolvulus arvensis", "hebrew_name": "חבלבל השדה", "english_name": "Convolvulus Arvensis" },
+    { "scientific_name": "Convolvulus betonicifolius", "hebrew_name": "חבלבל שעיר", "english_name": "Convolvulus Betonicifolius" },
+    { "scientific_name": "Convolvulus coelesyriacus", "hebrew_name": "חבלבל סורי", "english_name": "Convolvulus Coelesyriacus" },
+    { "scientific_name": "Convolvulus humilis", "hebrew_name": "חבלבל גלוני", "english_name": "Convolvulus Humilis" },
+    { "scientific_name": "Convolvulus siculus", "hebrew_name": "חבלבל סיצילי", "english_name": "Convolvulus Siculus" },
+    { "scientific_name": "Convolvulus siculus siculus", "hebrew_name": "חבלבל סיצילי", "english_name": "Convolvulus Siculus Siculus" },
+    { "scientific_name": "Coriandrum sativum", "hebrew_name": "גד השדה", "english_name": "Coriandrum Sativum" },
+    { "scientific_name": "Crataegus", "hebrew_name": "עוזרר", "english_name": "Crataegus", "isGeneric": true },
+    { "scientific_name": "Crataegus azarolus", "hebrew_name": "עוזרר אדום", "english_name": "Crataegus Azarolus" },
+    { "scientific_name": "Crataegus azarolus aronia", "hebrew_name": "עוזרר קוצני", "english_name": "Crataegus Azarolus Aronia" },
+    { "scientific_name": "Crepis", "hebrew_name": "ניסנית", "english_name": "Crepis", "isGeneric": true },
+    { "scientific_name": "Crepis sancta", "hebrew_name": "ניסנית דו-קרנית", "english_name": "Crepis Sancta" },
+    { "scientific_name": "Crocus hyemalis", "hebrew_name": "כרכום חורפי", "english_name": "Crocus Hyemalis" },
+    { "scientific_name": "Crucianella macrostachya", "hebrew_name": "צלבית ארוכת-שיבולת", "english_name": "Crucianella Macrostachya" },
+    { "scientific_name": "Cruciata articulata", "hebrew_name": "דבקנית הפרקים", "english_name": "Cruciata Articulata" },
+    { "scientific_name": "Cyclamen persicum", "hebrew_name": "רקפת מצויה", "english_name": "Cyclamen Persicum" },
+    { "scientific_name": "Cynanchum acutum", "hebrew_name": "חנק מחודד", "english_name": "Cynanchum Acutum" },
+    { "scientific_name": "Cynara", "hebrew_name": "קנרס", "english_name": "Cynara", "isGeneric": true },
+    { "scientific_name": "Cynara syriaca", "hebrew_name": "קנרס סורי", "english_name": "Cynara Syriaca" },
+    { "scientific_name": "Cynodon dactylon", "hebrew_name": "יבלית מצויה", "english_name": "Cynodon Dactylon" },
+    { "scientific_name": "Cynoglossum", "hebrew_name": "לשון-כלב", "english_name": "Cynoglossum", "isGeneric": true },
+    { "scientific_name": "Cynoglossum creticum", "hebrew_name": "לשון-כלב כרתית", "english_name": "Cynoglossum Creticum" },
+    { "scientific_name": "Cyperaceae", "hebrew_name": "גמאיים", "english_name": "Cyperaceae", "isGeneric": true },
+    { "scientific_name": "Cyperoideae", "hebrew_name": "גמאים", "english_name": "Cyperoideae", "isGeneric": true },
+    { "scientific_name": "Cyperus", "hebrew_name": "גומא", "english_name": "Cyperus", "isGeneric": true },
+    { "scientific_name": "Cyperus longus", "hebrew_name": "גומא ארוך", "english_name": "Cyperus Longus" },
+    { "scientific_name": "Cyperus rotundus", "hebrew_name": "גומא הפקעים", "english_name": "Cyperus Rotundus" },
+    { "scientific_name": "Datura", "hebrew_name": "דטורה", "english_name": "Datura", "isGeneric": true },
+    { "scientific_name": "Datura innoxia", "hebrew_name": "דטורה נטוית-פרי", "english_name": "Datura Innoxia" },
+    { "scientific_name": "Datura stramonium", "hebrew_name": "דטורה זקופת-פרי", "english_name": "Datura Stramonium" },
+    { "scientific_name": "Daucus", "hebrew_name": "גזר", "english_name": "Daucus", "isGeneric": true },
+    { "scientific_name": "Daucus carota", "hebrew_name": "גזר קיפח", "english_name": "Daucus Carota" },
+    { "scientific_name": "Delphinium ithaburense", "hebrew_name": "דורבנית התבור", "english_name": "Delphinium Ithaburense" },
+    { "scientific_name": "Delphinium peregrinum", "hebrew_name": "דורבנית סגולה", "english_name": "Delphinium Peregrinum" },
+    { "scientific_name": "Dianthus strictus", "hebrew_name": "ציפורן נקוד", "english_name": "Dianthus Strictus" },
+    { "scientific_name": "Dinebra retroflexa", "hebrew_name": "זנבה נטויה", "english_name": "Dinebra Retroflexa" },
+    { "scientific_name": "Dioscorea communis", "hebrew_name": "טמוס מצוי", "english_name": "Dioscorea Communis" },
+    { "scientific_name": "Diplachne fusca", "hebrew_name": "דו-מוץ חום", "english_name": "Diplachne Fusca" },
+    { "scientific_name": "Diplotaxis", "hebrew_name": "טוריים", "english_name": "Diplotaxis", "isGeneric": true },
+    { "scientific_name": "Diplotaxis erucoides", "hebrew_name": "טוריים מצויים", "english_name": "Diplotaxis Erucoides" },
+    { "scientific_name": "Dipsacoideae", "hebrew_name": "שלמוניים", "english_name": "Dipsacoideae", "isGeneric": true },
+    { "scientific_name": "Dittrichia graveolens", "hebrew_name": "טיון חריף", "english_name": "Dittrichia Graveolens" },
+    { "scientific_name": "Dittrichia viscosa", "hebrew_name": "טיון דביק", "english_name": "Dittrichia Viscosa" },
+    { "scientific_name": "Dodonaea viscosa", "hebrew_name": "דודונאה דביקה", "english_name": "Dodonaea Viscosa" },
+    { "scientific_name": "Draba minima", "hebrew_name": "אביבית זעירה", "english_name": "Draba Minima" },
+    { "scientific_name": "Draba verna", "hebrew_name": "אביבית בינונית", "english_name": "Draba Verna" },
+    { "scientific_name": "Drimia aphylla", "hebrew_name": "חצב מצוי", "english_name": "Drimia Aphylla" },
+    { "scientific_name": "Dysphania ambrosioides", "hebrew_name": "כף-אווז ריחנית", "english_name": "Dysphania Ambrosioides" },
+    { "scientific_name": "Ecballium elaterium", "hebrew_name": "ירוקת-חמור מצויה", "english_name": "Ecballium Elaterium" },
+    { "scientific_name": "Echinops adenocaulos", "hebrew_name": "קיפודן מצוי", "english_name": "Echinops Adenocaulos" },
+    { "scientific_name": "Echium angustifolium", "hebrew_name": "עכנאי שרוע", "english_name": "Echium Angustifolium" },
+    { "scientific_name": "Echium glomeratum", "hebrew_name": "עכנאי מגובב", "english_name": "Echium Glomeratum" },
+    { "scientific_name": "Echium judaeum", "hebrew_name": "עכנאי יהודה", "english_name": "Echium Judaeum" },
+    { "scientific_name": "Eclipta prostrata", "hebrew_name": "אל-ציצית לבנה", "english_name": "Eclipta Prostrata" },
+    { "scientific_name": "Eleusine indica", "hebrew_name": "דגנה הודית", "english_name": "Eleusine Indica" },
+    { "scientific_name": "Eminium spiculatum", "hebrew_name": "לוליינית מעובה", "english_name": "Eminium Spiculatum" },
+    { "scientific_name": "Ephedra", "hebrew_name": "שרביטן", "english_name": "Ephedra", "isGeneric": true },
+    { "scientific_name": "Ephedra foeminea", "hebrew_name": "שרביטן מצוי", "english_name": "Ephedra Foeminea" },
+    { "scientific_name": "Epilobium", "hebrew_name": "ערברבה", "english_name": "Epilobium", "isGeneric": true },
+    { "scientific_name": "Epilobium hirsutum", "hebrew_name": "ערברבה שעירה", "english_name": "Epilobium Hirsutum" },
+    { "scientific_name": "Erigeron", "hebrew_name": "קייצת", "english_name": "Erigeron", "isGeneric": true },
+    { "scientific_name": "Erigeron bonariensis", "hebrew_name": "קייצת מסולסלת", "english_name": "Erigeron Bonariensis" },
+    { "scientific_name": "Erigeron sumatrensis", "hebrew_name": "קייצת מלבינה", "english_name": "Erigeron Sumatrensis" },
+    { "scientific_name": "Erodium", "hebrew_name": "מקור-חסידה", "english_name": "Erodium", "isGeneric": true },
+    { "scientific_name": "Erodium gruinum", "hebrew_name": "מקור-חסידה גדול", "english_name": "Erodium Gruinum" },
+    { "scientific_name": "Erodium malacoides", "hebrew_name": "מקור-חסידה חלמיתי", "english_name": "Erodium Malacoides" },
+    { "scientific_name": "Erodium moschatum", "hebrew_name": "מקור-חסידה מצוי", "english_name": "Erodium Moschatum" },
+    { "scientific_name": "Eruca vesicaria", "hebrew_name": "בן-חרדל מצוי", "english_name": "Eruca Vesicaria" },
+    { "scientific_name": "Eryngium creticum", "hebrew_name": "חרחבינה מכחילה", "english_name": "Eryngium Creticum" },
+    { "scientific_name": "Euphorbia", "hebrew_name": "חלבלוב", "english_name": "Euphorbia", "isGeneric": true },
+    { "scientific_name": "Euphorbia aleppica", "hebrew_name": "חלבלוב ארם-צובא", "english_name": "Euphorbia Aleppica" },
+    { "scientific_name": "Euphorbia exigua", "hebrew_name": "חלבלוב צר-עלים", "english_name": "Euphorbia Exigua" },
+    { "scientific_name": "Euphorbia graminea", "hebrew_name": "חלבלוב דגני", "english_name": "Euphorbia Graminea" },
+    { "scientific_name": "Euphorbia helioscopia", "hebrew_name": "חלבלוב השמש", "english_name": "Euphorbia Helioscopia" },
+    { "scientific_name": "Euphorbia hierosolymitana", "hebrew_name": "חלבלוב מגובשש", "english_name": "Euphorbia Hierosolymitana" },
+    { "scientific_name": "Euphorbia hypericifolia", "hebrew_name": "חלבלוב נטוי", "english_name": "Euphorbia Hypericifolia" },
+    { "scientific_name": "Euphorbia oxyodonta", "hebrew_name": "חלבלוב מרושת", "english_name": "Euphorbia Oxyodonta" },
+    { "scientific_name": "Euphorbia peplus", "hebrew_name": "חלבלוב מצוי", "english_name": "Euphorbia Peplus" },
+    { "scientific_name": "Euphorbia reuteriana", "hebrew_name": "חלבלוב מקרין", "english_name": "Euphorbia Reuteriana" },
+    { "scientific_name": "Euphorbia serpens", "hebrew_name": "חלבלוב זוחל", "english_name": "Euphorbia Serpens" },
+    { "scientific_name": "Euphorbiaceae", "hebrew_name": "חלבלוביים", "english_name": "Euphorbiaceae", "isGeneric": true },
+    { "scientific_name": "Exoacantha heterophylla", "hebrew_name": "צנינה קוצנית", "english_name": "Exoacantha Heterophylla" },
+    { "scientific_name": "Fabaceae", "hebrew_name": "קטניות", "english_name": "Fabaceae", "isGeneric": true },
+    { "scientific_name": "Faboideae", "hebrew_name": "פרפרניים", "english_name": "Faboideae", "isGeneric": true },
+    { "scientific_name": "Ficus carica", "hebrew_name": "פיקוס התאנה", "english_name": "Ficus Carica" },
+    { "scientific_name": "Foeniculum", "hebrew_name": "שומר", "english_name": "Foeniculum", "isGeneric": true },
+    { "scientific_name": "Foeniculum vulgare", "hebrew_name": "שומר פשוט", "english_name": "Foeniculum Vulgare" },
+    { "scientific_name": "Fritillaria persica", "hebrew_name": "גביעונית הלבנון", "english_name": "Fritillaria Persica" },
+    { "scientific_name": "Fumana", "hebrew_name": "לוטמית", "english_name": "Fumana", "isGeneric": true },
+    { "scientific_name": "Fumana arabica", "hebrew_name": "לוטמית ערבית", "english_name": "Fumana Arabica" },
+    { "scientific_name": "Fumaria densiflora", "hebrew_name": "עשנן צפוף", "english_name": "Fumaria Densiflora" },
+    { "scientific_name": "Fumaria judaica", "hebrew_name": "עשנן יהודה", "english_name": "Fumaria Judaica" },
+    { "scientific_name": "Fumarieae", "hebrew_name": "עשנניים (שבט)", "english_name": "Fumarieae", "isGeneric": true },
+    { "scientific_name": "Fumarioideae", "hebrew_name": "עשנניים (תת-משפחה)", "english_name": "Fumarioideae", "isGeneric": true },
+    { "scientific_name": "Gagea chlorantha", "hebrew_name": "זהבית דמשקאית", "english_name": "Gagea Chlorantha" },
+    { "scientific_name": "Gagea commutata", "hebrew_name": "זהבית השלוחות", "english_name": "Gagea Commutata" },
+    { "scientific_name": "Gagea rigida", "hebrew_name": "זהבית אשונה", "english_name": "Gagea Rigida" },
+    { "scientific_name": "Geranium", "hebrew_name": "גרניון", "english_name": "Geranium", "isGeneric": true },
+    { "scientific_name": "Geranium dissectum", "hebrew_name": "גרניון גזור", "english_name": "Geranium Dissectum" },
+    { "scientific_name": "Geranium molle", "hebrew_name": "גרניון רך", "english_name": "Geranium Molle" },
+    { "scientific_name": "Geranium purpureum", "hebrew_name": "גרניון הארגמן", "english_name": "Geranium Purpureum" },
+    { "scientific_name": "Geranium rotundifolium", "hebrew_name": "גרניון עגול", "english_name": "Geranium Rotundifolium" },
+    { "scientific_name": "Geropogon hybridus", "hebrew_name": "זקן-סב מצוי", "english_name": "Geropogon Hybridus" },
+    { "scientific_name": "Gladiolus italicus", "hebrew_name": "סייפן התבואה", "english_name": "Gladiolus Italicus" },
+    { "scientific_name": "Glebionis", "hebrew_name": "חרצית", "english_name": "Glebionis", "isGeneric": true },
+    { "scientific_name": "Glebionis coronaria", "hebrew_name": "חרצית עטורה", "english_name": "Glebionis Coronaria" },
+    { "scientific_name": "Glebionis segetum", "hebrew_name": "חרצית השדות", "english_name": "Glebionis Segetum" },
+    { "scientific_name": "Glinus lotoides", "hebrew_name": "אפרורית מצויה", "english_name": "Glinus Lotoides" },
+    { "scientific_name": "Gundelia tournefortii", "hebrew_name": "עכובית הגלגל", "english_name": "Gundelia Tournefortii" },
+    { "scientific_name": "Hedypnois rhagadioloides", "hebrew_name": "שופרית כרתית", "english_name": "Hedypnois Rhagadioloides" },
+    { "scientific_name": "Helianthemum aegyptiacum", "hebrew_name": "שמשון מצרי", "english_name": "Helianthemum Aegyptiacum" },
+    { "scientific_name": "Helianthemum salicifolium", "hebrew_name": "שמשון מצוי", "english_name": "Helianthemum Salicifolium" },
+    { "scientific_name": "Helianthus annuus", "hebrew_name": "חמנית מצויה", "english_name": "Helianthus Annuus" },
+    { "scientific_name": "Helichrysum sanguineum", "hebrew_name": "דם-המכבים האדום", "english_name": "Helichrysum Sanguineum" },
+    { "scientific_name": "Heliotropium", "hebrew_name": "עוקץ-עקרב", "english_name": "Heliotropium", "isGeneric": true },
+    { "scientific_name": "Heliotropium bovei", "hebrew_name": "עוקץ-עקרב אפור", "english_name": "Heliotropium Bovei" },
+    { "scientific_name": "Heliotropium rotundifolium", "hebrew_name": "עוקץ-עקרב עגול-עלים", "english_name": "Heliotropium Rotundifolium" },
+    { "scientific_name": "Heliotropium supinum", "hebrew_name": "עוקץ-עקרב שרוע", "english_name": "Heliotropium Supinum" },
+    { "scientific_name": "Helosciadium nodiflorum", "hebrew_name": "כרפס הביצות", "english_name": "Helosciadium Nodiflorum" },
+    { "scientific_name": "Heptaptera anisopetala", "hebrew_name": "כנפה חרוקה", "english_name": "Heptaptera Anisopetala" },
+    { "scientific_name": "Heterotheca subaxillaris", "hebrew_name": "טיונית החולות", "english_name": "Heterotheca Subaxillaris" },
+    { "scientific_name": "Hibiscus trionum", "hebrew_name": "היביסקוס משולש", "english_name": "Hibiscus Trionum" },
+    { "scientific_name": "Hirschfeldia incana", "hebrew_name": "לפתית מצויה", "english_name": "Hirschfeldia Incana" },
+    { "scientific_name": "Hordeum", "hebrew_name": "שעורה", "english_name": "Hordeum", "isGeneric": true },
+    { "scientific_name": "Hordeum bulbosum", "hebrew_name": "שעורת הבולבוסין", "english_name": "Hordeum Bulbosum" },
+    { "scientific_name": "Hordeum spontaneum", "hebrew_name": "שעורת התבור", "english_name": "Hordeum Spontaneum" },
+    { "scientific_name": "Hordeum vulgare distichon", "hebrew_name": "שעורה דו-טורית", "english_name": "Hordeum Vulgare Distichon" },
+    { "scientific_name": "Hyacinthus orientalis", "hebrew_name": "יקינתון מזרחי", "english_name": "Hyacinthus Orientalis" },
+    { "scientific_name": "Hyparrhenia hirta", "hebrew_name": "זקנן שעיר", "english_name": "Hyparrhenia Hirta" },
+    { "scientific_name": "Juncus", "hebrew_name": "סמר", "english_name": "Juncus", "isGeneric": true },
+    { "scientific_name": "Juncus acutus", "hebrew_name": "סמר חד", "english_name": "Juncus Acutus" },
+    { "scientific_name": "Juncus rigidus", "hebrew_name": "סמר ערבי", "english_name": "Juncus Rigidus" },
+    { "scientific_name": "Kickxia", "hebrew_name": "עפעפית", "english_name": "Kickxia", "isGeneric": true },
+    { "scientific_name": "Kickxia aegyptiaca", "hebrew_name": "עפעפית מצרית", "english_name": "Kickxia Aegyptiaca" },
+    { "scientific_name": "Knautia", "hebrew_name": "חוגית", "english_name": "Knautia", "isGeneric": true },
+    { "scientific_name": "Knautia integrifolia", "hebrew_name": "חוגית תמימה", "english_name": "Knautia Integrifolia" },
+    { "scientific_name": "Krubera peregrina", "hebrew_name": "גבשונית השדה", "english_name": "Krubera Peregrina" },
+    { "scientific_name": "Lactuca serriola", "hebrew_name": "חסת המצפן", "english_name": "Lactuca Serriola" },
+    { "scientific_name": "Lactuca tuberosa", "hebrew_name": "חסה כחולת-פרחים", "english_name": "Lactuca Tuberosa" },
+    { "scientific_name": "Lactuca viminea", "hebrew_name": "חסת השבטים", "english_name": "Lactuca Viminea" },
+    { "scientific_name": "Lamarckia aurea", "hebrew_name": "משערת זהובה", "english_name": "Lamarckia Aurea" },
+    { "scientific_name": "Lamiaceae", "hebrew_name": "שפתניים", "english_name": "Lamiaceae", "isGeneric": true },
+    { "scientific_name": "Lamium moschatum", "hebrew_name": "נזמית לבנה", "english_name": "Lamium Moschatum" },
+    { "scientific_name": "Lathyrus annuus", "hebrew_name": "טופח חד-שנתי", "english_name": "Lathyrus Annuus" },
+    { "scientific_name": "Lathyrus blepharicarpos", "hebrew_name": "טופח ריסני", "english_name": "Lathyrus Blepharicarpos" },
+    { "scientific_name": "Lathyrus hierosolymitanus", "hebrew_name": "טופח ירושלים", "english_name": "Lathyrus Hierosolymitanus" },
+    { "scientific_name": "Lathyrus ochrus", "hebrew_name": "טופח גדול", "english_name": "Lathyrus Ochrus" },
+    { "scientific_name": "Laurus nobilis", "hebrew_name": "ער אציל", "english_name": "Laurus Nobilis" },
+    { "scientific_name": "Leontodon", "hebrew_name": "כתמה", "english_name": "Leontodon", "isGeneric": true },
+    { "scientific_name": "Leontodon tuberosus", "hebrew_name": "כתמה עבת-שורשים", "english_name": "Leontodon Tuberosus" },
+    { "scientific_name": "Leucaena leucocephala", "hebrew_name": "צחר כחלחל", "english_name": "Leucaena Leucocephala" },
+    { "scientific_name": "Liliopsida", "hebrew_name": "חד-פסיגיים", "english_name": "Liliopsida", "isGeneric": true },
+    { "scientific_name": "Limonium narbonense", "hebrew_name": "עדעד הביצות", "english_name": "Limonium Narbonense" },
+    { "scientific_name": "Linaria chalepensis", "hebrew_name": "פשתנית ארם-צובא", "english_name": "Linaria Chalepensis" },
+    { "scientific_name": "Linum", "hebrew_name": "פשתה", "english_name": "Linum", "isGeneric": true },
+    { "scientific_name": "Linum corymbulosum", "hebrew_name": "פשתת המכבד", "english_name": "Linum Corymbulosum" },
+    { "scientific_name": "Linum nodiflorum", "hebrew_name": "פשתה מצויה", "english_name": "Linum Nodiflorum" },
+    { "scientific_name": "Linum pubescens", "hebrew_name": "פשתה שעירה", "english_name": "Linum Pubescens" },
+    { "scientific_name": "Lomelosia", "hebrew_name": "תגית", "english_name": "Lomelosia", "isGeneric": true },
+    { "scientific_name": "Lomelosia prolifera", "hebrew_name": "תגית מצויה", "english_name": "Lomelosia Prolifera" },
+    { "scientific_name": "Loteae", "hebrew_name": "לוטוסיים", "english_name": "Loteae", "isGeneric": true },
+    { "scientific_name": "Lotus", "hebrew_name": "לוטוס", "english_name": "Lotus", "isGeneric": true },
+    { "scientific_name": "Lotus palustris", "hebrew_name": "לוטוס הביצות", "english_name": "Lotus Palustris" },
+    { "scientific_name": "Lotus tetragonolobus", "hebrew_name": "ארבע-כנפות מצויות", "english_name": "Lotus Tetragonolobus" },
+    { "scientific_name": "Ludwigia adscendens", "hebrew_name": "מדד זוחל", "english_name": "Ludwigia Adscendens" },
+    { "scientific_name": "Ludwigia adscendens diffusa", "hebrew_name": "מדד זוחל", "english_name": "Ludwigia Adscendens Diffusa" },
+    { "scientific_name": "Lupinus palaestinus", "hebrew_name": "תורמוס ארץ-ישראלי", "english_name": "Lupinus Palaestinus" },
+    { "scientific_name": "Lupinus pilosus", "hebrew_name": "תורמוס ההרים", "english_name": "Lupinus Pilosus" },
+    { "scientific_name": "Lycopus europaeus", "hebrew_name": "כף-זאב אירופית", "english_name": "Lycopus Europaeus" },
+    { "scientific_name": "Lysimachia", "hebrew_name": "מרגנית", "english_name": "Lysimachia", "isGeneric": true },
+    { "scientific_name": "Lysimachia linum-stellatum", "hebrew_name": "זעריר כוכבני", "english_name": "Lysimachia Linum-stellatum" },
+    { "scientific_name": "Lysimachia loeflingii", "hebrew_name": "מרגנית השדה", "english_name": "Lysimachia Loeflingii" },
+    { "scientific_name": "Lythrum", "hebrew_name": "שנית", "english_name": "Lythrum", "isGeneric": true },
+    { "scientific_name": "Lythrum junceum", "hebrew_name": "שנית מתפתלת", "english_name": "Lythrum Junceum" },
+    { "scientific_name": "Lythrum salicaria", "hebrew_name": "שנית גדולה", "english_name": "Lythrum Salicaria" },
+    { "scientific_name": "Magnoliopsida", "hebrew_name": "דו-פסיגיים", "english_name": "Magnoliopsida", "isGeneric": true },
+    { "scientific_name": "Malva", "hebrew_name": "חלמית", "english_name": "Malva", "isGeneric": true },
+    { "scientific_name": "Malva multiflora", "hebrew_name": "מעוג כרתי", "english_name": "Malva Multiflora" },
+    { "scientific_name": "Malva nicaeensis", "hebrew_name": "חלמית מצויה", "english_name": "Malva Nicaeensis" },
+    { "scientific_name": "Malva parviflora", "hebrew_name": "חלמית קטנת-פרחים", "english_name": "Malva Parviflora" },
+    { "scientific_name": "Malva punctata", "hebrew_name": "מעוג מנוקד", "english_name": "Malva Punctata" },
+    { "scientific_name": "Malva sylvestris", "hebrew_name": "חלמית גדולה", "english_name": "Malva Sylvestris" },
+    { "scientific_name": "Malva trimestris", "hebrew_name": "מעוג אפיל", "english_name": "Malva Trimestris" },
+    { "scientific_name": "Malvella sherardiana", "hebrew_name": "בת-חלמית שרועה", "english_name": "Malvella Sherardiana" },
+    { "scientific_name": "Mandragora autumnalis", "hebrew_name": "דודא רפואי", "english_name": "Mandragora Autumnalis" },
+    { "scientific_name": "Medicago lupulina", "hebrew_name": "אספסת זעירה", "english_name": "Medicago Lupulina" },
+    { "scientific_name": "Medicago minima", "hebrew_name": "אספסת קטנה", "english_name": "Medicago Minima" },
+    { "scientific_name": "Medicago orbicularis", "hebrew_name": "אספסת עדשתית", "english_name": "Medicago Orbicularis" },
+    { "scientific_name": "Medicago polymorpha", "hebrew_name": "אספסת מצויה", "english_name": "Medicago Polymorpha" },
+    { "scientific_name": "Medicago rotata", "hebrew_name": "אספסת גלגלית", "english_name": "Medicago Rotata" },
+    { "scientific_name": "Medicago scutellata", "hebrew_name": "אספסת קעורה", "english_name": "Medicago Scutellata" },
+    { "scientific_name": "Medicago truncatula", "hebrew_name": "אספסת קטועה", "english_name": "Medicago Truncatula" },
+    { "scientific_name": "Melanortocarya obtusifolia", "hebrew_name": "נוניאה קהה", "english_name": "Melanortocarya Obtusifolia" },
+    { "scientific_name": "Melilotus indicus", "hebrew_name": "דבשה הודית", "english_name": "Melilotus Indicus" },
+    { "scientific_name": "Melissa officinalis", "hebrew_name": "מליסה רפואית", "english_name": "Melissa Officinalis" },
+    { "scientific_name": "Mentha", "hebrew_name": "נענע", "english_name": "Mentha", "isGeneric": true },
+    { "scientific_name": "Mentha longifolia", "hebrew_name": "נענע משובלת", "english_name": "Mentha Longifolia" },
+    { "scientific_name": "Mentha pulegium", "hebrew_name": "נענע הכדורים", "english_name": "Mentha Pulegium" },
+    { "scientific_name": "Menthinae", "hebrew_name": "נענעים", "english_name": "Menthinae", "isGeneric": true },
+    { "scientific_name": "Mercurialis", "hebrew_name": "מרקולית", "english_name": "Mercurialis", "isGeneric": true },
+    { "scientific_name": "Mercurialis annua", "hebrew_name": "מרקולית מצויה", "english_name": "Mercurialis Annua" },
+    { "scientific_name": "Micromeria fruticosa", "hebrew_name": "זוטה לבנה", "english_name": "Micromeria Fruticosa" },
+    { "scientific_name": "Moluccella laevis", "hebrew_name": "בר-גביע חלק", "english_name": "Moluccella Laevis" },
+    { "scientific_name": "Moluccella spinosa", "hebrew_name": "בר-גביע קוצני", "english_name": "Moluccella Spinosa" },
+    { "scientific_name": "Moraea sisyrinchium", "hebrew_name": "צהרון מצוי", "english_name": "Moraea Sisyrinchium" },
+    { "scientific_name": "Mutarda arvensis", "hebrew_name": "חרדל השדה", "english_name": "Mutarda Arvensis" },
+    { "scientific_name": "Mutarda nigra", "hebrew_name": "כרוב שחור", "english_name": "Mutarda Nigra" },
+    { "scientific_name": "Narcissus tazetta", "hebrew_name": "נרקיס מצוי", "english_name": "Narcissus Tazetta" },
+    { "scientific_name": "Nasturtium", "hebrew_name": "גרגיר", "english_name": "Nasturtium", "isGeneric": true },
+    { "scientific_name": "Nasturtium officinale", "hebrew_name": "גרגיר הנחלים", "english_name": "Nasturtium Officinale" },
+    { "scientific_name": "Neotinea tridentata", "hebrew_name": "סחלב שלוש-השיניים", "english_name": "Neotinea Tridentata" },
+    { "scientific_name": "Nerium oleander", "hebrew_name": "הרדוף הנחלים", "english_name": "Nerium Oleander" },
+    { "scientific_name": "Nigella", "hebrew_name": "קצח", "english_name": "Nigella", "isGeneric": true },
+    { "scientific_name": "Nigella ciliaris", "hebrew_name": "קצח ריסני", "english_name": "Nigella Ciliaris" },
+    { "scientific_name": "Nigella unguicularis", "hebrew_name": "קצח הציפורן", "english_name": "Nigella Unguicularis" },
+    { "scientific_name": "Noccaea perfoliata", "hebrew_name": "חופניים מצויים", "english_name": "Noccaea Perfoliata" },
+    { "scientific_name": "Notobasis syriaca", "hebrew_name": "ברקן סורי", "english_name": "Notobasis Syriaca" },
+    { "scientific_name": "Ochthodium aegyptiacum", "hebrew_name": "חטוטרן מצוי", "english_name": "Ochthodium Aegyptiacum" },
+    { "scientific_name": "Oloptum miliaceum", "hebrew_name": "נשרן הדוחן", "english_name": "Oloptum Miliaceum" },
+    { "scientific_name": "Onobrychis caput-galli", "hebrew_name": "כרבולת קטנה", "english_name": "Onobrychis Caput-galli" },
+    { "scientific_name": "Ononis", "hebrew_name": "שברק", "english_name": "Ononis", "isGeneric": true },
+    { "scientific_name": "Ononis alopecuroides", "hebrew_name": "שברק משובל", "english_name": "Ononis Alopecuroides" },
+    { "scientific_name": "Ononis hirta", "hebrew_name": "שברק שעיר", "english_name": "Ononis Hirta" },
+    { "scientific_name": "Ononis mitissima", "hebrew_name": "שברק מלבין", "english_name": "Ononis Mitissima" },
+    { "scientific_name": "Ononis natrix", "hebrew_name": "שברק מצוי", "english_name": "Ononis Natrix" },
+    { "scientific_name": "Ononis pubescens", "hebrew_name": "שברק דביק", "english_name": "Ononis Pubescens" },
+    { "scientific_name": "Ononis spinosa", "hebrew_name": "שברק קוצני", "english_name": "Ononis Spinosa" },
+    { "scientific_name": "Ononis viscosa", "hebrew_name": "שברק קצר-פרח", "english_name": "Ononis Viscosa" },
+    { "scientific_name": "Onopordum cynarocephalum", "hebrew_name": "חוחן הקנרס", "english_name": "Onopordum Cynarocephalum" },
+    { "scientific_name": "Ophrys bornmuelleri", "hebrew_name": "דבורנית נאה", "english_name": "Ophrys Bornmuelleri" },
+    { "scientific_name": "Ophrys fuciflora", "hebrew_name": "דבורנית גדולה", "english_name": "Ophrys Fuciflora" },
+    { "scientific_name": "Ophrys lutea galilaea", "hebrew_name": "דבורנית צהובה", "english_name": "Ophrys Lutea Galilaea" },
+    { "scientific_name": "Ophrys sphegodes", "hebrew_name": "דבורנית הקטיפה", "english_name": "Ophrys Sphegodes" },
+    { "scientific_name": "Ophrys umbilicata", "hebrew_name": "דבורנית דינסמור", "english_name": "Ophrys Umbilicata" },
+    { "scientific_name": "Opuntia ficus-indica", "hebrew_name": "צבר מצוי", "english_name": "Opuntia Ficus-indica" },
+    { "scientific_name": "Orchis anatolica", "hebrew_name": "סחלב אנטולי", "english_name": "Orchis Anatolica" },
+    { "scientific_name": "Orchis galilaea", "hebrew_name": "סחלב הגליל", "english_name": "Orchis Galilaea" },
+    { "scientific_name": "Origanum syriacum", "hebrew_name": "אזוב מצוי", "english_name": "Origanum Syriacum" },
+    { "scientific_name": "Ornithogalum", "hebrew_name": "נץ-חלב", "english_name": "Ornithogalum", "isGeneric": true },
+    { "scientific_name": "Ornithogalum lanceolatum", "hebrew_name": "נץ-חלב אזמלי", "english_name": "Ornithogalum Lanceolatum" },
+    { "scientific_name": "Ornithogalum montanum", "hebrew_name": "נץ-חלב הררי", "english_name": "Ornithogalum Montanum" },
+    { "scientific_name": "Ornithogalum narbonense", "hebrew_name": "נץ-חלב צרפתי", "english_name": "Ornithogalum Narbonense" },
+    { "scientific_name": "Oxalis pes-caprae", "hebrew_name": "חמציץ נטוי", "english_name": "Oxalis Pes-caprae", "isGeneric": true },
+    { "scientific_name": "Pallenis spinosa", "hebrew_name": "מוצית קוצנית", "english_name": "Pallenis Spinosa" },
+    { "scientific_name": "Panicum repens", "hebrew_name": "דוחן זוחל", "english_name": "Panicum Repens" },
+    { "scientific_name": "Papaver", "hebrew_name": "פרג", "english_name": "Papaver", "isGeneric": true },
+    { "scientific_name": "Papaver carmeli", "hebrew_name": "פרג הכרמל", "english_name": "Papaver Carmeli" },
+    { "scientific_name": "Papaver umbonatum", "hebrew_name": "פרג אגסי", "english_name": "Papaver Umbonatum" },
+    { "scientific_name": "Parkinsonia aculeata", "hebrew_name": "פרקינסוניה שיכנית", "english_name": "Parkinsonia Aculeata" },
+    { "scientific_name": "Paronychia argentea", "hebrew_name": "אלמוות הכסף", "english_name": "Paronychia Argentea" },
+    { "scientific_name": "Parthenium hysterophorus", "hebrew_name": "פרתניון אפיל", "english_name": "Parthenium Hysterophorus" },
+    { "scientific_name": "Paspalum", "hebrew_name": "פספלון", "english_name": "Paspalum", "isGeneric": true },
+    { "scientific_name": "Paspalum dilatatum", "hebrew_name": "פספלון מורחב", "english_name": "Paspalum Dilatatum" },
+    { "scientific_name": "Paspalum distichum", "hebrew_name": "פספלון דו-טורי", "english_name": "Paspalum Distichum" },
+    { "scientific_name": "Persicaria", "hebrew_name": "בת-ארכובית", "english_name": "Persicaria", "isGeneric": true },
+    { "scientific_name": "Persicaria decipiens", "hebrew_name": "בת-ארכובית משוננת", "english_name": "Persicaria Decipiens" },
+    { "scientific_name": "Persicaria lapathifolia", "hebrew_name": "בת-ארכובית הכתמים", "english_name": "Persicaria Lapathifolia" },
+    { "scientific_name": "Peucedanum junceum", "hebrew_name": "אחישבת ענף", "english_name": "Peucedanum Junceum" },
+    { "scientific_name": "Phagnalon", "hebrew_name": "צמרנית", "english_name": "Phagnalon", "isGeneric": true },
+    { "scientific_name": "Phalaris minor", "hebrew_name": "חפורית קטנה", "english_name": "Phalaris Minor" },
+    { "scientific_name": "Phalaris paradoxa", "hebrew_name": "חפורית מוזרה", "english_name": "Phalaris Paradoxa" },
+    { "scientific_name": "Phelipanche nana", "hebrew_name": "עלקת זעירה", "english_name": "Phelipanche Nana" },
+    { "scientific_name": "Phlomis", "hebrew_name": "שלהבית", "english_name": "Phlomis", "isGeneric": true },
+    { "scientific_name": "Phlomis viscosa", "hebrew_name": "שלהבית דביקה", "english_name": "Phlomis Viscosa" },
+    { "scientific_name": "Phlomoides laciniata", "hebrew_name": "צמר מפוצל", "english_name": "Phlomoides Laciniata" },
+    { "scientific_name": "Phoenix dactylifera", "hebrew_name": "תמר מצוי", "english_name": "Phoenix Dactylifera" },
+    { "scientific_name": "Phragmites", "hebrew_name": "קנה", "english_name": "Phragmites", "isGeneric": true },
+    { "scientific_name": "Phragmites australis", "hebrew_name": "קנה מצוי", "english_name": "Phragmites Australis" },
+    { "scientific_name": "Phyla nodiflora", "hebrew_name": "ליפיה זוחלת", "english_name": "Phyla Nodiflora" },
+    { "scientific_name": "Physalis acutifolia", "hebrew_name": "בוענים חד-עלים", "english_name": "Physalis Acutifolia" },
+    { "scientific_name": "Physalis angulata", "hebrew_name": "בוען מצולע", "english_name": "Physalis Angulata" },
+    { "scientific_name": "Picnomon acarna", "hebrew_name": "בן-קוצן מאפיר", "english_name": "Picnomon Acarna" },
+    { "scientific_name": "Piptatherum holciforme", "hebrew_name": "נשרן שעיר", "english_name": "Piptatherum Holciforme" },
+    { "scientific_name": "Pistacia", "hebrew_name": "אלה", "english_name": "Pistacia", "isGeneric": true },
+    { "scientific_name": "Pistacia atlantica", "hebrew_name": "אלה אטלנטית", "english_name": "Pistacia Atlantica" },
+    { "scientific_name": "Pistacia lentiscus", "hebrew_name": "אלת המסטיק", "english_name": "Pistacia Lentiscus" },
+    { "scientific_name": "Pistacia terebinthus", "hebrew_name": "אלה ארץ-ישראלית", "english_name": "Pistacia Terebinthus" },
+    { "scientific_name": "Pisum fulvum", "hebrew_name": "אפון מצוי", "english_name": "Pisum Fulvum" },
+    { "scientific_name": "Plantae", "hebrew_name": "צמחים", "english_name": "Plantae", "isGeneric": true },
+    { "scientific_name": "Plantago", "hebrew_name": "לחך", "english_name": "Plantago", "isGeneric": true },
+    { "scientific_name": "Plantago lagopus", "hebrew_name": "לחך מצוי", "english_name": "Plantago Lagopus" },
+    { "scientific_name": "Plantago lanceolata", "hebrew_name": "לחך אזמלי", "english_name": "Plantago Lanceolata" },
+    { "scientific_name": "Plantago major", "hebrew_name": "לחך גדול", "english_name": "Plantago Major" },
+    { "scientific_name": "Pluchea dioscoridis", "hebrew_name": "פלגית שיחנית", "english_name": "Pluchea Dioscoridis" },
+    { "scientific_name": "Plumbago europaea", "hebrew_name": "עופרית אירופית", "english_name": "Plumbago Europaea" },
+    { "scientific_name": "Poaceae", "hebrew_name": "דגניים", "english_name": "Poaceae", "isGeneric": true },
+    { "scientific_name": "Poales", "hebrew_name": "דגנאים", "english_name": "Poales", "isGeneric": true },
+    { "scientific_name": "Polygala monspeliaca", "hebrew_name": "מרבה-חלב מונפלייני", "english_name": "Polygala Monspeliaca" },
+    { "scientific_name": "Polygonum equisetiforme", "hebrew_name": "ארכובית שבטבטית", "english_name": "Polygonum Equisetiforme" },
+    { "scientific_name": "Polypogon", "hebrew_name": "עבדקן", "english_name": "Polypogon", "isGeneric": true },
+    { "scientific_name": "Polypogon monspeliensis", "hebrew_name": "עבדקן מצוי", "english_name": "Polypogon Monspeliensis" },
+    { "scientific_name": "Polypogon viridis", "hebrew_name": "עבדקן הדורים", "english_name": "Polypogon Viridis" },
+    { "scientific_name": "Portulaca oleracea", "hebrew_name": "רגלת הגינה", "english_name": "Portulaca Oleracea" },
+    { "scientific_name": "Prosopis farcta", "hebrew_name": "ינבוט השדה", "english_name": "Prosopis Farcta" },
+    { "scientific_name": "Prunus", "hebrew_name": "פרונוס", "english_name": "Prunus", "isGeneric": true },
+    { "scientific_name": "Prunus amygdalus", "hebrew_name": "שקד מצוי", "english_name": "Prunus Amygdalus" },
+    { "scientific_name": "Pulicaria", "hebrew_name": "פרעושית", "english_name": "Pulicaria", "isGeneric": true },
+    { "scientific_name": "Pulicaria dysenterica", "hebrew_name": "פרעושית משלשלת", "english_name": "Pulicaria Dysenterica" },
+    { "scientific_name": "Punica granatum", "hebrew_name": "רימון מצוי", "english_name": "Punica Granatum" },
+    { "scientific_name": "Quercus", "hebrew_name": "אלון", "english_name": "Quercus", "isGeneric": true },
+    { "scientific_name": "Quercus coccifera", "hebrew_name": "אלון מצוי", "english_name": "Quercus Coccifera" },
+    { "scientific_name": "Quercus ithaburensis", "hebrew_name": "אלון התבור", "english_name": "Quercus Ithaburensis" },
+    { "scientific_name": "Quidproquo confusum", "hebrew_name": "צנון משתלשל", "english_name": "Quidproquo Confusum" },
+    { "scientific_name": "Ranunculaceae", "hebrew_name": "נוריתיים", "english_name": "Ranunculaceae", "isGeneric": true },
+    { "scientific_name": "Ranunculales", "hebrew_name": "נוריתאים", "english_name": "Ranunculales", "isGeneric": true },
+    { "scientific_name": "Ranunculoideae", "hebrew_name": "נוריתיים (תת-משפחה)", "english_name": "Ranunculoideae", "isGeneric": true },
+    { "scientific_name": "Ranunculus arvensis", "hebrew_name": "נורית השדה", "english_name": "Ranunculus Arvensis" },
+    { "scientific_name": "Ranunculus asiaticus", "hebrew_name": "נורית אסיה", "english_name": "Ranunculus Asiaticus" },
+    { "scientific_name": "Ranunculus muricatus", "hebrew_name": "נורית הזיזים", "english_name": "Ranunculus Muricatus" },
+    { "scientific_name": "Raphanus raphanistrum", "hebrew_name": "צנון מצוי", "english_name": "Raphanus Raphanistrum" },
+    { "scientific_name": "Rapistrum rugosum", "hebrew_name": "בקבוקון מקומט", "english_name": "Rapistrum Rugosum" },
+    { "scientific_name": "Reseda alba", "hebrew_name": "רכפה לבנה", "english_name": "Reseda Alba" },
+    { "scientific_name": "Rhamnus", "hebrew_name": "אשחר", "english_name": "Rhamnus", "isGeneric": true },
+    { "scientific_name": "Rhamnus alaternus", "hebrew_name": "אשחר רחב-עלים", "english_name": "Rhamnus Alaternus" },
+    { "scientific_name": "Rhamnus lycioides", "hebrew_name": "אשחר ארץ-ישראלי", "english_name": "Rhamnus Lycioides" },
+    { "scientific_name": "Ricinus communis", "hebrew_name": "קיקיון מצוי", "english_name": "Ricinus Communis" },
+    { "scientific_name": "Ricotia lunaria", "hebrew_name": "כרמלית נאה", "english_name": "Ricotia Lunaria" },
+    { "scientific_name": "Ridolfia segetum", "hebrew_name": "נירית הקמה", "english_name": "Ridolfia Segetum" },
+    { "scientific_name": "Romulea tempskyana", "hebrew_name": "רומולאה צידונית", "english_name": "Romulea Tempskyana" },
+    { "scientific_name": "Rosa", "hebrew_name": "ורד", "english_name": "Rosa", "isGeneric": true },
+    { "scientific_name": "Rubia", "hebrew_name": "פואה", "english_name": "Rubia", "isGeneric": true },
+    { "scientific_name": "Rubus", "hebrew_name": "פטל", "english_name": "Rubus", "isGeneric": true },
+    { "scientific_name": "Rubus creticus", "hebrew_name": "פטל קדוש", "english_name": "Rubus Creticus" },
+    { "scientific_name": "Rumex", "hebrew_name": "חומעה", "english_name": "Rumex", "isGeneric": true },
+    { "scientific_name": "Rumex crispus", "hebrew_name": "חומעה מסולסלת", "english_name": "Rumex Crispus" },
+    { "scientific_name": "Rumex dentatus", "hebrew_name": "חומעה משוננת", "english_name": "Rumex Dentatus" },
+    { "scientific_name": "Rumex spinosus", "hebrew_name": "אמיך קוצני", "english_name": "Rumex Spinosus" },
+    { "scientific_name": "Ruta chalepensis", "hebrew_name": "פיגם מצוי", "english_name": "Ruta Chalepensis" },
+    { "scientific_name": "Sagina apetala", "hebrew_name": "סגינה זעירה", "english_name": "Sagina Apetala" },
+    { "scientific_name": "Salix", "hebrew_name": "ערבה", "english_name": "Salix", "isGeneric": true },
+    { "scientific_name": "Salix acmophylla", "hebrew_name": "ערבה מחודדת", "english_name": "Salix Acmophylla" },
+    { "scientific_name": "Salix alba", "hebrew_name": "ערבה לבנה", "english_name": "Salix Alba" },
+    { "scientific_name": "Salvia dominica", "hebrew_name": "מרווה ריחנית", "english_name": "Salvia Dominica" },
+    { "scientific_name": "Salvia fruticosa", "hebrew_name": "מרווה משולשת", "english_name": "Salvia Fruticosa" },
+    { "scientific_name": "Salvia hierosolymitana", "hebrew_name": "מרוות ירושלים", "english_name": "Salvia Hierosolymitana" },
+    { "scientific_name": "Salvia judaica", "hebrew_name": "מרוות יהודה", "english_name": "Salvia Judaica" },
+    { "scientific_name": "Salvia pinnata", "hebrew_name": "מרווה מנוצה", "english_name": "Salvia Pinnata" },
+    { "scientific_name": "Salvia verbenaca", "hebrew_name": "מרווה מצויה", "english_name": "Salvia Verbenaca" },
+    { "scientific_name": "Salvia viridis", "hebrew_name": "מרווה דגולה", "english_name": "Salvia Viridis" },
+    { "scientific_name": "Sarcopoterium spinosum", "hebrew_name": "סירה קוצנית", "english_name": "Sarcopoterium Spinosum" },
+    { "scientific_name": "Satureja thymbra", "hebrew_name": "צתרה ורודה", "english_name": "Satureja Thymbra" },
+    { "scientific_name": "Scandix", "hebrew_name": "מסרק", "english_name": "Scandix", "isGeneric": true },
+    { "scientific_name": "Scandix pecten-veneris", "hebrew_name": "מסרק שולמית", "english_name": "Scandix Pecten-veneris" },
+    { "scientific_name": "Scandix verna", "hebrew_name": "מסרק מזרחי", "english_name": "Scandix Verna" },
+    { "scientific_name": "Schenkia spicata", "hebrew_name": "ערבז משובל", "english_name": "Schenkia Spicata" },
+    { "scientific_name": "Scilla hyacinthoides", "hebrew_name": "בן-חצב יקינתוני", "english_name": "Scilla Hyacinthoides" },
+    { "scientific_name": "Scolyminae", "hebrew_name": "חוחים (תת-שבט)", "english_name": "Scolyminae", "isGeneric": true },
+    { "scientific_name": "Scolymus", "hebrew_name": "חוח", "english_name": "Scolymus", "isGeneric": true },
+    { "scientific_name": "Scolymus maculatus", "hebrew_name": "חוח עקוד", "english_name": "Scolymus Maculatus" },
+    { "scientific_name": "Scrophularia canina", "hebrew_name": "לוענית הכלב", "english_name": "Scrophularia Canina" },
+    { "scientific_name": "Scrophularia rubricaulis", "hebrew_name": "לוענית גדולה", "english_name": "Scrophularia Rubricaulis" },
+    { "scientific_name": "Securigera securidaca", "hebrew_name": "קרדומית השדה", "english_name": "Securigera Securidaca" },
+    { "scientific_name": "Sedum", "hebrew_name": "צורית", "english_name": "Sedum", "isGeneric": true },
+    { "scientific_name": "Sedum cespitosum", "hebrew_name": "צורית אדומה", "english_name": "Sedum Cespitosum" },
+    { "scientific_name": "Sedum microcarpum", "hebrew_name": "זערוּרית קטנת-פרי", "english_name": "Sedum Microcarpum" },
+    { "scientific_name": "Sedum rubens", "hebrew_name": "צורית בלוטית", "english_name": "Sedum Rubens" },
+    { "scientific_name": "Senecio", "hebrew_name": "סביון", "english_name": "Senecio", "isGeneric": true },
+    { "scientific_name": "Senecio vernalis", "hebrew_name": "סביון אביבי", "english_name": "Senecio Vernalis" },
+    { "scientific_name": "Serapias orientalis levantina", "hebrew_name": "שפתן מצוי", "english_name": "Serapias Orientalis Levantina" },
+    { "scientific_name": "Sesbania sesban", "hebrew_name": "ססבניה מצרית", "english_name": "Sesbania Sesban" },
+    { "scientific_name": "Sherardia arvensis", "hebrew_name": "ששית מצויה", "english_name": "Sherardia Arvensis" },
+    { "scientific_name": "Silene", "hebrew_name": "ציפורנית", "english_name": "Silene", "isGeneric": true },
+    { "scientific_name": "Silene aegyptiaca", "hebrew_name": "ציפורנית מצרית", "english_name": "Silene Aegyptiaca" },
+    { "scientific_name": "Silene colorata", "hebrew_name": "ציפורנית מגוונת", "english_name": "Silene Colorata" },
+    { "scientific_name": "Silene palaestina", "hebrew_name": "ציפורנית ארץ-ישראלית", "english_name": "Silene Palaestina" },
+    { "scientific_name": "Silene reinwardtii", "hebrew_name": "ציפורנית מצוירת", "english_name": "Silene Reinwardtii" },
+    { "scientific_name": "Silybum marianum", "hebrew_name": "גדילן מצוי", "english_name": "Silybum Marianum" },
+    { "scientific_name": "Sinapis", "hebrew_name": "חרדל", "english_name": "Sinapis", "isGeneric": true },
+    { "scientific_name": "Sinapis alba", "hebrew_name": "חרדל לבן", "english_name": "Sinapis Alba" },
+    { "scientific_name": "Sisymbrium officinale", "hebrew_name": "תודרה רפואית", "english_name": "Sisymbrium Officinale" },
+    { "scientific_name": "Smilax aspera", "hebrew_name": "קיסוסית קוצנית", "english_name": "Smilax Aspera" },
+    { "scientific_name": "Smyrnium olusatrum", "hebrew_name": "מורית גדולה", "english_name": "Smyrnium Olusatrum" },
+    { "scientific_name": "Solanoideae", "hebrew_name": "סולניים (תת-משפחה)", "english_name": "Solanoideae", "isGeneric": true },
+    { "scientific_name": "Solanum", "hebrew_name": "סולנום", "english_name": "Solanum", "isGeneric": true },
+    { "scientific_name": "Solanum elaeagnifolium", "hebrew_name": "סולנום זיתני", "english_name": "Solanum Elaeagnifolium" },
+    { "scientific_name": "Solanum lycopersicum", "hebrew_name": "עגבנייה", "english_name": "Solanum Lycopersicum" },
+    { "scientific_name": "Solanum lycopersicum cerasiforme", "hebrew_name": "עגבניית שרי", "english_name": "Solanum Lycopersicum Cerasiforme" },
+    { "scientific_name": "Solanum nigrum", "hebrew_name": "סולנום שחור", "english_name": "Solanum Nigrum" },
+    { "scientific_name": "Solanum rostratum", "hebrew_name": "סולנום המקור", "english_name": "Solanum Rostratum" },
+    { "scientific_name": "Sonchus", "hebrew_name": "מרור", "english_name": "Sonchus", "isGeneric": true },
+    { "scientific_name": "Sonchus oleraceus", "hebrew_name": "מרור הגינות", "english_name": "Sonchus Oleraceus" },
+    { "scientific_name": "Sorghum halepense", "hebrew_name": "דורת ארם-צובא", "english_name": "Sorghum Halepense" },
+    { "scientific_name": "Sporobolus", "hebrew_name": "עטיינית", "english_name": "Sporobolus", "isGeneric": true },
+    { "scientific_name": "Sporobolus schoenoides", "hebrew_name": "עטיינית קצרה", "english_name": "Sporobolus Schoenoides" },
+    { "scientific_name": "Stachys arabica", "hebrew_name": "אשבל ערבי", "english_name": "Stachys Arabica" },
+    { "scientific_name": "Stachys distans", "hebrew_name": "אשבל מופסק", "english_name": "Stachys Distans" },
+    { "scientific_name": "Stachys neurocalycina", "hebrew_name": "אשבל מעורק", "english_name": "Stachys Neurocalycina" },
+    { "scientific_name": "Stachys viticina", "hebrew_name": "אשבל הביצה", "english_name": "Stachys Viticina" },
+    { "scientific_name": "Stellaria", "hebrew_name": "כוכבית", "english_name": "Stellaria", "isGeneric": true },
+    { "scientific_name": "Stellaria media", "hebrew_name": "כוכבית מצויה", "english_name": "Stellaria Media" },
+    { "scientific_name": "Sternbergia colchiciflora", "hebrew_name": "חלמונית זעירה", "english_name": "Sternbergia Colchiciflora" },
+    { "scientific_name": "Styrax officinalis", "hebrew_name": "לבנה רפואי", "english_name": "Styrax Officinalis" },
+    { "scientific_name": "Symphyotrichum", "hebrew_name": "אסטר", "english_name": "Symphyotrichum", "isGeneric": true },
+    { "scientific_name": "Symphyotrichum subulatum", "hebrew_name": "אסטר מרצעני", "english_name": "Symphyotrichum Subulatum" },
+    { "scientific_name": "Tamarix", "hebrew_name": "אשל", "english_name": "Tamarix", "isGeneric": true },
+    { "scientific_name": "Taraxacum", "hebrew_name": "שינן", "english_name": "Taraxacum", "isGeneric": true },
+    { "scientific_name": "Teucrium divaricatum", "hebrew_name": "געדה מפושקת", "english_name": "Teucrium Divaricatum" },
+    { "scientific_name": "Theligonum cynocrambe", "hebrew_name": "טרשנית שרועה", "english_name": "Theligonum Cynocrambe" },
+    { "scientific_name": "Thesium", "hebrew_name": "לעדן", "english_name": "Thesium", "isGeneric": true },
+    { "scientific_name": "Thymbra spicata", "hebrew_name": "צתתרנית משובלת", "english_name": "Thymbra Spicata" },
+    { "scientific_name": "Thymelaea hirsuta", "hebrew_name": "מתנן שעיר", "english_name": "Thymelaea Hirsuta" },
+    { "scientific_name": "Tolpis virgata", "hebrew_name": "קיטה רותמית", "english_name": "Tolpis Virgata" },
+    { "scientific_name": "Tordylium trachycarpum", "hebrew_name": "סלסילה מצויה", "english_name": "Tordylium Trachycarpum" },
+    { "scientific_name": "Torilidinae", "hebrew_name": "גזירים (תת-שבט)", "english_name": "Torilidinae", "isGeneric": true },
+    { "scientific_name": "Torilis", "hebrew_name": "גזיר", "english_name": "Torilis", "isGeneric": true },
+    { "scientific_name": "Torilis arvensis", "hebrew_name": "גזיר מזיק", "english_name": "Torilis Arvensis" },
+    { "scientific_name": "Tortella tortuosa", "hebrew_name": "טורטלה מפותלת", "english_name": "Tortella Tortuosa" },
+    { "scientific_name": "Tracheophyta", "hebrew_name": "צמחים וסקולריים", "english_name": "Tracheophyta", "isGeneric": true },
+    { "scientific_name": "Tragopogon coelesyriacus", "hebrew_name": "זקן-תיש ארוך", "english_name": "Tragopogon Coelesyriacus" },
+    { "scientific_name": "Tribulus terrestris", "hebrew_name": "קוטב מצוי", "english_name": "Tribulus Terrestris" },
+    { "scientific_name": "Trifolium", "hebrew_name": "תלתן", "english_name": "Trifolium", "isGeneric": true },
+    { "scientific_name": "Trifolium alexandrinum", "hebrew_name": "תלתן אלכסנדרוני", "english_name": "Trifolium Alexandrinum" },
+    { "scientific_name": "Trifolium argutum", "hebrew_name": "תלתן האלמוות", "english_name": "Trifolium Argutum" },
+    { "scientific_name": "Trifolium campestre", "hebrew_name": "תלתן חקלאי", "english_name": "Trifolium Campestre" },
+    { "scientific_name": "Trifolium clusii", "hebrew_name": "תלתן קלוז", "english_name": "Trifolium Clusii" },
+    { "scientific_name": "Trifolium clypeatum", "hebrew_name": "תלתן תריסני", "english_name": "Trifolium Clypeatum" },
+    { "scientific_name": "Trifolium fragiferum", "hebrew_name": "תלתן הביצות", "english_name": "Trifolium Fragiferum" },
+    { "scientific_name": "Trifolium nigrescens", "hebrew_name": "תלתן רפה", "english_name": "Trifolium Nigrescens" },
+    { "scientific_name": "Trifolium pilulare", "hebrew_name": "תלתן הכדורים", "english_name": "Trifolium Pilulare" },
+    { "scientific_name": "Trifolium purpureum", "hebrew_name": "תלתן ארגמני", "english_name": "Trifolium Purpureum" },
+    { "scientific_name": "Trifolium resupinatum", "hebrew_name": "תלתן הפוך", "english_name": "Trifolium Resupinatum" },
+    { "scientific_name": "Trifolium scabrum", "hebrew_name": "תלתן דוקרני", "english_name": "Trifolium Scabrum" },
+    { "scientific_name": "Trifolium spumosum", "hebrew_name": "תלתן הקצף", "english_name": "Trifolium Spumosum" },
+    { "scientific_name": "Trifolium vavilovii", "hebrew_name": "תלתן ווילוב", "english_name": "Trifolium Vavilovii" },
+    { "scientific_name": "Trigonella lilacina", "hebrew_name": "גרגרנית לילכית", "english_name": "Trigonella Lilacina" },
+    { "scientific_name": "Triticeae", "hebrew_name": "חיטניים (שבט)", "english_name": "Triticeae", "isGeneric": true },
+    { "scientific_name": "Tulipa agenensis", "hebrew_name": "צבעוני ההרים", "english_name": "Tulipa Agenensis" },
+    { "scientific_name": "Typha", "hebrew_name": "סוף", "english_name": "Typha", "isGeneric": true },
+    { "scientific_name": "Typha domingensis", "hebrew_name": "סוף מצוי", "english_name": "Typha Domingensis" },
+    { "scientific_name": "Typha latifolia", "hebrew_name": "סוף רחב-עלים", "english_name": "Typha Latifolia" },
+    { "scientific_name": "Ulmus minor", "hebrew_name": "בוקיצה שעירה", "english_name": "Ulmus Minor" },
+    { "scientific_name": "Urospermum", "hebrew_name": "אזנב", "english_name": "Urospermum", "isGeneric": true },
+    { "scientific_name": "Urospermum picroides", "hebrew_name": "אזנב מצוי", "english_name": "Urospermum Picroides" },
+    { "scientific_name": "Urtica", "hebrew_name": "סרפד", "english_name": "Urtica", "isGeneric": true },
+    { "scientific_name": "Urtica pilulifera", "hebrew_name": "סרפד הכדורים", "english_name": "Urtica Pilulifera" },
+    { "scientific_name": "Urtica urens", "hebrew_name": "סרפד צורב", "english_name": "Urtica Urens" },
+    { "scientific_name": "Vagaria parviflora", "hebrew_name": "בת-חבצלת קטנת-פרחים", "english_name": "Vagaria Parviflora" },
+    { "scientific_name": "Verbascum", "hebrew_name": "בוצין", "english_name": "Verbascum", "isGeneric": true },
+    { "scientific_name": "Verbascum sinuatum", "hebrew_name": "בוצין מפורץ", "english_name": "Verbascum Sinuatum" },
+    { "scientific_name": "Verbena", "hebrew_name": "ורבנה", "english_name": "Verbena", "isGeneric": true },
+    { "scientific_name": "Verbena officinalis", "hebrew_name": "ורבנה רפואית", "english_name": "Verbena Officinalis" },
+    { "scientific_name": "Verbena supina", "hebrew_name": "ורבנה שרועה", "english_name": "Verbena Supina" },
+    { "scientific_name": "Veronica anagallis-aquatica", "hebrew_name": "ורוניקת המים", "english_name": "Veronica Anagallis-aquatica" },
+    { "scientific_name": "Veronica panormitana", "hebrew_name": "ורוניקה קטנת פרחים", "english_name": "Veronica Panormitana" },
+    { "scientific_name": "Vertebrata", "hebrew_name": "בעלי חוליות", "english_name": "Vertebrata", "isGeneric": true },
+    { "scientific_name": "Vicia", "hebrew_name": "בקיה", "english_name": "Vicia", "isGeneric": true },
+    { "scientific_name": "Vicia hybrida", "hebrew_name": "בקיית הכלאיים", "english_name": "Vicia Hybrida" },
+    { "scientific_name": "Vicia narbonensis", "hebrew_name": "בקיה צרפתית", "english_name": "Vicia Narbonensis" },
+    { "scientific_name": "Vicia palaestina", "hebrew_name": "בקיה ארץ-ישראלית", "english_name": "Vicia Palaestina" },
+    { "scientific_name": "Vicia peregrina", "hebrew_name": "בקיה מצויה", "english_name": "Vicia Peregrina" },
+    { "scientific_name": "Vicia sativa", "hebrew_name": "בקיה תרבותית", "english_name": "Vicia Sativa" },
+    { "scientific_name": "Vicia sericocarpa", "hebrew_name": "בקיית המשי", "english_name": "Vicia Sericocarpa" },
+    { "scientific_name": "Vicia villosa", "hebrew_name": "בקיה שעירה", "english_name": "Vicia Villosa" },
+    { "scientific_name": "Visnaga daucoides", "hebrew_name": "אמיתה קיצית", "english_name": "Visnaga Daucoides" },
+    { "scientific_name": "Vitex", "hebrew_name": "שיח-אברהם", "english_name": "Vitex", "isGeneric": true },
+    { "scientific_name": "Vitex agnus-castus", "hebrew_name": "שיח אברהם מצוי", "english_name": "Vitex Agnus-castus" },
+    { "scientific_name": "Withania somnifera", "hebrew_name": "ויתניה משכרת", "english_name": "Withania Somnifera" },
+    { "scientific_name": "Xanthium", "hebrew_name": "לכיד", "english_name": "Xanthium", "isGeneric": true },
+    { "scientific_name": "Xanthium orientale", "hebrew_name": "לכיד איטלקי", "english_name": "Xanthium Orientale" },
+    { "scientific_name": "Xanthium spinosum", "hebrew_name": "לכיד קוצני", "english_name": "Xanthium Spinosum" },
+    { "scientific_name": "Xanthium strumarium", "hebrew_name": "לכיד הנחלים", "english_name": "Xanthium Strumarium" },
+    { "scientific_name": "Zannichellia palustris", "hebrew_name": "חוטית הביצות", "english_name": "Zannichellia Palustris" },
+    { "scientific_name": "Ziziphora capitata", "hebrew_name": "אבובית מקורקפת", "english_name": "Ziziphora Capitata" },
+    { "scientific_name": "Ziziphus", "hebrew_name": "שיזף", "english_name": "Ziziphus", "isGeneric": true }
+  ],
+  "שאר המינים": [
+    { "scientific_name": "Ablattaria", "hebrew_name": "Ablattaria", "english_name": "Ablattaria", "isGeneric": true },
+    { "scientific_name": "Ablattaria arenaria", "hebrew_name": "קברנית החלזונות", "english_name": "Ablattaria Arenaria" },
+    { "scientific_name": "Ablepharus rueppellii", "hebrew_name": "חומט גמדי", "english_name": "Ablepharus Rueppellii" },
+    { "scientific_name": "Acalyptratae", "hebrew_name": "Acalyptratae", "english_name": "Acalyptratae", "isGeneric": true },
+    { "scientific_name": "Acanthaclisini", "hebrew_name": "Acanthaclisini", "english_name": "Acanthaclisini", "isGeneric": true },
+    { "scientific_name": "Acanthobrama", "hebrew_name": "לבנון", "english_name": "Acanthobrama", "isGeneric": true },
+    { "scientific_name": "Acanthovalva inconspicuaria", "hebrew_name": "אקנתובלבה אינקונספיקואריה", "english_name": "Geometrid Moth" },
+    { "scientific_name": "Acontia lucida", "hebrew_name": "אקונטיה לוסידה", "english_name": "Pale Shoulder Moth" },
+    { "scientific_name": "Acrididae", "hebrew_name": "חגבים", "english_name": "Acrididae", "isGeneric": true },
+    { "scientific_name": "Acrididea", "hebrew_name": "Acrididea", "english_name": "Acrididea", "isGeneric": true },
+    { "scientific_name": "Acridoidea", "hebrew_name": "Acridoidea", "english_name": "Acridoidea", "isGeneric": true },
+    { "scientific_name": "Acrobasis", "hebrew_name": "Acrobasis", "english_name": "Acrobasis", "isGeneric": true },
+    { "scientific_name": "Acrobasis bithynella", "hebrew_name": "Acrobasis bithynella", "english_name": "Acrobasis Bithynella" },
+    { "scientific_name": "Acrobasis consociella", "hebrew_name": "Acrobasis consociella", "english_name": "Acrobasis Consociella" },
+    { "scientific_name": "Acrobasis fallouella", "hebrew_name": "Acrobasis fallouella", "english_name": "Acrobasis Fallouella" },
+    { "scientific_name": "Acrobasis legatea", "hebrew_name": "Acrobasis legatea", "english_name": "Acrobasis Legatea" },
+    { "scientific_name": "Acronicta aceris", "hebrew_name": "תנשמית יהודה", "english_name": "Acronicta Aceris" },
+    { "scientific_name": "Acronicta rumicis", "hebrew_name": "תנשמית החומעה", "english_name": "Acronicta Rumicis" },
+    { "scientific_name": "Acrosternum millierei", "hebrew_name": "תריסית ירקרקה", "english_name": "Acrosternum Millierei" },
+    { "scientific_name": "Acrotylus", "hebrew_name": "Acrotylus", "english_name": "Acrotylus", "isGeneric": true },
+    { "scientific_name": "Acrotylus insubricus", "hebrew_name": "דרכן מגושם", "english_name": "Acrotylus Insubricus" },
+    { "scientific_name": "Acrotylus patruelis", "hebrew_name": "דרכן", "english_name": "Acrotylus Patruelis" },
+    { "scientific_name": "Actinopterygii", "hebrew_name": "דגים", "english_name": "Actinopterygii", "isGeneric": true },
+    { "scientific_name": "Aculeata", "hebrew_name": "Aculeata", "english_name": "Aculeata", "isGeneric": true },
+    { "scientific_name": "Acyrthosiphon", "hebrew_name": "Acyrthosiphon", "english_name": "Acyrthosiphon", "isGeneric": true },
+    { "scientific_name": "Adalia decempunctata", "hebrew_name": "Adalia decempunctata", "english_name": "Adalia Decempunctata" },
+    { "scientific_name": "Adscita statices", "hebrew_name": "אדסקיטה סטטיקס", "english_name": "The Forester Moth" },
+    { "scientific_name": "Aedes albopictus", "hebrew_name": "יתוש-יום טיגריסי", "english_name": "Aedes Albopictus" },
+    { "scientific_name": "Agalmatium bilobum", "hebrew_name": "עפרונית אונתית", "english_name": "Agalmatium Bilobum" },
+    { "scientific_name": "Agapanthia suturalis", "hebrew_name": "Agapanthia suturalis", "english_name": "Agapanthia Suturalis" },
+    { "scientific_name": "Agaricomycetes", "hebrew_name": "Agaricomycetes", "english_name": "Agaricomycetes", "isGeneric": true },
+    { "scientific_name": "Agaricomycetidae", "hebrew_name": "Agaricomycetidae", "english_name": "Agaricomycetidae", "isGeneric": true },
+    { "scientific_name": "Agaricus", "hebrew_name": "פקועה", "english_name": "Agaricus", "isGeneric": true },
+    { "scientific_name": "Agdistis", "hebrew_name": "Agdistis", "english_name": "Agdistis", "isGeneric": true },
+    { "scientific_name": "Agonopterix", "hebrew_name": "Agonopterix", "english_name": "Agonopterix", "isGeneric": true },
+    { "scientific_name": "Agonopterix rutana", "hebrew_name": "Agonopterix rutana", "english_name": "Agonopterix Rutana" },
+    { "scientific_name": "Agriopis bajaria", "hebrew_name": "Agriopis bajaria", "english_name": "Agriopis Bajaria" },
+    { "scientific_name": "Agriphila", "hebrew_name": "Agriphila", "english_name": "Agriphila", "isGeneric": true },
+    { "scientific_name": "Agriphila inquinatella", "hebrew_name": "Agriphila inquinatella", "english_name": "Agriphila Inquinatella" },
+    { "scientific_name": "Agrius convolvuli", "hebrew_name": "רפרף החבלבל", "english_name": "Agrius Convolvuli" },
+    { "scientific_name": "Agrochola", "hebrew_name": "Agrochola", "english_name": "Agrochola", "isGeneric": true },
+    { "scientific_name": "Agrochola hypotaenia", "hebrew_name": "Agrochola hypotaenia", "english_name": "Agrochola Hypotaenia" },
+    { "scientific_name": "Agrochola lychnidis", "hebrew_name": "אגרוקולה ליכנידיס", "english_name": "Agrochola Lychnidis" },
+    { "scientific_name": "Agrochola osthelderi", "hebrew_name": "Agrochola osthelderi", "english_name": "Agrochola Osthelderi" },
+    { "scientific_name": "Agrochola pauli", "hebrew_name": "Agrochola pauli", "english_name": "Agrochola Pauli" },
+    { "scientific_name": "Agrochola staudingeri", "hebrew_name": "Agrochola staudingeri", "english_name": "Agrochola Staudingeri" },
+    { "scientific_name": "Agrotis", "hebrew_name": "Agrotis", "english_name": "Agrotis", "isGeneric": true },
+    { "scientific_name": "Agrotis bigramma", "hebrew_name": "אגרוטיס ביגרמה", "english_name": "Agrotis Bigramma" },
+    { "scientific_name": "Agrotis haifae", "hebrew_name": "Agrotis haifae", "english_name": "Agrotis Haifae", "isGeneric": true },
+    { "scientific_name": "Agrotis ipsilon", "hebrew_name": "אגרוטיס איפסילון", "english_name": "Agrotis Ipsilon" },
+    { "scientific_name": "Agrotis puta", "hebrew_name": "אגרוטיס פוטה", "english_name": "Agrotis Puta" },
+    { "scientific_name": "Agrotis segetum", "hebrew_name": "אגרוטיס השורשים", "english_name": "Agrotis Segetum" },
+    { "scientific_name": "Agrotis trux", "hebrew_name": "אגרוטיס טרוקס", "english_name": "Agrotis Trux" },
+    { "scientific_name": "Aiolopus", "hebrew_name": "Aiolopus", "english_name": "Aiolopus", "isGeneric": true },
+    { "scientific_name": "Aiolopus puissanti", "hebrew_name": "Aiolopus puissanti", "english_name": "Aiolopus Puissanti" },
+    { "scientific_name": "Aiolopus strepens", "hebrew_name": "Aiolopus strepens", "english_name": "Aiolopus Strepens" },
+    { "scientific_name": "Aleucis orientalis", "hebrew_name": "Aleucis orientalis", "english_name": "Aleucis Orientalis" },
+    { "scientific_name": "Allophyes benedictina", "hebrew_name": "Allophyes benedictina", "english_name": "Allophyes Benedictina" },
+    { "scientific_name": "Alophia combustella", "hebrew_name": "אלופיה קומבוסטלה", "english_name": "Alophia Combustella" },
+    { "scientific_name": "Alosimus brevicornis", "hebrew_name": "Alosimus brevicornis", "english_name": "Alosimus Brevicornis" },
+    { "scientific_name": "Altenia mersinella", "hebrew_name": "Altenia mersinella", "english_name": "Altenia Mersinella" },
+    { "scientific_name": "Altica", "hebrew_name": "פרעושית", "english_name": "Altica", "isGeneric": true },
+    { "scientific_name": "Amanita echinocephala", "hebrew_name": "אמנית קיפודית", "english_name": "Amanita Echinocephala" },
+    { "scientific_name": "Amara", "hebrew_name": "Amara", "english_name": "Amara", "isGeneric": true },
+    { "scientific_name": "Amata mestralii", "hebrew_name": "ברדן בוהק", "english_name": "Amata Mestralii" },
+    { "scientific_name": "Amegilla", "hebrew_name": "Amegilla", "english_name": "Amegilla", "isGeneric": true },
+    { "scientific_name": "Ameles heldreichi", "hebrew_name": "דולגן חד־עין", "english_name": "Ameles Heldreichi" },
+    { "scientific_name": "Ammobatoides abdominalis", "hebrew_name": "Ammobatoides abdominalis", "english_name": "Ammobatoides Abdominalis" },
+    { "scientific_name": "Amphicominae", "hebrew_name": "Amphicominae", "english_name": "Amphicominae", "isGeneric": true },
+    { "scientific_name": "Amphipyra micans", "hebrew_name": "Amphipyra micans", "english_name": "Amphipyra Micans" },
+    { "scientific_name": "Anacridium aegyptium", "hebrew_name": "גובי מצרי", "english_name": "Anacridium Aegyptium" },
+    { "scientific_name": "Anarta trifolii", "hebrew_name": "Anarta trifolii", "english_name": "Anarta Trifolii" },
+    { "scientific_name": "Anatrachyntis", "hebrew_name": "Anatrachyntis", "english_name": "Anatrachyntis", "isGeneric": true },
+    { "scientific_name": "Anatrachyntis badia", "hebrew_name": "Anatrachyntis badia", "english_name": "Anatrachyntis Badia" },
+    { "scientific_name": "Ancylolomia", "hebrew_name": "Ancylolomia", "english_name": "Ancylolomia", "isGeneric": true },
+    { "scientific_name": "Ancylolomia pectinatellus", "hebrew_name": "Ancylolomia pectinatellus", "english_name": "Ancylolomia Pectinatellus" },
+    { "scientific_name": "Ancylolomia tentaculella", "hebrew_name": "Ancylolomia tentaculella", "english_name": "Ancylolomia Tentaculella" },
+    { "scientific_name": "Ancylolomia tripolitella", "hebrew_name": "Ancylolomia tripolitella", "english_name": "Ancylolomia Tripolitella" },
+    { "scientific_name": "Ancylosis convexella", "hebrew_name": "אנצילוזיס קונבקסה", "english_name": "Ancylosis Convexella" },
+    { "scientific_name": "Ancylosis hellenica", "hebrew_name": "Ancylosis hellenica", "english_name": "Ancylosis Hellenica" },
+    { "scientific_name": "Ancyrosoma leucogrammes", "hebrew_name": "Ancyrosoma leucogrammes", "english_name": "Ancyrosoma Leucogrammes" },
+    { "scientific_name": "Andrena", "hebrew_name": "Andrena", "english_name": "Andrena", "isGeneric": true },
+    { "scientific_name": "Andricus miriami", "hebrew_name": "Andricus miriami", "english_name": "Andricus Miriami" },
+    { "scientific_name": "Animalia", "hebrew_name": "בעלי חיים", "english_name": "Animalia", "isGeneric": true },
+    { "scientific_name": "Anisoptera", "hebrew_name": "שפיריות", "english_name": "Dragonflies", "isGeneric": true },
+    { "scientific_name": "Annelida", "hebrew_name": "תולעים טבעתיות", "english_name": "Annelida", "isGeneric": true },
+    { "scientific_name": "Anthaxia muliebris", "hebrew_name": "Anthaxia muliebris", "english_name": "Anthaxia Muliebris" },
+    { "scientific_name": "Anthocharis cardamines", "hebrew_name": "כתום-כנף המצילתיים", "english_name": "Anthocharis Cardamines" },
+    { "scientific_name": "Anthomyia", "hebrew_name": "אנתומית", "english_name": "Anthomyia", "isGeneric": true },
+    { "scientific_name": "Anthophila", "hebrew_name": "דבורים", "english_name": "Anthophila", "isGeneric": true },
+    { "scientific_name": "Anthracia eriopoda", "hebrew_name": "Anthracia eriopoda", "english_name": "Anthracia Eriopoda" },
+    { "scientific_name": "Anthracinae", "hebrew_name": "Anthracinae", "english_name": "Anthracinae", "isGeneric": true },
+    { "scientific_name": "Anthrenus isabellinus", "hebrew_name": "Anthrenus isabellinus", "english_name": "Anthrenus Isabellinus" },
+    { "scientific_name": "Anthrenus verbasci", "hebrew_name": "Anthrenus verbasci", "english_name": "Anthrenus Verbasci" },
+    { "scientific_name": "Antrodia", "hebrew_name": "Antrodia", "english_name": "Antrodia", "isGeneric": true },
+    { "scientific_name": "Anura", "hebrew_name": "חסרי זנב", "english_name": "Anura", "isGeneric": true },
+    { "scientific_name": "Apate monachus", "hebrew_name": "אפטה גדולה", "english_name": "Apate Monachus" },
+    { "scientific_name": "Apertochrysa", "hebrew_name": "Apertochrysa", "english_name": "Apertochrysa", "isGeneric": true },
+    { "scientific_name": "Aphididae", "hebrew_name": "כנימות עלה", "english_name": "Aphididae", "isGeneric": true },
+    { "scientific_name": "Aphomia", "hebrew_name": "Aphomia", "english_name": "Aphomia", "isGeneric": true },
+    { "scientific_name": "Aphomia cephalonica", "hebrew_name": "Aphomia cephalonica", "english_name": "Aphomia Cephalonica" },
+    { "scientific_name": "Apinae", "hebrew_name": "Apinae", "english_name": "Apinae", "isGeneric": true },
+    { "scientific_name": "Apis mellifera", "hebrew_name": "דבורת הדבש", "english_name": "Apis Mellifera" },
+    { "scientific_name": "Aplidia", "hebrew_name": "Aplidia", "english_name": "Aplidia", "isGeneric": true },
+    { "scientific_name": "Aplidia chaifensis", "hebrew_name": "שורשנית מצויה", "english_name": "Aplidia Chaifensis" },
+    { "scientific_name": "Aplocnemus", "hebrew_name": "Aplocnemus", "english_name": "Aplocnemus", "isGeneric": true },
+    { "scientific_name": "Apochima flabellaria", "hebrew_name": "מודד קיפודי", "english_name": "Apochima Flabellaria" },
+    { "scientific_name": "Aporodes floralis", "hebrew_name": "אפורודס פלורליס", "english_name": "Aporodes Floralis" },
+    { "scientific_name": "Aporophyla australis", "hebrew_name": "Aporophyla australis", "english_name": "Aporophyla Australis" },
+    { "scientific_name": "Aporophyla canescens", "hebrew_name": "אפורופילה קנסנס", "english_name": "Aporophyla Canescens" },
+    { "scientific_name": "Aporophyla nigra", "hebrew_name": "אפורופילה ניגרה", "english_name": "Aporophyla Nigra" },
+    { "scientific_name": "Aquarius", "hebrew_name": "Aquarius", "english_name": "Aquarius", "isGeneric": true },
+    { "scientific_name": "Archips rosana", "hebrew_name": "Archips rosana", "english_name": "Archips Rosana" },
+    { "scientific_name": "Archispirostreptus syriacus", "hebrew_name": "רב-רגל שחור", "english_name": "Archispirostreptus Syriacus" },
+    { "scientific_name": "Arctiinae", "hebrew_name": "דובוניים", "english_name": "Arctiinae", "isGeneric": true },
+    { "scientific_name": "Arge rustica", "hebrew_name": "Arge rustica", "english_name": "Arge Rustica" },
+    { "scientific_name": "Armadillidium marmoratum", "hebrew_name": "Armadillidium marmoratum", "english_name": "Armadillidium Marmoratum" },
+    { "scientific_name": "Arrhaphipterus blanchei", "hebrew_name": "Arrhaphipterus blanchei", "english_name": "Arrhaphipterus Blanchei" },
+    { "scientific_name": "Arthropoda", "hebrew_name": "פרוקי-רגליים", "english_name": "Arthropoda", "isGeneric": true },
+    { "scientific_name": "Ascalaphinae", "hebrew_name": "ארימחושיים", "english_name": "Ascalaphinae", "isGeneric": true },
+    { "scientific_name": "Ascotis selenaria", "hebrew_name": "מודד האבוקדו", "english_name": "Ascotis Selenaria" },
+    { "scientific_name": "Asilinae", "hebrew_name": "Asilinae", "english_name": "Asilinae", "isGeneric": true },
+    { "scientific_name": "Atethmia centrago", "hebrew_name": "אתתמיה צנטראגו", "english_name": "Atethmia Centrago" },
+    { "scientific_name": "Auchenorrhyncha", "hebrew_name": "ציקדות", "english_name": "Auchenorrhyncha", "isGeneric": true },
+    { "scientific_name": "Autographa gamma", "hebrew_name": "פלוסית גמה", "english_name": "Autographa Gamma" },
+    { "scientific_name": "Autophila cerealis", "hebrew_name": "Autophila cerealis", "english_name": "Autophila Cerealis" },
+    { "scientific_name": "Azanus ubaldus", "hebrew_name": "כחלון השיטה", "english_name": "Azanus Ubaldus" },
+    { "scientific_name": "Baeotendipes", "hebrew_name": "Baeotendipes", "english_name": "Baeotendipes", "isGeneric": true },
+    { "scientific_name": "Baetidae", "hebrew_name": "Baetidae", "english_name": "Baetidae", "isGeneric": true },
+    { "scientific_name": "Barbitistini", "hebrew_name": "Barbitistini", "english_name": "Barbitistini", "isGeneric": true },
+    { "scientific_name": "Basidiomycota", "hebrew_name": "פטריות בסיסה", "english_name": "Basidiomycota", "isGeneric": true },
+    { "scientific_name": "Batia", "hebrew_name": "Batia", "english_name": "Batia", "isGeneric": true },
+    { "scientific_name": "Batocera rufomaculata", "hebrew_name": "יקרונית התאנה", "english_name": "Batocera Rufomaculata" },
+    { "scientific_name": "Bedellia somnulentella", "hebrew_name": "Bedellia somnulentella", "english_name": "Bedellia Somnulentella" },
+    { "scientific_name": "Bembix", "hebrew_name": "Bembix", "english_name": "Bembix", "isGeneric": true },
+    { "scientific_name": "Bena bicolorana", "hebrew_name": "Bena bicolorana", "english_name": "Bena Bicolorana" },
+    { "scientific_name": "Beosus quadripunctatus", "hebrew_name": "פנדור ארבע-נקודות", "english_name": "Beosus Quadripunctatus" },
+    { "scientific_name": "Bibio", "hebrew_name": "אביביון", "english_name": "Bibio", "isGeneric": true },
+    { "scientific_name": "Bibio hortulanus", "hebrew_name": "ביביון האביב", "english_name": "Bibio Hortulanus" },
+    { "scientific_name": "Biston", "hebrew_name": "Biston", "english_name": "Biston", "isGeneric": true },
+    { "scientific_name": "Biston achyra", "hebrew_name": "Biston achyra", "english_name": "Biston Achyra" },
+    { "scientific_name": "Blaptinae", "hebrew_name": "Blaptinae", "english_name": "Blaptinae", "isGeneric": true },
+    { "scientific_name": "Blastesthia tessulatana", "hebrew_name": "עשפרי הברוש", "english_name": "Blastesthia Tessulatana" },
+    { "scientific_name": "Blatta orientalis", "hebrew_name": "תיקן מזרחי", "english_name": "Blatta Orientalis" },
+    { "scientific_name": "Blepharidopterus angulatus", "hebrew_name": "Blepharidopterus angulatus", "english_name": "Blepharidopterus Angulatus" },
+    { "scientific_name": "Blepharopsis mendica", "hebrew_name": "סוסת שד משובצת", "english_name": "Blepharopsis Mendica" },
+    { "scientific_name": "Boarmiini", "hebrew_name": "Boarmiini", "english_name": "Boarmiini", "isGeneric": true },
+    { "scientific_name": "Bombus terrestris", "hebrew_name": "בומבוס האדמה", "english_name": "Bombus Terrestris" },
+    { "scientific_name": "Bombycopsis ledereri", "hebrew_name": "טוואי אפרפר", "english_name": "Bombycopsis Ledereri" },
+    { "scientific_name": "Bombylella", "hebrew_name": "Bombylella", "english_name": "Bombylella", "isGeneric": true },
+    { "scientific_name": "Bombylella atra", "hebrew_name": "Bombylella atra", "english_name": "Bombylella Atra" },
+    { "scientific_name": "Bombyliidae", "hebrew_name": "בומביליים", "english_name": "Bombyliidae", "isGeneric": true },
+    { "scientific_name": "Bombylius", "hebrew_name": "בומביל", "english_name": "Bombylius", "isGeneric": true },
+    { "scientific_name": "Bombylius medius", "hebrew_name": "Bombylius medius", "english_name": "Bombylius Medius" },
+    { "scientific_name": "Borkhausenia einsleri", "hebrew_name": "Borkhausenia einsleri", "english_name": "Borkhausenia Einsleri" },
+    { "scientific_name": "Botrydium", "hebrew_name": "Botrydium", "english_name": "Botrydium", "isGeneric": true },
+    { "scientific_name": "Boursinia discordans", "hebrew_name": "בורסיניה דיסקורדנס", "english_name": "Boursinia Discordans" },
+    { "scientific_name": "Brachycera", "hebrew_name": "זבובים", "english_name": "Brachycera", "isGeneric": true },
+    { "scientific_name": "Brachycerus", "hebrew_name": "בצלנית", "english_name": "Brachycerus", "isGeneric": true },
+    { "scientific_name": "Brachyglossina stefani", "hebrew_name": "Brachyglossina stefani", "english_name": "Brachyglossina Stefani" },
+    { "scientific_name": "Brachynema germarii", "hebrew_name": "Brachynema germarii", "english_name": "Brachynema Germarii" },
+    { "scientific_name": "Brachythemis impartita", "hebrew_name": "נחתנית דרכים", "english_name": "Brachythemis Impartita" },
+    { "scientific_name": "Braconidae", "hebrew_name": "ברקוניים", "english_name": "Braconidae", "isGeneric": true },
+    { "scientific_name": "Bruchinae", "hebrew_name": "זירעוניתיים", "english_name": "Bruchinae", "isGeneric": true },
+    { "scientific_name": "Bryophila rectilinea", "hebrew_name": "בריופילה רקטילינאה", "english_name": "Bryophila Rectilinea" },
+    { "scientific_name": "Bryophila tephrocharis", "hebrew_name": "בריופילה טפרוכאריס", "english_name": "Bryophila Tephrocharis" },
+    { "scientific_name": "Bryopsis", "hebrew_name": "Bryopsis", "english_name": "Bryopsis", "isGeneric": true },
+    { "scientific_name": "Bryopsis amasina", "hebrew_name": "Bryopsis amasina", "english_name": "Bryopsis Amasina" },
+    { "scientific_name": "Bubopsis andromache", "hebrew_name": "Bubopsis andromache", "english_name": "Bubopsis Andromache" },
+    { "scientific_name": "Bucephaloptera ebneri", "hebrew_name": "Bucephaloptera ebneri", "english_name": "Bucephaloptera Ebneri" },
+    { "scientific_name": "Bufotes viridis sitibundus", "hebrew_name": "קרפדה ירוקה", "english_name": "Bufotes Viridis Sitibundus" },
+    { "scientific_name": "Cadra", "hebrew_name": "Cadra", "english_name": "Cadra", "isGeneric": true },
+    { "scientific_name": "Caelifera", "hebrew_name": "Caelifera", "english_name": "Caelifera", "isGeneric": true },
+    { "scientific_name": "Caenocoris nerii", "hebrew_name": "פנדור ההרדוף", "english_name": "Caenocoris Nerii" },
+    { "scientific_name": "Calamotropha", "hebrew_name": "Calamotropha", "english_name": "Calamotropha", "isGeneric": true },
+    { "scientific_name": "Calathus fuscipes", "hebrew_name": "Calathus fuscipes", "english_name": "Calathus Fuscipes" },
+    { "scientific_name": "Calliphoridae", "hebrew_name": "בוהקניים", "english_name": "Calliphoridae", "isGeneric": true },
+    { "scientific_name": "Calliptamus", "hebrew_name": "Calliptamus", "english_name": "Calliptamus", "isGeneric": true },
+    { "scientific_name": "Calliptamus barbarus", "hebrew_name": "Calliptamus barbarus", "english_name": "Calliptamus Barbarus" },
+    { "scientific_name": "Calocoris nemoralis", "hebrew_name": "רכנף הדור", "english_name": "Calocoris Nemoralis" },
+    { "scientific_name": "Calocucullia celsiae", "hebrew_name": "Calocucullia celsiae", "english_name": "Calocucullia Celsiae", "isGeneric": true },
+    { "scientific_name": "Calophasia platyptera", "hebrew_name": "Calophasia platyptera", "english_name": "Calophasia Platyptera" },
+    { "scientific_name": "Calyptratae", "hebrew_name": "Calyptratae", "english_name": "Calyptratae", "isGeneric": true },
+    { "scientific_name": "Camponotus", "hebrew_name": "קמפונית", "english_name": "Camponotus", "isGeneric": true },
+    { "scientific_name": "Camponotus sanctus", "hebrew_name": "קמפונית קדושה", "english_name": "Camponotus Sanctus" },
+    { "scientific_name": "Cantharidae", "hebrew_name": "כנף-עוריים", "english_name": "Cantharidae", "isGeneric": true },
+    { "scientific_name": "Cantharini", "hebrew_name": "Cantharini", "english_name": "Cantharini", "isGeneric": true },
+    { "scientific_name": "Cantharis lateralis", "hebrew_name": "Cantharis lateralis", "english_name": "Cantharis Lateralis" },
+    { "scientific_name": "Cantharis livida", "hebrew_name": "Cantharis livida", "english_name": "Cantharis Livida" },
+    { "scientific_name": "Cantharis melaspoides", "hebrew_name": "קנתרית כתומה", "english_name": "Cantharis Melaspoides" },
+    { "scientific_name": "Carabidae", "hebrew_name": "רצניתיים", "english_name": "Carabidae", "isGeneric": true },
+    { "scientific_name": "Carabus", "hebrew_name": "רצה", "english_name": "Carabus", "isGeneric": true },
+    { "scientific_name": "Carabus impressus", "hebrew_name": "רצה סגלגלה", "english_name": "Carabus Impressus" },
+    { "scientific_name": "Caradrina", "hebrew_name": "Caradrina", "english_name": "Caradrina", "isGeneric": true },
+    { "scientific_name": "Caradrina clavipalpis", "hebrew_name": "Caradrina clavipalpis", "english_name": "Caradrina Clavipalpis" },
+    { "scientific_name": "Caradrina flavirena", "hebrew_name": "Caradrina flavirena", "english_name": "Caradrina Flavirena" },
+    { "scientific_name": "Caradrina kadenii", "hebrew_name": "Caradrina kadenii", "english_name": "Caradrina Kadenii" },
+    { "scientific_name": "Caradrina syriaca", "hebrew_name": "Caradrina syriaca", "english_name": "Caradrina Syriaca" },
+    { "scientific_name": "Caradrinini", "hebrew_name": "Caradrinini", "english_name": "Caradrinini", "isGeneric": true },
+    { "scientific_name": "Carcharodus", "hebrew_name": "Carcharodus", "english_name": "Carcharodus", "isGeneric": true },
+    { "scientific_name": "Carpocoris mediterraneus", "hebrew_name": "תריסית ים-תיכונית", "english_name": "Carpocoris Mediterraneus" },
+    { "scientific_name": "Carpocoris mediterraneus mediterraneus", "hebrew_name": "תריסית ים-תיכונית", "english_name": "Carpocoris Mediterraneus Mediterraneus" },
+    { "scientific_name": "Cataglyphis nodus", "hebrew_name": "נווטת דוגונית", "english_name": "Cataglyphis Nodus" },
+    { "scientific_name": "Catarhoe hortulanaria", "hebrew_name": "קטרואה הורטולנריה", "english_name": "Catarhoe Hortulanaria" },
+    { "scientific_name": "Catocala eutychea", "hebrew_name": "קטוקלה אוטיכאה", "english_name": "Catocala Eutychea" },
+    { "scientific_name": "Catocala nymphagoga", "hebrew_name": "Catocala nymphagoga", "english_name": "Catocala Nymphagoga" },
+    { "scientific_name": "Catocala separata", "hebrew_name": "Catocala separata", "english_name": "Catocala Separata" },
+    { "scientific_name": "Centrocoris", "hebrew_name": "Centrocoris", "english_name": "Centrocoris", "isGeneric": true },
+    { "scientific_name": "Centrocoris variegatus", "hebrew_name": "Centrocoris variegatus", "english_name": "Centrocoris Variegatus" },
+    { "scientific_name": "Ceratitis capitata", "hebrew_name": "זבוב הפירות הים תיכוני", "english_name": "Ceratitis Capitata" },
+    { "scientific_name": "Ceratopogonidae", "hebrew_name": "יבחושיים", "english_name": "Ceratopogonidae", "isGeneric": true },
+    { "scientific_name": "Cercopis intermedia", "hebrew_name": "קצפית דמית", "english_name": "Cercopis Intermedia" },
+    { "scientific_name": "Cercopis septemmaculata", "hebrew_name": "קצפית נקודה", "english_name": "Cercopis Septemmaculata" },
+    { "scientific_name": "Cerroneuroterus lanuginosus", "hebrew_name": "Cerroneuroterus lanuginosus", "english_name": "Cerroneuroterus Lanuginosus" },
+    { "scientific_name": "Cetoniinae", "hebrew_name": "נחושתיות", "english_name": "Cetoniinae", "isGeneric": true },
+    { "scientific_name": "Ceutholopha isidis", "hebrew_name": "Ceutholopha isidis", "english_name": "Ceutholopha Isidis" },
+    { "scientific_name": "Chaetocnema", "hebrew_name": "Chaetocnema", "english_name": "Chaetocnema", "isGeneric": true },
+    { "scientific_name": "Chaetophiloscia", "hebrew_name": "Chaetophiloscia", "english_name": "Chaetophiloscia", "isGeneric": true },
+    { "scientific_name": "Chaetophiloscia elongata", "hebrew_name": "Chaetophiloscia elongata", "english_name": "Chaetophiloscia Elongata" },
+    { "scientific_name": "Chalcides ocellatus", "hebrew_name": "נחושית עינונית", "english_name": "Chalcides Ocellatus" },
+    { "scientific_name": "Chalcolestes parvidens", "hebrew_name": "רשפית פלגים", "english_name": "Chalcolestes Parvidens" },
+    { "scientific_name": "Chamaeleo chamaeleon", "hebrew_name": "זיקית מובהקת", "english_name": "Chamaeleo Chamaeleon" },
+    { "scientific_name": "Charissa", "hebrew_name": "Charissa", "english_name": "Charissa", "isGeneric": true },
+    { "scientific_name": "Charissa onustaria", "hebrew_name": "Charissa onustaria", "english_name": "Charissa Onustaria" },
+    { "scientific_name": "Charissa subtaurica", "hebrew_name": "כריסה סובטאוריקה", "english_name": "Charissa Subtaurica" },
+    { "scientific_name": "Cheirodes", "hebrew_name": "Cheirodes", "english_name": "Cheirodes", "isGeneric": true },
+    { "scientific_name": "Chironomidae", "hebrew_name": "ימשושיים", "english_name": "Chironomidae", "isGeneric": true },
+    { "scientific_name": "Chironomus", "hebrew_name": "ימשוש", "english_name": "Chironomus", "isGeneric": true },
+    { "scientific_name": "Chlorophorus varius", "hebrew_name": "יקרונית הפרחים", "english_name": "Chlorophorus Varius" },
+    { "scientific_name": "Chlorothalpa subsericata", "hebrew_name": "תנשמית העוזרר", "english_name": "Chlorothalpa Subsericata" },
+    { "scientific_name": "Chnootriba elaterii", "hebrew_name": "מושית הדלועיים", "english_name": "Chnootriba Elaterii" },
+    { "scientific_name": "Chorthippus", "hebrew_name": "סוסן", "english_name": "Chorthippus", "isGeneric": true },
+    { "scientific_name": "Chrysididae", "hebrew_name": "Chrysididae", "english_name": "Chrysididae", "isGeneric": true },
+    { "scientific_name": "Chrysodeixis chalcites", "hebrew_name": "פלוסית זהובה", "english_name": "Chrysodeixis Chalcites" },
+    { "scientific_name": "Chrysolina", "hebrew_name": "עלית", "english_name": "Chrysolina", "isGeneric": true },
+    { "scientific_name": "Chrysolina americana", "hebrew_name": "עלית רוזמרין", "english_name": "Chrysolina Americana" },
+    { "scientific_name": "Chrysolina blanchei", "hebrew_name": "עלית אדומה", "english_name": "Chrysolina Blanchei" },
+    { "scientific_name": "Chrysomelidae", "hebrew_name": "עליתיים", "english_name": "Chrysomelidae", "isGeneric": true },
+    { "scientific_name": "Chrysomya", "hebrew_name": "Chrysomya", "english_name": "Chrysomya", "isGeneric": true },
+    { "scientific_name": "Chrysomya albiceps", "hebrew_name": "Chrysomya albiceps", "english_name": "Chrysomya Albiceps" },
+    { "scientific_name": "Chrysoperla", "hebrew_name": "Chrysoperla", "english_name": "Chrysoperla", "isGeneric": true },
+    { "scientific_name": "Chrysoperla carnea", "hebrew_name": "עינפז ירוק", "english_name": "Chrysoperla Carnea" },
+    { "scientific_name": "Chrysops", "hebrew_name": "Chrysops", "english_name": "Chrysops", "isGeneric": true },
+    { "scientific_name": "Cicada mordoganensis", "hebrew_name": "Cicada mordoganensis", "english_name": "Cicada Mordoganensis" },
+    { "scientific_name": "Cicadatra platyptera", "hebrew_name": "Cicadatra platyptera", "english_name": "Cicadatra Platyptera" },
+    { "scientific_name": "Cicadellidae", "hebrew_name": "ציקדיתיים", "english_name": "Cicadellidae", "isGeneric": true },
+    { "scientific_name": "Cigaritis acamas", "hebrew_name": "נחושתן-נמלים מפוספס", "english_name": "Cigaritis Acamas" },
+    { "scientific_name": "Cilix asiatica", "hebrew_name": "Cilix asiatica", "english_name": "Cilix Asiatica" },
+    { "scientific_name": "Clarias gariepinus", "hebrew_name": "שפמנון מצוי", "english_name": "Clarias Gariepinus" },
+    { "scientific_name": "Clepsis consimilana", "hebrew_name": "Clepsis consimilana", "english_name": "Clepsis Consimilana" },
+    { "scientific_name": "Cleta cinneretharia", "hebrew_name": "Cleta cinneretharia", "english_name": "Cleta Cinneretharia" },
+    { "scientific_name": "Clitocybaceae", "hebrew_name": "Clitocybaceae", "english_name": "Clitocybaceae", "isGeneric": true },
+    { "scientific_name": "Clitocybe", "hebrew_name": "משפכנית", "english_name": "Clitocybe", "isGeneric": true },
+    { "scientific_name": "Clitocybe diatreta", "hebrew_name": "משפכנית האורנים", "english_name": "Clitocybe Diatreta" },
+    { "scientific_name": "Cloeon dipterum", "hebrew_name": "Cloeon dipterum", "english_name": "Cloeon Dipterum" },
+    { "scientific_name": "Clogmia albipunctata", "hebrew_name": "Clogmia albipunctata", "english_name": "Clogmia Albipunctata" },
+    { "scientific_name": "Clonaria libanica", "hebrew_name": "מקלון הלבנון", "english_name": "Clonaria Libanica" },
+    { "scientific_name": "Closterotomus annulus", "hebrew_name": "Closterotomus annulus", "english_name": "Closterotomus Annulus" },
+    { "scientific_name": "Closterotomus norwegicus", "hebrew_name": "Closterotomus norwegicus", "english_name": "Closterotomus Norwegicus" },
+    { "scientific_name": "Clytrini", "hebrew_name": "Clytrini", "english_name": "Clytrini", "isGeneric": true },
+    { "scientific_name": "Clytus", "hebrew_name": "Clytus", "english_name": "Clytus", "isGeneric": true },
+    { "scientific_name": "Coccinella", "hebrew_name": "מושית", "english_name": "Coccinella", "isGeneric": true },
+    { "scientific_name": "Coccinella septempunctata", "hebrew_name": "מושית השבע", "english_name": "Coccinella Septempunctata" },
+    { "scientific_name": "Coccinella undecimpunctata", "hebrew_name": "Coccinella undecimpunctata", "english_name": "Coccinella Undecimpunctata" },
+    { "scientific_name": "Coccinellidae", "hebrew_name": "מושיתיים", "english_name": "Coccinellidae", "isGeneric": true },
+    { "scientific_name": "Coccinellini", "hebrew_name": "Coccinellini", "english_name": "Coccinellini", "isGeneric": true },
+    { "scientific_name": "Codophila varia", "hebrew_name": "תריסית מגוונת", "english_name": "Codophila Varia" },
+    { "scientific_name": "Coenagrionidae", "hebrew_name": "שפריריות", "english_name": "Narrow-winged Damselflies", "isGeneric": true },
+    { "scientific_name": "Coenagrionoidea", "hebrew_name": "Coenagrionoidea", "english_name": "Coenagrionoidea", "isGeneric": true },
+    { "scientific_name": "Coenotephria ablutaria", "hebrew_name": "Coenotephria ablutaria", "english_name": "Coenotephria Ablutaria" },
+    { "scientific_name": "Coleophora", "hebrew_name": "Coleophora", "english_name": "Coleophora", "isGeneric": true },
+    { "scientific_name": "Coleoptera", "hebrew_name": "חיפושיות", "english_name": "Coleoptera", "isGeneric": true },
+    { "scientific_name": "Colias crocea", "hebrew_name": "צהבוני התלתן", "english_name": "Colias Crocea" },
+    { "scientific_name": "Collemataceae", "hebrew_name": "Collemataceae", "english_name": "Collemataceae", "isGeneric": true },
+    { "scientific_name": "Collybia nuda", "hebrew_name": "אחלמית סגולה", "english_name": "Collybia Nuda" },
+    { "scientific_name": "Collybia rivulosa", "hebrew_name": "משפכנית קמוחה", "english_name": "Collybia Rivulosa" },
+    { "scientific_name": "Colus hirudinosus", "hebrew_name": "כישורית מרושתת", "english_name": "Colus Hirudinosus" },
+    { "scientific_name": "Condica capensis", "hebrew_name": "Condica capensis", "english_name": "Condica Capensis" },
+    { "scientific_name": "Condica viscosa", "hebrew_name": "Condica viscosa", "english_name": "Condica Viscosa" },
+    { "scientific_name": "Coniopterygidae", "hebrew_name": "כנפקמחיים", "english_name": "Coniopterygidae", "isGeneric": true },
+    { "scientific_name": "Conocephalus", "hebrew_name": "Conocephalus", "english_name": "Conocephalus", "isGeneric": true },
+    { "scientific_name": "Coprinellus", "hebrew_name": "דיואית", "english_name": "Coprinellus", "isGeneric": true },
+    { "scientific_name": "Coprinopsis melanthina", "hebrew_name": "שברירית אפורה", "english_name": "Coprinopsis Melanthina" },
+    { "scientific_name": "Coranus", "hebrew_name": "Coranus", "english_name": "Coranus", "isGeneric": true },
+    { "scientific_name": "Coridius viduatus", "hebrew_name": "תריסית משחירה", "english_name": "Coridius Viduatus" },
+    { "scientific_name": "Corixini", "hebrew_name": "Corixini", "english_name": "Corixini", "isGeneric": true },
+    { "scientific_name": "Corixoidea", "hebrew_name": "Corixoidea", "english_name": "Corixoidea", "isGeneric": true },
+    { "scientific_name": "Corizus hyoscyami", "hebrew_name": "קוריז השיכרון", "english_name": "Corizus Hyoscyami" },
+    { "scientific_name": "Cornu aspersum", "hebrew_name": "שבלול הגינה", "english_name": "Cornu Aspersum" },
+    { "scientific_name": "Corydiidae", "hebrew_name": "תיקנחוליים", "english_name": "Corydiidae", "isGeneric": true },
+    { "scientific_name": "Cosmopterix pulchrimella", "hebrew_name": "Cosmopterix pulchrimella", "english_name": "Cosmopterix Pulchrimella" },
+    { "scientific_name": "Cotesia glomerata", "hebrew_name": "ברקונאי הלבנין", "english_name": "Cotesia Glomerata" },
+    { "scientific_name": "Crambidae", "hebrew_name": "Crambidae", "english_name": "Crambidae", "isGeneric": true },
+    { "scientific_name": "Crambini", "hebrew_name": "Crambini", "english_name": "Crambini", "isGeneric": true },
+    { "scientific_name": "Craterium brunneolum", "hebrew_name": "Craterium brunneolum", "english_name": "Craterium Brunneolum" },
+    { "scientific_name": "Crematogaster", "hebrew_name": "לבובית", "english_name": "Crematogaster", "isGeneric": true },
+    { "scientific_name": "Creoleon", "hebrew_name": "Creoleon", "english_name": "Creoleon", "isGeneric": true },
+    { "scientific_name": "Crinocheta", "hebrew_name": "Crinocheta", "english_name": "Crinocheta", "isGeneric": true },
+    { "scientific_name": "Crocallis tusciaria", "hebrew_name": "קרוקליס טוסקיאריה", "english_name": "Crocallis Tusciaria" },
+    { "scientific_name": "Crocidosema plebejana", "hebrew_name": "Crocidosema plebejana", "english_name": "Crocidosema Plebejana" },
+    { "scientific_name": "Cryphia", "hebrew_name": "Cryphia", "english_name": "Cryphia", "isGeneric": true },
+    { "scientific_name": "Cryphia algae", "hebrew_name": "Cryphia algae", "english_name": "Cryphia Algae", "isGeneric": true },
+    { "scientific_name": "Cryphia ochsi", "hebrew_name": "Cryphia ochsi", "english_name": "Cryphia Ochsi" },
+    { "scientific_name": "Cryptoblabes gnidiella", "hebrew_name": "קריפטובלבאס גנידיאלה", "english_name": "Cryptoblabes Gnidiella" },
+    { "scientific_name": "Ctenolepisma longicaudatum", "hebrew_name": "זנבזיף ארוך-זנב", "english_name": "Ctenolepisma Longicaudatum" },
+    { "scientific_name": "Cucujiformia", "hebrew_name": "Cucujiformia", "english_name": "Cucujiformia", "isGeneric": true },
+    { "scientific_name": "Cucullia calendulae", "hebrew_name": "תנשמית ציפורני חתול", "english_name": "Cucullia Calendulae", "isGeneric": true },
+    { "scientific_name": "Cucullia syrtana", "hebrew_name": "Cucullia syrtana", "english_name": "Cucullia Syrtana" },
+    { "scientific_name": "Culex pipiens", "hebrew_name": "יתוש בית", "english_name": "Culex Pipiens" },
+    { "scientific_name": "Culicomorpha", "hebrew_name": "Culicomorpha", "english_name": "Culicomorpha", "isGeneric": true },
+    { "scientific_name": "Curculio", "hebrew_name": "חדקונית", "english_name": "Curculio", "isGeneric": true },
+    { "scientific_name": "Curculionoidea", "hebrew_name": "חדקוניות", "english_name": "Curculionoidea", "isGeneric": true },
+    { "scientific_name": "Cybalomia pentadalis", "hebrew_name": "סיבלומיה פנטדליס", "english_name": "Cybalomia Pentadalis" },
+    { "scientific_name": "Cyclophora puppillaria", "hebrew_name": "ציקלופורה פופילריה", "english_name": "Cyclophora Puppillaria" },
+    { "scientific_name": "Cyclorrhapha", "hebrew_name": "Cyclorrhapha", "english_name": "Cyclorrhapha", "isGeneric": true },
+    { "scientific_name": "Cydia amplana", "hebrew_name": "Cydia amplana", "english_name": "Cydia Amplana" },
+    { "scientific_name": "Cydia fagiglandana", "hebrew_name": "Cydia fagiglandana", "english_name": "Cydia Fagiglandana" },
+    { "scientific_name": "Cydnidae", "hebrew_name": "סרחניים", "english_name": "Cydnidae", "isGeneric": true },
+    { "scientific_name": "Cydnus aterrimus", "hebrew_name": "סרחן אוכמני", "english_name": "Cydnus Aterrimus" },
+    { "scientific_name": "Cylindromyia", "hebrew_name": "Cylindromyia", "english_name": "Cylindromyia", "isGeneric": true },
+    { "scientific_name": "Cylindromyia brassicaria", "hebrew_name": "Cylindromyia brassicaria", "english_name": "Cylindromyia Brassicaria" },
+    { "scientific_name": "Cymbalophora oertzeni", "hebrew_name": "דובון מנומר", "english_name": "Cymbalophora Oertzeni" },
+    { "scientific_name": "Cynipini", "hebrew_name": "Cynipini", "english_name": "Cynipini", "isGeneric": true },
+    { "scientific_name": "Cyprinus carpio", "hebrew_name": "קרפיון מצוי", "english_name": "Cyprinus Carpio" }
+  ]
+};
+const EXPERT_SPECIES_CATEGORIES = {
+  "Borbo borbonica": "פרפרים",
+  "Belenois aurota": "פרפרים",
+  "Luthrodes galba": "פרפרים",
+  "Colias croceus": "פרפרים",
+  "Papilio machaon": "פרפרים",
+  "Papilio demoleus": "פרפרים",
+  "Lycaena phlaeas": "פרפרים",
+  "Vanessa cardui": "פרפרים",
+  "Melitaea trivia": "פרפרים",
+  "Melitaea telona": "פרפרים",
+  "Lasiommata maera": "פרפרים",
+  "Maniola telmessia": "פרפרים",
+  "Archon apollinus": "פרפרים",
+  "Danaus chrysippus": "פרפרים",
+  "Colotis fausta": "פרפרים",
+  "Gegenes pumilio": "פרפרים",
+  "Leptotes pirithous": "פרפרים",
+  "Thersamonia thersamon": "פרפרים",
+  "Lampides boeticus": "פרפרים",
+  "Zizeeria karsandra": "פרפרים",
+  "Polyommatus icarus": "פרפרים",
+  "Pseudophilotes baton": "פרפרים",
+  "Azanus jesous": "פרפרים",
+  "Carcharodus alceae": "פרפרים",
+  "Pieris rapae": "פרפרים",
+  "Pontia daplidice": "פרפרים",
+  "Pieris brassicae": "פרפרים",
+  "Meles canescens": "יונקים",
+  "Hystrix indica": "יונקים",
+  "Canis aureus": "יונקים",
+  "Vulpes vulpes": "יונקים",
+  "Herpestes ichneumon": "יונקים",
+  "Lepus capensis": "יונקים",
+  "Sus scrofa": "יונקים"
+};
+const speciesMap = Object.entries(rawSpeciesMap).flatMap(
+  ([category, entries]) => entries.map((entry) => ({
+    Scientific_Name: entry.scientific_name,
+    Category: EXPERT_SPECIES_CATEGORIES[entry.scientific_name] ?? category,
+    Hebrew_Name: entry.hebrew_name,
+    English_Name: entry.english_name,
+    isGeneric: entry.isGeneric === true
+  }))
+);
+const SPECIES_REGISTRY = {
+  // Invasive species
+  "Papilio demoleus": "invasive",
+  "Myocastor coypus": "invasive",
+  "Acridotheres tristis": "invasive",
+  "Psittacula krameri": "invasive",
+  "Myiopsitta monachus": "invasive",
+  // Rare species
+  "Borbo borbonica": "rare",
+  "Crocothemis erythraea": "rare",
+  "Felis chaus": "rare",
+  "Lutra lutra": "rare",
+  "Ischnura pumilio": "rare",
+  "Anax imperator": "rare"
+};
+function classifySpecies(scientificName) {
+  const normalized = scientificName.trim().toLowerCase();
+  for (const [name, status] of Object.entries(SPECIES_REGISTRY)) {
+    if (name.toLowerCase() === normalized) {
+      return status;
+    }
+  }
+  return "other";
+}
+const CANONICAL_CATEGORIES = [
+  "יונקים",
+  "עופות",
+  "פרפרים",
+  "שפיראים",
+  "פרוקי רגליים",
+  "צמחים",
+  "שאר המינים"
+];
+const _byScientificName = new Map(
+  speciesMap.map((e) => [e.Scientific_Name.trim().toLowerCase(), e])
+);
+function normalizeCategory(raw) {
+  if (!raw) return "שאר המינים";
+  const trimmed = raw.trim();
+  if (CANONICAL_CATEGORIES.includes(trimmed)) {
+    return trimmed;
+  }
+  return "שאר המינים";
+}
+function getTaxonDetails(scientificName, _iconicTaxon, _commonName) {
+  const key = (scientificName ?? "").trim().toLowerCase();
+  const entry = _byScientificName.get(key);
+  const status = classifySpecies(scientificName);
+  if (!entry) {
+    return {
+      name: scientificName || "לא מזוהה",
+      englishName: "",
+      category: "שאר המינים",
+      status,
+      isGeneric: true
+    };
+  }
+  return {
+    name: entry.Hebrew_Name && entry.Hebrew_Name !== "N/A" ? entry.Hebrew_Name : entry.Scientific_Name,
+    englishName: entry.English_Name && entry.English_Name !== "N/A" ? entry.English_Name : "",
+    category: normalizeCategory(entry.Category),
+    status,
+    isGeneric: entry.isGeneric ?? false
+  };
+}
+function getTaxonCategory(scientificName, _iconicTaxon, _commonName) {
+  return getTaxonDetails(scientificName).category;
+}
+function getTaxonStatus(scientificName) {
+  return classifySpecies(scientificName);
+}
+const GROUP_TRANSLATIONS = {
+  online_communities: { he: "קהילות מקוונות", en: "Online Communities" },
+  local_communities: { he: "קהילות מקומיות", en: "Local Communities" },
+  תלמידים: { he: "תלמידים", en: "Students" },
+  סטודנטים: { he: "תלמידים", en: "Students" },
+  student: { he: "תלמידים", en: "Students" },
+  expert: { he: "ניטור מקצועי", en: "Professional Monitoring" },
+  professional: { he: "אנשי מקצוע", en: "Professionals" },
+  mechnistim: { he: "מכניסטים", en: "Mechnistim" },
+  zevulun: { he: "זבולון", en: "Zevulun" },
+  yizrael: { he: "יזרעאל", en: "Yizrael" }
+};
+const CATEGORY_MAP = {
+  expert: "expert",
+  student: "student",
+  mechnistim: "local_communities",
+  zevulun: "local_communities",
+  yizrael: "local_communities",
+  community: "online_communities",
+  "קהילות מקוונות": "online_communities"
+};
+function getSupergroup(rawGroup) {
+  return CATEGORY_MAP[rawGroup] || rawGroup;
+}
+const TAXA_TRANSLATIONS = {
+  יונקים: { he: "יונקים", en: "Mammals" },
+  עופות: { he: "עופות", en: "Birds" },
+  פרפרים: { he: "פרפרים", en: "Butterflies" },
+  שפיראים: { he: "שפיראים", en: "Dragonflies" },
+  "פרוקי רגליים": { he: "פרוקי רגליים", en: "Arthropods" },
+  צמחים: { he: "צמחים", en: "Plants" },
+  "שאר המינים": { he: "שאר המינים", en: "Other Species" }
+};
+const MONTH_TRANSLATIONS = {
+  1: { he: "ינואר", en: "Jan" },
+  2: { he: "פברואר", en: "Feb" },
+  3: { he: "מרץ", en: "Mar" },
+  4: { he: "אפריל", en: "Apr" },
+  5: { he: "מאי", en: "May" },
+  6: { he: "יוני", en: "Jun" },
+  7: { he: "יולי", en: "Jul" },
+  8: { he: "אוגוסט", en: "Aug" },
+  9: { he: "ספטמבר", en: "Sep" },
+  10: { he: "אוקטובר", en: "Oct" },
+  11: { he: "נובמבר", en: "Nov" },
+  12: { he: "דצמבר", en: "Dec" }
+};
+function translateGroupName(group, lang = "he") {
+  const translation = GROUP_TRANSLATIONS[group];
+  if (translation) {
+    return translation[lang];
+  }
+  return group;
+}
+function translateTaxa(taxa, lang = "he") {
+  const translation = TAXA_TRANSLATIONS[taxa];
+  if (translation) {
+    return translation[lang];
+  }
+  return taxa;
+}
+function translateMonth(monthNum, lang = "he") {
+  const translation = MONTH_TRANSLATIONS[monthNum];
+  if (translation) {
+    return translation[lang];
+  }
+  return monthNum.toString();
+}
+function parseObservedOn(value) {
+  const raw = (value || "").trim();
+  if (!raw) return "";
+  const datePart = raw.split(/\s+/)[0];
+  const isoMatch = datePart.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (isoMatch) {
+    const year2 = parseInt(isoMatch[1], 10);
+    const month2 = parseInt(isoMatch[2], 10);
+    const day2 = parseInt(isoMatch[3], 10);
+    if (month2 < 1 || month2 > 12 || day2 < 1 || day2 > 31) return "";
+    return `${String(day2).padStart(2, "0")}/${String(month2).padStart(2, "0")}/${year2}`;
+  }
+  const parts = datePart.split("/");
+  if (parts.length !== 3) return "";
+  const first = parseInt(parts[0], 10);
+  const second = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+  if (isNaN(first) || isNaN(second) || isNaN(year)) return "";
+  let day;
+  let month;
+  if (second > 12) {
+    month = first;
+    day = second;
+  } else if (first > 12) {
+    day = first;
+    month = second;
+  } else if (parts[1].length === 2 && parts[1].startsWith("0")) {
+    day = first;
+    month = second;
+  } else {
+    month = first;
+    day = second;
+  }
+  if (month < 1 || month > 12 || day < 1 || day > 31) return "";
+  const d = String(day).padStart(2, "0");
+  const m = String(month).padStart(2, "0");
+  return `${d}/${m}/${year}`;
+}
+function parseMerlinRow(row) {
+  const lat = parseFloat((row.decimalLatitudeStart || "").trim());
+  const lon = parseFloat((row.decimalLongitudeStart || "").trim());
+  const observedOn = parseObservedOn(row.timeStamp || "");
+  if (!observedOn || isNaN(lat) || isNaN(lon)) return null;
+  const userLogin = (row.personName || row.recordedBy || "").trim();
+  if (!userLogin) return null;
+  const family = (row.family || "").trim();
+  const birdFamilies = [
+    "Columbidae",
+    "Ardeidae",
+    "Corvidae",
+    "Cisticolidae",
+    "Charadriidae",
+    "Alcedinidae",
+    "Hirundinidae",
+    "Paridae",
+    "Pycnonotidae",
+    "Sylviidae",
+    "Fringillidae",
+    "Acrocephalidae",
+    "Phasianidae",
+    "Turdidae",
+    "Accipitridae",
+    "Cuculidae",
+    "Laniidae",
+    "Motacillidae",
+    "Meropidae",
+    "Nectariniidae"
+  ];
+  let iconicTaxon = "";
+  if (["Hesperiidae", "Pieridae", "Lycaenidae", "Papilionidae", "Nymphalidae"].includes(family)) {
+    iconicTaxon = "Insecta";
+  } else if (["Canidae", "Mustelidae", "Hystricidae", "Herpestidae", "Leporidae", "Suidae"].includes(family)) {
+    iconicTaxon = "Mammalia";
+  } else if (birdFamilies.includes(family)) {
+    iconicTaxon = "Aves";
+  }
+  return {
+    observed_on: observedOn,
+    latitude: lat,
+    longitude: lon,
+    user_login: userLogin,
+    quality_grade: "research",
+    iconic_taxon_name: iconicTaxon,
+    scientific_name: (row.scientificName || "").trim(),
+    common_name: (row.vernacularName || "").trim() || void 0,
+    taxon_order_name: family,
+    user_category: "expert",
+    user_subcategory: "expert"
+  };
+}
+const TAXA_GROUP_KEYS = [
+  "mammals",
+  "birds",
+  "butterflies",
+  "dragonflies",
+  "arthropods",
+  "plants",
+  "other"
+];
+const INVASIVE_SPECIES = [
+  { he: "זנב סנונית הלימון", sci: "Papilio demoleus", tab: "פרפרים" },
+  { he: "נוטרייה", sci: "Myocastor coypus", tab: "יונקים" },
+  { he: "מיינה מצויה", sci: "Acridotheres tristis", tab: "עופות" },
+  { he: "דררה מצויה", sci: "Psittacula krameri", tab: "עופות" },
+  { he: "תוכי נזירי", sci: "Myiopsitta monachus", tab: "עופות" }
+];
+const RARE_SPECIES = [
+  { he: "הספרית ביצות", sci: "Borbo borbonica", tab: "פרפרים" },
+  { he: "חתול ביצות", sci: "Felis chaus", tab: "יונקים" },
+  { he: "לוטרה", sci: "Lutra lutra", tab: "יונקים" },
+  { he: "שלחית זעירה", sci: "Crocothemis erythraea", tab: "שפיראים" },
+  { he: "חניתית היאור", sci: "Orthetrum chrysostigma", tab: "שפיראים" },
+  { he: "תכשיטית זוהרת", sci: "Calopteryx syriaca", tab: "שפיראים" }
+];
+const TAB_LABEL_TO_GROUP = {
+  יונקים: "mammals",
+  עופות: "birds",
+  פרפרים: "butterflies",
+  שפיראים: "dragonflies",
+  "פרוקי רגליים": "arthropods",
+  צמחים: "plants",
+  "שאר המינים": "other"
+};
+new Map(
+  INVASIVE_SPECIES.map((s) => [s.sci, TAB_LABEL_TO_GROUP[s.tab] ?? "other"])
+);
+new Map(
+  RARE_SPECIES.map((s) => [s.sci, TAB_LABEL_TO_GROUP[s.tab] ?? "other"])
+);
+function getTaxaGroup(o) {
+  const sci = o.scientific_name;
+  if (sci) {
+    const category = getTaxonCategory(sci, o.iconic_taxon_name, o.common_name);
+    if (category !== "שאר המינים") {
+      return TAB_LABEL_TO_GROUP[category] ?? "other";
+    }
+  }
+  const iconic = o.iconic_taxon_name;
+  if (iconic === "Insecta" || iconic === "Arachnida") return "arthropods";
+  if (iconic === "Plantae") return "plants";
+  if (iconic === "Mammalia") return "mammals";
+  if (iconic === "Aves") return "birds";
+  return "other";
+}
+function getSpeciesClassification(o) {
+  const status = getTaxonStatus(o.scientific_name);
+  return status === "other" ? "other_species" : status;
+}
+const ObservationsCtx = reactExports.createContext(null);
+function ObservationsProvider({ children }) {
+  const [observations, setObservations] = reactExports.useState([]);
+  const [filters, setFilters] = reactExports.useState({
+    time: /* @__PURE__ */ new Map(),
+    taxa: /* @__PURE__ */ new Set([
+      "mammals",
+      "birds",
+      "butterflies",
+      "dragonflies",
+      "arthropods",
+      "plants",
+      "other"
+    ]),
+    groups: /* @__PURE__ */ new Set(),
+    researchOnly: false,
+    areas: new Set(SURVEY_AREA_KEYS),
+    speciesTypes: /* @__PURE__ */ new Set(["invasive", "rare", "other_species"]),
+    dateRange: null
+  });
+  const [datasetBounds, setDatasetBounds] = reactExports.useState(null);
+  const [userObservationCounts, setUserObservationCounts] = reactExports.useState(
+    /* @__PURE__ */ new Map()
+  );
+  const [observerStats, setObserverStats] = reactExports.useState([]);
+  const [resetVersion, setResetVersion] = reactExports.useState(0);
+  const bumpResetVersion = reactExports.useCallback(() => setResetVersion((v) => v + 1), []);
+  const [deepDive, setDeepDive] = reactExports.useState({
+    category: null,
+    species: /* @__PURE__ */ new Set(),
+    search: ""
+  });
+  const toggleSpeciesType = reactExports.useCallback((type) => {
+    setFilters((prev) => {
+      const next = new Set(prev.speciesTypes);
+      if (next.has(type)) next.delete(type);
+      else next.add(type);
+      return { ...prev, speciesTypes: next };
+    });
+  }, []);
+  const setDateRange = reactExports.useCallback((start, end) => {
+    setFilters((prev) => {
+      const startDate = new Date(start);
+      const endDate = new Date(end);
+      const startYear = startDate.getFullYear();
+      const endYear = endDate.getFullYear();
+      const nextTime = /* @__PURE__ */ new Map();
+      for (let y = startYear; y <= endYear; y++) {
+        nextTime.set(String(y), /* @__PURE__ */ new Set());
+      }
+      return { ...prev, dateRange: { start, end }, time: nextTime };
+    });
+  }, []);
+  const deepDiveActions = reactExports.useMemo(
+    () => ({
+      setDeepDiveCategory: (category) => setDeepDive({ category, species: /* @__PURE__ */ new Set(), search: "" }),
+      toggleDeepDiveSpecies: (scientificName) => setDeepDive((prev) => {
+        const next = new Set(prev.species);
+        if (next.has(scientificName)) next.delete(scientificName);
+        else next.add(scientificName);
+        return { ...prev, species: next };
+      }),
+      clearDeepDiveSpecies: () => setDeepDive((prev) => ({ ...prev, species: /* @__PURE__ */ new Set() })),
+      setDeepDiveSearch: (query) => setDeepDive((prev) => ({ ...prev, search: query }))
+    }),
+    []
+  );
+  reactExports.useEffect(() => {
+    if (typeof window === "undefined") return;
+    const loadData = async () => {
+      try {
+        const userGroupsResponse = await fetch("/user_groups.csv");
+        const userGroupsText = await userGroupsResponse.text();
+        const userGroupsData = Papa.parse(userGroupsText, {
+          header: true,
+          skipEmptyLines: true
+        }).data;
+        const userGroupMap = new Map(
+          userGroupsData.map((row) => [row.user_login, row.group])
+        );
+        const observationsResponse = await fetch("/Until_June26.csv");
+        const observationsText = await observationsResponse.text();
+        const observationsData = Papa.parse(observationsText, {
+          header: true,
+          skipEmptyLines: true
+        }).data;
+        const tziporiObservations = observationsData.map((row) => {
+          const lat = parseFloat((row.latitude || "").trim());
+          const lon = parseFloat((row.longitude || "").trim());
+          const observedOn = parseObservedOn(row.observed_on || "");
+          if (!observedOn || isNaN(lat) || isNaN(lon)) return null;
+          const userLogin = (row.user_login || "").trim();
+          const rawCategory = userGroupMap.get(userLogin) || "קהילות מקוונות";
+          const userCategory = getSupergroup(rawCategory);
+          const userSubcategory = rawCategory;
+          const observation = {
+            observed_on: observedOn,
+            latitude: lat,
+            longitude: lon,
+            user_login: userLogin,
+            quality_grade: (row.quality_grade || "").trim().toLowerCase(),
+            iconic_taxon_name: (row.iconic_taxon_name || "").trim(),
+            scientific_name: (row.scientific_name || "").trim(),
+            common_name: (row.common_name || "").trim() || void 0,
+            taxon_order_name: (row.taxon_order_name || "").trim(),
+            user_category: userCategory,
+            user_subcategory: userSubcategory,
+            establishment_means: (row.establishment_means || "").trim().toLowerCase() || void 0
+          };
+          return observation;
+        }).filter((obs) => obs !== null);
+        const merlinResponse = await fetch(
+          "/MERLIN all except Odonta observations for Zohar.csv"
+        );
+        const merlinText = await merlinResponse.text();
+        const merlinData = Papa.parse(merlinText, {
+          header: true,
+          skipEmptyLines: true
+        }).data;
+        const merlinObservations = merlinData.map(parseMerlinRow).filter((obs) => obs !== null);
+        console.log("Loaded MERLIN observations:", merlinObservations.length);
+        const joinedObservations = [...tziporiObservations, ...merlinObservations];
+        setObservations(joinedObservations);
+        const counts = /* @__PURE__ */ new Map();
+        const userMeta = /* @__PURE__ */ new Map();
+        for (const obs of joinedObservations) {
+          const u = obs.user_login;
+          counts.set(u, (counts.get(u) || 0) + 1);
+          if (!userMeta.has(u)) {
+            userMeta.set(u, {
+              user_category: obs.user_category,
+              user_subcategory: obs.user_subcategory
+            });
+          }
+        }
+        const stats = Array.from(counts.entries()).map(([user_login, totalObservations]) => ({
+          user_login,
+          totalObservations,
+          ...userMeta.get(user_login)
+        })).sort((a, b) => b.totalObservations - a.totalObservations);
+        setUserObservationCounts(counts);
+        setObserverStats(stats);
+        let minTs = Infinity;
+        let maxTs = -Infinity;
+        const yearsInData = /* @__PURE__ */ new Set();
+        const groupsInData = /* @__PURE__ */ new Set();
+        for (const obs of joinedObservations) {
+          const d = obs.observed_on;
+          if (!d || d.length < 10) continue;
+          const parts = d.split("/");
+          if (parts.length !== 3) continue;
+          const day = parseInt(parts[0], 10);
+          const month = parseInt(parts[1], 10) - 1;
+          const year = parseInt(parts[2], 10);
+          if (isNaN(day) || isNaN(month) || isNaN(year)) continue;
+          const ts = new Date(year, month, day).getTime();
+          if (ts < minTs) minTs = ts;
+          if (ts > maxTs) maxTs = ts;
+          yearsInData.add(parts[2]);
+          if (obs.user_category) groupsInData.add(obs.user_category);
+        }
+        if (minTs !== Infinity) {
+          const startYear = new Date(minTs).getFullYear();
+          const endYear = new Date(maxTs).getFullYear();
+          const boundsStart = new Date(startYear, 0, 1).getTime();
+          const boundsEnd = new Date(endYear, 11, 31, 23, 59, 59, 999).getTime();
+          setDatasetBounds({ start: boundsStart, end: boundsEnd });
+          const defaultTime = /* @__PURE__ */ new Map();
+          for (const y of yearsInData) {
+            defaultTime.set(y, /* @__PURE__ */ new Set());
+          }
+          groupsInData.add("expert");
+          setFilters((prev) => ({
+            ...prev,
+            time: defaultTime,
+            dateRange: { start: boundsStart, end: boundsEnd },
+            groups: new Set(groupsInData)
+          }));
+        }
+      } catch (error) {
+        console.error("Error loading data:", error);
+      }
+    };
+    loadData();
+  }, []);
+  const value = reactExports.useMemo(
+    () => ({
+      observations,
+      setObservations,
+      filters,
+      setFilters,
+      toggleSpeciesType,
+      setDateRange,
+      datasetBounds,
+      deepDive,
+      deepDiveActions,
+      resetVersion,
+      bumpResetVersion,
+      userObservationCounts,
+      observerStats
+    }),
+    [
+      observations,
+      filters,
+      toggleSpeciesType,
+      setDateRange,
+      datasetBounds,
+      deepDive,
+      deepDiveActions,
+      resetVersion,
+      bumpResetVersion,
+      userObservationCounts,
+      observerStats
+    ]
+  );
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ObservationsCtx.Provider, { value, children });
+}
+function useObservations() {
+  const c = reactExports.useContext(ObservationsCtx);
+  if (!c) throw new Error("useObservations must be used within ObservationsProvider");
+  return c;
+}
+function cn(...inputs) {
+  return twMerge(clsx(inputs));
+}
+const Tabs = Root2;
+const TabsList = reactExports.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  List,
+  {
+    ref,
+    className: cn(
+      "inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground",
+      className
+    ),
+    ...props
+  }
+));
+TabsList.displayName = List.displayName;
+const TabsTrigger = reactExports.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Trigger,
+  {
+    ref,
+    className: cn(
+      "inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow",
+      className
+    ),
+    ...props
+  }
+));
+TabsTrigger.displayName = Trigger.displayName;
+const TabsContent = reactExports.forwardRef(({ className, ...props }, ref) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  Content,
+  {
+    ref,
+    className: cn(
+      "mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+      className
+    ),
+    ...props
+  }
+));
+TabsContent.displayName = Content.displayName;
+function Section({ title, children }) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-1", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-[10px] font-bold uppercase tracking-wider text-muted-foreground", children: title }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-0.5", children })
+  ] });
+}
+function Check({
+  checked,
+  onChange,
+  label,
+  indeterminate
+}) {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-0.5 text-xs font-normal hover:bg-secondary", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "input",
+      {
+        type: "checkbox",
+        checked,
+        ref: (el) => {
+          if (el) el.indeterminate = !!indeterminate && !checked;
+        },
+        onChange: (e) => onChange(e.target.checked),
+        className: "h-3 w-3 rounded border-border accent-[color:var(--primary)]"
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: label })
+  ] });
+}
+function FilterSidebar() {
+  const { t, lang } = useI18n();
+  const { observations, filters, setFilters, toggleSpeciesType, datasetBounds } = useObservations();
+  const targetPopulationOptions = reactExports.useMemo(
+    () => [
+      { key: "expert", label: translateGroupName("expert", lang) },
+      { key: "local_communities", label: translateGroupName("local_communities", lang) },
+      { key: "student", label: translateGroupName("student", lang) },
+      { key: "online_communities", label: translateGroupName("online_communities", lang) }
+    ],
+    [lang]
+  );
+  const uniqueYears = reactExports.useMemo(() => {
+    const years = /* @__PURE__ */ new Set();
+    for (const o of observations) {
+      const d = o.observed_on;
+      if (!d || d.length < 10) continue;
+      const parts = d.split("/");
+      if (parts.length === 3) {
+        const year = parts[2];
+        if (year && year.length === 4) {
+          years.add(year);
+        }
+      }
+    }
+    return Array.from(years).sort();
+  }, [observations]);
+  const toggleYear = (year) => {
+    setFilters((prev) => {
+      const next = new Map(prev.time);
+      if (next.has(year)) next.delete(year);
+      else next.set(year, /* @__PURE__ */ new Set());
+      let dateRange = prev.dateRange;
+      if (next.size > 0) {
+        const selectedYears = Array.from(next.keys()).map(Number).sort((a, b) => a - b);
+        const earliest = selectedYears[0];
+        const latest = selectedYears[selectedYears.length - 1];
+        dateRange = {
+          start: new Date(earliest, 0, 1).getTime(),
+          end: new Date(latest, 11, 31, 23, 59, 59, 999).getTime()
+        };
+      } else if (datasetBounds) {
+        dateRange = datasetBounds;
+      }
+      return { ...prev, time: next, dateRange };
+    });
+  };
+  const toggleGroup = (g) => {
+    setFilters((prev) => {
+      const next = new Set(prev.groups);
+      if (next.has(g)) next.delete(g);
+      else next.add(g);
+      return { ...prev, groups: next };
+    });
+  };
+  const toggleArea = (key) => {
+    setFilters((prev) => {
+      const next = new Set(prev.areas);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return { ...prev, areas: next };
+    });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "flex h-full w-48 shrink-0 flex-col gap-3 overflow-y-auto bg-card px-3 py-2", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xs font-bold", children: t("filters") }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: t("years"), children: [
+      uniqueYears.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-1 text-xs text-muted-foreground", children: "—" }),
+      uniqueYears.map((year) => {
+        const yearEntry = filters.time.get(year);
+        const yearActive = yearEntry !== void 0;
+        const hasSpecific = !!yearEntry && yearEntry.size > 0;
+        return /* @__PURE__ */ jsxRuntimeExports.jsx(
+          Check,
+          {
+            checked: yearActive && !hasSpecific,
+            indeterminate: hasSpecific,
+            onChange: () => toggleYear(year),
+            label: year
+          },
+          year
+        );
+      })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: t("quality"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Check,
+      {
+        checked: filters.researchOnly,
+        onChange: (b) => setFilters((p) => ({ ...p, researchOnly: b })),
+        label: t("researchOnly")
+      }
+    ) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: t("speciesType"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Check,
+        {
+          checked: filters.speciesTypes.has("invasive"),
+          onChange: () => toggleSpeciesType("invasive"),
+          label: t("invasiveSpecies")
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Check,
+        {
+          checked: filters.speciesTypes.has("rare"),
+          onChange: () => toggleSpeciesType("rare"),
+          label: t("rareSpecies")
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Check,
+        {
+          checked: filters.speciesTypes.has("other_species"),
+          onChange: () => toggleSpeciesType("other_species"),
+          label: t("otherSpecies")
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: t("targetPop"), children: targetPopulationOptions.map((option) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Check,
+      {
+        checked: filters.groups.has(option.key),
+        onChange: () => toggleGroup(option.key),
+        label: option.label
+      },
+      option.key
+    )) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: t("areas"), children: SURVEY_AREA_KEYS.map((key) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "label",
+      {
+        className: "flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-0.5 text-xs font-normal hover:bg-secondary",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "checkbox",
+              checked: filters.areas.has(key),
+              onChange: () => toggleArea(key),
+              className: "h-3 w-3 rounded border-border accent-[color:var(--primary)]"
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: translateArea(key, lang) }),
+          filters.areas.has(key) && /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "span",
+            {
+              className: "ml-auto h-2 w-2 rounded-full shrink-0",
+              style: { backgroundColor: AREA_COLORS[key] }
+            }
+          )
+        ]
+      },
+      key
+    )) })
+  ] });
+}
+function DateRangeSlider({ min, max, value, onChange, selectedYears }) {
+  const { lang } = useI18n();
+  const locale = lang === "he" ? "he-IL" : "en-US";
+  const tickFormatter = reactExports.useMemo(
+    () => new Intl.DateTimeFormat(locale, { month: "long", year: "numeric" }),
+    [locale]
+  );
+  const handleChange = reactExports.useCallback(
+    (v) => {
+      onChange([v[0], v[1]]);
+    },
+    [onChange]
+  );
+  const gapMasks = reactExports.useMemo(() => {
+    if (!selectedYears) return [];
+    const [thumbStart, thumbEnd] = value;
+    const totalRange = max - min;
+    if (totalRange <= 0 || thumbStart >= thumbEnd) return [];
+    const startYear = new Date(thumbStart).getFullYear();
+    const endYear = new Date(thumbEnd).getFullYear();
+    const masks = [];
+    for (let y = startYear; y <= endYear; y++) {
+      if (selectedYears.has(String(y))) continue;
+      const maskStart = Math.max(new Date(y, 0, 1).getTime(), thumbStart);
+      const maskEnd = Math.min(new Date(y, 11, 31, 23, 59, 59, 999).getTime(), thumbEnd);
+      if (maskStart >= maskEnd) continue;
+      const left = (maskStart - min) / totalRange * 100;
+      const width = (maskEnd - maskStart) / totalRange * 100;
+      masks.push({ left, width });
+    }
+    return masks;
+  }, [min, max, value, selectedYears]);
+  const ticks = reactExports.useMemo(() => {
+    const startYear = new Date(min).getFullYear();
+    const endYear = new Date(max).getFullYear();
+    const result = [];
+    const totalRange = max - min;
+    if (totalRange <= 0) return result;
+    for (let y = startYear; y <= endYear; y++) {
+      for (const m of [0, 6]) {
+        const ts = new Date(y, m, 1).getTime();
+        if (ts < min || ts > max) continue;
+        const pct = (ts - min) / totalRange * 100;
+        result.push({ label: tickFormatter.format(new Date(ts)), pct });
+      }
+    }
+    return result;
+  }, [min, max, tickFormatter]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex flex-col w-full px-8", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      Slider,
+      {
+        dir: "ltr",
+        className: "relative flex w-full touch-none select-none items-center",
+        min,
+        max,
+        step: 864e5,
+        value,
+        onValueChange: handleChange,
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(SliderTrack, { className: "relative h-1.5 w-full grow rounded-full bg-gray-200", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(SliderRange, { className: "absolute h-full bg-yellow-400" }),
+            gapMasks.map((mask, i) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "div",
+              {
+                className: "absolute h-full bg-gray-200 pointer-events-none",
+                style: { left: `${mask.left}%`, width: `${mask.width}%`, zIndex: 20 }
+              },
+              i
+            ))
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SliderThumb, { className: "block h-4 w-4 rounded-full border-2 border-yellow-500 bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 disabled:pointer-events-none disabled:opacity-50 cursor-grab active:cursor-grabbing" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(SliderThumb, { className: "block h-4 w-4 rounded-full border-2 border-yellow-500 bg-white shadow-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400 disabled:pointer-events-none disabled:opacity-50 cursor-grab active:cursor-grabbing" })
+        ]
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-full h-5 mt-1", dir: "ltr", children: ticks.map((tick) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "span",
+      {
+        className: "absolute text-xs font-semibold text-slate-700 -translate-x-1/2 whitespace-nowrap",
+        style: { left: `${tick.pct}%` },
+        children: tick.label
+      },
+      tick.pct
+    )) })
+  ] });
+}
+const Dashboard = reactExports.lazy(() => import("./dashboard-C7n8WI0N.mjs").then((m) => ({
+  default: m.Dashboard
+})));
+const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive-C6dElphv.mjs").then((m) => ({
+  default: m.SpeciesDeepDive
+})));
+const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-bGySeH0p.mjs").then((m) => ({
+  default: m.PeopleDashboard
+})));
+function Index() {
+  const {
+    t,
+    lang,
+    setLang,
+    dir
+  } = useI18n();
+  const [sidebarOpen, setSidebarOpen] = reactExports.useState(false);
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(ObservationsProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { defaultValue: "overview", dir, className: "relative flex h-full w-full overflow-hidden", children: [
+    sidebarOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-[9998] bg-black/20 transition-opacity", onClick: () => setSidebarOpen(false) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `fixed top-0 z-[9999] h-full shadow-lg transition-transform duration-300 ease-in-out ${dir === "rtl" ? `right-0 ${sidebarOpen ? "translate-x-0" : "translate-x-full"}` : `left-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}`, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(FilterSidebar, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setSidebarOpen((v) => !v), className: `absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-20 bg-card border shadow-md rounded-md cursor-pointer hover:bg-secondary transition-colors ${dir === "rtl" ? "-left-5 rounded-r-none border-r-0" : "-right-5 rounded-l-none border-l-0"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { className: "h-3 w-3 text-muted-foreground" }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 flex-col min-h-0 overflow-hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "shrink-0 flex items-center justify-between px-4 py-1.5 border-b", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(ResetFiltersButton, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(TabsList, { className: "inline-flex h-9 items-center rounded-full bg-muted p-1 gap-0.5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "overview", className: "rounded-full px-4 h-7 text-sm font-semibold transition-colors data-[state=active]:bg-background data-[state=active]:shadow-sm data-[state=inactive]:text-muted-foreground", children: t("overview") }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "deep-dive", className: "rounded-full px-4 h-7 text-sm font-semibold transition-colors data-[state=active]:bg-background data-[state=active]:shadow-sm data-[state=inactive]:text-muted-foreground", children: t("deepDive") }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(TabsTrigger, { value: "people", className: "rounded-full px-4 h-7 text-sm font-semibold transition-colors data-[state=active]:bg-background data-[state=active]:shadow-sm data-[state=inactive]:text-muted-foreground", children: t("people") })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setLang(lang === "he" ? "en" : "he"), className: "inline-flex items-center gap-2 rounded-md border bg-background px-3 py-1.5 text-xs font-medium hover:bg-secondary transition-colors", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Languages, { className: "h-3.5 w-3.5" }),
+          t("language")
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(GlobalDateRangeBar, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "overview", className: "flex-1 min-h-0 h-full mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6 text-sm text-muted-foreground", children: "Loading…" }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(Dashboard, {}) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "deep-dive", className: "flex-1 min-h-0 h-full mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6 text-sm text-muted-foreground", children: "Loading…" }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(SpeciesDeepDive, {}) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(TabsContent, { value: "people", className: "flex-1 min-h-0 h-full mt-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "p-6 text-sm text-muted-foreground", children: "Loading…" }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(PeopleDashboard, {}) }) })
+    ] })
+  ] }) });
+}
+function ResetFiltersButton() {
+  const {
+    t
+  } = useI18n();
+  const {
+    observations,
+    filters,
+    setFilters,
+    datasetBounds,
+    deepDiveActions,
+    bumpResetVersion
+  } = useObservations();
+  const uniqueYears = reactExports.useMemo(() => {
+    const years = /* @__PURE__ */ new Set();
+    for (const o of observations) {
+      const d = o.observed_on;
+      if (!d || d.length < 10) continue;
+      const parts = d.split("/");
+      if (parts.length === 3 && parts[2]?.length === 4) years.add(parts[2]);
+    }
+    return Array.from(years).sort();
+  }, [observations]);
+  const reset = () => {
+    const defaultTime = /* @__PURE__ */ new Map();
+    for (const y of uniqueYears) defaultTime.set(y, /* @__PURE__ */ new Set());
+    const groupsInData = new Set(observations.map((o) => o.user_category).filter(Boolean));
+    groupsInData.add("expert");
+    deepDiveActions.setDeepDiveCategory(null);
+    setFilters({
+      time: defaultTime,
+      taxa: /* @__PURE__ */ new Set(["mammals", "birds", "butterflies", "dragonflies", "arthropods", "plants", "other"]),
+      groups: groupsInData,
+      researchOnly: false,
+      areas: new Set(SURVEY_AREA_KEYS),
+      speciesTypes: /* @__PURE__ */ new Set(["invasive", "rare", "other_species"]),
+      dateRange: datasetBounds
+    });
+    bumpResetVersion();
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: reset, className: "inline-flex items-center gap-1.5 rounded-md border border-border bg-secondary/50 px-3 py-1.5 text-xs font-medium text-foreground hover:bg-secondary hover:border-primary/50 transition-colors", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(RotateCcw, { className: "h-3 w-3" }),
+    t("resetFilters")
+  ] });
+}
+function GlobalDateRangeBar() {
+  const {
+    filters,
+    setDateRange,
+    datasetBounds
+  } = useObservations();
+  if (!datasetBounds || !filters.dateRange) return null;
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full bg-white border-b px-6 pt-3 pb-1 shadow-sm z-10 shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(DateRangeSlider, { min: datasetBounds.start, max: datasetBounds.end, value: [filters.dateRange.start, filters.dateRange.end], onChange: ([start, end]) => setDateRange(start, end), selectedYears: new Set(filters.time.keys()) }) });
+}
+const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  component: Index
+}, Symbol.toStringTag, { value: "Module" }));
+export {
+  AREA_COLORS as A,
+  SURVEY_AREA_KEYS as S,
+  TAXA_GROUP_KEYS as T,
+  translateGroupName as a,
+  translateMonth as b,
+  classifySpecies as c,
+  getObservationArea as d,
+  getSpeciesClassification as e,
+  cn as f,
+  getTaxaGroup as g,
+  getTaxonDetails as h,
+  SURVEY_POLYGONS as i,
+  index as j,
+  speciesMap as s,
+  translateTaxa as t,
+  useObservations as u
+};

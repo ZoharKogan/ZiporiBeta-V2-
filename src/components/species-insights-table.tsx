@@ -74,7 +74,7 @@ export function getTopSpecies(data: Observation[], prioritySpecies: Set<string>,
     ? insights.filter((insight) => !prioritySpecies.has(insight.scientificName) && getTaxaGroup(bySpecies.get(insight.scientificName)![0]) === priorityCategory).sort(byCount)
     : [];
   const remaining = insights.filter((insight) => !prioritySpecies.has(insight.scientificName) && !category.includes(insight)).sort(byCount);
-  return [...selected, ...category, ...remaining].slice(0, 4);
+  return [...selected, ...category, ...remaining].slice(0, 5);
 }
 
 function TrendIcon({ trend, rtl, title }: { trend: SpeciesInsight["trend"]; rtl: boolean; title: string }) {
@@ -102,25 +102,25 @@ export function SpeciesInsightsTable({
   );
 
   return (
-    <div className="h-full overflow-hidden rounded-lg border bg-card shadow-sm">
-      <table className="w-full table-fixed text-xs">
-        <thead>
-          <tr className="border-b bg-secondary/60 text-[11px] font-semibold text-muted-foreground">
-            <th className="w-[30%] px-3 py-2 text-start">שם המין</th>
-            <th className="w-[15%] px-2 py-2 text-center">מספר תצפיות</th>
-            <th className="w-[20%] px-2 py-2 text-center">מגמה שנתית</th>
-            <th className="w-[17%] px-2 py-2 text-center">דרגת מחקר</th>
-            <th className="w-[18%] px-2 py-2 text-center">סטטוס עונתי</th>
+    <div className="h-full rounded-lg border bg-card shadow-sm">
+      <table className="h-full w-full table-fixed text-xs">
+        <thead className="h-8">
+          <tr className="border-b bg-secondary/60 text-[10px] font-semibold text-muted-foreground">
+            <th className="w-[30%] px-3 py-1 text-start">שם המין</th>
+            <th className="w-[15%] px-2 py-1 text-center">מספר תצפיות</th>
+            <th className="w-[20%] px-2 py-1 text-center">מגמה שנתית</th>
+            <th className="w-[17%] px-2 py-1 text-center">דרגת מחקר</th>
+            <th className="w-[18%] px-2 py-1 text-center">סטטוס עונתי</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="h-[calc(100%-2rem)]">
           {rows.map((row) => (
-            <tr key={row.scientificName} className="border-b border-border/60 last:border-0 hover:bg-secondary/30">
-              <td className="truncate px-3 py-2 align-middle text-start font-medium">{lang === "he" ? row.hebrewName : row.englishName}</td>
-              <td className="px-2 py-2 text-center align-middle tabular-nums">{row.observations.toLocaleString()}</td>
-              <td className="px-2 py-2 text-center align-middle"><span className="inline-flex items-center justify-center"><TrendIcon trend={row.trend} rtl={lang === "he"} title={row.annualBreakdown} /></span></td>
-              <td className="px-2 py-2 text-center align-middle tabular-nums">{row.researchPct.toFixed(1)}%</td>
-              <td className="px-2 py-2 text-center align-middle">{row.seasonalStatus}</td>
+            <tr key={row.scientificName} className="h-1/5 border-b border-border/60 last:border-0 hover:bg-secondary/30">
+              <td className="truncate px-3 py-1 align-middle text-start font-medium">{lang === "he" ? row.hebrewName : row.englishName}</td>
+              <td className="px-2 py-1 text-center align-middle tabular-nums">{row.observations.toLocaleString()}</td>
+              <td className="px-2 py-1 text-center align-middle"><span className="inline-flex items-center justify-center"><TrendIcon trend={row.trend} rtl={lang === "he"} title={row.annualBreakdown} /></span></td>
+              <td className="px-2 py-1 text-center align-middle tabular-nums">{row.researchPct.toFixed(1)}%</td>
+              <td className="px-2 py-1 text-center align-middle">{row.seasonalStatus}</td>
             </tr>
           ))}
         </tbody>

@@ -64,6 +64,7 @@ function getSpeciesGroup(scientific_name: string, iconicTaxon: string): TaxaGrou
     scientific_name,
     taxon_order_name: "",
     user_category: "",
+    user_subcategory: "",
   });
 }
 

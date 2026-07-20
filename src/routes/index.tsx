@@ -8,16 +8,25 @@ import { FilterSidebar } from "@/components/filter-sidebar";
 import { DateRangeSlider } from "@/components/date-range-slider";
 import { Languages, RotateCcw, SlidersHorizontal } from "lucide-react";
 
-const Dashboard = lazy(() => import("@/components/dashboard").then((m) => ({ default: m.Dashboard })));
-const SpeciesDeepDive = lazy(() => import("@/components/species-deep-dive").then((m) => ({ default: m.SpeciesDeepDive })));
-const PeopleDashboard = lazy(() => import("@/components/people-dashboard").then((m) => ({ default: m.PeopleDashboard })));
+const Dashboard = lazy(() =>
+  import("@/components/dashboard").then((m) => ({ default: m.Dashboard })),
+);
+const SpeciesDeepDive = lazy(() =>
+  import("@/components/species-deep-dive").then((m) => ({ default: m.SpeciesDeepDive })),
+);
+const PeopleDashboard = lazy(() =>
+  import("@/components/people-dashboard").then((m) => ({ default: m.PeopleDashboard })),
+);
 
 export const Route = createFileRoute("/")({
   ssr: false,
   head: () => ({
     meta: [
       { title: "Ecological Monitoring Dashboard" },
-      { name: "description", content: "Interactive analytics dashboard for iNaturalist ecological observations." },
+      {
+        name: "description",
+        content: "Interactive analytics dashboard for iNaturalist ecological observations.",
+      },
     ],
   }),
   component: Index,
@@ -29,7 +38,11 @@ function Index() {
 
   return (
     <ObservationsProvider>
-      <Tabs defaultValue="overview" dir={dir} className="relative flex h-full w-full overflow-hidden">
+      <Tabs
+        defaultValue="overview"
+        dir={dir}
+        className="relative flex h-full w-full overflow-hidden"
+      >
         {/* Backdrop */}
         {sidebarOpen && (
           <div
@@ -51,7 +64,9 @@ function Index() {
           <button
             onClick={() => setSidebarOpen((v) => !v)}
             className={`absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-20 bg-card border shadow-md rounded-md cursor-pointer hover:bg-secondary transition-colors ${
-              dir === "rtl" ? "-left-5 rounded-r-none border-r-0" : "-right-5 rounded-l-none border-l-0"
+              dir === "rtl"
+                ? "-left-5 rounded-r-none border-r-0"
+                : "-right-5 rounded-l-none border-l-0"
             }`}
           >
             <SlidersHorizontal className="h-3 w-3 text-muted-foreground" />
@@ -118,14 +133,15 @@ function Index() {
 
 function ResetFiltersButton() {
   const { t } = useI18n();
-  const { observations, filters, setFilters, datasetBounds, deepDiveActions } = useObservations();
+  const { observations, filters, setFilters, datasetBounds, deepDiveActions, bumpResetVersion } =
+    useObservations();
 
   const uniqueYears = useMemo(() => {
     const years = new Set<string>();
     for (const o of observations) {
       const d = o.observed_on;
       if (!d || d.length < 10) continue;
-      const parts = d.split('/');
+      const parts = d.split("/");
       if (parts.length === 3 && parts[2]?.length === 4) years.add(parts[2]);
     }
     return Array.from(years).sort();
@@ -134,20 +150,27 @@ function ResetFiltersButton() {
   const reset = () => {
     const defaultTime = new Map<string, Set<string>>();
     for (const y of uniqueYears) defaultTime.set(y, new Set());
-    const groupsInData = new Set<string>(
-      observations.map((o) => o.user_category).filter(Boolean)
-    );
+    const groupsInData = new Set<string>(observations.map((o) => o.user_category).filter(Boolean));
     groupsInData.add("expert");
     deepDiveActions.setDeepDiveCategory(null);
     setFilters({
       time: defaultTime,
-      taxa: new Set(["mammals", "birds", "butterflies", "dragonflies", "arthropods", "plants", "other"] as const),
+      taxa: new Set([
+        "mammals",
+        "birds",
+        "butterflies",
+        "dragonflies",
+        "arthropods",
+        "plants",
+        "other",
+      ] as const),
       groups: groupsInData,
       researchOnly: false,
       areas: new Set(SURVEY_AREA_KEYS),
       speciesTypes: new Set(["invasive", "rare", "other_species"]),
       dateRange: datasetBounds,
     });
+    bumpResetVersion();
   };
 
   return (

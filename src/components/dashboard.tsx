@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useObservations, getTaxaGroup, getSpeciesClassification } from "@/lib/observations-store";
+import { getTaxonDetails } from "@/lib/taxonomy-engine";
 import { getObservationArea, type SurveyAreaKey } from "@/lib/survey-polygons";
 import { useI18n } from "@/lib/i18n";
 import { TaxaFilterBar } from "@/components/taxa-filter-bar";
@@ -114,7 +115,9 @@ export function Dashboard() {
     const species = new Set<string>();
     for (const o of filtered) {
       if (o.user_login) observers.add(o.user_login);
-      if (o.scientific_name) species.add(o.scientific_name);
+      if (o.scientific_name && !getTaxonDetails(o.scientific_name).isGeneric) {
+        species.add(o.scientific_name);
+      }
     }
     return { rows: filtered.length, observers: observers.size, species: species.size };
   }, [filtered]);

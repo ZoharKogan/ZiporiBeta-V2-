@@ -1,7 +1,13 @@
 import { useMemo } from "react";
 import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
-  Legend, ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
 } from "recharts";
 import { useI18n } from "@/lib/i18n";
 import { translateMonth, translateGroupName } from "@/lib/observations-store";
@@ -11,10 +17,10 @@ import type { Observation } from "@/lib/observations-store";
 const PROFESSIONAL_MONITORING_KEY = "expert";
 
 const GROUP_CONFIG = [
-  { key: PROFESSIONAL_MONITORING_KEY, color: "#6366F1", shape: "diamond"  as const },
-  { key: "community",              color: "#000000", shape: "circle"   as const },
-  { key: "student",                color: "#4A4A4A", shape: "cross"    as const },
-  { key: "קהילות מקוונות",             color: "#B0B0B0", shape: "triangle" as const },
+  { key: PROFESSIONAL_MONITORING_KEY, color: "#6366F1", shape: "diamond" as const },
+  { key: "local_communities", color: "#000000", shape: "circle" as const },
+  { key: "student", color: "#4A4A4A", shape: "cross" as const },
+  { key: "online_communities", color: "#B0B0B0", shape: "triangle" as const },
 ] as const;
 
 // Canonical raw-key order for deterministic slot assignment
@@ -26,7 +32,13 @@ function getGroupSlot(rawKey: string): number {
 }
 
 // ─── Custom dot renderers ──────────────────────────────────────────────────────
-function CircleDot(props: { cx?: number; cy?: number; stroke?: string; fill?: string; r?: number }) {
+function CircleDot(props: {
+  cx?: number;
+  cy?: number;
+  stroke?: string;
+  fill?: string;
+  r?: number;
+}) {
   const { cx = 0, cy = 0, stroke, r = 4 } = props;
   return <circle cx={cx} cy={cy} r={r} stroke={stroke} strokeWidth={2} fill={stroke} />;
 }
@@ -70,7 +82,11 @@ function CustomLegend({ groups, lang }: { groups: string[]; lang: "he" | "en" })
         const symbol = LEGEND_SYMBOLS[slot] ?? LEGEND_SYMBOLS[LEGEND_SYMBOLS.length - 1];
         const label = translateGroupName(rawKey, lang);
         return (
-          <span key={rawKey} className="inline-flex items-center gap-1" style={{ color: cfg.color }}>
+          <span
+            key={rawKey}
+            className="inline-flex items-center gap-1"
+            style={{ color: cfg.color }}
+          >
             <span style={{ fontWeight: 700 }}>{symbol}</span>
             <span style={{ color: "#374151" }}>{label}</span>
           </span>
@@ -111,7 +127,7 @@ export function TimeSeriesChart({ data }: { data: Observation[] }) {
       const sortKey = yearFull * 100 + monthNum;
       const yearShort = parts[2].slice(-2);
       const label = `${translateMonth(monthNum, lang)}-${yearShort}`;
-      const group = o.user_category || "קהילות מקוונות";
+      const group = o.user_category || "online_communities";
 
       allGroups.add(group);
 
@@ -144,7 +160,7 @@ export function TimeSeriesChart({ data }: { data: Observation[] }) {
   // Step 3 — sort groups by canonical slot order for consistent color/shape assignment
   const sortedGroups = useMemo(
     () => [...allGroups].sort((a, b) => getGroupSlot(a) - getGroupSlot(b)),
-    [allGroups]
+    [allGroups],
   );
 
   return (

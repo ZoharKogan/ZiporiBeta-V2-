@@ -1,12 +1,20 @@
 import { useMemo } from "react";
 import { useI18n } from "@/lib/i18n";
-import { useObservations, type TaxaGroupKey, type SurveyAreaKey, translateGroupName, translateMonth } from "@/lib/observations-store";
+import {
+  useObservations,
+  type TaxaGroupKey,
+  type SurveyAreaKey,
+  translateGroupName,
+  translateMonth,
+} from "@/lib/observations-store";
 import { SURVEY_AREA_KEYS, AREA_COLORS, translateArea } from "@/lib/survey-polygons";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="space-y-1">
-      <h3 className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">{title}</h3>
+      <h3 className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+        {title}
+      </h3>
       <div className="space-y-0.5">{children}</div>
     </div>
   );
@@ -43,23 +51,16 @@ export function FilterSidebar() {
   const { t, lang } = useI18n();
   const { observations, filters, setFilters, toggleSpeciesType, datasetBounds } = useObservations();
 
-  // Derive unique user categories from observations, always including the canonical expert key
-  const uniqueUserCategories = useMemo(() => {
-    const categories = new Set<string>();
-    for (const obs of observations) {
-      if (obs.user_category) {
-        categories.add(obs.user_category);
-      }
-    }
-    categories.add("expert"); // Always show Professional Monitoring even if no data yet
-    // Fixed display order
-    const order = ["expert", "קהילה", "community", "תלמידים", "סטודנטים", "student", "קהילות מקוונות"];
-    return Array.from(categories).sort((a, b) => {
-      const ai = order.findIndex((k) => a.includes(k));
-      const bi = order.findIndex((k) => b.includes(k));
-      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
-    });
-  }, [observations]);
+  // Fixed Target Population options, mapped to their user_category keys
+  const targetPopulationOptions = useMemo(
+    () => [
+      { key: "expert", label: translateGroupName("expert", lang) },
+      { key: "local_communities", label: translateGroupName("local_communities", lang) },
+      { key: "student", label: translateGroupName("student", lang) },
+      { key: "online_communities", label: translateGroupName("online_communities", lang) },
+    ],
+    [lang],
+  );
 
   // Extract unique years from observations (DD/MM/YYYY format)
   const uniqueYears = useMemo(() => {
@@ -67,7 +68,7 @@ export function FilterSidebar() {
     for (const o of observations) {
       const d = o.observed_on;
       if (!d || d.length < 10) continue;
-      const parts = d.split('/');
+      const parts = d.split("/");
       if (parts.length === 3) {
         const year = parts[2];
         if (year && year.length === 4) {
@@ -87,7 +88,9 @@ export function FilterSidebar() {
       // Sync dateRange to span Jan 1 of earliest selected year – Dec 31 of latest
       let dateRange: { start: number; end: number } | null = prev.dateRange;
       if (next.size > 0) {
-        const selectedYears = Array.from(next.keys()).map(Number).sort((a, b) => a - b);
+        const selectedYears = Array.from(next.keys())
+          .map(Number)
+          .sort((a, b) => a - b);
         const earliest = selectedYears[0];
         const latest = selectedYears[selectedYears.length - 1];
         dateRange = {
@@ -106,13 +109,13 @@ export function FilterSidebar() {
       const next = new Map(prev.time);
       // If month is selected, add it to all selected years
       // If month is deselected, remove it from all selected years
-      const monthNum = month.padStart(2, '0');
-      
+      const monthNum = month.padStart(2, "0");
+
       if (next.size === 0) {
         // No years selected, can't toggle months
         return prev;
       }
-      
+
       let monthSelectedInAnyYear = false;
       for (const [year, months] of next.entries()) {
         if (months.has(monthNum)) {
@@ -120,7 +123,7 @@ export function FilterSidebar() {
           break;
         }
       }
-      
+
       if (monthSelectedInAnyYear) {
         // Remove month from all years
         for (const [year, months] of next.entries()) {
@@ -135,7 +138,7 @@ export function FilterSidebar() {
           next.set(year, months);
         }
       }
-      
+
       return { ...prev, time: next };
     });
   };
@@ -222,12 +225,12 @@ export function FilterSidebar() {
       </Section>
 
       <Section title={t("targetPop")}>
-        {uniqueUserCategories.map((g) => (
+        {targetPopulationOptions.map((option) => (
           <Check
-            key={g}
-            checked={filters.groups.has(g)}
-            onChange={() => toggleGroup(g)}
-            label={translateGroupName(g, lang)}
+            key={option.key}
+            checked={filters.groups.has(option.key)}
+            onChange={() => toggleGroup(option.key)}
+            label={option.label}
           />
         ))}
       </Section>
