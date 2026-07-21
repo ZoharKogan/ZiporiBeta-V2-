@@ -1,10 +1,14 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { u as useObservations, g as getTaxaGroup, d as getObservationArea, e as getSpeciesClassification, t as translateTaxa, a as translateGroupName, b as translateMonth, c as classifySpecies } from "./index-CFoMiIRD.mjs";
-import { u as useI18n } from "./router-CXD7leDz.mjs";
-import { O as ObservationMap } from "./observation-map-BOxGldgJ.mjs";
+import { u as useObservations, d as getTaxaGroup, o as observationMatchesSelectedAreas, e as getSpeciesClassification, g as getTaxonDetails, t as translateTaxa, a as translateGroupName, b as translateMonth, c as classifySpecies } from "./index-kG6rXmwW.mjs";
+import { u as useI18n } from "./router-DPGxHob7.mjs";
+import { O as ObservationMap } from "./observation-map-BV75XeEe.mjs";
 import "../_libs/papaparse.mjs";
 import "../_libs/leaflet.mjs";
 import { R as ResponsiveContainer, L as LineChart, C as CartesianGrid, X as XAxis, Y as YAxis, T as Tooltip, a as Legend, b as Line } from "../_libs/recharts.mjs";
+import "../_libs/turf__boolean-point-in-polygon.mjs";
+import "../_libs/point-in-polygon-hao.mjs";
+import "../_libs/robust-predicates.mjs";
+import "../_libs/turf__invariant.mjs";
 import "../_libs/radix-ui__react-tabs.mjs";
 import "../_libs/radix-ui__primitive.mjs";
 import "../_libs/radix-ui__react-context.mjs";
@@ -114,7 +118,9 @@ function computeRow(records) {
   for (const r of records) {
     uniqueDates.add(r.observed_on);
     if (r.scientific_name) {
-      species.add(r.scientific_name);
+      if (!getTaxonDetails(r.scientific_name).isGeneric) {
+        species.add(r.scientific_name);
+      }
       const status = classifySpecies(r.scientific_name);
       if (status === "invasive") {
         invasiveSpeciesSet.add(r.scientific_name);
@@ -352,14 +358,9 @@ function parseObsTimestamp(dateStr) {
   if (isNaN(day) || isNaN(month) || isNaN(year)) return NaN;
   return new Date(year, month, day).getTime();
 }
-function areaMatches(selectedAreas, area) {
-  if (selectedAreas.size === 0) return true;
-  if (area === null) return selectedAreas.has("other_areas");
-  return selectedAreas.has(area);
-}
 function Dashboard() {
   const { t, lang } = useI18n();
-  const { observations, filters } = useObservations();
+  const { observations, filters, observationMonitoringAreaIndex } = useObservations();
   const filtered = reactExports.useMemo(() => {
     return observations.filter((o) => {
       if (filters.dateRange) {
@@ -405,11 +406,13 @@ function Dashboard() {
           return false;
         }
       }
-      if (filters.areas.size > 0) {
-        const area = getObservationArea(o.latitude, o.longitude);
-        if (!areaMatches(filters.areas, area)) {
-          return false;
-        }
+      if (!observationMatchesSelectedAreas(
+        o,
+        filters.areas,
+        filters.monitoringAreas,
+        observationMonitoringAreaIndex
+      )) {
+        return false;
       }
       if (filters.speciesTypes.size > 0) {
         const type = getSpeciesClassification(o);
@@ -419,13 +422,15 @@ function Dashboard() {
       }
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
   const summary = reactExports.useMemo(() => {
     const observers = /* @__PURE__ */ new Set();
     const species = /* @__PURE__ */ new Set();
     for (const o of filtered) {
       if (o.user_login) observers.add(o.user_login);
-      if (o.scientific_name) species.add(o.scientific_name);
+      if (o.scientific_name && !getTaxonDetails(o.scientific_name).isGeneric) {
+        species.add(o.scientific_name);
+      }
     }
     return { rows: filtered.length, observers: observers.size, species: species.size };
   }, [filtered]);
@@ -466,11 +471,13 @@ function Dashboard() {
           return false;
         }
       }
-      if (filters.areas.size > 0) {
-        const area = getObservationArea(o.latitude, o.longitude);
-        if (!areaMatches(filters.areas, area)) {
-          return false;
-        }
+      if (!observationMatchesSelectedAreas(
+        o,
+        filters.areas,
+        filters.monitoringAreas,
+        observationMonitoringAreaIndex
+      )) {
+        return false;
       }
       if (filters.speciesTypes.size > 0) {
         const type = getSpeciesClassification(o);
@@ -480,7 +487,7 @@ function Dashboard() {
       }
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
   const metricsData = reactExports.useMemo(() => {
     return observations.filter((o) => {
       if (filters.dateRange) {
@@ -518,11 +525,13 @@ function Dashboard() {
           return false;
         }
       }
-      if (filters.areas.size > 0) {
-        const area = getObservationArea(o.latitude, o.longitude);
-        if (!areaMatches(filters.areas, area)) {
-          return false;
-        }
+      if (!observationMatchesSelectedAreas(
+        o,
+        filters.areas,
+        filters.monitoringAreas,
+        observationMonitoringAreaIndex
+      )) {
+        return false;
       }
       if (filters.speciesTypes.size > 0) {
         const type = getSpeciesClassification(o);
@@ -532,7 +541,7 @@ function Dashboard() {
       }
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "flex h-full w-full flex-col overflow-hidden", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "shrink-0 grid grid-cols-[1fr_auto_1fr] items-center min-h-[3.5rem] w-full px-4 py-0.5", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-start", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [

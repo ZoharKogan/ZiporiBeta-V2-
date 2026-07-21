@@ -12,6 +12,12 @@ import type { SurveyAreaKey } from "./survey-polygons";
 import { SURVEY_AREA_KEYS } from "./survey-polygons";
 import { getSpeciesHebrewName } from "./species-dictionary";
 import { getTaxonCategory, getTaxonStatus } from "./taxonomy-engine";
+import {
+  buildObservationMonitoringAreaIndex,
+  loadMonitoringAreas,
+  type MonitoringAreasGeoJson,
+  type ObservationMonitoringAreaIndex,
+} from "./monitoring-areas";
 export type { SurveyAreaKey };
 
 export type Observation = {
@@ -343,6 +349,7 @@ export type Filters = {
   areas: Set<SurveyAreaKey>;
   /** Empty set = no species type filter. Non-empty = only show observations matching selected species types. */
   speciesTypes: Set<string>;
+  monitoringAreas: Set<string>;
   /** Date range filter: timestamps (ms). null = not initialised yet. */
   dateRange: { start: number; end: number } | null;
 };
@@ -385,6 +392,8 @@ type Ctx = {
   userObservationCounts: Map<string, number>;
   /** Per-user stats sorted by totalObservations descending (handy for leaderboards). */
   observerStats: ObserverStats[];
+  monitoringAreas: MonitoringAreasGeoJson | null;
+  observationMonitoringAreaIndex: ObservationMonitoringAreaIndex;
 };
 
 const ObservationsCtx = createContext<Ctx | null>(null);
@@ -406,8 +415,10 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
     researchOnly: false,
     areas: new Set<SurveyAreaKey>(SURVEY_AREA_KEYS),
     speciesTypes: new Set(["invasive", "rare", "other_species"]),
+    monitoringAreas: new Set(),
     dateRange: null,
   });
+  const [monitoringAreas, setMonitoringAreas] = useState<MonitoringAreasGeoJson | null>(null);
 
   /** Absolute min/max timestamps of the whole dataset. Set once on data load. */
   const [datasetBounds, setDatasetBounds] = useState<{ start: number; end: number } | null>(null);
@@ -418,6 +429,10 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
   );
   /** Per-user stats sorted by activity. Set once on data load. */
   const [observerStats, setObserverStats] = useState<ObserverStats[]>([]);
+  const observationMonitoringAreaIndex = useMemo(
+    () => buildObservationMonitoringAreaIndex(observations, monitoringAreas),
+    [observations, monitoringAreas],
+  );
 
   // Shared reset signal used by the global Reset button
   const [resetVersion, setResetVersion] = useState(0);
@@ -469,6 +484,21 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
     }),
     [],
   );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    loadMonitoringAreas()
+      .then((areas) => {
+        setMonitoringAreas(areas);
+        setFilters((prev) => ({
+          ...prev,
+          monitoringAreas: new Set(areas.features.map((feature) => feature.properties.id)),
+        }));
+      })
+      .catch((error) => {
+        console.error("Error loading monitoring areas:", error);
+      });
+  }, []);
 
   useEffect(() => {
     // Skip data loading during SSR
@@ -634,6 +664,8 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
       bumpResetVersion,
       userObservationCounts,
       observerStats,
+      monitoringAreas,
+      observationMonitoringAreaIndex,
     }),
     [
       observations,
@@ -647,6 +679,8 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
       bumpResetVersion,
       userObservationCounts,
       observerStats,
+      monitoringAreas,
+      observationMonitoringAreaIndex,
     ],
   );
   return <ObservationsCtx.Provider value={value}>{children}</ObservationsCtx.Provider>;

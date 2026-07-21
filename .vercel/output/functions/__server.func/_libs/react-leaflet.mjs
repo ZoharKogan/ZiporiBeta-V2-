@@ -24,6 +24,20 @@ const CircleMarker = createPathComponent(function createCircleMarker({ center, c
     overlayContainer: marker
   }));
 }, updateCircle);
+const GeoJSON = createPathComponent(function createGeoJSON({ data, ...options }, ctx) {
+  const geoJSON = new leafletSrcExports.GeoJSON(data, options);
+  return createElementObject(geoJSON, extendContext(ctx, {
+    overlayContainer: geoJSON
+  }));
+}, function updateGeoJSON(layer, props, prevProps) {
+  if (props.style !== prevProps.style) {
+    if (props.style == null) {
+      layer.resetStyle();
+    } else {
+      layer.setStyle(props.style);
+    }
+  }
+});
 function MapContainerComponent({ bounds, boundsOptions, center, children, className, id, placeholder, style, whenReady, zoom, ...options }, forwardedRef) {
   const [props] = reactExports.useState({
     className,
@@ -88,6 +102,7 @@ const TileLayer = createTileLayerComponent(function createTileLayer({ url, ...op
 });
 export {
   CircleMarker as C,
+  GeoJSON as G,
   MapContainer as M,
   Polygon as P,
   TileLayer as T,

@@ -9,6 +9,7 @@ import { ObservationMap } from "@/components/observation-map";
 import { getTopSpecies, SpeciesInsightsTable } from "@/components/species-insights-table";
 import { DeepDiveTimeSeriesChart } from "@/components/deep-dive-time-series-chart";
 import { getObservationArea, type SurveyAreaKey } from "@/lib/survey-polygons";
+import { observationMatchesSelectedAreas } from "@/lib/monitoring-areas";
 
 function parseObsTimestamp(dateStr: string): number {
   if (!dateStr || dateStr.length < 10) return NaN;
@@ -85,7 +86,13 @@ function getSpeciesLabel(entry: SpeciesChip, lang: "he" | "en"): string {
 
 export function SpeciesDeepDive() {
   const { t, lang } = useI18n();
-  const { observations, filters, deepDive, deepDiveActions } = useObservations();
+  const {
+    observations,
+    filters,
+    deepDive,
+    deepDiveActions,
+    observationMonitoringAreaIndex,
+  } = useObservations();
   const { category, species, search } = deepDive;
   const activeCategory = category as TaxaGroupKey | null;
   const { setDeepDiveCategory, toggleDeepDiveSpecies, clearDeepDiveSpecies, setDeepDiveSearch } = deepDiveActions;
@@ -158,11 +165,11 @@ export function SpeciesDeepDive() {
       }
       if (filters.taxa.size > 0 && !filters.taxa.has(getTaxaGroup(o))) return false;
       if (filters.groups.size > 0 && (!o.user_category || !filters.groups.has(o.user_category))) return false;
-      if (filters.areas.size > 0 && !areaMatches(filters.areas, getObservationArea(o.latitude, o.longitude))) return false;
+      if (!observationMatchesSelectedAreas(o, filters.areas, filters.monitoringAreas, observationMonitoringAreaIndex)) return false;
       if (filters.speciesTypes.size > 0 && !filters.speciesTypes.has(getSpeciesClassification(o))) return false;
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
 
   // Data pipeline: filter observations by deep dive selections
   const deepDiveFiltered = useMemo(() => {

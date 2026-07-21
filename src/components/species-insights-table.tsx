@@ -110,7 +110,7 @@ export function SpeciesInsightsTable({
             <th className="w-[15%] px-2 py-1 text-center">מספר תצפיות</th>
             <th className="w-[20%] px-2 py-1 text-center">מגמה שנתית</th>
             <th className="w-[17%] px-2 py-1 text-center">דרגת מחקר</th>
-            <th className="w-[18%] px-2 py-1 text-center">סטטוס עונתי</th>
+            <th className="w-[18%] px-2 py-1 text-center">עונה פעילה</th>
           </tr>
         </thead>
         <tbody className="h-[calc(100%-2rem)]">

@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { u as useI18n } from "./router-CXD7leDz.mjs";
-import { u as useObservations, g as getTaxaGroup, d as getObservationArea, e as getSpeciesClassification, b as translateMonth } from "./index-CFoMiIRD.mjs";
-import { O as ObservationMap } from "./observation-map-BOxGldgJ.mjs";
+import { u as useI18n } from "./router-DPGxHob7.mjs";
+import { u as useObservations, d as getTaxaGroup, o as observationMatchesSelectedAreas, e as getSpeciesClassification, b as translateMonth } from "./index-kG6rXmwW.mjs";
+import { O as ObservationMap } from "./observation-map-BV75XeEe.mjs";
 import "../_libs/papaparse.mjs";
 import "../_libs/leaflet.mjs";
 import { R as ResponsiveContainer, L as LineChart, C as CartesianGrid, X as XAxis, Y as YAxis, T as Tooltip, a as Legend, b as Line } from "../_libs/recharts.mjs";
@@ -20,6 +20,10 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
+import "../_libs/turf__boolean-point-in-polygon.mjs";
+import "../_libs/point-in-polygon-hao.mjs";
+import "../_libs/robust-predicates.mjs";
+import "../_libs/turf__invariant.mjs";
 import "../_libs/radix-ui__react-tabs.mjs";
 import "../_libs/radix-ui__primitive.mjs";
 import "../_libs/radix-ui__react-context.mjs";
@@ -151,7 +155,7 @@ function UserAnalyticsTable({
     userName: { he: "שם משתמש", en: "User Name" },
     observations: { he: "מספר תצפיות", en: "Observations" },
     annualTrend: { he: "מגמה שנתית", en: "Annual Trend" },
-    seasonalStatus: { he: "סטטוס עונתי", en: "Seasonal Status" },
+    seasonalStatus: { he: "עונה פעילה", en: "Seasonal Status" },
     researchGrade: { he: "דירוג מחקרי", en: "Research Grade" }
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rounded-lg border bg-card shadow-sm overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full table-fixed text-xs", children: [
@@ -304,11 +308,6 @@ function parseObsTimestamp(dateStr) {
   if (Number.isNaN(year) || Number.isNaN(month) || Number.isNaN(day)) return NaN;
   return new Date(year, month, day).getTime();
 }
-function areaMatches(selectedAreas, area) {
-  if (selectedAreas.size === 0) return true;
-  if (area === null) return selectedAreas.has("other_areas");
-  return selectedAreas.has(area);
-}
 const GROUPS = [
   { key: "expert", label: "ניטור מקצועי", match: (o) => o.user_category === "expert" },
   { key: "zevulun", label: "זבולון", match: (o) => o.user_subcategory === "zevulun" },
@@ -327,7 +326,7 @@ const USER_ACTIVE_CHIP = "bg-sky-200 text-sky-900 border-sky-400 border-2 font-s
 const USER_INACTIVE_CHIP = "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100";
 function PeopleDashboard() {
   const { t } = useI18n();
-  const { observations, filters, resetVersion } = useObservations();
+  const { observations, filters, resetVersion, observationMonitoringAreaIndex } = useObservations();
   const [selectedGroup, setSelectedGroup] = reactExports.useState(null);
   const [selectedUser, setSelectedUser] = reactExports.useState(null);
   const globallyFilteredObservations = reactExports.useMemo(() => {
@@ -347,13 +346,18 @@ function PeopleDashboard() {
         if (entry.size > 0 && !entry.has(parts[1])) return false;
       }
       if (filters.taxa.size > 0 && !filters.taxa.has(getTaxaGroup(o))) return false;
-      if (filters.areas.size > 0 && !areaMatches(filters.areas, getObservationArea(o.latitude, o.longitude)))
+      if (!observationMatchesSelectedAreas(
+        o,
+        filters.areas,
+        filters.monitoringAreas,
+        observationMonitoringAreaIndex
+      ))
         return false;
       if (filters.speciesTypes.size > 0 && !filters.speciesTypes.has(getSpeciesClassification(o)))
         return false;
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
   const groupObservations = reactExports.useMemo(() => {
     const selectedGroupDef = GROUPS.find((g) => g.key === selectedGroup);
     if (!selectedGroupDef) return globallyFilteredObservations;

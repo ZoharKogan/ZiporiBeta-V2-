@@ -1,11 +1,15 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { u as useObservations, s as speciesMap, T as TAXA_GROUP_KEYS, g as getTaxaGroup, d as getObservationArea, e as getSpeciesClassification, h as getTaxonDetails, f as cn, b as translateMonth } from "./index-CFoMiIRD.mjs";
-import { u as useI18n } from "./router-CXD7leDz.mjs";
-import { O as ObservationMap } from "./observation-map-BOxGldgJ.mjs";
+import { u as useObservations, s as speciesMap, T as TAXA_GROUP_KEYS, d as getTaxaGroup, o as observationMatchesSelectedAreas, e as getSpeciesClassification, g as getTaxonDetails, f as cn, b as translateMonth } from "./index-kG6rXmwW.mjs";
+import { u as useI18n } from "./router-DPGxHob7.mjs";
+import { O as ObservationMap } from "./observation-map-BV75XeEe.mjs";
 import "../_libs/papaparse.mjs";
 import "../_libs/leaflet.mjs";
 import { a as Search, M as Minus, A as ArrowUpLeft, b as ArrowUpRight, c as ArrowDownLeft, d as ArrowDownRight } from "../_libs/lucide-react.mjs";
 import { R as ResponsiveContainer, L as LineChart, C as CartesianGrid, X as XAxis, Y as YAxis, T as Tooltip, a as Legend, b as Line } from "../_libs/recharts.mjs";
+import "../_libs/turf__boolean-point-in-polygon.mjs";
+import "../_libs/point-in-polygon-hao.mjs";
+import "../_libs/robust-predicates.mjs";
+import "../_libs/turf__invariant.mjs";
 import "../_libs/radix-ui__react-tabs.mjs";
 import "../_libs/radix-ui__primitive.mjs";
 import "../_libs/radix-ui__react-context.mjs";
@@ -160,7 +164,7 @@ function SpeciesInsightsTable({
       /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "w-[15%] px-2 py-1 text-center", children: "מספר תצפיות" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "w-[20%] px-2 py-1 text-center", children: "מגמה שנתית" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "w-[17%] px-2 py-1 text-center", children: "דרגת מחקר" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "w-[18%] px-2 py-1 text-center", children: "סטטוס עונתי" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "w-[18%] px-2 py-1 text-center", children: "עונה פעילה" })
     ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { className: "h-[calc(100%-2rem)]", children: rows.map((row) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "h-1/5 border-b border-border/60 last:border-0 hover:bg-secondary/30", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "truncate px-3 py-1 align-middle text-start font-medium", children: lang === "he" ? row.hebrewName : row.englishName }),
@@ -361,11 +365,6 @@ function parseObsTimestamp(dateStr) {
   if (isNaN(day) || isNaN(month) || isNaN(year)) return NaN;
   return new Date(year, month, day).getTime();
 }
-function areaMatches(selectedAreas, area) {
-  if (selectedAreas.size === 0) return true;
-  if (area === null) return selectedAreas.has("other_areas");
-  return selectedAreas.has(area);
-}
 const CATEGORY_COLORS = {
   mammals: { active: "bg-purple-300 text-purple-900 border-purple-500 border-2 font-semibold", inactive: "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100" },
   birds: { active: "bg-sky-300 text-sky-900 border-sky-500 border-2 font-semibold", inactive: "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100" },
@@ -399,7 +398,13 @@ function getSpeciesLabel(entry, lang) {
 }
 function SpeciesDeepDive() {
   const { t, lang } = useI18n();
-  const { observations, filters, deepDive, deepDiveActions } = useObservations();
+  const {
+    observations,
+    filters,
+    deepDive,
+    deepDiveActions,
+    observationMonitoringAreaIndex
+  } = useObservations();
   const { category, species, search } = deepDive;
   const activeCategory = category;
   const { setDeepDiveCategory, toggleDeepDiveSpecies, clearDeepDiveSpecies, setDeepDiveSearch } = deepDiveActions;
@@ -458,11 +463,11 @@ function SpeciesDeepDive() {
       }
       if (filters.taxa.size > 0 && !filters.taxa.has(getTaxaGroup(o))) return false;
       if (filters.groups.size > 0 && (!o.user_category || !filters.groups.has(o.user_category))) return false;
-      if (filters.areas.size > 0 && !areaMatches(filters.areas, getObservationArea(o.latitude, o.longitude))) return false;
+      if (!observationMatchesSelectedAreas(o, filters.areas, filters.monitoringAreas, observationMonitoringAreaIndex)) return false;
       if (filters.speciesTypes.size > 0 && !filters.speciesTypes.has(getSpeciesClassification(o))) return false;
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
   const deepDiveFiltered = reactExports.useMemo(() => {
     return globallyFilteredObservations.filter((o) => {
       if (category && getTaxaGroup(o) !== category) return false;

@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const { t, lang, setLang, dir } = useI18n();
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <ObservationsProvider>
@@ -59,7 +59,7 @@ function Index() {
               : `left-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`
           }`}
         >
-          <FilterSidebar />
+          <FilterSidebar onClose={() => setSidebarOpen(false)} />
           {/* Side handle tab */}
           <button
             onClick={() => setSidebarOpen((v) => !v)}
@@ -133,8 +133,15 @@ function Index() {
 
 function ResetFiltersButton() {
   const { t } = useI18n();
-  const { observations, filters, setFilters, datasetBounds, deepDiveActions, bumpResetVersion } =
-    useObservations();
+  const {
+    observations,
+    filters,
+    setFilters,
+    datasetBounds,
+    deepDiveActions,
+    bumpResetVersion,
+    monitoringAreas,
+  } = useObservations();
 
   const uniqueYears = useMemo(() => {
     const years = new Set<string>();
@@ -168,6 +175,9 @@ function ResetFiltersButton() {
       researchOnly: false,
       areas: new Set(SURVEY_AREA_KEYS),
       speciesTypes: new Set(["invasive", "rare", "other_species"]),
+      monitoringAreas: new Set(
+        monitoringAreas?.features.map((feature) => feature.properties.id) ?? [],
+      ),
       dateRange: datasetBounds,
     });
     bumpResetVersion();

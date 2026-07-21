@@ -140,7 +140,7 @@ export function UserAnalyticsTable({
     userName: { he: "שם משתמש", en: "User Name" },
     observations: { he: "מספר תצפיות", en: "Observations" },
     annualTrend: { he: "מגמה שנתית", en: "Annual Trend" },
-    seasonalStatus: { he: "סטטוס עונתי", en: "Seasonal Status" },
+    seasonalStatus: { he: "עונה פעילה", en: "Seasonal Status" },
     researchGrade: { he: "דירוג מחקרי", en: "Research Grade" },
   };
 

@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { X } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import {
   useObservations,
@@ -25,14 +26,16 @@ function Check({
   onChange,
   label,
   indeterminate,
+  color,
 }: {
   checked: boolean;
   onChange: (b: boolean) => void;
   label: string;
   indeterminate?: boolean;
+  color?: string;
 }) {
   return (
-    <label className="flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-0.5 text-xs font-normal hover:bg-secondary">
+    <label className="flex cursor-pointer items-start gap-2 rounded-md px-1.5 py-1 text-xs font-normal hover:bg-secondary">
       <input
         type="checkbox"
         checked={checked}
@@ -40,16 +43,29 @@ function Check({
           if (el) el.indeterminate = !!indeterminate && !checked;
         }}
         onChange={(e) => onChange(e.target.checked)}
-        className="h-3 w-3 rounded border-border accent-[color:var(--primary)]"
+        className="mt-0.5 h-3 w-3 shrink-0 rounded border-border accent-[color:var(--primary)]"
       />
-      <span className="truncate">{label}</span>
+      <span className="min-w-0 flex-1 whitespace-normal leading-snug">{label}</span>
+      {color && (
+        <span
+          className={`mt-0.5 h-2.5 w-2.5 shrink-0 rounded-full ${checked ? "opacity-100" : "opacity-35"}`}
+          style={{ backgroundColor: color }}
+        />
+      )}
     </label>
   );
 }
 
-export function FilterSidebar() {
+export function FilterSidebar({ onClose }: { onClose: () => void }) {
   const { t, lang } = useI18n();
-  const { observations, filters, setFilters, toggleSpeciesType, datasetBounds } = useObservations();
+  const {
+    observations,
+    filters,
+    setFilters,
+    toggleSpeciesType,
+    datasetBounds,
+    monitoringAreas,
+  } = useObservations();
 
   // Fixed Target Population options, mapped to their user_category keys
   const targetPopulationOptions = useMemo(
@@ -170,6 +186,15 @@ export function FilterSidebar() {
     });
   };
 
+  const toggleMonitoringArea = (id: string) => {
+    setFilters((prev) => {
+      const next = new Set(prev.monitoringAreas);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return { ...prev, monitoringAreas: next };
+    });
+  };
+
   const monthName = (m: string) => {
     const monthNum = parseInt(m, 10);
     if (isNaN(monthNum) || monthNum < 1 || monthNum > 12) return m;
@@ -177,8 +202,23 @@ export function FilterSidebar() {
   };
 
   return (
-    <aside className="flex h-full w-48 shrink-0 flex-col gap-3 overflow-y-auto bg-card px-3 py-2">
-      <h2 className="text-xs font-bold">{t("filters")}</h2>
+    <aside className="flex h-full w-96 max-w-[calc(100vw-1.25rem)] shrink-0 flex-col gap-3 overflow-y-auto bg-card px-4 py-3">
+      <div className="flex items-center justify-between gap-2">
+        <h2 className="text-xs font-bold">{t("filters")}</h2>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label={lang === "he" ? "סגירת חלונית המסננים" : "Close filters"}
+          title={lang === "he" ? "סגירה" : "Close"}
+          className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <X className="h-4 w-4" aria-hidden="true" />
+        </button>
+      </div>
+
+      <div className="rounded-md border border-primary/15 bg-muted/60 px-2.5 py-2 text-[11px] leading-relaxed text-muted-foreground">
+        💡 טיפ: ניתן לסגור את חלונית המסננים ולפתוח אותה שוב בעת הצורך באמצעות התפריט.
+      </div>
 
       <Section title={t("years")}>
         {uniqueYears.length === 0 && <p className="px-1 text-xs text-muted-foreground">—</p>}
@@ -235,27 +275,32 @@ export function FilterSidebar() {
         ))}
       </Section>
 
-      <Section title={t("areas")}>
-        {SURVEY_AREA_KEYS.map((key) => (
-          <label
+      <Section title={t("monitoringAreas")}>
+        {SURVEY_AREA_KEYS.filter((key) => key !== "other_areas").map((key) => (
+          <Check
             key={key}
-            className="flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-0.5 text-xs font-normal hover:bg-secondary"
-          >
-            <input
-              type="checkbox"
-              checked={filters.areas.has(key)}
-              onChange={() => toggleArea(key)}
-              className="h-3 w-3 rounded border-border accent-[color:var(--primary)]"
-            />
-            <span className="truncate">{translateArea(key, lang)}</span>
-            {filters.areas.has(key) && (
-              <span
-                className="ml-auto h-2 w-2 rounded-full shrink-0"
-                style={{ backgroundColor: AREA_COLORS[key] }}
-              />
-            )}
-          </label>
+            checked={filters.areas.has(key)}
+            onChange={() => toggleArea(key)}
+            label={translateArea(key, lang)}
+            color={AREA_COLORS[key]}
+          />
         ))}
+        {!monitoringAreas && <p className="px-1 text-xs text-muted-foreground">—</p>}
+        {monitoringAreas?.features.map((feature) => (
+          <Check
+            key={feature.properties.id}
+            checked={filters.monitoringAreas.has(feature.properties.id)}
+            onChange={() => toggleMonitoringArea(feature.properties.id)}
+            label={feature.properties.name}
+            color={feature.properties.color}
+          />
+        ))}
+        <Check
+          checked={filters.areas.has("other_areas")}
+          onChange={() => toggleArea("other_areas")}
+          label={translateArea("other_areas", lang)}
+          color={AREA_COLORS.other_areas}
+        />
       </Section>
     </aside>
   );

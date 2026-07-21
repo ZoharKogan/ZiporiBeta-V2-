@@ -1,5 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
-import { MapContainer, TileLayer, CircleMarker, Polygon, useMap, useMapEvents } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  CircleMarker,
+  Polygon,
+  GeoJSON,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import L from "leaflet";
 import type { Observation } from "@/lib/observations-store";
 import { useObservations, translateSpeciesName, getTaxaGroup } from "@/lib/observations-store";
@@ -30,15 +38,31 @@ function PaneSetup() {
       pane.style.zIndex = "500";
       pane.style.pointerEvents = "none";
     }
+    if (!map.getPane("monitoringAreaPane")) {
+      const pane = map.createPane("monitoringAreaPane");
+      pane.style.zIndex = "450";
+    }
   }, [map]);
   return null;
 }
 
 export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { data: Observation[]; selectedSpecies?: Set<string> }) {
-  const { filters } = useObservations();
+  const { filters, monitoringAreas } = useObservations();
   const selectedAreas = new Set(filters.areas) as Set<SurveyAreaKey>;
   const baseAreaKeys = SURVEY_AREA_KEYS.filter((k) => k !== "other_areas");
   const [zoom, setZoom] = useState<number>(7);
+  const visibleMonitoringAreas = useMemo(
+    () =>
+      monitoringAreas
+        ? {
+            ...monitoringAreas,
+            features: monitoringAreas.features.filter((feature) =>
+              filters.monitoringAreas.has(feature.properties.id),
+            ),
+          }
+        : null,
+    [monitoringAreas, filters.monitoringAreas],
+  );
 
   const center: [number, number] = data[0]
     ? [data[0].latitude, data[0].longitude]
@@ -135,6 +159,30 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
         <PaneSetup />
         <FitBounds obs={data} />
         <ZoomTracker onZoom={setZoom} />
+        {visibleMonitoringAreas && (
+          <GeoJSON
+            key={Array.from(filters.monitoringAreas).sort().join("|")}
+            data={visibleMonitoringAreas}
+            pane="monitoringAreaPane"
+            style={(feature) => {
+              const color = String(feature?.properties?.color ?? "#6366f1");
+              return {
+                color,
+                fillColor: color,
+                fillOpacity: 0.3,
+                opacity: 1,
+                weight: 3,
+              };
+            }}
+            onEachFeature={(feature, layer) => {
+              layer.bindTooltip(String(feature.properties?.name ?? "אזור ניטור"), {
+                sticky: true,
+                direction: "top",
+                opacity: 0.95,
+              });
+            }}
+          />
+        )}
         {baseAreaKeys.map((areaKey) => {
           const rings = SURVEY_POLYGONS[areaKey];
           if (!rings) return null;

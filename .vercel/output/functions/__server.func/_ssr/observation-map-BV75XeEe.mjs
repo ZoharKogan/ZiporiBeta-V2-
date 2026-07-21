@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L } from "../_libs/leaflet.mjs";
-import { u as useObservations, S as SURVEY_AREA_KEYS, g as getTaxaGroup, A as AREA_COLORS, i as SURVEY_POLYGONS } from "./index-CFoMiIRD.mjs";
-import { M as MapContainer, T as TileLayer, P as Polygon, C as CircleMarker, u as useMap, a as useMapEvents } from "../_libs/react-leaflet.mjs";
+import { u as useObservations, d as getTaxaGroup, A as AREA_COLORS, S as SURVEY_POLYGONS, h as SURVEY_AREA_KEYS } from "./index-kG6rXmwW.mjs";
+import { M as MapContainer, T as TileLayer, G as GeoJSON, P as Polygon, C as CircleMarker, u as useMap, a as useMapEvents } from "../_libs/react-leaflet.mjs";
 function FitBounds({ obs }) {
   const map = useMap();
   reactExports.useEffect(() => {
@@ -25,14 +25,27 @@ function PaneSetup() {
       pane.style.zIndex = "500";
       pane.style.pointerEvents = "none";
     }
+    if (!map.getPane("monitoringAreaPane")) {
+      const pane = map.createPane("monitoringAreaPane");
+      pane.style.zIndex = "450";
+    }
   }, [map]);
   return null;
 }
 function ObservationMap({ data, selectedSpecies = /* @__PURE__ */ new Set() }) {
-  const { filters } = useObservations();
+  const { filters, monitoringAreas } = useObservations();
   const selectedAreas = new Set(filters.areas);
   const baseAreaKeys = SURVEY_AREA_KEYS.filter((k) => k !== "other_areas");
   const [zoom, setZoom] = reactExports.useState(7);
+  const visibleMonitoringAreas = reactExports.useMemo(
+    () => monitoringAreas ? {
+      ...monitoringAreas,
+      features: monitoringAreas.features.filter(
+        (feature) => filters.monitoringAreas.has(feature.properties.id)
+      )
+    } : null,
+    [monitoringAreas, filters.monitoringAreas]
+  );
   const center = data[0] ? [data[0].latitude, data[0].longitude] : [31.5, 34.9];
   const bubbles = reactExports.useMemo(() => {
     const groups = /* @__PURE__ */ new Map();
@@ -120,6 +133,31 @@ function ObservationMap({ data, selectedSpecies = /* @__PURE__ */ new Set() }) {
         /* @__PURE__ */ jsxRuntimeExports.jsx(PaneSetup, {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(FitBounds, { obs: data }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(ZoomTracker, { onZoom: setZoom }),
+        visibleMonitoringAreas && /* @__PURE__ */ jsxRuntimeExports.jsx(
+          GeoJSON,
+          {
+            data: visibleMonitoringAreas,
+            pane: "monitoringAreaPane",
+            style: (feature) => {
+              const color = String(feature?.properties?.color ?? "#6366f1");
+              return {
+                color,
+                fillColor: color,
+                fillOpacity: 0.3,
+                opacity: 1,
+                weight: 3
+              };
+            },
+            onEachFeature: (feature, layer) => {
+              layer.bindTooltip(String(feature.properties?.name ?? "אזור ניטור"), {
+                sticky: true,
+                direction: "top",
+                opacity: 0.95
+              });
+            }
+          },
+          Array.from(filters.monitoringAreas).sort().join("|")
+        ),
         baseAreaKeys.map((areaKey) => {
           const rings = SURVEY_POLYGONS[areaKey];
           if (!rings) return null;

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useObservations, getTaxaGroup, getSpeciesClassification } from "@/lib/observations-store";
 import { getTaxonDetails } from "@/lib/taxonomy-engine";
 import { getObservationArea, type SurveyAreaKey } from "@/lib/survey-polygons";
+import { observationMatchesSelectedAreas } from "@/lib/monitoring-areas";
 import { useI18n } from "@/lib/i18n";
 import { TaxaFilterBar } from "@/components/taxa-filter-bar";
 import { ObservationMap } from "@/components/observation-map";
@@ -29,7 +30,7 @@ function areaMatches(selectedAreas: Set<SurveyAreaKey>, area: SurveyAreaKey | nu
 
 export function Dashboard() {
   const { t, lang } = useI18n();
-  const { observations, filters } = useObservations();
+  const { observations, filters, observationMonitoringAreaIndex } = useObservations();
 
   const filtered = useMemo(() => {
     return observations.filter((o) => {
@@ -90,11 +91,15 @@ export function Dashboard() {
       }
 
       // Area filter
-      if (filters.areas.size > 0) {
-        const area = getObservationArea(o.latitude, o.longitude);
-        if (!areaMatches(filters.areas, area)) {
-          return false;
-        }
+      if (
+        !observationMatchesSelectedAreas(
+          o,
+          filters.areas,
+          filters.monitoringAreas,
+          observationMonitoringAreaIndex,
+        )
+      ) {
+        return false;
       }
 
       // Species type filter
@@ -108,7 +113,7 @@ export function Dashboard() {
       // All filters passed (AND logic)
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
 
   const summary = useMemo(() => {
     const observers = new Set<string>();
@@ -173,11 +178,15 @@ export function Dashboard() {
       // This allows comparing all groups regardless of sidebar selection
 
       // Area filter
-      if (filters.areas.size > 0) {
-        const area = getObservationArea(o.latitude, o.longitude);
-        if (!areaMatches(filters.areas, area)) {
-          return false;
-        }
+      if (
+        !observationMatchesSelectedAreas(
+          o,
+          filters.areas,
+          filters.monitoringAreas,
+          observationMonitoringAreaIndex,
+        )
+      ) {
+        return false;
       }
 
       // Species type filter
@@ -190,7 +199,7 @@ export function Dashboard() {
 
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
 
   // Separate data pipeline for MetricsTable: Filter by Taxa, Time, Research, but IGNORE User Groups
   // This ensures invasive/rare species counts respect the selected taxa tabs
@@ -244,11 +253,15 @@ export function Dashboard() {
       // This allows showing all groups regardless of sidebar selection
 
       // Area filter
-      if (filters.areas.size > 0) {
-        const area = getObservationArea(o.latitude, o.longitude);
-        if (!areaMatches(filters.areas, area)) {
-          return false;
-        }
+      if (
+        !observationMatchesSelectedAreas(
+          o,
+          filters.areas,
+          filters.monitoringAreas,
+          observationMonitoringAreaIndex,
+        )
+      ) {
+        return false;
       }
 
       // Species type filter
@@ -261,7 +274,7 @@ export function Dashboard() {
 
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
 
   return (
       <main className="flex h-full w-full flex-col overflow-hidden">

@@ -1,12 +1,16 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { P as Papa } from "../_libs/papaparse.mjs";
-import { u as useI18n } from "./router-CXD7leDz.mjs";
+import { i as index_default } from "../_libs/turf__boolean-point-in-polygon.mjs";
+import { u as useI18n } from "./router-DPGxHob7.mjs";
 import { R as Root2, L as List, T as Trigger, C as Content } from "../_libs/radix-ui__react-tabs.mjs";
 import { c as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
 import { S as Slider, a as SliderTrack, b as SliderRange, c as SliderThumb } from "../_libs/radix-ui__react-slider.mjs";
-import { S as SlidersHorizontal, L as Languages, R as RotateCcw } from "../_libs/lucide-react.mjs";
+import { S as SlidersHorizontal, L as Languages, X, R as RotateCcw } from "../_libs/lucide-react.mjs";
 import "stream";
+import "../_libs/point-in-polygon-hao.mjs";
+import "../_libs/robust-predicates.mjs";
+import "../_libs/turf__invariant.mjs";
 import "../_libs/tanstack__react-router.mjs";
 import "../_libs/tanstack__router-core.mjs";
 import "../_libs/tanstack__history.mjs";
@@ -385,7 +389,43 @@ const rawSpeciesMap = {
     { "scientific_name": "Wadicosa fidelis", "hebrew_name": "ערוצית זריזה", "english_name": "Wadicosa Fidelis" },
     { "scientific_name": "Xysticus", "hebrew_name": "קסיס", "english_name": "Xysticus", "isGeneric": true },
     { "scientific_name": "Zodarion", "hebrew_name": "זודריון", "english_name": "Zodarion", "isGeneric": true },
-    { "scientific_name": "Zoropsis lutea", "hebrew_name": "זורופסיס צהובה", "english_name": "Zoropsis Lutea" }
+    { "scientific_name": "Zoropsis lutea", "hebrew_name": "זורופסיס צהובה", "english_name": "Zoropsis Lutea" },
+    { "scientific_name": "Accipiter nisus", "hebrew_name": "נץ מצוי", "english_name": "" },
+    { "scientific_name": "Acrocephalus arundinaceus", "hebrew_name": "קנית אירופית", "english_name": "" },
+    { "scientific_name": "Acrocephalus schoenobaenus", "hebrew_name": "קנית פסים", "english_name": "" },
+    { "scientific_name": "Acrocephalus scirpaceus", "hebrew_name": "קנית קטנה", "english_name": "" },
+    { "scientific_name": "Alectoris chukar", "hebrew_name": "חוגלת סלעים", "english_name": "" },
+    { "scientific_name": "Anthus spinoletta", "hebrew_name": "פיפיון מים", "english_name": "" },
+    { "scientific_name": "Anthus trivialis", "hebrew_name": "פיפיון עצים", "english_name": "" },
+    { "scientific_name": "Aquila clanga", "hebrew_name": "עיט צפרדעים", "english_name": "" },
+    { "scientific_name": "Ardea cinerea", "hebrew_name": "אנפה אפורה", "english_name": "" },
+    { "scientific_name": "Ardea purpurea", "hebrew_name": "אנפה ארגמנית", "english_name": "" },
+    { "scientific_name": "Ardeola ralloides", "hebrew_name": "אנפית סוף", "english_name": "" },
+    { "scientific_name": "Bubulcus ibis", "hebrew_name": "אנפית בקר", "english_name": "" },
+    { "scientific_name": "Cecropis daurica", "hebrew_name": "סנונית מערות מזרחית", "english_name": "" },
+    { "scientific_name": "Circus aeruginosus", "hebrew_name": "זרון סוף", "english_name": "" },
+    { "scientific_name": "Cisticola juncidis", "hebrew_name": "תפר", "english_name": "" },
+    { "scientific_name": "Columba oenas", "hebrew_name": "יונת עצים", "english_name": "" },
+    { "scientific_name": "Columba palumbus", "hebrew_name": "יונת ענק", "english_name": "" },
+    { "scientific_name": "Corvus monedula", "hebrew_name": "קאק", "english_name": "" },
+    { "scientific_name": "Coturnix coturnix", "hebrew_name": "שליו נודד", "english_name": "" },
+    { "scientific_name": "Egretta garzetta", "hebrew_name": "לבנית קטנה", "english_name": "" },
+    { "scientific_name": "Lanius colurio", "hebrew_name": "חנקן אדום גב", "english_name": "" },
+    { "scientific_name": "Lanius minor", "hebrew_name": "חנקן שחור מצח", "english_name": "" },
+    { "scientific_name": "Lanius nubicus", "hebrew_name": "חנקן נובי", "english_name": "" },
+    { "scientific_name": "Merops apiaster", "hebrew_name": "שרקרק מצוי", "english_name": "" },
+    { "scientific_name": "Milvus migrans", "hebrew_name": "דיה שחורה", "english_name": "" },
+    { "scientific_name": "Motacilla alba", "hebrew_name": "נחליאלי לבן", "english_name": "" },
+    { "scientific_name": "Motacilla cinerea", "hebrew_name": "נחליאלי זנבתן", "english_name": "" },
+    { "scientific_name": "Motacilla flava", "hebrew_name": "נחליאלי צהוב", "english_name": "" },
+    { "scientific_name": "Pernis apivorus", "hebrew_name": "איית צרעים", "english_name": "" },
+    { "scientific_name": "Spinus spinus", "hebrew_name": "חורפי", "english_name": "" },
+    { "scientific_name": "Streptopelia senegalensis", "hebrew_name": "צוצלת", "english_name": "" },
+    { "scientific_name": "Streptopelia turtur", "hebrew_name": "תור מצוי", "english_name": "" },
+    { "scientific_name": "Sylvia atricapilla", "hebrew_name": "סבכי שחור כיפה", "english_name": "" },
+    { "scientific_name": "Sylvia communis", "hebrew_name": "סבכי קוצים", "english_name": "" },
+    { "scientific_name": "Sylvia curruca", "hebrew_name": "סבכי טוחנים", "english_name": "" },
+    { "scientific_name": "Vanellus vanellus", "hebrew_name": "קיווית מצויצת", "english_name": "" }
   ],
   "פרפרים": [
     { "scientific_name": "Archon apollinus", "hebrew_name": "צבעון שקוף", "english_name": "Archon Apollinus" },
@@ -1348,7 +1388,41 @@ const rawSpeciesMap = {
     { "scientific_name": "Cylindromyia brassicaria", "hebrew_name": "Cylindromyia brassicaria", "english_name": "Cylindromyia Brassicaria" },
     { "scientific_name": "Cymbalophora oertzeni", "hebrew_name": "דובון מנומר", "english_name": "Cymbalophora Oertzeni" },
     { "scientific_name": "Cynipini", "hebrew_name": "Cynipini", "english_name": "Cynipini", "isGeneric": true },
-    { "scientific_name": "Cyprinus carpio", "hebrew_name": "קרפיון מצוי", "english_name": "Cyprinus Carpio" }
+    { "scientific_name": "Cyprinus carpio", "hebrew_name": "קרפיון מצוי", "english_name": "Cyprinus Carpio" },
+    { "scientific_name": "10825466", "hebrew_name": "Luthrodes galba", "english_name": "" },
+    { "scientific_name": "1899349", "hebrew_name": "Melitaea trivia", "english_name": "" },
+    { "scientific_name": "1920258", "hebrew_name": "Pontia daplidice", "english_name": "" },
+    { "scientific_name": "1920357", "hebrew_name": "Colotis fausta", "english_name": "" },
+    { "scientific_name": "1920496", "hebrew_name": "Pieris rapae", "english_name": "" },
+    { "scientific_name": "1920506", "hebrew_name": "Pieris brassicae", "english_name": "" },
+    { "scientific_name": "1924713", "hebrew_name": "Lampides boeticus", "english_name": "" },
+    { "scientific_name": "1925381", "hebrew_name": "Thersamonia thersamon", "english_name": "" },
+    { "scientific_name": "1926546", "hebrew_name": "Azanus jesous", "english_name": "" },
+    { "scientific_name": "1932976", "hebrew_name": "Leptotes pirithous", "english_name": "" },
+    { "scientific_name": "1933647", "hebrew_name": "Zizeeria karsandra", "english_name": "" },
+    { "scientific_name": "1945877", "hebrew_name": "Pelopidas thrax", "english_name": "" },
+    { "scientific_name": "4299368", "hebrew_name": "Vanessa cardui", "english_name": "" },
+    { "scientific_name": "5137612", "hebrew_name": "Colias croceus", "english_name": "" },
+    { "scientific_name": "5140214", "hebrew_name": "Polyommatus icarus", "english_name": "" },
+    { "scientific_name": "7642610", "hebrew_name": "Danaus chrysippus", "english_name": "" },
+    { "scientific_name": "8225376", "hebrew_name": "Papilio machaon", "english_name": "" },
+    { "scientific_name": "8277078", "hebrew_name": "Carcharodus alceae", "english_name": "" },
+    { "scientific_name": "Actitis hypoleucos", "hebrew_name": "ביצנית לבנת בטן", "english_name": "" },
+    { "scientific_name": "Alauda arvensis", "hebrew_name": "זרעית השדה", "english_name": "" },
+    { "scientific_name": "Calidris pugnax", "hebrew_name": "לוחם", "english_name": "" },
+    { "scientific_name": "Dendrocopos syriacus", "hebrew_name": "נקר סורי", "english_name": "" },
+    { "scientific_name": "Falco subbuteo", "hebrew_name": "בז עצים", "english_name": "" },
+    { "scientific_name": "Himantopus Himantopus", "hebrew_name": "תמירון", "english_name": "" },
+    { "scientific_name": "Locustella luscinoides", "hebrew_name": "חרגולן זמירי", "english_name": "" },
+    { "scientific_name": "Microcarbo pygmeus", "hebrew_name": "קורמורן גמדי", "english_name": "" },
+    { "scientific_name": "Numida meleagris", "hebrew_name": "פניניית הקסדה", "english_name": "" },
+    { "scientific_name": "Phoenicurus phoenicurus", "hebrew_name": "חכלילית עצים", "english_name": "" },
+    { "scientific_name": "Phylloscopus colibita", "hebrew_name": "עלווית חורף", "english_name": "" },
+    { "scientific_name": "Phylloscopus trochilus", "hebrew_name": "עלווית אפורה", "english_name": "" },
+    { "scientific_name": "Saxicola rubetra", "hebrew_name": "דוחל חום גרון", "english_name": "" },
+    { "scientific_name": "Sterna hirundo", "hebrew_name": "שחפית הים", "english_name": "" },
+    { "scientific_name": "Tringa ochropus", "hebrew_name": "ביצנית שחורת כנף", "english_name": "" },
+    { "scientific_name": "Tringa totanus", "hebrew_name": "ביצנית לבנת כנף", "english_name": "" }
   ]
 };
 const EXPERT_SPECIES_CATEGORIES = {
@@ -1466,6 +1540,72 @@ function getTaxonCategory(scientificName, _iconicTaxon, _commonName) {
 }
 function getTaxonStatus(scientificName) {
   return classifySpecies(scientificName);
+}
+function isMonitoringAreasGeoJson(value) {
+  if (!value || typeof value !== "object") return false;
+  const collection = value;
+  return collection.type === "FeatureCollection" && Array.isArray(collection.features) && collection.features.every(
+    (feature) => feature?.type === "Feature" && (feature.geometry?.type === "Polygon" || feature.geometry?.type === "MultiPolygon") && typeof feature.properties?.id === "string" && typeof feature.properties?.name === "string" && typeof feature.properties?.color === "string"
+  );
+}
+async function loadMonitoringAreas() {
+  const response = await fetch("/monitoring-areas.geojson");
+  if (!response.ok) {
+    throw new Error(`Failed to load monitoring areas (${response.status})`);
+  }
+  const data = await response.json();
+  if (!isMonitoringAreasGeoJson(data)) {
+    throw new Error("Invalid monitoring areas GeoJSON");
+  }
+  return data;
+}
+function getIndexedArea(feature) {
+  let minLongitude = Infinity;
+  let minLatitude = Infinity;
+  let maxLongitude = -Infinity;
+  let maxLatitude = -Infinity;
+  const polygons = feature.geometry.type === "Polygon" ? [feature.geometry.coordinates] : feature.geometry.coordinates;
+  for (const polygon of polygons) {
+    for (const ring of polygon) {
+      for (const [longitude, latitude] of ring) {
+        minLongitude = Math.min(minLongitude, longitude);
+        minLatitude = Math.min(minLatitude, latitude);
+        maxLongitude = Math.max(maxLongitude, longitude);
+        maxLatitude = Math.max(maxLatitude, latitude);
+      }
+    }
+  }
+  return { feature, minLongitude, minLatitude, maxLongitude, maxLatitude };
+}
+function buildObservationMonitoringAreaIndex(observations, monitoringAreas) {
+  const index2 = /* @__PURE__ */ new WeakMap();
+  if (!monitoringAreas) return index2;
+  const indexedAreas = monitoringAreas.features.map(getIndexedArea);
+  for (const observation of observations) {
+    const matches = /* @__PURE__ */ new Set();
+    for (const area of indexedAreas) {
+      if (observation.longitude < area.minLongitude || observation.longitude > area.maxLongitude || observation.latitude < area.minLatitude || observation.latitude > area.maxLatitude) {
+        continue;
+      }
+      if (index_default([observation.longitude, observation.latitude], area.feature)) {
+        matches.add(area.feature.properties.id);
+      }
+    }
+    index2.set(observation, matches);
+  }
+  return index2;
+}
+function observationMatchesSelectedAreas(observation, selectedSurveyAreas, selectedMonitoringAreaIds, index2) {
+  const surveyArea = getObservationArea(observation.latitude, observation.longitude);
+  if (surveyArea === null && selectedSurveyAreas.has("other_areas") || surveyArea !== null && selectedSurveyAreas.has(surveyArea)) {
+    return true;
+  }
+  const monitoringAreaIds = index2.get(observation);
+  if (!monitoringAreaIds) return false;
+  for (const areaId of selectedMonitoringAreaIds) {
+    if (monitoringAreaIds.has(areaId)) return true;
+  }
+  return false;
 }
 const GROUP_TRANSLATIONS = {
   online_communities: { he: "קהילות מקוונות", en: "Online Communities" },
@@ -1701,13 +1841,19 @@ function ObservationsProvider({ children }) {
     researchOnly: false,
     areas: new Set(SURVEY_AREA_KEYS),
     speciesTypes: /* @__PURE__ */ new Set(["invasive", "rare", "other_species"]),
+    monitoringAreas: /* @__PURE__ */ new Set(),
     dateRange: null
   });
+  const [monitoringAreas, setMonitoringAreas] = reactExports.useState(null);
   const [datasetBounds, setDatasetBounds] = reactExports.useState(null);
   const [userObservationCounts, setUserObservationCounts] = reactExports.useState(
     /* @__PURE__ */ new Map()
   );
   const [observerStats, setObserverStats] = reactExports.useState([]);
+  const observationMonitoringAreaIndex = reactExports.useMemo(
+    () => buildObservationMonitoringAreaIndex(observations, monitoringAreas),
+    [observations, monitoringAreas]
+  );
   const [resetVersion, setResetVersion] = reactExports.useState(0);
   const bumpResetVersion = reactExports.useCallback(() => setResetVersion((v) => v + 1), []);
   const [deepDive, setDeepDive] = reactExports.useState({
@@ -1750,6 +1896,18 @@ function ObservationsProvider({ children }) {
     }),
     []
   );
+  reactExports.useEffect(() => {
+    if (typeof window === "undefined") return;
+    loadMonitoringAreas().then((areas) => {
+      setMonitoringAreas(areas);
+      setFilters((prev) => ({
+        ...prev,
+        monitoringAreas: new Set(areas.features.map((feature) => feature.properties.id))
+      }));
+    }).catch((error) => {
+      console.error("Error loading monitoring areas:", error);
+    });
+  }, []);
   reactExports.useEffect(() => {
     if (typeof window === "undefined") return;
     const loadData = async () => {
@@ -1882,7 +2040,9 @@ function ObservationsProvider({ children }) {
       resetVersion,
       bumpResetVersion,
       userObservationCounts,
-      observerStats
+      observerStats,
+      monitoringAreas,
+      observationMonitoringAreaIndex
     }),
     [
       observations,
@@ -1895,7 +2055,9 @@ function ObservationsProvider({ children }) {
       resetVersion,
       bumpResetVersion,
       userObservationCounts,
-      observerStats
+      observerStats,
+      monitoringAreas,
+      observationMonitoringAreaIndex
     ]
   );
   return /* @__PURE__ */ jsxRuntimeExports.jsx(ObservationsCtx.Provider, { value, children });
@@ -1955,9 +2117,10 @@ function Check({
   checked,
   onChange,
   label,
-  indeterminate
+  indeterminate,
+  color
 }) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-0.5 text-xs font-normal hover:bg-secondary", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "flex cursor-pointer items-start gap-2 rounded-md px-1.5 py-1 text-xs font-normal hover:bg-secondary", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "input",
       {
@@ -1967,15 +2130,29 @@ function Check({
           if (el) el.indeterminate = !!indeterminate && !checked;
         },
         onChange: (e) => onChange(e.target.checked),
-        className: "h-3 w-3 rounded border-border accent-[color:var(--primary)]"
+        className: "mt-0.5 h-3 w-3 shrink-0 rounded border-border accent-[color:var(--primary)]"
       }
     ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: label })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "min-w-0 flex-1 whitespace-normal leading-snug", children: label }),
+    color && /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "span",
+      {
+        className: `mt-0.5 h-2.5 w-2.5 shrink-0 rounded-full ${checked ? "opacity-100" : "opacity-35"}`,
+        style: { backgroundColor: color }
+      }
+    )
   ] });
 }
-function FilterSidebar() {
+function FilterSidebar({ onClose }) {
   const { t, lang } = useI18n();
-  const { observations, filters, setFilters, toggleSpeciesType, datasetBounds } = useObservations();
+  const {
+    observations,
+    filters,
+    setFilters,
+    toggleSpeciesType,
+    datasetBounds,
+    monitoringAreas
+  } = useObservations();
   const targetPopulationOptions = reactExports.useMemo(
     () => [
       { key: "expert", label: translateGroupName("expert", lang) },
@@ -2036,8 +2213,30 @@ function FilterSidebar() {
       return { ...prev, areas: next };
     });
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "flex h-full w-48 shrink-0 flex-col gap-3 overflow-y-auto bg-card px-3 py-2", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xs font-bold", children: t("filters") }),
+  const toggleMonitoringArea = (id) => {
+    setFilters((prev) => {
+      const next = new Set(prev.monitoringAreas);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return { ...prev, monitoringAreas: next };
+    });
+  };
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("aside", { className: "flex h-full w-96 max-w-[calc(100vw-1.25rem)] shrink-0 flex-col gap-3 overflow-y-auto bg-card px-4 py-3", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between gap-2", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xs font-bold", children: t("filters") }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          onClick: onClose,
+          "aria-label": lang === "he" ? "סגירת חלונית המסננים" : "Close filters",
+          title: lang === "he" ? "סגירה" : "Close",
+          className: "inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-border bg-background text-foreground shadow-sm transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+          children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "h-4 w-4", "aria-hidden": "true" })
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "rounded-md border border-primary/15 bg-muted/60 px-2.5 py-2 text-[11px] leading-relaxed text-muted-foreground", children: "💡 טיפ: ניתן לסגור את חלונית המסננים ולפתוח אותה שוב בעת הצורך באמצעות התפריט." }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: t("years"), children: [
       uniqueYears.length === 0 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-1 text-xs text-muted-foreground", children: "—" }),
       uniqueYears.map((year) => {
@@ -2099,32 +2298,38 @@ function FilterSidebar() {
       },
       option.key
     )) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Section, { title: t("areas"), children: SURVEY_AREA_KEYS.map((key) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "label",
-      {
-        className: "flex cursor-pointer items-center gap-2 rounded-md px-1.5 py-0.5 text-xs font-normal hover:bg-secondary",
-        children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "checkbox",
-              checked: filters.areas.has(key),
-              onChange: () => toggleArea(key),
-              className: "h-3 w-3 rounded border-border accent-[color:var(--primary)]"
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "truncate", children: translateArea(key, lang) }),
-          filters.areas.has(key) && /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "span",
-            {
-              className: "ml-auto h-2 w-2 rounded-full shrink-0",
-              style: { backgroundColor: AREA_COLORS[key] }
-            }
-          )
-        ]
-      },
-      key
-    )) })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: t("monitoringAreas"), children: [
+      SURVEY_AREA_KEYS.filter((key) => key !== "other_areas").map((key) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Check,
+        {
+          checked: filters.areas.has(key),
+          onChange: () => toggleArea(key),
+          label: translateArea(key, lang),
+          color: AREA_COLORS[key]
+        },
+        key
+      )),
+      !monitoringAreas && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "px-1 text-xs text-muted-foreground", children: "—" }),
+      monitoringAreas?.features.map((feature) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Check,
+        {
+          checked: filters.monitoringAreas.has(feature.properties.id),
+          onChange: () => toggleMonitoringArea(feature.properties.id),
+          label: feature.properties.name,
+          color: feature.properties.color
+        },
+        feature.properties.id
+      )),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        Check,
+        {
+          checked: filters.areas.has("other_areas"),
+          onChange: () => toggleArea("other_areas"),
+          label: translateArea("other_areas", lang),
+          color: AREA_COLORS.other_areas
+        }
+      )
+    ] })
   ] });
 }
 function DateRangeSlider({ min, max, value, onChange, selectedYears }) {
@@ -2214,13 +2419,13 @@ function DateRangeSlider({ min, max, value, onChange, selectedYears }) {
     )) })
   ] });
 }
-const Dashboard = reactExports.lazy(() => import("./dashboard-C7n8WI0N.mjs").then((m) => ({
+const Dashboard = reactExports.lazy(() => import("./dashboard-DHQdvrHy.mjs").then((m) => ({
   default: m.Dashboard
 })));
-const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive-C6dElphv.mjs").then((m) => ({
+const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive--r4mIbq1.mjs").then((m) => ({
   default: m.SpeciesDeepDive
 })));
-const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-bGySeH0p.mjs").then((m) => ({
+const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-CoIIxvfj.mjs").then((m) => ({
   default: m.PeopleDashboard
 })));
 function Index() {
@@ -2230,11 +2435,11 @@ function Index() {
     setLang,
     dir
   } = useI18n();
-  const [sidebarOpen, setSidebarOpen] = reactExports.useState(false);
+  const [sidebarOpen, setSidebarOpen] = reactExports.useState(true);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(ObservationsProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { defaultValue: "overview", dir, className: "relative flex h-full w-full overflow-hidden", children: [
     sidebarOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-[9998] bg-black/20 transition-opacity", onClick: () => setSidebarOpen(false) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `fixed top-0 z-[9999] h-full shadow-lg transition-transform duration-300 ease-in-out ${dir === "rtl" ? `right-0 ${sidebarOpen ? "translate-x-0" : "translate-x-full"}` : `left-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}`, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(FilterSidebar, {}),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(FilterSidebar, { onClose: () => setSidebarOpen(false) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setSidebarOpen((v) => !v), className: `absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-20 bg-card border shadow-md rounded-md cursor-pointer hover:bg-secondary transition-colors ${dir === "rtl" ? "-left-5 rounded-r-none border-r-0" : "-right-5 rounded-l-none border-l-0"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { className: "h-3 w-3 text-muted-foreground" }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-1 flex-col min-h-0 overflow-hidden", children: [
@@ -2267,7 +2472,8 @@ function ResetFiltersButton() {
     setFilters,
     datasetBounds,
     deepDiveActions,
-    bumpResetVersion
+    bumpResetVersion,
+    monitoringAreas
   } = useObservations();
   const uniqueYears = reactExports.useMemo(() => {
     const years = /* @__PURE__ */ new Set();
@@ -2292,6 +2498,7 @@ function ResetFiltersButton() {
       researchOnly: false,
       areas: new Set(SURVEY_AREA_KEYS),
       speciesTypes: /* @__PURE__ */ new Set(["invasive", "rare", "other_species"]),
+      monitoringAreas: new Set(monitoringAreas?.features.map((feature) => feature.properties.id) ?? []),
       dateRange: datasetBounds
     });
     bumpResetVersion();
@@ -2316,18 +2523,18 @@ const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   AREA_COLORS as A,
-  SURVEY_AREA_KEYS as S,
+  SURVEY_POLYGONS as S,
   TAXA_GROUP_KEYS as T,
   translateGroupName as a,
   translateMonth as b,
   classifySpecies as c,
-  getObservationArea as d,
+  getTaxaGroup as d,
   getSpeciesClassification as e,
   cn as f,
-  getTaxaGroup as g,
-  getTaxonDetails as h,
-  SURVEY_POLYGONS as i,
-  index as j,
+  getTaxonDetails as g,
+  SURVEY_AREA_KEYS as h,
+  index as i,
+  observationMatchesSelectedAreas as o,
   speciesMap as s,
   translateTaxa as t,
   useObservations as u

@@ -6,7 +6,14 @@ export type SpeciesInfo = {
   isGeneric?: boolean;
 };
 
-export const rawSpeciesMap = {
+type RawSpeciesInfo = {
+  scientific_name: string;
+  hebrew_name: string;
+  english_name: string;
+  isGeneric?: boolean;
+};
+
+export const rawSpeciesMap: Record<string, RawSpeciesInfo[]> = {
   "יונקים": [
     { "scientific_name": "Artiodactyla", "hebrew_name": "מכפילי פרסה", "english_name": "Artiodactyla", "isGeneric": true },
     { "scientific_name": "Canidae", "hebrew_name": "כלביים", "english_name": "Canidae", "isGeneric": true },

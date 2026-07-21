@@ -10,6 +10,7 @@ import { ObservationMap } from "@/components/observation-map";
 import { UserAnalyticsTable } from "@/components/user-analytics-table";
 import { UserActivityChart } from "@/components/user-activity-chart";
 import { getObservationArea, type SurveyAreaKey } from "@/lib/survey-polygons";
+import { observationMatchesSelectedAreas } from "@/lib/monitoring-areas";
 
 function parseObsTimestamp(dateStr: string): number {
   if (!dateStr || dateStr.length < 10) return NaN;
@@ -54,7 +55,8 @@ const USER_INACTIVE_CHIP = "bg-gray-50 text-gray-500 border-gray-300 font-normal
 
 export function PeopleDashboard() {
   const { t } = useI18n();
-  const { observations, filters, resetVersion } = useObservations();
+  const { observations, filters, resetVersion, observationMonitoringAreaIndex } =
+    useObservations();
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
 
@@ -77,15 +79,19 @@ export function PeopleDashboard() {
       }
       if (filters.taxa.size > 0 && !filters.taxa.has(getTaxaGroup(o))) return false;
       if (
-        filters.areas.size > 0 &&
-        !areaMatches(filters.areas, getObservationArea(o.latitude, o.longitude))
+        !observationMatchesSelectedAreas(
+          o,
+          filters.areas,
+          filters.monitoringAreas,
+          observationMonitoringAreaIndex,
+        )
       )
         return false;
       if (filters.speciesTypes.size > 0 && !filters.speciesTypes.has(getSpeciesClassification(o)))
         return false;
       return true;
     });
-  }, [observations, filters]);
+  }, [observations, filters, observationMonitoringAreaIndex]);
 
   const groupObservations = useMemo(() => {
     const selectedGroupDef = GROUPS.find((g) => g.key === selectedGroup);

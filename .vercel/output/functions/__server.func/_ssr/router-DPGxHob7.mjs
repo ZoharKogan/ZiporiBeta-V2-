@@ -13,7 +13,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-D1WMya74.css";
+const appCss = "/assets/styles-BC3ab0qu.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -52,7 +52,7 @@ const dict = {
   tg_plants: { he: "צמחים", en: "Plants" },
   tg_other: { he: "שאר המינים", en: "Other Species" },
   researchOnly: { he: "דרגת מחקר", en: "Research Grade" },
-  targetPop: { he: "אוכלוסיית יעד", en: "Target Population" },
+  targetPop: { he: "מנטרים", en: "Target Population" },
   resetFilters: { he: "איפוס מסננים", en: "Reset Filters" },
   map: { he: "מפת תצפיות", en: "Observation Map" },
   metrics: { he: "מדדים מצרפיים", en: "Aggregation Metrics" },
@@ -99,6 +99,7 @@ const dict = {
   speciesType: { he: "סוג מין", en: "Species Type" },
   otherSpecies: { he: "שאר המינים", en: "Other Species" },
   areas: { he: "אזורים", en: "Areas" },
+  monitoringAreas: { he: "אזורי ניטור", en: "Monitoring Areas" },
   overview: { he: "מבט על", en: "Overview" },
   deepDive: { he: "מינים", en: "Species" },
   people: { he: "אנשים", en: "People" },
@@ -228,7 +229,7 @@ function RootShell({ children }) {
 function RootComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(I18nProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-screen overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }) });
 }
-const $$splitComponentImporter = () => import("./index-CFoMiIRD.mjs").then((n) => n.j);
+const $$splitComponentImporter = () => import("./index-kG6rXmwW.mjs").then((n) => n.i);
 const Route = createFileRoute("/")({
   ssr: false,
   head: () => ({
