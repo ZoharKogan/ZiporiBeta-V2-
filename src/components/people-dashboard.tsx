@@ -5,6 +5,7 @@ import {
   getTaxaGroup,
   getSpeciesClassification,
   type Observation,
+  REA_SHAISH_NAME,
 } from "@/lib/observations-store";
 import { ObservationMap } from "@/components/observation-map";
 import { UserAnalyticsTable } from "@/components/user-analytics-table";
@@ -51,6 +52,7 @@ const GROUPS: GroupDef[] = [
 const ACTIVE_CHIP = "bg-sky-300 text-sky-900 border-sky-500 border-2 font-semibold";
 const INACTIVE_CHIP = "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100";
 const USER_ACTIVE_CHIP = "bg-sky-200 text-sky-900 border-sky-400 border-2 font-semibold";
+const REA_SHAISH_ACTIVE_CHIP = "bg-violet-200 text-violet-900 border-violet-400 border-2 font-semibold";
 const USER_INACTIVE_CHIP = "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100";
 
 export function PeopleDashboard() {
@@ -232,7 +234,11 @@ export function PeopleDashboard() {
                 onClick={() => handleUserClick(user)}
                 title={user}
                 className={`shrink-0 inline-flex items-center rounded-full border px-2.5 py-1 text-xs transition-all duration-200 whitespace-nowrap ${
-                  isSelected ? USER_ACTIVE_CHIP : USER_INACTIVE_CHIP
+                  isSelected
+                    ? user === REA_SHAISH_NAME
+                      ? REA_SHAISH_ACTIVE_CHIP
+                      : USER_ACTIVE_CHIP
+                    : USER_INACTIVE_CHIP
                 }`}
               >
                 {user} ({count.toLocaleString()})

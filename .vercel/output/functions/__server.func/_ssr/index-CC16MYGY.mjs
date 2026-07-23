@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { P as Papa } from "../_libs/papaparse.mjs";
 import { i as index_default } from "../_libs/turf__boolean-point-in-polygon.mjs";
-import { u as useI18n } from "./router-DPGxHob7.mjs";
+import { u as useI18n } from "./router-vXyDQAMe.mjs";
 import { R as Root2, L as List, T as Trigger, C as Content } from "../_libs/radix-ui__react-tabs.mjs";
 import { c as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
@@ -47,13 +47,6 @@ const AREA_TRANSLATIONS = {
   "נחל": { he: "נחל", en: "Stream" },
   "פשט גדול": { he: "פשט גדול", en: "Large Floodplain" },
   "other_areas": { he: "שאר האזורים", en: "Other Areas" }
-};
-const AREA_COLORS = {
-  "תעלה": "#0ea5e9",
-  "פשט קטן": "#22c55e",
-  "נחל": "#eab308",
-  "פשט גדול": "#ec4899",
-  "other_areas": "#9ca3af"
 };
 function translateArea(key, lang) {
   return AREA_TRANSLATIONS[key][lang];
@@ -178,15 +171,36 @@ const rawSpeciesMap = {
     { "scientific_name": "Vulpes vulpes", "hebrew_name": "שועל מצוי", "english_name": "Red Fox" }
   ],
   "שפיראים": [
-    { "scientific_name": "Ischnura pumilio", "hebrew_name": "שלחית זעירה", "english_name": "Small Bluetail" },
-    { "scientific_name": "Anax imperator", "hebrew_name": "חניתית היאור", "english_name": "Emperor Dragonfly" },
-    { "scientific_name": "Crocothemis erythraea", "hebrew_name": "תכשיתית זוהרת", "english_name": "Broad Scarlet" },
-    { "scientific_name": "Trithemis annulata", "hebrew_name": "גיחנית ארגמנית", "english_name": "Violet Dropwing" },
-    { "scientific_name": "Platycnemis dealbata", "hebrew_name": "שפרירית הפלגים", "english_name": "Ivory Featherleg" },
-    { "scientific_name": "Orthetrum chrysostigma", "hebrew_name": "שפירית כחולה", "english_name": "Epaulet Skimmer" },
-    { "scientific_name": "Libellulidae", "hebrew_name": "שפיריתיים", "english_name": "Skimmers" },
-    { "scientific_name": "Odonata", "hebrew_name": "שפיראים", "english_name": "Dragonflies" },
-    { "scientific_name": "Aeshnidae", "hebrew_name": "נימפיתיים", "english_name": "Hawkers" }
+    { "scientific_name": "Agriocnemis sania", "hebrew_name": "שלחית זעירה", "english_name": "Agriocnemis sania" },
+    { "scientific_name": "Anax ephippiger", "hebrew_name": "סיירן נודד", "english_name": "Anax ephippiger" },
+    { "scientific_name": "Anax imperator", "hebrew_name": "סיירן קיסרי", "english_name": "Anax imperator" },
+    { "scientific_name": "Anax parthenope", "hebrew_name": "סיירן נסיכי", "english_name": "Anax parthenope" },
+    { "scientific_name": "Brachythemis impartita", "hebrew_name": "נחתנית דרכים", "english_name": "Brachythemis impartita" },
+    { "scientific_name": "Calopteryx syriaca", "hebrew_name": "תכשיטית זוהרת", "english_name": "Calopteryx syriaca" },
+    { "scientific_name": "Chalcolestes parvidens", "hebrew_name": "רשפית פלגים", "english_name": "Chalcolestes parvidens" },
+    { "scientific_name": "Crocothemis erythraea", "hebrew_name": "דלגנית אדומה", "english_name": "Crocothemis erythraea" },
+    { "scientific_name": "Diplacodes lefebvrii", "hebrew_name": "מצנחית שחורה", "english_name": "Diplacodes lefebvrii" },
+    { "scientific_name": "Ischnura elegans", "hebrew_name": "חיצית הדורה", "english_name": "Ischnura elegans" },
+    { "scientific_name": "Orthetrum brunneum", "hebrew_name": "ריחופית עבת-בטן", "english_name": "Orthetrum brunneum" },
+    { "scientific_name": "Orthetrum chrysostigma", "hebrew_name": "ריחופית כחולה", "english_name": "Orthetrum chrysostigma" },
+    { "scientific_name": "Orthetrum coerulescens", "hebrew_name": "ריחופית קנים", "english_name": "Orthetrum coerulescens" },
+    { "scientific_name": "Orthetrum sabina", "hebrew_name": "ריחופית חרוזה", "english_name": "Orthetrum sabina" },
+    { "scientific_name": "Orthetrum sp.", "hebrew_name": "ריחופית", "english_name": "Orthetrum", "isGeneric": true },
+    { "scientific_name": "Orthetrum trinacria", "hebrew_name": "ריחופית אגמים", "english_name": "Orthetrum trinacria" },
+    { "scientific_name": "Pantala flavescens", "hebrew_name": "גלשונית נודת", "english_name": "Pantala flavescens" },
+    { "scientific_name": "Platycnemis dealbata", "hebrew_name": "נוצנית שטוחת-רגל", "english_name": "Platycnemis dealbata" },
+    { "scientific_name": "Pseudagrion sublacteum", "hebrew_name": "חניתית אדומת-מצח", "english_name": "Pseudagrion sublacteum" },
+    { "scientific_name": "Pseudagrion syriacum", "hebrew_name": "חניתית ארץ-ישראלית", "english_name": "Pseudagrion syriacum" },
+    { "scientific_name": "Pseudagrion torridum", "hebrew_name": "חניתית היאור", "english_name": "Pseudagrion torridum" },
+    { "scientific_name": "Sympetrum fonscolombii", "hebrew_name": "עפיפונית משוטטת", "english_name": "Sympetrum fonscolombii" },
+    { "scientific_name": "Trithemis annulata", "hebrew_name": "גיחנית ארגמן", "english_name": "Trithemis annulata" },
+    { "scientific_name": "Trithemis arteriosa", "hebrew_name": "גיחנית מעורקת", "english_name": "Trithemis arteriosa" },
+    { "scientific_name": "Libellulidae", "hebrew_name": "טיסניתיים", "english_name": "Libellulidae", "isGeneric": true },
+    { "scientific_name": "Coenagrionidae", "hebrew_name": "צר-כנפיתיים", "english_name": "Coenagrionidae", "isGeneric": true },
+    { "scientific_name": "Platycnemididae", "hebrew_name": "נוצניתיים", "english_name": "Platycnemididae", "isGeneric": true },
+    { "scientific_name": "Aeshnidae", "hebrew_name": "שנריתיים", "english_name": "Aeshnidae", "isGeneric": true },
+    { "scientific_name": "Calopterygidae", "hebrew_name": "תכשיטניתיים", "english_name": "Calopterygidae", "isGeneric": true },
+    { "scientific_name": "Lestidae", "hebrew_name": "שפריריתיים", "english_name": "Lestidae", "isGeneric": true }
   ],
   "עופות": [
     { "scientific_name": "Accipitridae", "hebrew_name": "ניציים", "english_name": "Hawks, Eagles, and Kites", "isGeneric": true },
@@ -1226,7 +1240,6 @@ const rawSpeciesMap = {
     { "scientific_name": "Brachycerus", "hebrew_name": "בצלנית", "english_name": "Brachycerus", "isGeneric": true },
     { "scientific_name": "Brachyglossina stefani", "hebrew_name": "Brachyglossina stefani", "english_name": "Brachyglossina Stefani" },
     { "scientific_name": "Brachynema germarii", "hebrew_name": "Brachynema germarii", "english_name": "Brachynema Germarii" },
-    { "scientific_name": "Brachythemis impartita", "hebrew_name": "נחתנית דרכים", "english_name": "Brachythemis Impartita" },
     { "scientific_name": "Braconidae", "hebrew_name": "ברקוניים", "english_name": "Braconidae", "isGeneric": true },
     { "scientific_name": "Bruchinae", "hebrew_name": "זירעוניתיים", "english_name": "Bruchinae", "isGeneric": true },
     { "scientific_name": "Bryophila rectilinea", "hebrew_name": "בריופילה רקטילינאה", "english_name": "Bryophila Rectilinea" },
@@ -1285,7 +1298,6 @@ const rawSpeciesMap = {
     { "scientific_name": "Chaetophiloscia", "hebrew_name": "Chaetophiloscia", "english_name": "Chaetophiloscia", "isGeneric": true },
     { "scientific_name": "Chaetophiloscia elongata", "hebrew_name": "Chaetophiloscia elongata", "english_name": "Chaetophiloscia Elongata" },
     { "scientific_name": "Chalcides ocellatus", "hebrew_name": "נחושית עינונית", "english_name": "Chalcides Ocellatus" },
-    { "scientific_name": "Chalcolestes parvidens", "hebrew_name": "רשפית פלגים", "english_name": "Chalcolestes Parvidens" },
     { "scientific_name": "Chamaeleo chamaeleon", "hebrew_name": "זיקית מובהקת", "english_name": "Chamaeleo Chamaeleon" },
     { "scientific_name": "Charissa", "hebrew_name": "Charissa", "english_name": "Charissa", "isGeneric": true },
     { "scientific_name": "Charissa onustaria", "hebrew_name": "Charissa onustaria", "english_name": "Charissa Onustaria" },
@@ -1471,28 +1483,56 @@ const speciesMap = Object.entries(rawSpeciesMap).flatMap(
   }))
 );
 const SPECIES_REGISTRY = {
-  // Invasive species
-  "Papilio demoleus": "invasive",
-  "Myocastor coypus": "invasive",
-  "Acridotheres tristis": "invasive",
-  "Psittacula krameri": "invasive",
-  "Myiopsitta monachus": "invasive",
-  // Rare species
-  "Borbo borbonica": "rare",
-  "Crocothemis erythraea": "rare",
-  "Felis chaus": "rare",
-  "Lutra lutra": "rare",
-  "Ischnura pumilio": "rare",
-  "Anax imperator": "rare"
+  // Invasive
+  "papilio demoleus": "invasive",
+  "myocastor coypus": "invasive",
+  "acridotheres tristis": "invasive",
+  "psittacula krameri": "invasive",
+  "myiopsitta monachus": "invasive",
+  "erigeron spp.": "invasive",
+  "datura inoxia": "invasive",
+  "solanum elaeagnifolium": "invasive",
+  "ambrosia artemisiifolia": "invasive",
+  "physalis angulata": "invasive",
+  "amaranthus blitoides": "invasive",
+  "amaranthus palmeri": "invasive",
+  "amaranthus deflexus": "invasive",
+  "xanthium strumarium": "invasive",
+  "sesbania sesban": "invasive",
+  "paspalum dilatatum": "invasive",
+  "symphyotrichum subulatum": "invasive",
+  "bidens pilosa": "invasive",
+  "euphorbia graminea": "invasive",
+  "xanthium spinosum": "invasive",
+  "ricinus communis": "invasive",
+  "euphorbia nutans": "invasive",
+  "achyranthes aspera": "invasive",
+  "physalis spp.": "invasive",
+  "datura stramonium": "invasive",
+  "erigeron canadensis": "invasive",
+  "amaranthus spp.": "invasive",
+  "ludwigia repens": "invasive",
+  "xanthium spp.": "invasive",
+  "paspalum spp.": "invasive",
+  "leptocybe invasa": "invasive",
+  // Rare
+  "borbo borbonica": "rare",
+  "crocothemis erythraea": "rare",
+  "felis chaus": "rare",
+  "lutra lutra": "rare",
+  "ischnura pumilio": "rare",
+  "anax imperator": "rare",
+  "silene israelitica": "rare",
+  "pelecanus onocrotalus": "rare",
+  "limonium spp.": "rare",
+  "acarolepis spp.": "rare",
+  "tringa flavipes": "rare",
+  "pandion haliaetus": "rare",
+  "potamon potamios": "rare",
+  "asparagus palaestinus": "rare"
 };
 function classifySpecies(scientificName) {
-  const normalized = scientificName.trim().toLowerCase();
-  for (const [name, status] of Object.entries(SPECIES_REGISTRY)) {
-    if (name.toLowerCase() === normalized) {
-      return status;
-    }
-  }
-  return "other";
+  return SPECIES_REGISTRY[scientificName.trim().toLowerCase()] ?? "other";
 }
 const CANONICAL_CATEGORIES = [
   "יונקים",
@@ -1628,6 +1668,15 @@ const CATEGORY_MAP = {
   community: "online_communities",
   "קהילות מקוונות": "online_communities"
 };
+const ODONATA_FAMILIES = /* @__PURE__ */ new Set([
+  "Libellulidae",
+  "Coenagrionidae",
+  "Platycnemididae",
+  "Aeshnidae",
+  "Calopterygidae",
+  "Lestidae"
+]);
+const REA_SHAISH_NAME = "רע שיש";
 function getSupergroup(rawGroup) {
   return CATEGORY_MAP[rawGroup] || rawGroup;
 }
@@ -1718,9 +1767,10 @@ function parseMerlinRow(row) {
   const lon = parseFloat((row.decimalLongitudeStart || "").trim());
   const observedOn = parseObservedOn(row.timeStamp || "");
   if (!observedOn || isNaN(lat) || isNaN(lon)) return null;
-  const userLogin = (row.personName || row.recordedBy || "").trim();
-  if (!userLogin) return null;
   const family = (row.family || "").trim();
+  const isOdonata = ODONATA_FAMILIES.has(family);
+  const userLogin = isOdonata ? REA_SHAISH_NAME : (row.personName || row.recordedBy || row.eMail || "").trim();
+  if (!userLogin) return null;
   const birdFamilies = [
     "Columbidae",
     "Ardeidae",
@@ -1774,21 +1824,6 @@ const TAXA_GROUP_KEYS = [
   "plants",
   "other"
 ];
-const INVASIVE_SPECIES = [
-  { he: "זנב סנונית הלימון", sci: "Papilio demoleus", tab: "פרפרים" },
-  { he: "נוטרייה", sci: "Myocastor coypus", tab: "יונקים" },
-  { he: "מיינה מצויה", sci: "Acridotheres tristis", tab: "עופות" },
-  { he: "דררה מצויה", sci: "Psittacula krameri", tab: "עופות" },
-  { he: "תוכי נזירי", sci: "Myiopsitta monachus", tab: "עופות" }
-];
-const RARE_SPECIES = [
-  { he: "הספרית ביצות", sci: "Borbo borbonica", tab: "פרפרים" },
-  { he: "חתול ביצות", sci: "Felis chaus", tab: "יונקים" },
-  { he: "לוטרה", sci: "Lutra lutra", tab: "יונקים" },
-  { he: "שלחית זעירה", sci: "Crocothemis erythraea", tab: "שפיראים" },
-  { he: "חניתית היאור", sci: "Orthetrum chrysostigma", tab: "שפיראים" },
-  { he: "תכשיטית זוהרת", sci: "Calopteryx syriaca", tab: "שפיראים" }
-];
 const TAB_LABEL_TO_GROUP = {
   יונקים: "mammals",
   עופות: "birds",
@@ -1798,12 +1833,6 @@ const TAB_LABEL_TO_GROUP = {
   צמחים: "plants",
   "שאר המינים": "other"
 };
-new Map(
-  INVASIVE_SPECIES.map((s) => [s.sci, TAB_LABEL_TO_GROUP[s.tab] ?? "other"])
-);
-new Map(
-  RARE_SPECIES.map((s) => [s.sci, TAB_LABEL_TO_GROUP[s.tab] ?? "other"])
-);
 function getTaxaGroup(o) {
   const sci = o.scientific_name;
   if (sci) {
@@ -1812,6 +1841,7 @@ function getTaxaGroup(o) {
       return TAB_LABEL_TO_GROUP[category] ?? "other";
     }
   }
+  if (ODONATA_FAMILIES.has(o.taxon_order_name)) return "dragonflies";
   const iconic = o.iconic_taxon_name;
   if (iconic === "Insecta" || iconic === "Arachnida") return "arthropods";
   if (iconic === "Plantae") return "plants";
@@ -1953,7 +1983,7 @@ function ObservationsProvider({ children }) {
           return observation;
         }).filter((obs) => obs !== null);
         const merlinResponse = await fetch(
-          "/MERLIN all except Odonta observations for Zohar.csv"
+          "/MERLIN all observations for Zohar.csv"
         );
         const merlinText = await merlinResponse.text();
         const merlinData = Papa.parse(merlinText, {
@@ -2299,13 +2329,13 @@ function FilterSidebar({ onClose }) {
       option.key
     )) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(Section, { title: t("monitoringAreas"), children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-2 px-1 text-sm font-medium text-gray-500", children: "בשיקום" }),
       SURVEY_AREA_KEYS.filter((key) => key !== "other_areas").map((key) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         Check,
         {
           checked: filters.areas.has(key),
           onChange: () => toggleArea(key),
-          label: translateArea(key, lang),
-          color: AREA_COLORS[key]
+          label: translateArea(key, lang)
         },
         key
       )),
@@ -2315,18 +2345,17 @@ function FilterSidebar({ onClose }) {
         {
           checked: filters.monitoringAreas.has(feature.properties.id),
           onChange: () => toggleMonitoringArea(feature.properties.id),
-          label: feature.properties.name,
-          color: feature.properties.color
+          label: feature.properties.name
         },
         feature.properties.id
       )),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { className: "my-2 border-gray-200" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         Check,
         {
           checked: filters.areas.has("other_areas"),
           onChange: () => toggleArea("other_areas"),
-          label: translateArea("other_areas", lang),
-          color: AREA_COLORS.other_areas
+          label: translateArea("other_areas", lang)
         }
       )
     ] })
@@ -2419,13 +2448,13 @@ function DateRangeSlider({ min, max, value, onChange, selectedYears }) {
     )) })
   ] });
 }
-const Dashboard = reactExports.lazy(() => import("./dashboard-DHQdvrHy.mjs").then((m) => ({
+const Dashboard = reactExports.lazy(() => import("./dashboard-B2BVfLGO.mjs").then((m) => ({
   default: m.Dashboard
 })));
-const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive--r4mIbq1.mjs").then((m) => ({
+const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive-BXLiunsd.mjs").then((m) => ({
   default: m.SpeciesDeepDive
 })));
-const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-CoIIxvfj.mjs").then((m) => ({
+const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-Fm1j9YsT.mjs").then((m) => ({
   default: m.PeopleDashboard
 })));
 function Index() {
@@ -2437,7 +2466,7 @@ function Index() {
   } = useI18n();
   const [sidebarOpen, setSidebarOpen] = reactExports.useState(true);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(ObservationsProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Tabs, { defaultValue: "overview", dir, className: "relative flex h-full w-full overflow-hidden", children: [
-    sidebarOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed inset-0 z-[9998] bg-black/20 transition-opacity", onClick: () => setSidebarOpen(false) }),
+    sidebarOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "pointer-events-none fixed inset-0 z-[9998] bg-black/20 transition-opacity" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: `fixed top-0 z-[9999] h-full shadow-lg transition-transform duration-300 ease-in-out ${dir === "rtl" ? `right-0 ${sidebarOpen ? "translate-x-0" : "translate-x-full"}` : `left-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}`}`, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(FilterSidebar, { onClose: () => setSidebarOpen(false) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => setSidebarOpen((v) => !v), className: `absolute top-1/2 -translate-y-1/2 flex items-center justify-center w-5 h-20 bg-card border shadow-md rounded-md cursor-pointer hover:bg-secondary transition-colors ${dir === "rtl" ? "-left-5 rounded-r-none border-r-0" : "-right-5 rounded-l-none border-l-0"}`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(SlidersHorizontal, { className: "h-3 w-3 text-muted-foreground" }) })
@@ -2522,7 +2551,7 @@ const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
   component: Index
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  AREA_COLORS as A,
+  REA_SHAISH_NAME as R,
   SURVEY_POLYGONS as S,
   TAXA_GROUP_KEYS as T,
   translateGroupName as a,

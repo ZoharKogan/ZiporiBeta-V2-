@@ -46,8 +46,7 @@ function Index() {
         {/* Backdrop */}
         {sidebarOpen && (
           <div
-            className="fixed inset-0 z-[9998] bg-black/20 transition-opacity"
-            onClick={() => setSidebarOpen(false)}
+            className="pointer-events-none fixed inset-0 z-[9998] bg-black/20 transition-opacity"
           />
         )}
 

@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
-import { u as useI18n } from "./router-DPGxHob7.mjs";
-import { u as useObservations, d as getTaxaGroup, o as observationMatchesSelectedAreas, e as getSpeciesClassification, b as translateMonth } from "./index-kG6rXmwW.mjs";
-import { O as ObservationMap } from "./observation-map-BV75XeEe.mjs";
+import { u as useI18n } from "./router-vXyDQAMe.mjs";
+import { u as useObservations, d as getTaxaGroup, o as observationMatchesSelectedAreas, e as getSpeciesClassification, R as REA_SHAISH_NAME, b as translateMonth } from "./index-CC16MYGY.mjs";
+import { O as ObservationMap } from "./observation-map-BTWk0vjf.mjs";
 import "../_libs/papaparse.mjs";
 import "../_libs/leaflet.mjs";
 import { R as ResponsiveContainer, L as LineChart, C as CartesianGrid, X as XAxis, Y as YAxis, T as Tooltip, a as Legend, b as Line } from "../_libs/recharts.mjs";
@@ -323,6 +323,7 @@ const GROUPS = [
 const ACTIVE_CHIP = "bg-sky-300 text-sky-900 border-sky-500 border-2 font-semibold";
 const INACTIVE_CHIP = "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100";
 const USER_ACTIVE_CHIP = "bg-sky-200 text-sky-900 border-sky-400 border-2 font-semibold";
+const REA_SHAISH_ACTIVE_CHIP = "bg-violet-200 text-violet-900 border-violet-400 border-2 font-semibold";
 const USER_INACTIVE_CHIP = "bg-gray-50 text-gray-500 border-gray-300 font-normal hover:bg-gray-100";
 function PeopleDashboard() {
   const { t } = useI18n();
@@ -469,7 +470,7 @@ function PeopleDashboard() {
             type: "button",
             onClick: () => handleUserClick(user),
             title: user,
-            className: `shrink-0 inline-flex items-center rounded-full border px-2.5 py-1 text-xs transition-all duration-200 whitespace-nowrap ${isSelected ? USER_ACTIVE_CHIP : USER_INACTIVE_CHIP}`,
+            className: `shrink-0 inline-flex items-center rounded-full border px-2.5 py-1 text-xs transition-all duration-200 whitespace-nowrap ${isSelected ? user === REA_SHAISH_NAME ? REA_SHAISH_ACTIVE_CHIP : USER_ACTIVE_CHIP : USER_INACTIVE_CHIP}`,
             children: [
               user,
               " (",

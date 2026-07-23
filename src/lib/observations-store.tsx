@@ -60,6 +60,17 @@ const CATEGORY_MAP: Record<string, string> = {
   "קהילות מקוונות": "online_communities",
 };
 
+const ODONATA_FAMILIES = new Set([
+  "Libellulidae",
+  "Coenagrionidae",
+  "Platycnemididae",
+  "Aeshnidae",
+  "Calopterygidae",
+  "Lestidae",
+]);
+
+export const REA_SHAISH_NAME = "רע שיש";
+
 function getSupergroup(rawGroup: string): string {
   return CATEGORY_MAP[rawGroup] || rawGroup;
 }
@@ -202,10 +213,12 @@ function parseMerlinRow(row: Record<string, string>): Observation | null {
 
   if (!observedOn || isNaN(lat) || isNaN(lon)) return null;
 
-  const userLogin = (row.personName || row.recordedBy || "").trim();
-  if (!userLogin) return null;
-
   const family = (row.family || "").trim();
+  const isOdonata = ODONATA_FAMILIES.has(family);
+  const userLogin = isOdonata
+    ? REA_SHAISH_NAME
+    : (row.personName || row.recordedBy || row.eMail || "").trim();
+  if (!userLogin) return null;
   const birdFamilies = [
     "Columbidae",
     "Ardeidae",
@@ -265,25 +278,6 @@ export const TAXA_GROUP_KEYS = [
 ] as const;
 export type TaxaGroupKey = (typeof TAXA_GROUP_KEYS)[number];
 
-export type SpecialSpeciesEntry = { he: string; sci: string; tab: string };
-
-export const INVASIVE_SPECIES: SpecialSpeciesEntry[] = [
-  { he: "זנב סנונית הלימון", sci: "Papilio demoleus", tab: "פרפרים" },
-  { he: "נוטרייה", sci: "Myocastor coypus", tab: "יונקים" },
-  { he: "מיינה מצויה", sci: "Acridotheres tristis", tab: "עופות" },
-  { he: "דררה מצויה", sci: "Psittacula krameri", tab: "עופות" },
-  { he: "תוכי נזירי", sci: "Myiopsitta monachus", tab: "עופות" },
-];
-
-export const RARE_SPECIES: SpecialSpeciesEntry[] = [
-  { he: "הספרית ביצות", sci: "Borbo borbonica", tab: "פרפרים" },
-  { he: "חתול ביצות", sci: "Felis chaus", tab: "יונקים" },
-  { he: "לוטרה", sci: "Lutra lutra", tab: "יונקים" },
-  { he: "שלחית זעירה", sci: "Crocothemis erythraea", tab: "שפיראים" },
-  { he: "חניתית היאור", sci: "Orthetrum chrysostigma", tab: "שפיראים" },
-  { he: "תכשיטית זוהרת", sci: "Calopteryx syriaca", tab: "שפיראים" },
-];
-
 /** Maps the Hebrew tab label used in special-species lists to the internal TaxaGroupKey. */
 const TAB_LABEL_TO_GROUP: Record<string, TaxaGroupKey> = {
   יונקים: "mammals",
@@ -294,13 +288,6 @@ const TAB_LABEL_TO_GROUP: Record<string, TaxaGroupKey> = {
   צמחים: "plants",
   "שאר המינים": "other",
 };
-
-const _invasiveSciMap = new Map<string, TaxaGroupKey>(
-  INVASIVE_SPECIES.map((s) => [s.sci, TAB_LABEL_TO_GROUP[s.tab] ?? "other"]),
-);
-const _rareSciMap = new Map<string, TaxaGroupKey>(
-  RARE_SPECIES.map((s) => [s.sci, TAB_LABEL_TO_GROUP[s.tab] ?? "other"]),
-);
 
 /** Map an observation to one of our high-level dashboard groups.
  *  1. Look up the scientific_name via the taxonomy engine (unified dictionary).
@@ -321,6 +308,7 @@ export function getTaxaGroup(o: Observation): TaxaGroupKey {
   // 2. Fallback taxonomy — strict elimination order to prevent double-counting.
   //    Butterflies and dragonflies are checked via dictionary lookup (step 1) first;
   //    Insecta/Arachnida only catches remaining arthropods after those are eliminated.
+  if (ODONATA_FAMILIES.has(o.taxon_order_name)) return "dragonflies";
   const iconic = o.iconic_taxon_name;
   if (iconic === "Insecta" || iconic === "Arachnida") return "arthropods";
   if (iconic === "Plantae") return "plants";
@@ -561,7 +549,7 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
 
         // Load Merlin expert observations CSV
         const merlinResponse = await fetch(
-          "/MERLIN all except Odonta observations for Zohar.csv",
+          "/MERLIN all observations for Zohar.csv", 
         );
         const merlinText = await merlinResponse.text();
         const merlinData = Papa.parse<Record<string, string>>(merlinText, {

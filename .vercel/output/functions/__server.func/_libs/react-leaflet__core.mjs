@@ -1,6 +1,6 @@
 import { r as reactExports, R as React } from "./react.mjs";
 import "./leaflet.mjs";
-import "./react-dom.mjs";
+import { r as reactDomExports } from "./react-dom.mjs";
 function useAttribution(map, attribution) {
   const attributionRef = reactExports.useRef(attribution);
   reactExports.useEffect(function updateAttribution() {
@@ -58,6 +58,25 @@ function createContainerComponent(useElement) {
   }
   return /* @__PURE__ */ reactExports.forwardRef(ContainerComponent);
 }
+function createDivOverlayComponent(useElement) {
+  function OverlayComponent(props, forwardedRef) {
+    const [isOpen, setOpen] = reactExports.useState(false);
+    const { instance } = useElement(props, setOpen).current;
+    reactExports.useImperativeHandle(forwardedRef, () => instance);
+    reactExports.useEffect(function updateOverlay() {
+      if (isOpen) {
+        instance.update();
+      }
+    }, [
+      instance,
+      isOpen,
+      props.children
+    ]);
+    const contentNode = instance._contentNode;
+    return contentNode ? /* @__PURE__ */ reactDomExports.createPortal(props.children, contentNode) : null;
+  }
+  return /* @__PURE__ */ reactExports.forwardRef(OverlayComponent);
+}
 function createLeafComponent(useElement) {
   function LeafComponent(props, forwardedRef) {
     const { instance } = useElement(props).current;
@@ -90,6 +109,16 @@ function withPane(props, context) {
     ...props,
     pane
   } : props;
+}
+function createDivOverlayHook(useElement, useLifecycle) {
+  return function useDivOverlay(props, setOpen) {
+    const context = useLeafletContext();
+    const elementRef = useElement(withPane(props, context), context);
+    useAttribution(context.map, props.attribution);
+    useEventHandlers(elementRef.current, props.eventHandlers);
+    useLifecycle(elementRef.current, context, props, setOpen);
+    return elementRef;
+  };
 }
 function createElementObject(instance, context, container) {
   return Object.freeze({
@@ -170,6 +199,11 @@ function createPathHook(useElement) {
     return elementRef;
   };
 }
+function createOverlayComponent(createElement, useLifecycle) {
+  const useElement = createElementHook(createElement);
+  const useOverlay = createDivOverlayHook(useElement, useLifecycle);
+  return createDivOverlayComponent(useOverlay);
+}
 function createPathComponent(createElement, updateElement) {
   const useElement = createElementHook(createElement, updateElement);
   const usePath = createPathHook(useElement);
@@ -198,6 +232,7 @@ export {
   extendContext as e,
   createTileLayerComponent as f,
   updateGridLayer as g,
+  createOverlayComponent as h,
   useLeafletContext as u,
   withPane as w
 };

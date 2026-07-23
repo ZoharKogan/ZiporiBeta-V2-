@@ -13,7 +13,7 @@ import "crypto";
 import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
-const appCss = "/assets/styles-BC3ab0qu.css";
+const appCss = "/assets/styles-C3U9TNtZ.css";
 function reportLovableError(error, context = {}) {
   if (typeof window === "undefined") return;
   window.__lovableEvents?.captureException?.(
@@ -229,7 +229,7 @@ function RootShell({ children }) {
 function RootComponent() {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(I18nProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-screen overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Outlet, {}) }) });
 }
-const $$splitComponentImporter = () => import("./index-kG6rXmwW.mjs").then((n) => n.i);
+const $$splitComponentImporter = () => import("./index-CC16MYGY.mjs").then((n) => n.i);
 const Route = createFileRoute("/")({
   ssr: false,
   head: () => ({

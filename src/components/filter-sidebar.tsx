@@ -8,7 +8,7 @@ import {
   translateGroupName,
   translateMonth,
 } from "@/lib/observations-store";
-import { SURVEY_AREA_KEYS, AREA_COLORS, translateArea } from "@/lib/survey-polygons";
+import { SURVEY_AREA_KEYS, translateArea } from "@/lib/survey-polygons";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -276,13 +276,13 @@ export function FilterSidebar({ onClose }: { onClose: () => void }) {
       </Section>
 
       <Section title={t("monitoringAreas")}>
+        <p className="mb-2 px-1 text-sm font-medium text-gray-500">בשיקום</p>
         {SURVEY_AREA_KEYS.filter((key) => key !== "other_areas").map((key) => (
           <Check
             key={key}
             checked={filters.areas.has(key)}
             onChange={() => toggleArea(key)}
             label={translateArea(key, lang)}
-            color={AREA_COLORS[key]}
           />
         ))}
         {!monitoringAreas && <p className="px-1 text-xs text-muted-foreground">—</p>}
@@ -292,14 +292,13 @@ export function FilterSidebar({ onClose }: { onClose: () => void }) {
             checked={filters.monitoringAreas.has(feature.properties.id)}
             onChange={() => toggleMonitoringArea(feature.properties.id)}
             label={feature.properties.name}
-            color={feature.properties.color}
           />
         ))}
+        <hr className="my-2 border-gray-200" />
         <Check
           checked={filters.areas.has("other_areas")}
           onChange={() => toggleArea("other_areas")}
           label={translateArea("other_areas", lang)}
-          color={AREA_COLORS.other_areas}
         />
       </Section>
     </aside>

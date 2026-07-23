@@ -1,5 +1,5 @@
 import { r as reactExports, R as React } from "./react.mjs";
-import { u as useLeafletContext, c as createPathComponent, a as updateCircle, b as createElementObject, e as extendContext, d as createLeafletContext, L as LeafletContext, f as createTileLayerComponent, g as updateGridLayer, w as withPane } from "./react-leaflet__core.mjs";
+import { u as useLeafletContext, c as createPathComponent, a as updateCircle, b as createElementObject, e as extendContext, d as createLeafletContext, L as LeafletContext, f as createTileLayerComponent, g as updateGridLayer, w as withPane, h as createOverlayComponent } from "./react-leaflet__core.mjs";
 import { l as leafletSrcExports } from "./leaflet.mjs";
 import "./react-dom.mjs";
 function useMap() {
@@ -100,12 +100,58 @@ const TileLayer = createTileLayerComponent(function createTileLayer({ url, ...op
     layer.setUrl(url);
   }
 });
+const Tooltip = createOverlayComponent(function createTooltip(props, context) {
+  const tooltip = new leafletSrcExports.Tooltip(props, context.overlayContainer);
+  return createElementObject(tooltip, context);
+}, function useTooltipLifecycle(element, context, { position }, setOpen) {
+  reactExports.useEffect(function addTooltip() {
+    const container = context.overlayContainer;
+    if (container == null) {
+      return;
+    }
+    const { instance } = element;
+    const onTooltipOpen = (event) => {
+      if (event.tooltip === instance) {
+        if (position != null) {
+          instance.setLatLng(position);
+        }
+        instance.update();
+        setOpen(true);
+      }
+    };
+    const onTooltipClose = (event) => {
+      if (event.tooltip === instance) {
+        setOpen(false);
+      }
+    };
+    container.on({
+      tooltipopen: onTooltipOpen,
+      tooltipclose: onTooltipClose
+    });
+    container.bindTooltip(instance);
+    return function removeTooltip() {
+      container.off({
+        tooltipopen: onTooltipOpen,
+        tooltipclose: onTooltipClose
+      });
+      if (container._map != null) {
+        container.unbindTooltip();
+      }
+    };
+  }, [
+    element,
+    context,
+    setOpen,
+    position
+  ]);
+});
 export {
   CircleMarker as C,
   GeoJSON as G,
   MapContainer as M,
   Polygon as P,
   TileLayer as T,
-  useMapEvents as a,
+  Tooltip as a,
+  useMapEvents as b,
   useMap as u
 };

@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { L } from "../_libs/leaflet.mjs";
-import { u as useObservations, d as getTaxaGroup, A as AREA_COLORS, S as SURVEY_POLYGONS, h as SURVEY_AREA_KEYS } from "./index-kG6rXmwW.mjs";
-import { M as MapContainer, T as TileLayer, G as GeoJSON, P as Polygon, C as CircleMarker, u as useMap, a as useMapEvents } from "../_libs/react-leaflet.mjs";
+import { u as useObservations, d as getTaxaGroup, S as SURVEY_POLYGONS, h as SURVEY_AREA_KEYS } from "./index-CC16MYGY.mjs";
+import { M as MapContainer, T as TileLayer, G as GeoJSON, P as Polygon, a as Tooltip, C as CircleMarker, u as useMap, b as useMapEvents } from "../_libs/react-leaflet.mjs";
 function FitBounds({ obs }) {
   const map = useMap();
   reactExports.useEffect(() => {
@@ -23,7 +23,7 @@ function PaneSetup() {
     if (!map.getPane("polygonPane")) {
       const pane = map.createPane("polygonPane");
       pane.style.zIndex = "500";
-      pane.style.pointerEvents = "none";
+      pane.style.pointerEvents = "auto";
     }
     if (!map.getPane("monitoringAreaPane")) {
       const pane = map.createPane("monitoringAreaPane");
@@ -138,16 +138,14 @@ function ObservationMap({ data, selectedSpecies = /* @__PURE__ */ new Set() }) {
           {
             data: visibleMonitoringAreas,
             pane: "monitoringAreaPane",
-            style: (feature) => {
-              const color = String(feature?.properties?.color ?? "#6366f1");
-              return {
-                color,
-                fillColor: color,
-                fillOpacity: 0.3,
-                opacity: 1,
-                weight: 3
-              };
-            },
+            style: () => ({
+              color: "#4b5563",
+              fillColor: "#9ca3af",
+              fillOpacity: 0.35,
+              opacity: 1,
+              weight: 3,
+              interactive: true
+            }),
             onEachFeature: (feature, layer) => {
               layer.bindTooltip(String(feature.properties?.name ?? "אזור ניטור"), {
                 sticky: true,
@@ -163,21 +161,21 @@ function ObservationMap({ data, selectedSpecies = /* @__PURE__ */ new Set() }) {
           if (!rings) return null;
           const isSelected = selectedAreas.has(areaKey);
           if (!isSelected) return null;
-          const zoomedOut = zoom <= 13;
           const pathOptions = {
-            color: AREA_COLORS[areaKey],
-            fillColor: AREA_COLORS[areaKey],
-            fillOpacity: zoomedOut ? 0.6 : 0.35,
-            weight: zoomedOut ? 11 : 4,
+            color: "#4b5563",
+            fillColor: "#9ca3af",
+            fillOpacity: 0.35,
+            weight: 3,
             opacity: 1,
-            interactive: false
+            interactive: true
           };
           return /* @__PURE__ */ jsxRuntimeExports.jsx(
             Polygon,
             {
               positions: rings.map(ringToLatLng),
               pathOptions,
-              pane: "polygonPane"
+              pane: "polygonPane",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx(Tooltip, { sticky: true, direction: "top", opacity: 0.95, children: areaKey })
             },
             areaKey
           );

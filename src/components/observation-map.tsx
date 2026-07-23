@@ -5,13 +5,14 @@ import {
   CircleMarker,
   Polygon,
   GeoJSON,
+  Tooltip,
   useMap,
   useMapEvents,
 } from "react-leaflet";
 import L from "leaflet";
 import type { Observation } from "@/lib/observations-store";
 import { useObservations, translateSpeciesName, getTaxaGroup } from "@/lib/observations-store";
-import { SURVEY_POLYGONS, SURVEY_AREA_KEYS, AREA_COLORS, type SurveyAreaKey } from "@/lib/survey-polygons";
+import { SURVEY_POLYGONS, SURVEY_AREA_KEYS, type SurveyAreaKey } from "@/lib/survey-polygons";
 
 function FitBounds({ obs }: { obs: Observation[] }) {
   const map = useMap();
@@ -36,7 +37,7 @@ function PaneSetup() {
     if (!map.getPane("polygonPane")) {
       const pane = map.createPane("polygonPane");
       pane.style.zIndex = "500";
-      pane.style.pointerEvents = "none";
+      pane.style.pointerEvents = "auto";
     }
     if (!map.getPane("monitoringAreaPane")) {
       const pane = map.createPane("monitoringAreaPane");
@@ -164,16 +165,14 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
             key={Array.from(filters.monitoringAreas).sort().join("|")}
             data={visibleMonitoringAreas}
             pane="monitoringAreaPane"
-            style={(feature) => {
-              const color = String(feature?.properties?.color ?? "#6366f1");
-              return {
-                color,
-                fillColor: color,
-                fillOpacity: 0.3,
-                opacity: 1,
-                weight: 3,
-              };
-            }}
+            style={() => ({
+              color: "#4b5563",
+              fillColor: "#9ca3af",
+              fillOpacity: 0.35,
+              opacity: 1,
+              weight: 3,
+              interactive: true,
+            })}
             onEachFeature={(feature, layer) => {
               layer.bindTooltip(String(feature.properties?.name ?? "אזור ניטור"), {
                 sticky: true,
@@ -188,14 +187,13 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
           if (!rings) return null;
           const isSelected = selectedAreas.has(areaKey);
           if (!isSelected) return null;
-          const zoomedOut = zoom <= 13;
           const pathOptions = {
-            color: AREA_COLORS[areaKey],
-            fillColor: AREA_COLORS[areaKey],
-            fillOpacity: zoomedOut ? 0.6 : 0.35,
-            weight: zoomedOut ? 11 : 4,
+            color: "#4b5563",
+            fillColor: "#9ca3af",
+            fillOpacity: 0.35,
+            weight: 3,
             opacity: 1,
-            interactive: false,
+            interactive: true,
           };
           return (
             <Polygon
@@ -203,7 +201,11 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
               positions={rings.map(ringToLatLng)}
               pathOptions={pathOptions}
               pane="polygonPane"
-            />
+            >
+              <Tooltip sticky direction="top" opacity={0.95}>
+                {areaKey}
+              </Tooltip>
+            </Polygon>
           );
         })}
         {bubbles.map((bubble, i) => {
