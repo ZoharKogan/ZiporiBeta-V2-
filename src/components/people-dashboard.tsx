@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
+import { Search, ListFilter } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
+import { Input } from "@/components/ui/input";
 import {
   useObservations,
   getTaxaGroup,
@@ -61,6 +63,8 @@ export function PeopleDashboard() {
     useObservations();
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(true);
+  const [userSearch, setUserSearch] = useState("");
 
   // Apply global filters except the group filter; this page has its own group selector.
   const globallyFilteredObservations = useMemo(() => {
@@ -135,6 +139,12 @@ export function PeopleDashboard() {
       .sort((a, b) => b[1] - a[1])
       .map(([user, count]) => ({ user, count }));
   }, [groupObservations]);
+
+  const userDropdownList = useMemo(() => {
+    const q = userSearch.trim().toLowerCase();
+    if (!q) return userChipList;
+    return userChipList.filter(({ user }) => user.toLowerCase().includes(q));
+  }, [userChipList, userSearch]);
 
   const topUserLogins = useMemo(() => {
     const counts = new Map<string, number>();
@@ -215,6 +225,74 @@ export function PeopleDashboard() {
 
       {/* User filter row - 8% height */}
       <div className="h-[8%] shrink-0 flex items-center gap-3 px-4 py-1.5 border-b">
+        <div className="relative shrink-0 flex items-center gap-1">
+          <div className="relative w-44">
+            <Search className="absolute start-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground pointer-events-none" />
+            <Input
+              value={userSearch}
+              onChange={(e) => setUserSearch(e.target.value)}
+              placeholder="חיפוש אנשים..."
+              className="ps-7 h-7 text-xs"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={() => setIsUserDropdownOpen((o) => !o)}
+            title="חיפוש אנשים..."
+            className={`shrink-0 inline-flex h-7 w-7 items-center justify-center rounded-md border transition-colors ${
+              isUserDropdownOpen ? "bg-muted border-foreground/30" : "border-input hover:bg-muted"
+            }`}
+          >
+            <ListFilter className="h-3.5 w-3.5" />
+          </button>
+
+          {isUserDropdownOpen && (
+            <div
+              className="absolute top-full start-0 mt-1 z-[9999] w-64 max-h-64 overflow-y-auto rounded-md border bg-white shadow-lg"
+              style={{ zIndex: 9999 }}
+            >
+              <div className="sticky top-0 flex items-center justify-between border-b bg-white px-2 py-1.5">
+                <span className="text-xs font-medium text-muted-foreground">חיפוש אנשים...</span>
+                <button
+                  type="button"
+                  onClick={() => setIsUserDropdownOpen(false)}
+                  className="rounded px-1.5 py-0.5 text-[10px] text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  מזער
+                </button>
+              </div>
+              <div className="p-1">
+                <label className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-xs hover:bg-muted">
+                  <input
+                    type="checkbox"
+                    checked={selectedUser === null}
+                    onChange={() => setSelectedUser(null)}
+                  />
+                  {t("all")}
+                </label>
+                {userDropdownList.map(({ user, count }) => {
+                  const isSelected = selectedUser === user;
+                  return (
+                    <label
+                      key={user}
+                      className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-xs hover:bg-muted"
+                    >
+                      <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onChange={() => handleUserClick(user)}
+                      />
+                      <span className="truncate">
+                        {user} ({count.toLocaleString()})
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+
         <div className="flex-1 overflow-x-auto scrollbar-hide flex flex-nowrap items-center gap-1.5">
           <button
             type="button"

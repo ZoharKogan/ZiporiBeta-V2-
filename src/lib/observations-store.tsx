@@ -33,6 +33,9 @@ export type Observation = {
   user_category: string; // supergroup used by global metrics/charts/filters
   user_subcategory: string; // raw/original group used by the People view
   establishment_means?: string;
+  composite_id?: string;
+  source?: "merlin" | "inaturalist";
+  source_url?: string;
 };
 
 // Group name translations (Hebrew -> English for language toggle)
@@ -206,7 +209,7 @@ function parseObservedOn(value: string): string {
   return `${d}/${m}/${year}`;
 }
 
-function parseMerlinRow(row: Record<string, string>): Observation | null {
+function parseMerlinRow(row: Record<string, string>, index: number): Observation | null {
   const lat = parseFloat((row.decimalLatitudeStart || "").trim());
   const lon = parseFloat((row.decimalLongitudeStart || "").trim());
   const observedOn = parseObservedOn(row.timeStamp || "");
@@ -252,6 +255,9 @@ function parseMerlinRow(row: Record<string, string>): Observation | null {
     iconicTaxon = "Aves";
   }
 
+  const observationId = (row.observationID || "").trim();
+  const compositeId = observationId ? `expert_${observationId}` : `expert_${index}`;
+
   return {
     observed_on: observedOn,
     latitude: lat,
@@ -264,6 +270,8 @@ function parseMerlinRow(row: Record<string, string>): Observation | null {
     taxon_order_name: family,
     user_category: "expert",
     user_subcategory: "expert",
+    composite_id: compositeId,
+    source: "merlin",
   };
 }
 
@@ -528,6 +536,8 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
             const userCategory = getSupergroup(rawCategory);
             const userSubcategory = rawCategory;
 
+            const inatId = (row.id || "").trim();
+
             const observation: Observation = {
               observed_on: observedOn,
               latitude: lat,
@@ -542,6 +552,9 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
               user_subcategory: userSubcategory,
               establishment_means:
                 (row.establishment_means || "").trim().toLowerCase() || undefined,
+              composite_id: inatId ? `inat_${inatId}` : undefined,
+              source: "inaturalist",
+              source_url: row.url,
             };
             return observation;
           })
@@ -558,7 +571,7 @@ export function ObservationsProvider({ children }: { children: ReactNode }) {
         }).data;
 
         const merlinObservations: Observation[] = merlinData
-          .map(parseMerlinRow)
+          .map((row, index) => parseMerlinRow(row, index))
           .filter((obs): obs is Observation => obs !== null);
         console.log("Loaded MERLIN observations:", merlinObservations.length);
 

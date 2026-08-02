@@ -1,9 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useObservations, getSpeciesClassification, getTaxaGroup, TAXA_GROUP_KEYS, type TaxaGroupKey } from "@/lib/observations-store";
 import { useI18n } from "@/lib/i18n";
 import { speciesMap, type SpeciesInfo } from "@/lib/species-map";
 import { getTaxonDetails } from "@/lib/taxonomy-engine";
-import { Search } from "lucide-react";
+import { Search, ListFilter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { ObservationMap } from "@/components/observation-map";
 import { getTopSpecies, SpeciesInsightsTable } from "@/components/species-insights-table";
@@ -96,6 +96,7 @@ export function SpeciesDeepDive() {
   const { category, species, search } = deepDive;
   const activeCategory = category as TaxaGroupKey | null;
   const { setDeepDiveCategory, toggleDeepDiveSpecies, clearDeepDiveSpecies, setDeepDiveSearch } = deepDiveActions;
+  const [isSpeciesDropdownOpen, setIsSpeciesDropdownOpen] = useState(true);
 
   // Group every identified (non-generic) species entry into dashboard categories
   const groupedSpecies = useMemo(() => {
@@ -274,14 +275,73 @@ export function SpeciesDeepDive() {
 
       {/* Species sub-filter row - 8% height */}
       <div className="h-[8%] shrink-0 flex items-center gap-3 px-4 py-1.5 border-b">
-          <div className="relative shrink-0 w-44">
-            <Search className="absolute start-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground pointer-events-none" />
-            <Input
-              value={search}
-              onChange={(e) => setDeepDiveSearch(e.target.value)}
-              placeholder={t("searchSpecies")}
-              className="ps-7 h-7 text-xs"
-            />
+          <div className="relative shrink-0 flex items-center gap-1">
+            <div className="relative w-44">
+              <Search className="absolute start-2 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground pointer-events-none" />
+              <Input
+                value={search}
+                onChange={(e) => setDeepDiveSearch(e.target.value)}
+                placeholder={t("searchSpecies")}
+                className="ps-7 h-7 text-xs"
+              />
+            </div>
+            <button
+              type="button"
+              onClick={() => setIsSpeciesDropdownOpen((o) => !o)}
+              title={t("searchSpecies")}
+              className={`shrink-0 inline-flex h-7 w-7 items-center justify-center rounded-md border transition-colors ${
+                isSpeciesDropdownOpen ? "bg-muted border-foreground/30" : "border-input hover:bg-muted"
+              }`}
+            >
+              <ListFilter className="h-3.5 w-3.5" />
+            </button>
+
+            {isSpeciesDropdownOpen && (
+              <div className="absolute top-full start-0 mt-1 z-[9999] w-64 max-h-64 overflow-y-auto rounded-md border bg-white shadow-lg" style={{ zIndex: 9999 }}>
+                <div className="sticky top-0 flex items-center justify-between border-b bg-white px-2 py-1.5">
+                  <span className="text-xs font-medium text-muted-foreground">{t("searchSpecies")}</span>
+                  <button
+                    type="button"
+                    onClick={() => setIsSpeciesDropdownOpen(false)}
+                    className="rounded px-1.5 py-0.5 text-[10px] text-muted-foreground hover:bg-muted hover:text-foreground"
+                  >
+                    מזער
+                  </button>
+                </div>
+                <div className="p-1">
+                  <label className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-xs hover:bg-muted">
+                    <input
+                      type="checkbox"
+                      checked={species.size === 0}
+                      onChange={() => clearDeepDiveSpecies()}
+                    />
+                    {t("all")}
+                  </label>
+                  {speciesList
+                    .filter((sp) => !activeCategory || (speciesObservationCounts.get(sp.Scientific_Name) ?? 0) > 0)
+                    .sort((a, b) => (speciesObservationCounts.get(b.Scientific_Name) ?? 0) - (speciesObservationCounts.get(a.Scientific_Name) ?? 0))
+                    .map((sp) => {
+                      const count = speciesObservationCounts.get(sp.Scientific_Name) ?? 0;
+                      const isSelected = species.has(sp.Scientific_Name);
+                      return (
+                        <label
+                          key={sp.Scientific_Name}
+                          className="flex cursor-pointer items-center gap-2 rounded px-2 py-1 text-xs hover:bg-muted"
+                        >
+                          <input
+                            type="checkbox"
+                            checked={isSelected}
+                            onChange={() => toggleDeepDiveSpecies(sp.Scientific_Name)}
+                          />
+                          <span className="truncate">
+                            {getSpeciesLabel(sp, lang)} ({count.toLocaleString()})
+                          </span>
+                        </label>
+                      );
+                    })}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="flex-1 overflow-x-auto scrollbar-hide flex flex-nowrap items-center gap-1.5">

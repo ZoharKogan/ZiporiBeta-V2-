@@ -1,7 +1,7 @@
 import { r as reactExports, j as jsxRuntimeExports } from "../_libs/react.mjs";
 import { P as Papa } from "../_libs/papaparse.mjs";
 import { i as index_default } from "../_libs/turf__boolean-point-in-polygon.mjs";
-import { u as useI18n } from "./router-vXyDQAMe.mjs";
+import { u as useI18n } from "./router-HU5iIjKZ.mjs";
 import { R as Root2, L as List, T as Trigger, C as Content } from "../_libs/radix-ui__react-tabs.mjs";
 import { c as clsx } from "../_libs/clsx.mjs";
 import { t as twMerge } from "../_libs/tailwind-merge.mjs";
@@ -1482,6 +1482,19 @@ const speciesMap = Object.entries(rawSpeciesMap).flatMap(
     isGeneric: entry.isGeneric === true
   }))
 );
+new Map(
+  speciesMap.map((entry) => [entry.Scientific_Name, entry])
+);
+const SPECIES_MAP = new Map(
+  speciesMap.map((entry) => [entry.Scientific_Name, entry])
+);
+const speciesInfoByScientificName = new Map(SPECIES_MAP);
+function lookupSpecies(scientificName) {
+  return speciesInfoByScientificName.get(scientificName);
+}
+function getSpeciesHebrewName(scientificName) {
+  return lookupSpecies(scientificName)?.Hebrew_Name;
+}
 const SPECIES_REGISTRY = {
   // Invasive
   "papilio demoleus": "invasive",
@@ -1680,6 +1693,18 @@ const REA_SHAISH_NAME = "רע שיש";
 function getSupergroup(rawGroup) {
   return CATEGORY_MAP[rawGroup] || rawGroup;
 }
+const SPECIES_TRANSLATIONS = {
+  // Add common species translations as needed
+  "Passer domesticus": "דרור הבית",
+  "Columba livia": "יונת הבית",
+  "Hirundo rustica": "סנונית הרפתות",
+  "Mus musculus": "עכבר הבית",
+  "Rattus norvegicus": "חולד חום",
+  "Papilio machaon": "פרפר הזנב הנץ",
+  "Vanessa cardui": "פרפר הצלע",
+  "Pieris rapae": "פרפר הכרוב",
+  "Danaus plexippus": "מלך הפרפרים"
+};
 const TAXA_TRANSLATIONS = {
   יונקים: { he: "יונקים", en: "Mammals" },
   עופות: { he: "עופות", en: "Birds" },
@@ -1709,6 +1734,9 @@ function translateGroupName(group, lang = "he") {
     return translation[lang];
   }
   return group;
+}
+function translateSpeciesName(scientificName) {
+  return SPECIES_TRANSLATIONS[scientificName] || getSpeciesHebrewName(scientificName) || scientificName;
 }
 function translateTaxa(taxa, lang = "he") {
   const translation = TAXA_TRANSLATIONS[taxa];
@@ -1762,7 +1790,7 @@ function parseObservedOn(value) {
   const m = String(month).padStart(2, "0");
   return `${d}/${m}/${year}`;
 }
-function parseMerlinRow(row) {
+function parseMerlinRow(row, index2) {
   const lat = parseFloat((row.decimalLatitudeStart || "").trim());
   const lon = parseFloat((row.decimalLongitudeStart || "").trim());
   const observedOn = parseObservedOn(row.timeStamp || "");
@@ -1801,6 +1829,8 @@ function parseMerlinRow(row) {
   } else if (birdFamilies.includes(family)) {
     iconicTaxon = "Aves";
   }
+  const observationId = (row.observationID || "").trim();
+  const compositeId = observationId ? `expert_${observationId}` : `expert_${index2}`;
   return {
     observed_on: observedOn,
     latitude: lat,
@@ -1812,7 +1842,9 @@ function parseMerlinRow(row) {
     common_name: (row.vernacularName || "").trim() || void 0,
     taxon_order_name: family,
     user_category: "expert",
-    user_subcategory: "expert"
+    user_subcategory: "expert",
+    composite_id: compositeId,
+    source: "merlin"
   };
 }
 const TAXA_GROUP_KEYS = [
@@ -1966,6 +1998,7 @@ function ObservationsProvider({ children }) {
           const rawCategory = userGroupMap.get(userLogin) || "קהילות מקוונות";
           const userCategory = getSupergroup(rawCategory);
           const userSubcategory = rawCategory;
+          const inatId = (row.id || "").trim();
           const observation = {
             observed_on: observedOn,
             latitude: lat,
@@ -1978,7 +2011,10 @@ function ObservationsProvider({ children }) {
             taxon_order_name: (row.taxon_order_name || "").trim(),
             user_category: userCategory,
             user_subcategory: userSubcategory,
-            establishment_means: (row.establishment_means || "").trim().toLowerCase() || void 0
+            establishment_means: (row.establishment_means || "").trim().toLowerCase() || void 0,
+            composite_id: inatId ? `inat_${inatId}` : void 0,
+            source: "inaturalist",
+            source_url: row.url
           };
           return observation;
         }).filter((obs) => obs !== null);
@@ -1990,7 +2026,7 @@ function ObservationsProvider({ children }) {
           header: true,
           skipEmptyLines: true
         }).data;
-        const merlinObservations = merlinData.map(parseMerlinRow).filter((obs) => obs !== null);
+        const merlinObservations = merlinData.map((row, index2) => parseMerlinRow(row, index2)).filter((obs) => obs !== null);
         console.log("Loaded MERLIN observations:", merlinObservations.length);
         const joinedObservations = [...tziporiObservations, ...merlinObservations];
         setObservations(joinedObservations);
@@ -2448,13 +2484,13 @@ function DateRangeSlider({ min, max, value, onChange, selectedYears }) {
     )) })
   ] });
 }
-const Dashboard = reactExports.lazy(() => import("./dashboard-B2BVfLGO.mjs").then((m) => ({
+const Dashboard = reactExports.lazy(() => import("./dashboard-qQpl8hV6.mjs").then((m) => ({
   default: m.Dashboard
 })));
-const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive-BXLiunsd.mjs").then((m) => ({
+const SpeciesDeepDive = reactExports.lazy(() => import("./species-deep-dive-Cl_n24IV.mjs").then((m) => ({
   default: m.SpeciesDeepDive
 })));
-const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-Fm1j9YsT.mjs").then((m) => ({
+const PeopleDashboard = reactExports.lazy(() => import("./people-dashboard-D2wHEckk.mjs").then((m) => ({
   default: m.PeopleDashboard
 })));
 function Index() {
@@ -2552,7 +2588,7 @@ const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
 }, Symbol.toStringTag, { value: "Module" }));
 export {
   REA_SHAISH_NAME as R,
-  SURVEY_POLYGONS as S,
+  SPECIES_MAP as S,
   TAXA_GROUP_KEYS as T,
   translateGroupName as a,
   translateMonth as b,
@@ -2561,8 +2597,10 @@ export {
   getSpeciesClassification as e,
   cn as f,
   getTaxonDetails as g,
-  SURVEY_AREA_KEYS as h,
-  index as i,
+  SURVEY_POLYGONS as h,
+  translateSpeciesName as i,
+  SURVEY_AREA_KEYS as j,
+  index as k,
   observationMatchesSelectedAreas as o,
   speciesMap as s,
   translateTaxa as t,

@@ -11,7 +11,8 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import type { Observation } from "@/lib/observations-store";
-import { useObservations, translateSpeciesName, getTaxaGroup } from "@/lib/observations-store";
+import { useObservations, getTaxaGroup, translateSpeciesName } from "@/lib/observations-store";
+import { useI18n } from "@/lib/i18n";
 import { SURVEY_POLYGONS, SURVEY_AREA_KEYS, type SurveyAreaKey } from "@/lib/survey-polygons";
 
 function FitBounds({ obs }: { obs: Observation[] }) {
@@ -25,33 +26,82 @@ function FitBounds({ obs }: { obs: Observation[] }) {
 }
 
 function ZoomTracker({ onZoom }: { onZoom: (z: number) => void }) {
-  useMapEvents({
-    zoomend: (e) => onZoom(e.target.getZoom()),
+  const map = useMapEvents({
+    zoomend: (e) => {
+      console.log("🔍 ZOOM LEVEL CHANGED TO:", map.getZoom());
+      onZoom(e.target.getZoom());
+    },
   });
   return null;
 }
 
-function PaneSetup() {
-  const map = useMap();
-  useEffect(() => {
-    if (!map.getPane("polygonPane")) {
-      const pane = map.createPane("polygonPane");
-      pane.style.zIndex = "500";
-      pane.style.pointerEvents = "auto";
-    }
-    if (!map.getPane("monitoringAreaPane")) {
-      const pane = map.createPane("monitoringAreaPane");
-      pane.style.zIndex = "450";
-    }
-  }, [map]);
+// Decoupled clickable overlay: the underlying CircleMarker bubbles stay fully
+// static/non-interactive (max canvas render speed, no per-layer hit-testing).
+// Instead we listen to the Map's own bubbled `click` event and resolve the
+// nearest bubble via a cheap pixel-distance scan, only when zoomed in enough
+// that the on-screen bubble count is small.
+const CLICK_PIXEL_THRESHOLD = 20;
+
+function MapClickHandler({
+  bubbles,
+  zoom,
+  onSelect,
+}: {
+  bubbles: Bubble[];
+  zoom: number;
+  onSelect: (ids: string[]) => void;
+}) {
+  useMapEvents({
+    click: (e) => {
+      if (zoom < 12) return;
+      const map = e.target;
+      const clickPoint = map.latLngToContainerPoint(e.latlng);
+
+      let closestBubble: Bubble | null = null;
+      let closestDist = Infinity;
+      for (const bubble of bubbles) {
+        const bubblePoint = map.latLngToContainerPoint([bubble.lat, bubble.lng]);
+        const dist = clickPoint.distanceTo(bubblePoint);
+        if (dist <= CLICK_PIXEL_THRESHOLD && dist < closestDist) {
+          closestDist = dist;
+          closestBubble = bubble;
+        }
+      }
+
+      if (closestBubble) {
+        onSelect(closestBubble.observation_ids);
+      }
+    },
+  });
   return null;
 }
 
+type Bubble = {
+  lat: number;
+  lng: number;
+  count: number;
+  category: string;
+  raw_observations: Array<{ species: string; date: string; originalLat: number; originalLng: number }>;
+  observation_ids: string[];
+};
+
 export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { data: Observation[]; selectedSpecies?: Set<string> }) {
-  const { filters, monitoringAreas } = useObservations();
+  const { filters, monitoringAreas, observations: allObservations } = useObservations();
+  const { lang } = useI18n();
   const selectedAreas = new Set(filters.areas) as Set<SurveyAreaKey>;
   const baseAreaKeys = SURVEY_AREA_KEYS.filter((k) => k !== "other_areas");
   const [zoom, setZoom] = useState<number>(7);
+  const [selectedBubbleIds, setSelectedBubbleIds] = useState<string[] | null>(null);
+  // Shared canvas renderer: without this, GeoJSON/Polygon/CircleMarker layers each
+  // get their own full-map <canvas> per pane, and the topmost one swallows ALL
+  // clicks regardless of whether a shape was actually drawn there. Sharing one
+  // renderer lets Leaflet's own per-layer hit-testing resolve overlaps correctly.
+  const canvasRenderer = useMemo(() => L.canvas(), []);
+  // O(1) dictionary lookup: composite_id -> full Observation, built once per dataset change.
+  const observationsMap = useMemo(
+    () => new Map(allObservations.filter((o) => o.composite_id).map((o) => [o.composite_id as string, o])),
+    [allObservations],
+  );
   const visibleMonitoringAreas = useMemo(
     () =>
       monitoringAreas
@@ -71,7 +121,7 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
 
   // Data aggregation: group observations by species, date, and rounded coordinates
   const bubbles = useMemo(() => {
-    const groups = new Map<string, { lat: number; lng: number; count: number; category: string; raw_observations: Array<{ species: string; date: string; originalLat: number; originalLng: number }> }>();
+    const groups = new Map<string, Bubble>();
 
     for (const obs of data) {
       const key = `${obs.scientific_name}|${obs.observed_on}|${obs.latitude.toFixed(3)}|${obs.longitude.toFixed(3)}`;
@@ -86,6 +136,7 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
           originalLat: obs.latitude,
           originalLng: obs.longitude,
         });
+        if (obs.composite_id) existing.observation_ids.push(obs.composite_id);
       } else {
         groups.set(key, {
           lat: obs.latitude,
@@ -98,12 +149,24 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
             originalLat: obs.latitude,
             originalLng: obs.longitude,
           }],
+          observation_ids: obs.composite_id ? [obs.composite_id] : [],
         });
       }
     }
 
     return Array.from(groups.values());
   }, [data]);
+
+  // Click candidates must respect the active species filter/highlight: a dimmed
+  // (unselected) bubble should never resolve to the sidebar, even if it's
+  // spatially closer to the click point than the highlighted species' bubble.
+  const clickableBubbles = useMemo(
+    () =>
+      bubbles.filter(
+        (b) => selectedSpecies.size === 0 || selectedSpecies.has(b.raw_observations[0]?.species),
+      ),
+    [bubbles, selectedSpecies],
+  );
 
   const mergedBubbles = bubbles.filter(b => b.count > 1);
   let totalMergedObservations = 0;
@@ -144,8 +207,15 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
   const ringToLatLng = (ring: number[][]): [number, number][] =>
     ring.map(([lon, lat]) => [lat, lon] as [number, number]);
 
+  const selectedObservations: Observation[] = useMemo(() => {
+    if (!selectedBubbleIds) return [];
+    return selectedBubbleIds
+      .map((id) => observationsMap.get(id))
+      .filter((obs): obs is Observation => Boolean(obs));
+  }, [selectedBubbleIds, observationsMap]);
+
   return (
-    <div className="h-full w-full overflow-hidden rounded-lg border bg-card">
+    <div className="relative h-full w-full overflow-hidden rounded-lg border bg-card">
       <MapContainer
         center={center}
         zoom={7}
@@ -157,14 +227,13 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
           attribution='&copy; OpenStreetMap'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <PaneSetup />
         <FitBounds obs={data} />
         <ZoomTracker onZoom={setZoom} />
+        <MapClickHandler bubbles={clickableBubbles} zoom={zoom} onSelect={setSelectedBubbleIds} />
         {visibleMonitoringAreas && (
           <GeoJSON
             key={Array.from(filters.monitoringAreas).sort().join("|")}
             data={visibleMonitoringAreas}
-            pane="monitoringAreaPane"
             style={() => ({
               color: "#4b5563",
               fillColor: "#9ca3af",
@@ -172,6 +241,7 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
               opacity: 1,
               weight: 3,
               interactive: true,
+              renderer: canvasRenderer,
             })}
             onEachFeature={(feature, layer) => {
               layer.bindTooltip(String(feature.properties?.name ?? "אזור ניטור"), {
@@ -200,7 +270,7 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
               key={areaKey}
               positions={rings.map(ringToLatLng)}
               pathOptions={pathOptions}
-              pane="polygonPane"
+              renderer={canvasRenderer}
             >
               <Tooltip sticky direction="top" opacity={0.95}>
                 {areaKey}
@@ -224,10 +294,69 @@ export function ObservationMap({ data, selectedSpecies = new Set<string>() }: { 
                 opacity: isSelected ? 1 : 0.3,
               }}
               interactive={false}
+              renderer={canvasRenderer}
             />
           );
         })}
       </MapContainer>
+      {selectedBubbleIds && (
+        <div className="absolute top-0 right-0 h-full w-80 bg-white shadow-2xl z-[1000] p-4 overflow-y-auto flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-sm font-semibold">
+              פרטי תצפית ({selectedObservations.length})
+            </h3>
+            <button
+              type="button"
+              onClick={() => setSelectedBubbleIds(null)}
+              className="rounded-md px-2 py-1 text-sm text-muted-foreground hover:bg-muted"
+            >
+              ✕ סגור
+            </button>
+          </div>
+          {selectedObservations.length === 0 && (
+            <p className="text-sm text-muted-foreground">לא נמצאו פרטים עבור תצפית זו.</p>
+          )}
+          {selectedObservations.map((obs, idx) => (
+            <div
+              key={obs.composite_id ?? idx}
+              className="flex flex-col gap-1 rounded-lg border p-3 text-sm shadow-sm"
+            >
+              <div className="text-center font-medium italic">
+                {lang === "he" ? translateSpeciesName(obs.scientific_name) : obs.scientific_name}
+              </div>
+              <div>
+                <span className="font-medium">שם משתמש: </span>
+                {obs.user_login}
+              </div>
+              <div>
+                <span className="font-medium">תאריך: </span>
+                {obs.observed_on}
+              </div>
+              <div>
+                <span
+                  className={`inline-block w-fit rounded-full px-2 py-0.5 text-xs font-medium ${
+                    obs.source === "inaturalist"
+                      ? "bg-emerald-100 text-emerald-800"
+                      : "bg-blue-100 text-blue-800"
+                  }`}
+                >
+                  {obs.source === "inaturalist" ? "iNaturalist" : "מנטר מקצועי"}
+                </span>
+              </div>
+              {obs.source === "inaturalist" && obs.source_url && (
+                <a
+                  href={obs.source_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-1 inline-block rounded-md bg-emerald-600 px-3 py-1.5 text-center text-xs font-medium text-white hover:bg-emerald-700"
+                >
+                  צפה ב-iNaturalist
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
